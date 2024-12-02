@@ -1,16 +1,35 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private List<Ingredient> ingredients;
+    [SerializeField] private PotionCreating potionsCreating;
+    private void Start()
     {
-        
+        if (ingredients.Count != 0 && potionsCreating)
+        {
+            potionsCreating.AddIngredientToCauldron(ingredients[0]);
+            potionsCreating.CountRatio();
+            potionsCreating.AddIngredientToCauldron(ingredients[1]);
+            potionsCreating.CountRatio();
+            potionsCreating.AddIngredientToCauldron(ingredients[2]);
+            potionsCreating.CountRatio();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        potionsCreating.ClearPotion();
     }
+
+    // private void Update()
+    // {
+    //     potionsCreating.onPotionReady += PotionReady;
+    // }
+
+    // private void PotionReady(Potion potion)
+    // {
+    //     Debug.Log(potion.itemName);
+    // }
 }

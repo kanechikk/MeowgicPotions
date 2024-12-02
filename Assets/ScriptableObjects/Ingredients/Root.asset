@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
   m_Name: Root
   m_EditorClassIdentifier: 
-  itemName: Ingredient
+  itemName: Root
   price: 100
   Icon: {fileID: 0}
-  Aqua: 0
-  Terra: 0
-  Solar: 0
-  Ignis: 0
-  Aer: 0
-  DaysToGrow: 0
+  aqua: 0
+  terra: 0
+  solar: 1
+  ignis: 0
+  aer: 0

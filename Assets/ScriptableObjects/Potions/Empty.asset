@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
-  m_Name: Mint
+  m_Script: {fileID: 11500000, guid: 028422d479981e849b6ad5e379f2779a, type: 3}
+  m_Name: Empty
   m_EditorClassIdentifier: 
-  itemName: Mint
+  itemName: Empty
   price: 100
-  Icon: {fileID: 0}
+  icon: {fileID: 0}
   aqua: 0
-  terra: 1
+  terra: 0
   solar: 0
   ignis: 0
   aer: 0
