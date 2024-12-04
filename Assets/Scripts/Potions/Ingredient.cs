@@ -2,14 +2,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Ingredient", menuName = "Scriptable Objects/Ingredient")]
-public class Ingredient : ScriptableObject
+public class Ingredient : Item
 {
-    public string itemName = "Ingredient";
-    public float price = 100.0f;
-    public Sprite Icon;
-    public float aqua = 0.0f;
-    public float terra = 0.0f;
-    public float solar = 0.0f;
-    public float ignis = 0.0f;
-    public float aer = 0.0f;
+    //следующие переменные обозначают соотношение
+    public float aqua;
+    public float terra;
+    public float solar;
+    public float ignis;
+    public float aer;
+    //------------------------------------
+    public string newThing;
 }

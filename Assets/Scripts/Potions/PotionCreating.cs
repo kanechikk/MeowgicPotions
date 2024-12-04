@@ -23,22 +23,49 @@ public class PotionCreating : MonoBehaviour
 
         //countIng = 0;
     }
-    public void AddIngredientToCauldron(Ingredient item)
+    public void AddIngredientToCauldron(Ingredient ingredient)
     {
-        finalPotion.aqua += item.aqua;
-        finalPotion.terra += item.terra;
-        finalPotion.solar += item.solar;
-        finalPotion.ignis += item.ignis;
-        finalPotion.aer += item.aer;
+        finalPotion.aqua += ingredient.aqua;
+        finalPotion.terra += ingredient.terra;
+        finalPotion.solar += ingredient.solar;
+        finalPotion.ignis += ingredient.ignis;
+        finalPotion.aer += ingredient.aer;
         //countIng++;
+    }
+
+    private float[] GetTwoMaxValueIngredients()
+    {
+        float[] maxValues = new float[2];
+        float[] values = {finalPotion.aqua, finalPotion.terra, finalPotion.solar, finalPotion.ignis, finalPotion.aer};
+        float temp = -1;
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (values[i] > temp)
+            {
+                temp = values[i];
+            }
+        }
+        maxValues[0] = temp;
+
+        for (int i = 0; i < values.Length; i++)
+        {
+            if (values[i] > temp && values[i] !=  maxValues[0])
+            {
+                temp = values[i];
+            }
+        }
+        maxValues[1] = temp;
+
+        return maxValues;
     }
 
     public void CountRatio()
     {
-       // Debug.Log(finalPotion.aqua / finalPotion.terra != float.NaN);
+       /*// Debug.Log(finalPotion.aqua / finalPotion.terra != float.NaN);
         foreach (var potion in potions)
         {
-            Debug.Log(finalPotion.aqua / finalPotion.terra);
+            //Debug.Log(finalPotion.aqua / finalPotion.terra);
             if ((finalPotion.aqua / finalPotion.terra == potion.aqua / potion.terra || finalPotion.aqua / finalPotion.terra != float.NaN) &&
                 (finalPotion.aqua / finalPotion.solar == potion.aqua / potion.solar || finalPotion.aqua / finalPotion.solar != float.NaN) &&
                 (finalPotion.aqua / finalPotion.ignis == potion.aqua / potion.ignis || finalPotion.aqua / finalPotion.ignis != float.NaN) &&
@@ -57,6 +84,7 @@ public class PotionCreating : MonoBehaviour
                 //onPotionReady?.Invoke(potion);
                 //return;
             }
-        }
+        }*/
+
     }
 }
