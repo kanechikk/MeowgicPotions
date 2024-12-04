@@ -25,7 +25,6 @@ public class Player : MonoBehaviour
             if (input.sqrMagnitude > 0)
             {
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), m_speedRotation * Time.deltaTime);
-                Debug.Log(transform.rotation);
             }
         }
     }
