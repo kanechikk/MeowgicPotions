@@ -1,12 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-public class ElementType : IEnumerable
+public class ElementType
 {
     public float value;
-    public string Name;
-    public IEnumerator GetEnumerator()
-    {
-        throw new System.NotImplementedException();
-    }
+    public string name;
 }
