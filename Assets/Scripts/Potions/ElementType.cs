@@ -1,8 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class ElementType
+public enum ElementType
 {
-    public float value;
-    public string name;
+    Aqua,
+    Ignis,
+    Terra,
+    Aer,
+    Solar,
 }
