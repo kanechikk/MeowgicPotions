@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PotionManager : MonoBehaviour
 {
+    private Item[] m_allIngredients;
+    private Item[] m_allPotions;
+
     private void Start()
     {
-        var allIngredientsInfo = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-        foreach (var item in allIngredientsInfo)
-        {
-            Debug.Log(item.itemName);
-        }
+        m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
     }
 }

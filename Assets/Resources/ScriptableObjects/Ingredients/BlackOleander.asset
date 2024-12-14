@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
   m_Name: BlackOleander
   m_EditorClassIdentifier: 
-  itemName: ItemSample
-  price: 100
-  icon: {fileID: 0}
-  elementsHaving: 01000000010000000200000002000000
+  m_itemName: ItemSample
+  m_price: 100
+  m_icon: {fileID: 0}
+  m_aqua: 2
+  m_terra: 0
+  m_solar: 0
+  m_ignis: 0
+  m_aer: 0
