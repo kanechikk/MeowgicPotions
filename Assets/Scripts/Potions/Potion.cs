@@ -10,7 +10,7 @@ public class Potion : Item
     public int solar;
     public int ignis;
     public int aer;
-    Dictionary<string, int> elements;
+    public Dictionary<string, int> elements;
 
     public void AddToDictionary()
     {
