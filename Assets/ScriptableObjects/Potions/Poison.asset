@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 028422d479981e849b6ad5e379f2779a, type: 3}
-  m_Name: Speed
+  m_Name: Poison
   m_EditorClassIdentifier: 
-  itemName: Speed
+  itemName: ItemSample
   price: 100
   icon: {fileID: 0}
-  aqua: 1
+  aqua: 0
   terra: 0
-  solar: 1
+  solar: 0
   ignis: 0
   aer: 0
