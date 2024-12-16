@@ -4,36 +4,36 @@ using UnityEngine;
 
 public class Cauldron: MonoBehaviour
 {
-    private List<Ingredient> addedIngredients = new List<Ingredient>();
-    private int aquaCount = 0;
-    private int ignisCount = 0;
-    private int terraCount = 0;
-    private int aerCount = 0;
-    private int solarCount = 0;
+    private List<Ingredient> m_addedIngredients = new List<Ingredient>();
+    private int m_aquaCount = 0;
+    private int m_ignisCount = 0;
+    private int m_terraCount = 0;
+    private int m_aerCount = 0;
+    private int m_solarCount = 0;
 
     public void AddIngredient(Ingredient ingredient)
     {
         if (ingredient != null)
         {
-            addedIngredients.Add(ingredient);
-            foreach (ElementType element in ingredient.elementsHaving)
+            m_addedIngredients.Add(ingredient);
+            foreach (var (key, val) in ingredient.elements)
             {
-                switch (element)
+                switch (key)
                 {
-                    case ElementType.Aqua:
-                        aquaCount++;
+                    case "aqua" :
+                        m_aquaCount += val;
                         break;
-                    case ElementType.Ignis:
-                        ignisCount++;
+                    case "ignis":
+                        m_ignisCount += val;
                         break;
-                    case ElementType.Terra:
-                        terraCount++;
+                    case "terra":
+                        m_terraCount += val;
                         break;
-                    case ElementType.Aer:
-                        aerCount++;
+                    case "aer":
+                        m_aerCount += val;
                         break;
-                    case ElementType.Solar:
-                        solarCount++;
+                    case "solar":
+                        m_solarCount += val;
                         break;
                 }
             }
@@ -43,32 +43,32 @@ public class Cauldron: MonoBehaviour
 
     public void RemoveIngredient(Ingredient ingredient)
     {
-        if (addedIngredients.Count == 0)
+        if (m_addedIngredients.Count == 0)
         {
             Debug.LogWarning("Котел пуст, нечего удалять");
             return;
         }
         if (ingredient != null)
         {
-            addedIngredients.Remove(ingredient);
-            foreach (ElementType element in ingredient.elementsHaving)
+            m_addedIngredients.Remove(ingredient);
+            foreach (var (key, val) in ingredient.elements)
             {
-                switch (element)
+                switch (key)
                 {
-                    case ElementType.Aqua:
-                        aquaCount--;
+                    case "aqua" :
+                        m_aquaCount -= val;
                         break;
-                    case ElementType.Ignis:
-                        ignisCount--;
+                    case "ignis":
+                        m_ignisCount -= val;
                         break;
-                    case ElementType.Terra:
-                        terraCount--;
+                    case "terra":
+                        m_terraCount -= val;
                         break;
-                    case ElementType.Aer:
-                        aerCount--;
+                    case "aer":
+                        m_aerCount -= val;
                         break;
-                    case ElementType.Solar:
-                        solarCount--;
+                    case "solar":
+                        m_solarCount -= val;
                         break;
                 }
             }
@@ -76,18 +76,23 @@ public class Cauldron: MonoBehaviour
         }
     }
 
+    public bool BrewCount(Potion recipe)
+    {
+        
+    }
+
     public void ShowIngredients()
     {
         Debug.Log("Содержимое котла:");
-        foreach (var ingredient in addedIngredients)
+        foreach (var ingredient in m_addedIngredients)
             Debug.Log($"- {ingredient.itemName}");
         
         Debug.Log("Свойства в котле:");
-        Debug.Log($"Aqua: {aquaCount}");
-        Debug.Log($"Ignis: {ignisCount}");
-        Debug.Log($"Terra: {terraCount}");
-        Debug.Log($"Aer: {aerCount}");
-        Debug.Log($"Solar: {solarCount}");
+        Debug.Log($"Aqua: {m_aquaCount}");
+        Debug.Log($"Ignis: {m_ignisCount}");
+        Debug.Log($"Terra: {m_terraCount}");
+        Debug.Log($"Aer: {m_aerCount}");
+        Debug.Log($"Solar: {m_solarCount}");
     }
 }
 
