@@ -16,27 +16,13 @@ public class Cauldron: MonoBehaviour
         if (ingredient != null)
         {
             m_addedIngredients.Add(ingredient);
-            foreach (var (key, val) in ingredient.elements)
-            {
-                switch (key)
-                {
-                    case "aqua" :
-                        m_aquaCount += val;
-                        break;
-                    case "ignis":
-                        m_ignisCount += val;
-                        break;
-                    case "terra":
-                        m_terraCount += val;
-                        break;
-                    case "aer":
-                        m_aerCount += val;
-                        break;
-                    case "solar":
-                        m_solarCount += val;
-                        break;
-                }
-            }
+
+            m_aquaCount += ingredient.elements["aqua"];
+            m_ignisCount += ingredient.elements["ignis"];
+            m_terraCount += ingredient.elements["terra"];
+            m_aerCount += ingredient.elements["aer"];
+            m_solarCount += ingredient.elements["solar"];
+
             Debug.Log($"Добавлен ингредиент: {ingredient.itemName}");
         }
     }
@@ -51,29 +37,26 @@ public class Cauldron: MonoBehaviour
         if (ingredient != null)
         {
             m_addedIngredients.Remove(ingredient);
-            foreach (var (key, val) in ingredient.elements)
-            {
-                switch (key)
-                {
-                    case "aqua" :
-                        m_aquaCount -= val;
-                        break;
-                    case "ignis":
-                        m_ignisCount -= val;
-                        break;
-                    case "terra":
-                        m_terraCount -= val;
-                        break;
-                    case "aer":
-                        m_aerCount -= val;
-                        break;
-                    case "solar":
-                        m_solarCount -= val;
-                        break;
-                }
-            }
+            
+            m_aquaCount -= ingredient.elements["aqua"];
+            m_ignisCount -= ingredient.elements["ignis"];
+            m_terraCount -= ingredient.elements["terra"];
+            m_aerCount -= ingredient.elements["aer"];
+            m_solarCount -= ingredient.elements["solar"];
+
             Debug.Log($"Удален ингредиент: {ingredient.itemName}"); 
         }
+    }
+
+    public void ClearAll()
+    {
+        m_addedIngredients.Clear();
+
+        m_aquaCount = 0;
+        m_ignisCount = 0;
+        m_terraCount = 0;
+        m_aerCount = 0;
+        m_solarCount = 0;
     }
 
     public bool RecipeCheck(Potion recipe)
