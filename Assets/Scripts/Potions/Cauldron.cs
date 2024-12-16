@@ -76,9 +76,20 @@ public class Cauldron: MonoBehaviour
         }
     }
 
-    public bool BrewCount(Potion recipe)
+    public bool RecipeCheck(Potion recipe)
     {
-        
+        if (recipe.elements["aqua"] == m_aquaCount && 
+            recipe.elements["ignis"] == m_ignisCount &&
+            recipe.elements["terra"] == m_terraCount &&
+            recipe.elements["aer"] == m_aerCount &&
+            recipe.elements["solar"] == m_solarCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public void ShowIngredients()
