@@ -4,5 +4,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Ingredient", menuName = "Scriptable Objects/Ingredient")]
 public class Ingredient : Item
 {
-    public List<ElementType> elementsHaving = new List<ElementType>();
+    [SerializeField] private int m_aqua;
+    [SerializeField] private int m_terra;
+    [SerializeField] private int m_solar;
+    [SerializeField] private int m_ignis;
+    [SerializeField] private int m_aer;
+    private Dictionary<string, int> m_elements;
+
+    public Dictionary<string, int> elements => this.m_elements;
+
+    private void OnEnable()
+    {
+        m_elements = new Dictionary<string, int>()
+        {
+            {"aqua", m_aqua},
+            {"terra", m_terra},
+            {"solar", m_solar},
+            {"ignis", m_ignis},
+            {"aer", m_aer}
+        };
+    }
 }

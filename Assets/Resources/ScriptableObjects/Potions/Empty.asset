@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028422d479981e849b6ad5e379f2779a, type: 3}
   m_Name: Empty
   m_EditorClassIdentifier: 
-  itemName: Empty
-  price: 100
-  icon: {fileID: 0}
-  aqua: 0
-  terra: 0
-  solar: 0
-  ignis: 0
-  aer: 0
+  m_itemName: ItemSample
+  m_price: 0
+  m_icon: {fileID: 0}
+  m_aqua: 0
+  m_terra: 0
+  m_solar: 0
+  m_ignis: 0
+  m_aer: 0
