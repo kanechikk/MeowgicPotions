@@ -61,7 +61,7 @@ public class Cauldron: MonoBehaviour
 
     public bool RecipeCheck(Potion recipe)
     {
-        if (recipe.elements["aqua"] == m_aquaCount && 
+        if (recipe.elements["aqua"] == m_aquaCount &&
             recipe.elements["ignis"] == m_ignisCount &&
             recipe.elements["terra"] == m_terraCount &&
             recipe.elements["aer"] == m_aerCount &&
