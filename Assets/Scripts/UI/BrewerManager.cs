@@ -11,5 +11,10 @@ public class BrewerManager : MonoBehaviour
     public void OpenBook()
     {
         bookPanel.SetActive(true);
+        gameObject.SetActive(false);
+    }
+    public void Close()
+    {
+        gameObject.SetActive(false);
     }
 }
