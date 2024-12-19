@@ -5,11 +5,11 @@ using UnityEngine;
 public class Cauldron: MonoBehaviour
 {
     private List<Ingredient> m_addedIngredients = new List<Ingredient>();
-    private int m_aquaCount = 0;
-    private int m_ignisCount = 0;
-    private int m_terraCount = 0;
-    private int m_aerCount = 0;
-    private int m_solarCount = 0;
+    public int aquaCount { private set; get; } = 0;
+    public int ignisCount { private set; get; } = 0;
+    public int terraCount { private set; get; } = 0;
+    public int aerCount { private set; get; } = 0;
+    public int solarCount { private set; get; } = 0;
 
     public void AddIngredient(Ingredient ingredient)
     {
@@ -17,11 +17,11 @@ public class Cauldron: MonoBehaviour
         {
             m_addedIngredients.Add(ingredient);
 
-            m_aquaCount += ingredient.elements["aqua"];
-            m_ignisCount += ingredient.elements["ignis"];
-            m_terraCount += ingredient.elements["terra"];
-            m_aerCount += ingredient.elements["aer"];
-            m_solarCount += ingredient.elements["solar"];
+            aquaCount += ingredient.elements["aqua"];
+            ignisCount += ingredient.elements["ignis"];
+            terraCount += ingredient.elements["terra"];
+            aerCount += ingredient.elements["aer"];
+            solarCount += ingredient.elements["solar"];
 
             Debug.Log($"Добавлен ингредиент: {ingredient.itemName}");
         }
@@ -38,11 +38,11 @@ public class Cauldron: MonoBehaviour
         {
             m_addedIngredients.Remove(ingredient);
             
-            m_aquaCount -= ingredient.elements["aqua"];
-            m_ignisCount -= ingredient.elements["ignis"];
-            m_terraCount -= ingredient.elements["terra"];
-            m_aerCount -= ingredient.elements["aer"];
-            m_solarCount -= ingredient.elements["solar"];
+            aquaCount -= ingredient.elements["aqua"];
+            ignisCount -= ingredient.elements["ignis"];
+            terraCount -= ingredient.elements["terra"];
+            aerCount -= ingredient.elements["aer"];
+            solarCount -= ingredient.elements["solar"];
 
             Debug.Log($"Удален ингредиент: {ingredient.itemName}"); 
         }
@@ -52,20 +52,20 @@ public class Cauldron: MonoBehaviour
     {
         m_addedIngredients.Clear();
 
-        m_aquaCount = 0;
-        m_ignisCount = 0;
-        m_terraCount = 0;
-        m_aerCount = 0;
-        m_solarCount = 0;
+        aquaCount = 0;
+        ignisCount = 0;
+        terraCount = 0;
+        aerCount = 0;
+        solarCount = 0;
     }
 
     public bool RecipeCheck(Potion recipe)
     {
-        if (recipe.elements["aqua"] == m_aquaCount &&
-            recipe.elements["ignis"] == m_ignisCount &&
-            recipe.elements["terra"] == m_terraCount &&
-            recipe.elements["aer"] == m_aerCount &&
-            recipe.elements["solar"] == m_solarCount)
+        if (recipe.elements["aqua"] == aquaCount &&
+            recipe.elements["ignis"] == ignisCount &&
+            recipe.elements["terra"] == terraCount &&
+            recipe.elements["aer"] == aerCount &&
+            recipe.elements["solar"] == solarCount)
         {
             return true;
         }
@@ -82,11 +82,11 @@ public class Cauldron: MonoBehaviour
             Debug.Log($"- {ingredient.itemName}");
         
         Debug.Log("Свойства в котле:");
-        Debug.Log($"Aqua: {m_aquaCount}");
-        Debug.Log($"Ignis: {m_ignisCount}");
-        Debug.Log($"Terra: {m_terraCount}");
-        Debug.Log($"Aer: {m_aerCount}");
-        Debug.Log($"Solar: {m_solarCount}");
+        Debug.Log($"Aqua: {aquaCount}");
+        Debug.Log($"Ignis: {ignisCount}");
+        Debug.Log($"Terra: {terraCount}");
+        Debug.Log($"Aer: {aerCount}");
+        Debug.Log($"Solar: {solarCount}");
     }
 }
 
