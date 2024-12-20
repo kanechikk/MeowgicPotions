@@ -11,7 +11,5 @@ public class PotionManager : MonoBehaviour
     {
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
         m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
-
-        m_cauldron = new Cauldron();
     }
 }

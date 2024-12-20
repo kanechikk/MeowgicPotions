@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Cauldron: MonoBehaviour
 {
-    private List<Ingredient> m_addedIngredients = new List<Ingredient>();
+    private List<Ingredient> m_addedIngredients;
     public int aquaCount { private set; get; } = 0;
     public int ignisCount { private set; get; } = 0;
     public int terraCount { private set; get; } = 0;
