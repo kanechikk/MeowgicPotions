@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class PotionBookState : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameObject m_btnPrefab;
+    [SerializeField] private GameObject m_btnParent;
+    private ButtonsCreating m_buttonsCreating;
+    [SerializeField] private BrewingState m_brewingState;
+    private void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Potion[] potions = m_brewingState.allPotions;
+        m_buttonsCreating = new ButtonsCreating();
+        foreach (var potion in potions)
+        {
+            m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
+        }
     }
 }

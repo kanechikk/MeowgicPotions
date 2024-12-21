@@ -9,8 +9,10 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_brewingUI;
     [SerializeField] private TextMeshProUGUI[] m_cauldronInfo;
 
+    //свойства, доступные только для чтения
+    public Potion[] allPotions => this.m_allPotions;
 
-    private void Start()
+    private void OnEnable()
     {
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
         m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
