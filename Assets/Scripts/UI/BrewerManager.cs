@@ -3,6 +3,7 @@ using UnityEngine;
 public class BrewerManager : MonoBehaviour
 {
     public GameObject bookPanel;
+    public GameObject potionBookState;
 
     private void Start()
     {
@@ -11,6 +12,7 @@ public class BrewerManager : MonoBehaviour
     public void OpenBook()
     {
         bookPanel.SetActive(true);
+        potionBookState.SetActive(true);
         gameObject.SetActive(false);
     }
     public void Close()
