@@ -10,12 +10,13 @@ public class PotionBookState : MonoBehaviour
     [SerializeField] private GameObject m_btnParent;
     [SerializeField] private ButtonsCreating m_buttonsCreating;
     [SerializeField] private BrewingState m_brewingState;
+    [SerializeField] private GameObject m_PotionBookUI;
     private Potion[] m_potions;
-    private List<GameObject> m_potionButtons;
     [SerializeField] private TextMeshProUGUI[] m_potionInfo;
 
     private void OnEnable()
     {
+        m_PotionBookUI.SetActive(true);
         m_potions = m_brewingState.allPotions;
         GameObject curBtn;
         foreach (var potion in m_potions)

@@ -1238,7 +1238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &138781782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1346,9 +1346,9 @@ RectTransform:
   m_Father: {fileID: 535250795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &145780385
 MonoBehaviour:
@@ -1775,7 +1775,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &161518585
 Transform:
   m_ObjectHideFlags: 0
@@ -1804,13 +1804,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cauldron: {fileID: 1287297736}
-  m_brewingUI: {fileID: 87262419}
+  m_brewingUI: {fileID: 928374176}
   m_cauldronInfo:
   - {fileID: 973634795}
   - {fileID: 528930022}
   - {fileID: 723237792}
   - {fileID: 45744357}
   - {fileID: 1623969926}
+  potionBookState: {fileID: 2083617760}
 --- !u!1 &162113300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,7 +2066,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 10}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &167046378
 MonoBehaviour:
@@ -3282,7 +3283,7 @@ RectTransform:
   m_Father: {fileID: 918827148}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -50188,9 +50189,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 784498278}
   - {fileID: 161518585}
   - {fileID: 2083617761}
-  - {fileID: 784498278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1308982323
@@ -52128,6 +52129,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1535022633}
   m_CullTransparentMesh: 1
+--- !u!1 &1537116393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1537116395}
+  - component: {fileID: 1537116394}
+  m_Layer: 0
+  m_Name: GameInstance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1537116394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537116393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3451b6b8f49597a479d3777e9d40c5d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_states: {fileID: 1297597203}
+--- !u!4 &1537116395
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1537116393}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5535836, y: 4.82596, z: -2.51655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1569374593
 GameObject:
   m_ObjectHideFlags: 0
@@ -54563,9 +54609,9 @@ RectTransform:
   m_Father: {fileID: 535250795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1685281031
 MonoBehaviour:
@@ -55612,7 +55658,7 @@ RectTransform:
   m_Father: {fileID: 1151378052}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -56388,9 +56434,9 @@ RectTransform:
   m_Father: {fileID: 535250795}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2008103020
 MonoBehaviour:
@@ -57194,6 +57240,7 @@ MonoBehaviour:
   m_btnParent: {fileID: 167046376}
   m_buttonsCreating: {fileID: 1421327247}
   m_brewingState: {fileID: 161518586}
+  m_PotionBookUI: {fileID: 138781781}
   m_potionInfo:
   - {fileID: 1448224908}
   - {fileID: 2125963278}
@@ -57372,7 +57419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f3f5cc4a55e5c34aacf64aeec518297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brewingUI: {fileID: 928374176}
+  brewingState: {fileID: 161518584}
 --- !u!64 &2126428940
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -58683,4 +58730,5 @@ SceneRoots:
   - {fileID: 2048780183}
   - {fileID: 418837366}
   - {fileID: 87262423}
+  - {fileID: 1537116395}
   - {fileID: 1297597203}

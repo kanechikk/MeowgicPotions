@@ -8,12 +8,14 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private Cauldron m_cauldron;
     [SerializeField] private GameObject m_brewingUI;
     [SerializeField] private TextMeshProUGUI[] m_cauldronInfo;
+    [SerializeField] private GameObject potionBookState;
 
     //свойства, доступные только для чтения
     public Potion[] allPotions => this.m_allPotions;
 
     private void OnEnable()
     {
+        m_brewingUI.SetActive(true);
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
         m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
     }
@@ -51,4 +53,11 @@ public class BrewingState : MonoBehaviour
         m_cauldron.ClearAll();
         CauldronInfoChange();
     }
+
+    public void OpenBook()
+    {
+        potionBookState.SetActive(true);
+    }
+
+    
 }
