@@ -57,7 +57,16 @@ public class BrewingState : MonoBehaviour
     public void OpenBook()
     {
         potionBookState.SetActive(true);
+        m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
     }
 
-    
+    public void StopBrewing()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        m_brewingUI.SetActive(false);
+    }    
 }

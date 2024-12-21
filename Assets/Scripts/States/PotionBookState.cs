@@ -11,7 +11,9 @@ public class PotionBookState : MonoBehaviour
     [SerializeField] private ButtonsCreating m_buttonsCreating;
     [SerializeField] private BrewingState m_brewingState;
     [SerializeField] private GameObject m_PotionBookUI;
+    [SerializeField] private GameObject m_brewingUI;
     private Potion[] m_potions;
+    private List<GameObject> m_buttons = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI[] m_potionInfo;
 
     private void OnEnable()
@@ -23,12 +25,8 @@ public class PotionBookState : MonoBehaviour
         {
             curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
             curBtn.GetComponent<Button>().onClick.AddListener(ChoosePotion);
+            m_buttons.Add(curBtn);
         }
-    }
-
-    private void Update()
-    {
-
     }
 
     public void ChoosePotion()
@@ -66,5 +64,19 @@ public class PotionBookState : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void CloseBook()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        foreach (var btn in m_buttons)
+        {
+            Destroy(btn);
+        }
+        m_PotionBookUI.SetActive(false);
     }
 }

@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BookManager : MonoBehaviour
 {
-    public GameObject brewUI;
+    // public GameObject brewUI;
 
-    public void CloseBook()
-    {
-        gameObject.SetActive(false);
-        brewUI.SetActive(true);
-    }
+    // public void CloseBook()
+    // {
+    //     gameObject.SetActive(false);
+    //     brewUI.SetActive(true);
+    // }
 }
