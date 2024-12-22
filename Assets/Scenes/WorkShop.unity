@@ -1804,13 +1804,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_cauldron: {fileID: 1287297736}
   m_brewingUI: {fileID: 928374176}
-  m_cauldronInfo:
+  m_cauldronInfoUI:
   - {fileID: 973634795}
   - {fileID: 528930022}
   - {fileID: 723237792}
   - {fileID: 45744357}
   - {fileID: 1623969926}
-  potionBookState: {fileID: 2083617760}
+  m_chosenPotionInfoUI:
+  - {fileID: 718301963}
+  - {fileID: 883607347}
+  - {fileID: 1696936492}
+  - {fileID: 786763779}
+  - {fileID: 609699445}
+  m_potionBookState: {fileID: 2083617762}
+  m_chosenPotionNameUI: {fileID: 1050905121}
 --- !u!1 &162113300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9868,8 +9875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a3eaf520e3e7b243888c52d0e0dc346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bookPanel: {fileID: 138781781}
-  potionBookState: {fileID: 2083617760}
 --- !u!224 &970175210 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4358229079278365980, guid: 32e113a656010e94ca14ab408755b66c, type: 3}
@@ -10095,7 +10100,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 976166333}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2083617762}
+        m_TargetAssemblyTypeName: PotionBookState, Assembly-CSharp
+        m_MethodName: ChoosePotion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &976166333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12956,7 +12973,7 @@ GameObject:
   - component: {fileID: 1050905122}
   - component: {fileID: 1050905121}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ChosenPotionNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55492,9 +55509,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 928374180}
-        m_TargetAssemblyTypeName: BrewerManager, Assembly-CSharp
-        m_MethodName: Close
+      - m_Target: {fileID: 161518586}
+        m_TargetAssemblyTypeName: BrewingState, Assembly-CSharp
+        m_MethodName: StopBrewing
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -57240,7 +57257,6 @@ MonoBehaviour:
   m_buttonsCreating: {fileID: 1421327247}
   m_brewingState: {fileID: 161518586}
   m_PotionBookUI: {fileID: 138781781}
-  m_brewingUI: {fileID: 928374176}
   m_potionInfo:
   - {fileID: 1448224908}
   - {fileID: 2125963278}

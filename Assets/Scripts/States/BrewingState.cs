@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -7,9 +8,11 @@ public class BrewingState : MonoBehaviour
     private Potion[] m_allPotions;
     [SerializeField] private Cauldron m_cauldron;
     [SerializeField] private GameObject m_brewingUI;
-    [SerializeField] private TextMeshProUGUI[] m_cauldronInfo;
-    [SerializeField] private GameObject potionBookState;
-
+    [SerializeField] private TextMeshProUGUI[] m_cauldronInfoUI;
+    [SerializeField] private TextMeshProUGUI[] m_chosenPotionInfoUI;
+    [SerializeField] private PotionBookState m_potionBookState;
+    [SerializeField] private TextMeshProUGUI m_chosenPotionNameUI;
+    private Potion m_chosenPotion;
     //свойства, доступные только для чтения
     public Potion[] allPotions => this.m_allPotions;
 
@@ -20,43 +23,57 @@ public class BrewingState : MonoBehaviour
         m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
     }
 
-    //обновление значений элементов в котле в UI
+    //обновление значений элементов в UI
     //вызывается при каждом добавлении/удалении ингредиента
-    public void CauldronInfoChange()
+    public void ElementsInfoChange(int aqua, int terra, int solar, int ignis, int aer, TextMeshProUGUI[] elementsInfoUI)
     {
-        foreach (var element in m_cauldronInfo)
+        foreach (var elementUI in elementsInfoUI)
         {
-            switch (element.name)
+            switch (elementUI.name)
             {
                 case "Aqua":
-                    element.text = $"Aqua: {m_cauldron.aquaCount}";
+                    elementUI.text = $"Aqua: {aqua}";
                 break;
                 case "Terra":
-                    element.text = $"Terra: {m_cauldron.terraCount}";
+                    elementUI.text = $"Terra: {terra}";
                 break;
                 case "Solar":
-                    element.text = $"Solar: {m_cauldron.solarCount}";
+                    elementUI.text = $"Solar: {solar}";
                 break;
                 case "Ignis":
-                    element.text = $"Ignis: {m_cauldron.ignisCount}";
+                    elementUI.text = $"Ignis: {ignis}";
                 break;
                 case "Aer":
-                    element.text = $"Aer: {m_cauldron.aerCount}";
+                    elementUI.text = $"Aer: {aer}";
                 break;
             }
         }
+    }
+
+    private void Update()
+    {
+        m_potionBookState.onChoosePotion += OnChoosePotion;
+    }
+
+    private void OnChoosePotion(Potion chosenPotion)
+    {
+        m_chosenPotion = chosenPotion;
+        ElementsInfoChange(m_chosenPotion.elements["aqua"], m_chosenPotion.elements["terra"], m_chosenPotion.elements["solar"],
+                            m_chosenPotion.elements["ignis"], m_chosenPotion.elements["aer"], m_chosenPotionInfoUI);
+        m_chosenPotionNameUI.text = m_chosenPotion.itemName;
     }
 
     //очищение котла, обнуление значений
     public void ClearCauldron()
     {
         m_cauldron.ClearAll();
-        CauldronInfoChange();
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount, 
+                           m_cauldron.aerCount, m_cauldronInfoUI);
     }
 
     public void OpenBook()
     {
-        potionBookState.SetActive(true);
+        m_potionBookState.gameObject.SetActive(true);
         m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
     }
 

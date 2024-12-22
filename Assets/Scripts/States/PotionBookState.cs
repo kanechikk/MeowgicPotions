@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -11,10 +12,11 @@ public class PotionBookState : MonoBehaviour
     [SerializeField] private ButtonsCreating m_buttonsCreating;
     [SerializeField] private BrewingState m_brewingState;
     [SerializeField] private GameObject m_PotionBookUI;
-    [SerializeField] private GameObject m_brewingUI;
     private Potion[] m_potions;
     private List<GameObject> m_buttons = new List<GameObject>();
     [SerializeField] private TextMeshProUGUI[] m_potionInfo;
+    public event Action<Potion> onChoosePotion;
+    private Potion m_chosenPotion;
 
     private void OnEnable()
     {
@@ -24,21 +26,21 @@ public class PotionBookState : MonoBehaviour
         foreach (var potion in m_potions)
         {
             curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
-            curBtn.GetComponent<Button>().onClick.AddListener(ChoosePotion);
+            curBtn.GetComponent<Button>().onClick.AddListener(ShowPotionInfo);
             m_buttons.Add(curBtn);
         }
     }
 
-    public void ChoosePotion()
+    public void ShowPotionInfo()
     {
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log(clickedButtonName);
-        Potion currentPotion = new();
+        m_chosenPotion = new();
         foreach (var item in m_potions)
         {
             if (item.itemName == clickedButtonName)
             {
-                currentPotion = item;
+                m_chosenPotion = item;
                 break;
             }
         }
@@ -48,22 +50,28 @@ public class PotionBookState : MonoBehaviour
             switch (element.name)
             {
                 case "Aqua":
-                    element.text = $"Aqua: {currentPotion.elements["aqua"]}";
+                    element.text = $"Aqua: {m_chosenPotion.elements["aqua"]}";
                 break;
                 case "Terra":
-                    element.text = $"Terra: {currentPotion.elements["terra"]}";
+                    element.text = $"Terra: {m_chosenPotion.elements["terra"]}";
                 break;
                 case "Solar":
-                    element.text = $"Solar: {currentPotion.elements["solar"]}";
+                    element.text = $"Solar: {m_chosenPotion.elements["solar"]}";
                 break;
                 case "Ignis":
-                    element.text = $"Ignis: {currentPotion.elements["ignis"]}";
+                    element.text = $"Ignis: {m_chosenPotion.elements["ignis"]}";
                 break;
                 case "Aer":
-                    element.text = $"Aer: {currentPotion.elements["aer"]}";
+                    element.text = $"Aer: {m_chosenPotion.elements["aer"]}";
                 break;
             }
         }
+    }
+
+    public void ChoosePotion()
+    {
+        onChoosePotion?.Invoke(m_chosenPotion);
+        CloseBook();
     }
 
     public void CloseBook()
