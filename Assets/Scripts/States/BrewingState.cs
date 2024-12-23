@@ -12,6 +12,7 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] m_chosenPotionInfoUI;
     [SerializeField] private PotionBookState m_potionBookState;
     [SerializeField] private TextMeshProUGUI m_chosenPotionNameUI;
+    [SerializeField] private GameObject m_cauldronSlots;
     private Potion m_chosenPotion;
     //свойства, доступные только для чтения
     public Potion[] allPotions => this.m_allPotions;
@@ -21,7 +22,19 @@ public class BrewingState : MonoBehaviour
         m_brewingUI.SetActive(true);
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
         m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+
+        foreach (Transform slot in m_cauldronSlots.transform)
+        {
+            slot.gameObject.GetComponent<CauldronSlot>().onAddIngredient += OnAddIngredient;
+        }
+
+        m_potionBookState.onChoosePotion += OnChoosePotion;
     }
+
+    // private void Update()
+    // {
+    //     m_potionBookState.onChoosePotion += OnChoosePotion;
+    // }
 
     //обновление значений элементов в UI
     //вызывается при каждом добавлении/удалении ингредиента
@@ -50,9 +63,12 @@ public class BrewingState : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnAddIngredient(Ingredient item)
     {
-        m_potionBookState.onChoosePotion += OnChoosePotion;
+        Debug.Log(item);
+        m_cauldron.AddIngredient(item);
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount, 
+                           m_cauldron.aerCount, m_cauldronInfoUI);
     }
 
     private void OnChoosePotion(Potion chosenPotion)

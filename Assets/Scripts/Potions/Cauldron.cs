@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using JetBrains.Annotations;
 
 public class Cauldron: MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class Cauldron: MonoBehaviour
     public int aerCount { private set; get; } = 0;
     public int solarCount { private set; get; } = 0;
 
+    private void OnEnable()
+    {
+        m_addedIngredients = new List<Ingredient>();
+    }
+
     public void AddIngredient(Ingredient ingredient)
     {
         if (ingredient != null)
         {
+            Debug.Log(ingredient);
             m_addedIngredients.Add(ingredient);
 
             aquaCount += ingredient.elements["aqua"];
