@@ -27,6 +27,8 @@ public class CauldronSlot : MonoBehaviour, IDropHandler
 
             currentDraggable.transform.SetParent(draggableItem.parentAfterDrag);
             draggableItem.parentAfterDrag = transform;
+
+            onAddIngredient?.Invoke(draggableItem.item);
         }
     }
 

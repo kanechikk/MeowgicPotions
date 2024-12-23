@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BrewingState : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private PotionBookState m_potionBookState;
     [SerializeField] private TextMeshProUGUI m_chosenPotionNameUI;
     [SerializeField] private GameObject m_cauldronSlots;
+    [SerializeField] private GameObject m_inventorySlots;
     private Potion m_chosenPotion;
     //свойства, доступные только для чтения
     public Potion[] allPotions => this.m_allPotions;
+    private GameObject m_brewButton;
 
     private void OnEnable()
     {
@@ -28,13 +31,16 @@ public class BrewingState : MonoBehaviour
             slot.gameObject.GetComponent<CauldronSlot>().onAddIngredient += OnAddIngredient;
         }
 
-        m_potionBookState.onChoosePotion += OnChoosePotion;
-    }
+        foreach (Transform slot in m_inventorySlots.transform)
+        {
+            slot.gameObject.GetComponent<InventorySlot>().onReturnFromCauldron += OnRemoveIngredient;
+        }
 
-    // private void Update()
-    // {
-    //     m_potionBookState.onChoosePotion += OnChoosePotion;
-    // }
+        m_potionBookState.onChoosePotion += OnChoosePotion;
+
+        m_brewButton = m_brewingUI.transform.Find("BrewClearButtons").Find("BrewButton").gameObject;
+        m_brewButton.GetComponent<Button>().interactable = false;
+    }
 
     //обновление значений элементов в UI
     //вызывается при каждом добавлении/удалении ингредиента
@@ -46,29 +52,52 @@ public class BrewingState : MonoBehaviour
             {
                 case "Aqua":
                     elementUI.text = $"Aqua: {aqua}";
-                break;
+                    break;
                 case "Terra":
                     elementUI.text = $"Terra: {terra}";
-                break;
+                    break;
                 case "Solar":
                     elementUI.text = $"Solar: {solar}";
-                break;
+                    break;
                 case "Ignis":
                     elementUI.text = $"Ignis: {ignis}";
-                break;
+                    break;
                 case "Aer":
                     elementUI.text = $"Aer: {aer}";
-                break;
+                    break;
             }
         }
     }
 
     private void OnAddIngredient(Ingredient item)
     {
-        Debug.Log(item);
         m_cauldron.AddIngredient(item);
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount, 
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
+        BrewButtonOnOff();
+    }
+
+    private void OnRemoveIngredient(Ingredient item)
+    {
+        m_cauldron.RemoveIngredient(item);
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
+                           m_cauldron.aerCount, m_cauldronInfoUI);
+        BrewButtonOnOff();
+    }
+
+    private void BrewButtonOnOff()
+    {
+        if (m_chosenPotion != null)
+        {
+            if (m_cauldron.RecipeCheck(m_chosenPotion))
+            {
+                m_brewButton.GetComponent<Button>().interactable = true;
+            }
+            else
+            {
+                m_brewButton.GetComponent<Button>().interactable = false;
+            }
+        }
     }
 
     private void OnChoosePotion(Potion chosenPotion)
@@ -83,7 +112,7 @@ public class BrewingState : MonoBehaviour
     public void ClearCauldron()
     {
         m_cauldron.ClearAll();
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount, 
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
     }
 
@@ -101,5 +130,5 @@ public class BrewingState : MonoBehaviour
     private void OnDisable()
     {
         m_brewingUI.SetActive(false);
-    }    
+    }
 }

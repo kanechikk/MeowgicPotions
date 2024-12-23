@@ -35,7 +35,6 @@ public class PotionBookState : MonoBehaviour
     {
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log(clickedButtonName);
-        m_chosenPotion = new();
         foreach (var item in m_potions)
         {
             if (item.itemName == clickedButtonName)

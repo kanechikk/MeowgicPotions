@@ -1130,7 +1130,6 @@ GameObject:
   - component: {fileID: 138781782}
   - component: {fileID: 138781784}
   - component: {fileID: 138781783}
-  - component: {fileID: 138781785}
   m_Layer: 5
   m_Name: PotionBookUI
   m_TagString: Untagged
@@ -1197,18 +1196,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138781781}
   m_CullTransparentMesh: 1
---- !u!114 &138781785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138781781}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1405f6ee26ce2a445ae8ee22b2291795, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &145780383
 GameObject:
   m_ObjectHideFlags: 0
@@ -1718,6 +1705,7 @@ MonoBehaviour:
   m_potionBookState: {fileID: 2083617762}
   m_chosenPotionNameUI: {fileID: 1050905121}
   m_cauldronSlots: {fileID: 1627279832}
+  m_inventorySlots: {fileID: 774551109}
 --- !u!1 &162113300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9691,7 +9679,6 @@ GameObject:
   - component: {fileID: 928374177}
   - component: {fileID: 928374179}
   - component: {fileID: 928374178}
-  - component: {fileID: 928374180}
   m_Layer: 5
   m_Name: BrewingMenu
   m_TagString: Untagged
@@ -9763,18 +9750,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928374176}
   m_CullTransparentMesh: 1
---- !u!114 &928374180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 928374176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a3eaf520e3e7b243888c52d0e0dc346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &970175210 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4358229079278365980, guid: 32e113a656010e94ca14ab408755b66c, type: 3}
