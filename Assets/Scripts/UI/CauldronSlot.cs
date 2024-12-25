@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 
 public class CauldronSlot : MonoBehaviour, IDropHandler
 {
-    
     public event Action<Ingredient> onAddIngredient;
 
     public void OnDrop(PointerEventData eventData)

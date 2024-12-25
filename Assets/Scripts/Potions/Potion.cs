@@ -17,11 +17,11 @@ public class Potion : Item
     {
         m_elements = new Dictionary<string, int>()
         {
-            {"aqua", m_aqua},
-            {"terra", m_terra},
-            {"solar", m_solar},
-            {"ignis", m_ignis},
-            {"aer", m_aer}
+            {"Aqua", m_aqua},
+            {"Terra", m_terra},
+            {"Solar", m_solar},
+            {"Ignis", m_ignis},
+            {"Aer", m_aer}
         };
     }
 }

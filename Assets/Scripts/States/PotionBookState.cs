@@ -7,21 +7,26 @@ using UnityEngine.UI;
 
 public class PotionBookState : MonoBehaviour
 {
+    private Potion[] m_potions;
+    private List<GameObject> m_buttons;
+    public event Action<Potion> onChoosePotion;
+    private Potion m_chosenPotion;
+    //UI элементы
+    [SerializeField] private TextMeshProUGUI[] m_potionInfo;
     [SerializeField] private GameObject m_btnPrefab;
     [SerializeField] private GameObject m_btnParent;
     [SerializeField] private ButtonsCreating m_buttonsCreating;
-    [SerializeField] private BrewingState m_brewingState;
     [SerializeField] private GameObject m_PotionBookUI;
-    private Potion[] m_potions;
-    private List<GameObject> m_buttons = new List<GameObject>();
-    [SerializeField] private TextMeshProUGUI[] m_potionInfo;
-    public event Action<Potion> onChoosePotion;
-    private Potion m_chosenPotion;
-
+    
+    private void Awake()
+    {
+        m_buttons = new List<GameObject>();
+    }
     private void OnEnable()
     {
         m_PotionBookUI.SetActive(true);
-        m_potions = m_brewingState.allPotions;
+        m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+
         GameObject curBtn;
         foreach (var potion in m_potions)
         {
@@ -46,24 +51,7 @@ public class PotionBookState : MonoBehaviour
 
         foreach (var element in m_potionInfo)
         {
-            switch (element.name)
-            {
-                case "Aqua":
-                    element.text = $"Aqua: {m_chosenPotion.elements["aqua"]}";
-                break;
-                case "Terra":
-                    element.text = $"Terra: {m_chosenPotion.elements["terra"]}";
-                break;
-                case "Solar":
-                    element.text = $"Solar: {m_chosenPotion.elements["solar"]}";
-                break;
-                case "Ignis":
-                    element.text = $"Ignis: {m_chosenPotion.elements["ignis"]}";
-                break;
-                case "Aer":
-                    element.text = $"Aer: {m_chosenPotion.elements["aer"]}";
-                break;
-            }
+            element.text = $"{element.name}: {m_chosenPotion.elements[element.name]}";
         }
     }
 

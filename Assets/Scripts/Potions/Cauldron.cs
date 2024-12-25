@@ -12,11 +12,10 @@ public class Cauldron: MonoBehaviour
     public int aerCount { private set; get; } = 0;
     public int solarCount { private set; get; } = 0;
 
-    private void OnEnable()
+    private void Awake()
     {
         m_addedIngredients = new List<Ingredient>();
     }
-
     public void AddIngredient(Ingredient ingredient)
     {
         if (ingredient != null)
@@ -24,11 +23,11 @@ public class Cauldron: MonoBehaviour
             Debug.Log(ingredient);
             m_addedIngredients.Add(ingredient);
 
-            aquaCount += ingredient.elements["aqua"];
-            ignisCount += ingredient.elements["ignis"];
-            terraCount += ingredient.elements["terra"];
-            aerCount += ingredient.elements["aer"];
-            solarCount += ingredient.elements["solar"];
+            aquaCount += ingredient.elements["Aqua"];
+            ignisCount += ingredient.elements["Ignis"];
+            terraCount += ingredient.elements["Terra"];
+            aerCount += ingredient.elements["Aer"];
+            solarCount += ingredient.elements["Solar"];
 
             Debug.Log($"Добавлен ингредиент: {ingredient.itemName}");
         }
@@ -45,11 +44,11 @@ public class Cauldron: MonoBehaviour
         {
             m_addedIngredients.Remove(ingredient);
             
-            aquaCount -= ingredient.elements["aqua"];
-            ignisCount -= ingredient.elements["ignis"];
-            terraCount -= ingredient.elements["terra"];
-            aerCount -= ingredient.elements["aer"];
-            solarCount -= ingredient.elements["solar"];
+            aquaCount -= ingredient.elements["Aqua"];
+            ignisCount -= ingredient.elements["Ignis"];
+            terraCount -= ingredient.elements["Terra"];
+            aerCount -= ingredient.elements["Aer"];
+            solarCount -= ingredient.elements["Solar"];
 
             Debug.Log($"Удален ингредиент: {ingredient.itemName}"); 
         }
@@ -68,11 +67,11 @@ public class Cauldron: MonoBehaviour
 
     public bool RecipeCheck(Potion recipe)
     {
-        if (recipe.elements["aqua"] == aquaCount &&
-            recipe.elements["ignis"] == ignisCount &&
-            recipe.elements["terra"] == terraCount &&
-            recipe.elements["aer"] == aerCount &&
-            recipe.elements["solar"] == solarCount)
+        if (recipe.elements["Aqua"] == aquaCount &&
+            recipe.elements["Ignis"] == ignisCount &&
+            recipe.elements["Terra"] == terraCount &&
+            recipe.elements["Aer"] == aerCount &&
+            recipe.elements["Solar"] == solarCount)
         {
             return true;
         }

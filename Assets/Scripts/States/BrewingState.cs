@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class BrewingState : MonoBehaviour
 {
     private Ingredient[] m_allIngredients;
-    private Potion[] m_allPotions;
     [SerializeField] private Cauldron m_cauldron;
+    private Potion m_chosenPotion;
+    //UI элементы
     [SerializeField] private GameObject m_brewingUI;
     [SerializeField] private TextMeshProUGUI[] m_cauldronInfoUI;
     [SerializeField] private TextMeshProUGUI[] m_chosenPotionInfoUI;
@@ -15,16 +16,13 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_chosenPotionNameUI;
     [SerializeField] private GameObject m_cauldronSlots;
     [SerializeField] private GameObject m_inventorySlots;
-    private Potion m_chosenPotion;
-    //свойства, доступные только для чтения
-    public Potion[] allPotions => this.m_allPotions;
-    private GameObject m_brewButton;
+    [SerializeField] private GameObject m_brewButton;
 
     private void OnEnable()
     {
         m_brewingUI.SetActive(true);
+        m_brewButton.GetComponent<Button>().interactable = false;
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-        m_allPotions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
 
         foreach (Transform slot in m_cauldronSlots.transform)
         {
@@ -37,9 +35,6 @@ public class BrewingState : MonoBehaviour
         }
 
         m_potionBookState.onChoosePotion += OnChoosePotion;
-
-        m_brewButton = m_brewingUI.transform.Find("BrewClearButtons").Find("BrewButton").gameObject;
-        m_brewButton.GetComponent<Button>().interactable = false;
     }
 
     //обновление значений элементов в UI
@@ -103,8 +98,8 @@ public class BrewingState : MonoBehaviour
     private void OnChoosePotion(Potion chosenPotion)
     {
         m_chosenPotion = chosenPotion;
-        ElementsInfoChange(m_chosenPotion.elements["aqua"], m_chosenPotion.elements["terra"], m_chosenPotion.elements["solar"],
-                            m_chosenPotion.elements["ignis"], m_chosenPotion.elements["aer"], m_chosenPotionInfoUI);
+        ElementsInfoChange(m_chosenPotion.elements["Aqua"], m_chosenPotion.elements["Terra"], m_chosenPotion.elements["Solar"],
+                            m_chosenPotion.elements["Ignis"], m_chosenPotion.elements["Aer"], m_chosenPotionInfoUI);
         m_chosenPotionNameUI.text = m_chosenPotion.itemName;
     }
 
@@ -129,6 +124,6 @@ public class BrewingState : MonoBehaviour
 
     private void OnDisable()
     {
-        m_brewingUI.SetActive(false);
+        m_brewingUI?.SetActive(false);
     }
 }
