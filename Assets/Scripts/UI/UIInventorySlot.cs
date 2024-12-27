@@ -3,7 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IDropHandler
+public class UIInventorySlot : MonoBehaviour, IDropHandler
 {
     public event Action<Ingredient> onReturnFromCauldron;
 
