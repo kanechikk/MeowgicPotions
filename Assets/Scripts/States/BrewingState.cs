@@ -31,7 +31,7 @@ public class BrewingState : MonoBehaviour
 
         foreach (Transform slot in m_inventorySlots.transform)
         {
-            slot.gameObject.GetComponent<InventorySlot>().onReturnFromCauldron += OnRemoveIngredient;
+            slot.gameObject.GetComponent<UIInventorySlot>().onReturnFromCauldron += OnRemoveIngredient;
         }
 
         m_potionBookState.onChoosePotion += OnChoosePotion;
