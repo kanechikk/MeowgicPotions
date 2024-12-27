@@ -3,9 +3,6 @@ using UnityEngine;
 
 public class InventoryNavigation : MonoBehaviour
 {
-    private ButtonsCreating m_buttonsCreating;
-    private GameObject btnPrefab;
-    private List<Item> items;
     public void TurnInvOn(GameObject itemsInventory)
     {
         itemsInventory.SetActive(true);

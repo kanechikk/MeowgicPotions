@@ -28,11 +28,19 @@ public class PotionBookState : MonoBehaviour
         m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
 
         GameObject curBtn;
-        foreach (var potion in m_potions)
+        if (m_btnParent.transform.childCount == 0)
         {
-            curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
-            curBtn.GetComponent<Button>().onClick.AddListener(ShowPotionInfo);
-            m_buttons.Add(curBtn);
+            Debug.Log("Buttons created");
+            foreach (var potion in m_potions)
+            {
+                curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
+                curBtn.GetComponent<Button>().onClick.AddListener(ShowPotionInfo);
+                m_buttons.Add(curBtn);
+            }
+        }
+        else
+        {
+            Debug.Log("Already have buttons");
         }
     }
 
@@ -68,10 +76,6 @@ public class PotionBookState : MonoBehaviour
 
     private void OnDisable()
     {
-        foreach (var btn in m_buttons)
-        {
-            Destroy(btn);
-        }
         m_PotionBookUI.SetActive(false);
     }
 }
