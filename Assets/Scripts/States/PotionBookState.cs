@@ -33,7 +33,7 @@ public class PotionBookState : MonoBehaviour
             Debug.Log("Buttons created");
             foreach (var potion in m_potions)
             {
-                curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent, potion.itemName);
+                curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent.transform, potion.itemName);
                 curBtn.GetComponent<Button>().onClick.AddListener(ShowPotionInfo);
                 m_buttons.Add(curBtn);
             }
