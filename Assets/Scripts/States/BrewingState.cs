@@ -21,19 +21,24 @@ public class BrewingState : MonoBehaviour
     private void OnEnable()
     {
         m_brewingUI.SetActive(true);
+        //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
         m_brewButton.GetComponent<Button>().interactable = false;
+        //полуение всех существующих ингредиентов (зачем-то??)
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
 
+        //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
         foreach (Transform slot in m_cauldronSlots.transform)
         {
             slot.gameObject.GetComponent<CauldronSlot>().onAddIngredient += OnAddIngredient;
         }
 
+        //подписываемся на события, которые реагируют на добавление объектов в слоты инвентаря
         foreach (Transform slot in m_inventorySlots.transform)
         {
             slot.gameObject.GetComponent<UIInventorySlot>().onReturnFromCauldron += OnRemoveIngredient;
         }
 
+        //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
     }
 
@@ -63,7 +68,8 @@ public class BrewingState : MonoBehaviour
             }
         }
     }
-
+    
+    //вызывается при добавлении объекта в котел
     private void OnAddIngredient(Ingredient item)
     {
         m_cauldron.AddIngredient(item);
@@ -72,6 +78,7 @@ public class BrewingState : MonoBehaviour
         BrewButtonOnOff();
     }
 
+    //вызывается при перетаскивании объекта в инвентарь
     private void OnRemoveIngredient(Ingredient item)
     {
         m_cauldron.RemoveIngredient(item);
@@ -80,6 +87,9 @@ public class BrewingState : MonoBehaviour
         BrewButtonOnOff();
     }
 
+    //проверка на соответствие рецепту
+    //включение либо отключение кнопки "Сварить"
+    //вызывается при каждом изменении в котле
     private void BrewButtonOnOff()
     {
         if (m_chosenPotion != null)
@@ -95,6 +105,7 @@ public class BrewingState : MonoBehaviour
         }
     }
 
+    //вызывается, если мы выбрали зелье в книге
     private void OnChoosePotion(Potion chosenPotion)
     {
         m_chosenPotion = chosenPotion;
@@ -111,12 +122,14 @@ public class BrewingState : MonoBehaviour
                            m_cauldron.aerCount, m_cauldronInfoUI);
     }
 
+    //метод, который висит на кнопке открытия книги с зельями
     public void OpenBook()
     {
         m_potionBookState.gameObject.SetActive(true);
         m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
     }
 
+    //остановка стейта
     public void StopBrewing()
     {
         gameObject.SetActive(false);
