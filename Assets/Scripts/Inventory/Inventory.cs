@@ -41,6 +41,8 @@ public class Inventory
     {
         if (m_slots.Count > 0 && indexSlot < m_slots.Count)
         {
+            var slot = m_slots[indexSlot];
+
             if (item is Potion)
             {
                 slot.category = ItemCategory.Potion;
@@ -49,8 +51,7 @@ public class Inventory
             {
                 slot.category = ItemCategory.Ingredient;
             }
-
-            var slot = m_slots[indexSlot];
+            
             slot.item = item;
             slot.count++;
         }
