@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 7760556181153848135}
   - component: {fileID: 2696152183614813020}
   - component: {fileID: 4558791429800905002}
-  - component: {fileID: 1349768095000288310}
+  - component: {fileID: -6781905481941968035}
   m_Layer: 5
   m_Name: InvSlot
-  m_TagString: Untagged
+  m_TagString: InventorySlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
---- !u!114 &1349768095000288310
+--- !u!114 &-6781905481941968035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +110,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1353367266829232187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d51bc75aae52e43997be584ead6581, type: 3}
+  m_Script: {fileID: 11500000, guid: 39de467f4af0cce41ad964dbb9464a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
