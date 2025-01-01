@@ -29,13 +29,13 @@ public class BrewingState : MonoBehaviour
         //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
         foreach (Transform slot in m_cauldronSlots.transform)
         {
-            slot.gameObject.GetComponent<CauldronSlot>().onAddIngredient += OnAddIngredient;
+            slot.gameObject.GetComponent<DraggableItemSlot>().onAddIngredient += OnAddIngredient;
         }
 
         //подписываемся на события, которые реагируют на добавление объектов в слоты инвентаря
         foreach (Transform slot in m_inventorySlots.transform)
         {
-            slot.gameObject.GetComponent<UIInventorySlot>().onReturnFromCauldron += OnRemoveIngredient;
+            slot.gameObject.GetComponent<DraggableItemSlot>().onReturnFromCauldron += OnRemoveIngredient;
         }
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
