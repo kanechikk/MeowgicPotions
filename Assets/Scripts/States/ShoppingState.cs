@@ -1,20 +1,20 @@
 using System;
-using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShoppingState : MonoBehaviour
 {
+    public GameObject shoppingUI;
     private Inventory shop;
     private Ingredient[] m_allIngredients;
-    [SerializeField] private GameObject[] m_IngredientPrefabs;
-    //private Seed[] m_allSeeds;
+    private Seed[] m_allSeeds;
     private bool ingredients_stocked;
     private bool seeds_stocked;
     public GameObject ingredientsPanel;
-    public SlotsFilling slotsFilling;
+    public GameObject seedsPanel;
     public GameObject linePrefab;
-    private int page;
-    
+
 
     private void Awake()
     {
@@ -22,38 +22,47 @@ public class ShoppingState : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (ingredients_stocked || seeds_stocked)
+        shoppingUI.SetActive(true);
+        if (!ingredients_stocked || !seeds_stocked)
         {
             FillTheShop();
         }
     }
+    private void OnDisable()
+    {
+        shoppingUI.SetActive(false);
+    }
     private void FillTheShop()
     {
-        if (!ingredients_stocked)
+        // Заполнение массива ингредиентов из папки Resources
+        m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        // Заполняем инвентарь магазина
+        foreach (Ingredient ingredient in m_allIngredients)
         {
-            // Заполнение массива ингредиентов из папки Resources
-            m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-            int ingsCount = 0;
-            // Заполняем инвентарь магазина
-            foreach (Ingredient ingredient in m_allIngredients)
-            {
-                shop.AddItem(ingredient);
-                ingsCount++;
-            }
-
-            for (int i = 0; i < ingsCount; i++)
-            {
-                GameObject newLine = Instantiate(linePrefab, ingredientsPanel.transform);
-            }
-
-            ingredients_stocked = true;
+            shop.AddItem(ingredient);
+            // Создание новой строчки в магазине
+            GameObject newLine = Instantiate(linePrefab, ingredientsPanel.transform);
+            // Передает спрайт
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredient.icon;
+            // Заполнение текста строки
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{ingredient.itemName}: {ingredient.price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ingredient.ElementsToString();
         }
-        if (!seeds_stocked)
+
+        ingredients_stocked = true;
+
+        m_allSeeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
+
+        foreach (Seed seeds in m_allSeeds)
         {
-            // m_allSeeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
-
-            // seeds_stocked = true;
+            shop.AddItem(seeds);
+            GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = seeds.icon;
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{seeds.itemName}: {seeds.price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow.ToString()}";
         }
+
+        seeds_stocked = true;
     }
     private void FillOnePage(GameObject page)
     {
