@@ -59,7 +59,7 @@ public class ShoppingState : MonoBehaviour
             GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
             newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = seeds.icon;
             newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{seeds.itemName}: {seeds.price}";
-            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow.ToString()}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow}";
         }
 
         seeds_stocked = true;
