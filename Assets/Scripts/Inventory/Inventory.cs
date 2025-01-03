@@ -18,7 +18,7 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        int index = m_slots.FindIndex(x => x.item == item);
+        int index = m_slots.FindIndex(x => x.item == null);
         if (index >= 0)
         {
             SetItem(index, item);
