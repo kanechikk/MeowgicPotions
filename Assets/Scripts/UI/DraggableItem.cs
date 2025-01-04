@@ -9,6 +9,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Ingredient item;
     private Image image;
     [HideInInspector] public Transform parentAfterDrag;
+    [HideInInspector] public Transform parentBeforeDrag;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
+        parentBeforeDrag = transform.parent;
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -40,6 +42,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        Debug.Log(parentAfterDrag);
+        Debug.Log(parentBeforeDrag);
+        Debug.Log(parentAfterDrag == parentBeforeDrag);
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
     }

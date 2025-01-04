@@ -24,4 +24,8 @@ public class Ingredient : Item
             {"Aer", m_aer}
         };
     }
+    public string ElementsToString()
+    {
+        return $"Aqua: {m_aqua}\nTerra: {m_terra}\nSolar: {m_solar}\nIgnis: {m_ignis}\nAer: {m_aer}";
+    }
 }

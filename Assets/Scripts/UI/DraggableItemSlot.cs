@@ -2,9 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CauldronSlot : MonoBehaviour, IDropHandler
+public class DraggableItemSlot : MonoBehaviour, IDropHandler
 {
     public event Action<Ingredient> onAddIngredient;
+    public event Action<Ingredient> onReturnFromCauldron;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -14,7 +15,15 @@ public class CauldronSlot : MonoBehaviour, IDropHandler
             DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
             draggableItem.parentAfterDrag = transform;
 
-            onAddIngredient?.Invoke(draggableItem.item);
+            if (draggableItem.parentAfterDrag.gameObject.tag != draggableItem.parentBeforeDrag.gameObject.tag && draggableItem.parentAfterDrag.gameObject.tag == "CauldronSlot")
+            {
+                onAddIngredient?.Invoke(draggableItem.item);
+            }
+            else if (draggableItem.parentAfterDrag.gameObject.tag != draggableItem.parentBeforeDrag.gameObject.tag && draggableItem.parentAfterDrag.gameObject.tag == "InventorySlot")
+            {
+                onReturnFromCauldron?.Invoke(draggableItem.item);
+            }
+            
         }
         else
         {

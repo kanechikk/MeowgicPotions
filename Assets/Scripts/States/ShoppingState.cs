@@ -1,24 +1,20 @@
 using System;
-using System.Linq;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShoppingState : MonoBehaviour
 {
+    public GameObject shoppingUI;
     private Inventory shop;
     private Ingredient[] m_allIngredients;
-    [SerializeField] private GameObject[] m_IngredientPrefabs;
-    //private Potion[] m_allPotions;
-    //private Seed[] m_allSeeds;
-    //private bool potions_stocked;
+    private Seed[] m_allSeeds;
     private bool ingredients_stocked;
     private bool seeds_stocked;
-    //public GameObject potionsPanel;
-    //private Transform[] potionPanelSlots;
     public GameObject ingredientsPanel;
-    private Transform[] ingredientPanelSlots;
-    public SlotsFilling slotsFilling;
-    private int page;
-    
+    public GameObject seedsPanel;
+    public GameObject linePrefab;
+
 
     private void Awake()
     {
@@ -26,45 +22,50 @@ public class ShoppingState : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (!ingredients_stocked)
+        shoppingUI.SetActive(true);
+        if (!ingredients_stocked || !seeds_stocked)
         {
-            m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-            foreach (Ingredient ingredient in m_allIngredients)
-            {
-                shop.AddItem(ingredient);
-            }
-            ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray(); // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
-
-            for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, m_IngredientPrefabs.Length); i++)
-            {
-                slotsFilling.FillSlot(m_IngredientPrefabs[i], ingredientPanelSlots[i].transform);
-                Debug.Log(ingredientPanelSlots[i].name);
-                Debug.Log(i);
-            }
-
-            ingredients_stocked = true;
+            FillTheShop();
         }
-        /*if (!ingredients_stocked)
+    }
+    private void OnDisable()
+    {
+        shoppingUI.SetActive(false);
+    }
+    private void FillTheShop()
+    {
+        // Заполнение массива ингредиентов из папки Resources
+        m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        // Заполняем инвентарь магазина
+        foreach (Ingredient ingredient in m_allIngredients)
         {
-            m_allPotion = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
-            foreach (Potion potion in m_allPotion)
-            {
-                shop.AddItem(potion);
-            }
-            ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<Transform>();
-
-            foreach (Transform slot in ingredientPanelSlots)
-            {
-
-            }
-
-            ingredients_stocked = true;
-        }*/
-        if (!seeds_stocked)
-        {
-            // m_allSeeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
-
-            // seeds_stocked = true;
+            shop.AddItem(ingredient);
+            // Создание новой строчки в магазине
+            GameObject newLine = Instantiate(linePrefab, ingredientsPanel.transform);
+            // Передает спрайт
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredient.icon;
+            // Заполнение текста строки
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{ingredient.itemName}: {ingredient.price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ingredient.ElementsToString();
         }
+
+        ingredients_stocked = true;
+
+        m_allSeeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
+
+        foreach (Seed seeds in m_allSeeds)
+        {
+            shop.AddItem(seeds);
+            GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = seeds.icon;
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{seeds.itemName}: {seeds.price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow}";
+        }
+
+        seeds_stocked = true;
+    }
+    private void FillOnePage(GameObject page)
+    {
+
     }
 }
