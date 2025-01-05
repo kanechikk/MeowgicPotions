@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -23,7 +24,7 @@ public class BrewingState : MonoBehaviour
         m_brewingUI.SetActive(true);
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
         m_brewButton.GetComponent<Button>().interactable = false;
-        //полуение всех существующих ингредиентов (зачем-то??)
+        //полуение всех существующих ингредиентов (зачем-то??) // вполне можно удалять это, оно уже не надо, все ингредиенты загружаются в других скриптах
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
 
         //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
@@ -40,6 +41,9 @@ public class BrewingState : MonoBehaviour
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
+
+        //заполнение ячеек
+        FillSlots();
     }
 
     //обновление значений элементов в UI
@@ -138,5 +142,16 @@ public class BrewingState : MonoBehaviour
     private void OnDisable()
     {
         m_brewingUI?.SetActive(false);
+    }
+    
+    private void FillSlots()
+    {
+        DraggableItem[] slots = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+
+        for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
+        {
+            slots[i].item = (Ingredient)ingredients[i].item;
+        }
     }
 }

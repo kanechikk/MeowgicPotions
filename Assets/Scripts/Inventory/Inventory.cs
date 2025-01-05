@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class Inventory
@@ -18,7 +19,7 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        int index = m_slots.FindIndex(x => x.item == item);
+        int index = m_slots.FindIndex(x => x.item == null);
         if (index >= 0)
         {
             SetItem(index, item);
@@ -55,5 +56,18 @@ public class Inventory
             slot.item = item;
             slot.count++;
         }
+    }
+
+    public List<InventorySlot> GetItemsByType(ItemCategory itemCategory)
+    {
+        List<InventorySlot> items = new List<InventorySlot>();
+        foreach (InventorySlot inventorySlot in m_slots)
+        {
+            if (inventorySlot.category == itemCategory)
+            {
+                items.Add(inventorySlot);
+            }
+        }
+        return items;
     }
 }
