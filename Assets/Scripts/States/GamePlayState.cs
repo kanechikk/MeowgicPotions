@@ -6,17 +6,21 @@ public class GamePlayState : MonoBehaviour
 	private Ingredient[] ingredients;
 	private Potion[] potions;
 	
+	
 	private void Awake()
 	{
-		inventory = new Inventory(16);
+		inventory = new Inventory(32);
 		ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
 		potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
 	}
 	private void Start()
 	{
-		inventory.AddItem(potions[0]);
-		inventory.AddItem(potions[1]);
-		for (int i = 0; i < 6; i++)
+		//inventory.AddCoins(1000);
+		for (int i = 0; i < 5; i++)
+		{
+			inventory.AddItem(potions[i]);
+		}
+		for (int i = 0; i < 8; i++)
 		{
 			inventory.AddItem(ingredients[i]);
 		}

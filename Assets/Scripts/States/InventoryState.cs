@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,7 @@ public class InventoryState : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject potionsPanel;
     public GameObject ingredientsPanel;
-   // public GameObject seedsPanel;
+    // public GameObject seedsPanel;
     private Transform[] potionPanelSlots;
     private Transform[] ingredientPanelSlots;
     //private Transform[] seedPanelSlots;
@@ -36,31 +37,21 @@ public class InventoryState : MonoBehaviour
     {
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
+        Debug.Log(potions.Count);
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < Math.Min(20, potions.Count); i++)
         {
-            if (GamePlayState.inventory.slots[i].category == ItemCategory.Potion)
-            {
-                potionPanelSlots[0].GetComponent<Image>().sprite = GamePlayState.inventory.slots[1].item.icon;
-            }
-            else
-            {
-                //i--;
-            }
+            potionPanelSlots[i].GetComponentInChildren<UIInventoryItem>().item = potions[i].item;
         }
 
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        Debug.Log(ingredients.Count);
 
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < Math.Min(20, ingredients.Count); i++)
         {
-            if (GamePlayState.inventory.slots[i].category == ItemCategory.Ingredient)
-            {
-                ingredientPanelSlots[0].GetComponent<Image>().sprite = GamePlayState.inventory.slots[0].item.icon;
-            }
-            else
-            {
-                //i--;
-            }
+            ingredientPanelSlots[i].GetComponentInChildren<UIInventoryItem>().item = ingredients[i].item;
         }
 
         //seedPanelSlots = seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEditor.Search;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Inventory
     private List<InventorySlot> m_slots;
 
     public IReadOnlyList<InventorySlot> slots => m_slots;
+
+    private Item coins;
 
     public Inventory(int slotSize)
     {
@@ -69,5 +72,11 @@ public class Inventory
             }
         }
         return items;
+    }
+    
+    public void AddCoins(int value)
+    {
+        m_slots[0].item = coins;
+        m_slots[0].count = value;
     }
 }
