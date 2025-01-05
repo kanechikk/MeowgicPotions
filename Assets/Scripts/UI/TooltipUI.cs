@@ -1,20 +1,22 @@
-
 using TMPro;
 using UnityEngine;
 
 public class TooltipUI : MonoBehaviour
 {
-
+    //static instance cuz theres only 1 at a time (статичск штука т к только 1 существует одновременно)
+    public static TooltipUI instance;
     [SerializeField] private RectTransform bgTransform;
     [SerializeField] private TextMeshProUGUI textMeshProUGUI;
     [SerializeField] private RectTransform canvasTransform;
-    private RectTransform tooltipTransform; //rename
+    private RectTransform tooltipTransform;
     public Vector2 padding = new Vector2(10, 10);
 
     void Awake()
     {
         tooltipTransform = GetComponent<RectTransform>();
+        instance = this;
         SetText("test \n \n \n \n");
+        HideTooltip();
     }
 
     private void SetText(string text)
@@ -53,15 +55,23 @@ public class TooltipUI : MonoBehaviour
         //fuck anchor points fuck reversed coordinate bullshit it does
     }
 
-    public void ShowTooltip(string tooltipText)
+    private void ShowTooltipLocal(string tooltipText)
     {
         gameObject.SetActive(true);
         SetText(tooltipText);
     }
-
-    public void HideTooltip(string tooltipText)
+    private void HideTooltipLocal()
     {
         gameObject.SetActive(false);
-        SetText(tooltipText);
+        SetText("");
+    }
+
+    public static void ShowTooltip(string tooltipText)
+    {
+        instance.ShowTooltipLocal(tooltipText);
+    }
+    public static void HideTooltip()
+    {
+        instance.HideTooltipLocal();
     }
 }
