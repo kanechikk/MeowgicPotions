@@ -14,8 +14,6 @@ public class InventoryState : MonoBehaviour
     private Transform[] ingredientPanelSlots;
     //private Transform[] seedPanelSlots;
     private int page;
-    private int ingredientFilledSlots;
-    private int potionFilledSlots;
 
     private void OnEnable()
     {
@@ -37,23 +35,26 @@ public class InventoryState : MonoBehaviour
     {
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        Debug.Log(potionPanelSlots.Length);
         List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
-        Debug.Log(potions.Count);
 
-        for (int i = 0; i < Math.Min(20, potions.Count); i++)
+        for (int i = 0; i < Math.Min(potionPanelSlots.Length, potions.Count); i++)
         {
-            potionPanelSlots[i].GetComponentInChildren<UIInventoryItem>().item = potions[i].item;
+            UIInventoryItem itemUI = potionPanelSlots[i].GetComponentInChildren<UIInventoryItem>();
+            itemUI.item = potions[i].item;
+            Debug.Log(itemUI.item);
+            Debug.Log("potion " + i);
         }
 
-        ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        /*ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
-        Debug.Log(ingredients.Count);
 
-        for (int i = 0; i < Math.Min(20, ingredients.Count); i++)
+        for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, ingredients.Count); i++)
         {
             ingredientPanelSlots[i].GetComponentInChildren<UIInventoryItem>().item = ingredients[i].item;
+            Debug.Log("ingredient " + i);
         }
 
-        //seedPanelSlots = seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        //seedPanelSlots = seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();*/
     }
 }
