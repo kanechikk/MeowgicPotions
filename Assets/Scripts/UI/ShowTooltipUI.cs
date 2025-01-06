@@ -7,10 +7,12 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public TooltipUI tooltipUI;
     private Item item;
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        //todo: gives error, check if exists beforehand
+        if (gameObject.GetComponentsInChildren<DraggableItem>().Length > 0)
         item = gameObject.GetComponentsInChildren<DraggableItem>()[0].item;
+        else item = null;
         if (item != null) 
         {
             Debug.Log("item found: " + item);

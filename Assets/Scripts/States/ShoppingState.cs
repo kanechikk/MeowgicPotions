@@ -69,6 +69,6 @@ public class ShoppingState : MonoBehaviour
     }
     public void BuyItem()
     {
-        GamePlayState.inventory.AddItem();
+        //GamePlayState.inventory.AddItem();
     }
 }
