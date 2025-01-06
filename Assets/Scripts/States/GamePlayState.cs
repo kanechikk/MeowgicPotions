@@ -20,7 +20,6 @@ public class GamePlayState : MonoBehaviour
 		{
 			inventory.AddItem(potions[i]);
 		}
-		inventory.AddItem(potions[0]);
 		for (int i = 0; i < 8; i++)
 		{
 			inventory.AddItem(ingredients[i]);
