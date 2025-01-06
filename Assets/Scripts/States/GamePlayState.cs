@@ -15,7 +15,7 @@ public class GamePlayState : MonoBehaviour
 	}
 	private void Start()
 	{
-		//inventory.AddCoins(1000);
+		inventory.AddCoins(1000);
 		for (int i = 0; i < 5; i++)
 		{
 			inventory.AddItem(potions[i]);
