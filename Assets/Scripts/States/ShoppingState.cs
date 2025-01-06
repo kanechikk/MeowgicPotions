@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShoppingState : MonoBehaviour
 {
     public GameObject shoppingUI;
-    private Inventory shop;
+    public static Inventory shop;
     private Ingredient[] m_allIngredients;
     private Seed[] m_allSeeds;
     private bool ingredients_stocked;
@@ -47,8 +47,11 @@ public class ShoppingState : MonoBehaviour
             // Заполнение текста строки
             newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{ingredient.itemName}: {ingredient.price}";
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ingredient.ElementsToString();
+
+            // Привязывает айтем к строке
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().item = ingredient;
             // Добавляет метод покупки к кнопке
-            newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(BuyItem);
+            newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
         }
 
         ingredients_stocked = true;
@@ -62,13 +65,11 @@ public class ShoppingState : MonoBehaviour
             newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = seeds.icon;
             newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{seeds.itemName}: {seeds.price}";
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow}";
-            newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(BuyItem);
+
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().item = seeds;
+            newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
         }
 
         seeds_stocked = true;
-    }
-    public void BuyItem()
-    {
-        //GamePlayState.inventory.AddItem();
     }
 }
