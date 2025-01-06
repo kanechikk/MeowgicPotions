@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TooltipUI : MonoBehaviour
 {
-    //static instance cuz theres only 1 at a time (статичск штука т к только 1 существует одновременно)
     private RectTransform bgTransform;
     private TextMeshProUGUI textMeshProUGUI;
     private RectTransform tooltipTransform;
@@ -13,7 +12,7 @@ public class TooltipUI : MonoBehaviour
 
     void Awake()
     {
-        bgTransform = gameObject.GetComponentsInChildren<RectTransform>()[0];
+        bgTransform = gameObject.GetComponentsInChildren<RectTransform>()[1];
         textMeshProUGUI = gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0];
         tooltipTransform = gameObject.GetComponent<RectTransform>();
         SetText("test \n \n \n \n");
@@ -52,28 +51,16 @@ public class TooltipUI : MonoBehaviour
         }
 
         tooltipTransform.anchoredPosition = position;
-        //extra thoughts: here I tried to flip tooltip to be on bottom right from curson cuz its better lookin
-        //do not do that
-        //it WILL NOT work
-    }
-
-    private void ShowTooltipLocal(string tooltipText)
-    {
-        gameObject.SetActive(true);
-        SetText(tooltipText);
-    }
-    private void HideTooltipLocal()
-    {
-        gameObject.SetActive(false);
-        SetText("");
     }
 
     public void ShowTooltip(string tooltipText)
     {
-        ShowTooltipLocal(tooltipText);
+        gameObject.SetActive(true);
+        SetText(tooltipText);
     }
     public void HideTooltip()
     {
-        HideTooltipLocal();
+        SetText("Error after inactive state");
+        gameObject.SetActive(false);
     }
 }
