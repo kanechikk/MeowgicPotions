@@ -12,6 +12,8 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (gameObject.GetComponentsInChildren<DraggableItem>().Length > 0)
         item = gameObject.GetComponentsInChildren<DraggableItem>()[0].item;
+        else if (gameObject.GetComponentsInChildren<UIInventoryItem>().Length > 0)
+        item = gameObject.GetComponentsInChildren<UIInventoryItem>()[0].item;
         else item = null;
         if (item != null) 
         {
