@@ -19,6 +19,6 @@ public class UIInventoryItem : MonoBehaviour
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
-        image.sprite = newItem.icon;
+        image.sprite = item.icon;
     }
 }

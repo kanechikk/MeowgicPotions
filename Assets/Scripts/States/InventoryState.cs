@@ -33,6 +33,7 @@ public class InventoryState : MonoBehaviour
     }
     private void FillInventoryUI()
     {
+        Debug.Log("FillInv");
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
