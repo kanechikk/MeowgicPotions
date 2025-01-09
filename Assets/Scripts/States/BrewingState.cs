@@ -18,11 +18,10 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_cauldronSlots;
     [SerializeField] private GameObject m_inventorySlots;
     [SerializeField] private GameObject m_brewButton;
-    [SerializeField] private Ingredient ingredientSample;
+    [SerializeField] private Item m_itemSample;
 
-    private void OnEnable()
+    private void Start()
     {
-        m_brewingUI.SetActive(true);
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
         m_brewButton.GetComponent<Button>().interactable = false;
 
@@ -41,6 +40,12 @@ public class BrewingState : MonoBehaviour
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
 
+        FillSlots();
+    }
+
+    private void OnEnable()
+    {
+        m_brewingUI.SetActive(true);
         //заполнение ячеек
         FillSlots();
     }
@@ -126,33 +131,18 @@ public class BrewingState : MonoBehaviour
         DraggableItem[] slotsCouldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
         DraggableItem[] slotsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
 
-        Transform[] transformsInventory = m_inventorySlots.GetComponentsInChildren<Transform>();
+        DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
 
         for (int i = 0; i < slotsInventory.Length; i++)
         {
-            slotsInventory[i].transform.SetParent(transformsInventory[i]);
+            slotsInventory[i].transform.SetParent(transformsInventory[i].transform);
         }
         for (int i = slotsInventory.Length; i < slotsInventory.Length + slotsCouldron.Length; i++)
         {
-            slotsCouldron[i - slotsInventory.Length].transform.SetParent(transformsInventory[i]);
+            slotsCouldron[i - slotsInventory.Length].transform.SetParent(transformsInventory[i].transform);
         }
 
         BrewButtonOnOff();
-    }
-
-    private void DeleteUIItems()
-    {
-        m_cauldron.ClearAll();
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
-                           m_cauldron.aerCount, m_cauldronInfoUI);
-
-        DraggableItem[] slotsCouldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
-
-        for (int i = 0; i < slotsCouldron.Length; i++)
-        {
-            slotsCouldron[i].item = ingredientSample;
-        }
-        SetItemsBack();
     }
 
     //метод, который висит на кнопке открытия книги с зельями
@@ -193,11 +183,13 @@ public class BrewingState : MonoBehaviour
             if (slots[i].item != null)
             {
                 GamePlayState.inventory.RemoveItem(slots[i].item);
-                m_cauldron.RemoveIngredient(slots[i].item);
+                
+                m_cauldron.RemoveIngredient((Ingredient)slots[i].item);
+                slots[i].item = m_itemSample;
             }
         }
 
-        DeleteUIItems();
+        SetItemsBack();
         GamePlayState.inventory.AddItem(m_chosenPotion);
     }
 }

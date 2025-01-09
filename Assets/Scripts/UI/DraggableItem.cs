@@ -6,17 +6,17 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public Ingredient item;
+    public Item item;
     private Image image;
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform parentBeforeDrag;
 
-    private void Start()
+    private void OnEnable()
     {
         InitialiseItem(item);
     }
 
-    public void InitialiseItem(Ingredient newItem)
+    public void InitialiseItem(Item newItem)
     {
         item = newItem;
         image.sprite = newItem.icon;
@@ -26,6 +26,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         image = GetComponent<Image>();
     }
+
+    private void OnTransformParentChanged()
+    {
+        InitialiseItem(item);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentBeforeDrag = transform.parent;

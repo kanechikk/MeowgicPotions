@@ -6,7 +6,7 @@ public class UIInventoryItem : MonoBehaviour
     public Item item;
     private Image image;
 
-    private void Start()
+    private void OnEnable()
     {
         InitialiseItem(item);
     }
@@ -20,5 +20,10 @@ public class UIInventoryItem : MonoBehaviour
     {
         item = newItem;
         image.sprite = item.icon;
+    }
+
+    private void OnTransformParentChanged()
+    {
+        InitialiseItem(item);
     }
 }
