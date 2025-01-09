@@ -1340,6 +1340,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1495,6 +1499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2264,6 +2272,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2885,7 +2897,7 @@ MonoBehaviour:
   m_cauldronSlots: {fileID: 1627279832}
   m_inventorySlots: {fileID: 774551109}
   m_brewButton: {fileID: 1468623932}
-  ingredientSample: {fileID: 0}
+  m_itemSample: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
 --- !u!1 &162113300
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,6 +3157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -3857,6 +3873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5114,6 +5134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6208,6 +6232,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6358,6 +6386,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -6827,6 +6859,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7837,6 +7873,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7987,6 +8027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -8137,6 +8181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9556,6 +9604,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -9716,6 +9768,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12278,6 +12334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12704,6 +12764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12854,6 +12918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14803,6 +14871,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -14953,6 +15025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -18951,6 +19027,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21366,6 +21446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21819,6 +21903,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -21974,6 +22062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -22506,6 +22598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -57705,6 +57801,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -57855,6 +57955,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -58010,6 +58114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -58160,6 +58268,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -58310,6 +58422,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -59027,6 +59143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -59426,6 +59546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -60029,6 +60153,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -60450,6 +60578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -61055,6 +61187,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -61763,6 +61899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -62777,6 +62917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -63982,6 +64126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -65318,6 +65466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -65593,6 +65745,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -65748,6 +65904,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -66376,6 +66536,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -67172,6 +67336,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 1527556885}
   potionsPanel: {fileID: 288939983}
   ingredientsPanel: {fileID: 304891962}
+  sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
 --- !u!1 &1892237506
 GameObject:
   m_ObjectHideFlags: 0
@@ -67440,6 +67605,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -68355,6 +68524,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -68806,6 +68979,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -69101,6 +69278,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -69433,6 +69614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -70277,6 +70462,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 5439965363310924064, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -71088,6 +71277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InvSlotNoDrag
       objectReference: {fileID: 0}
+    - target: {fileID: 4309779503441742624, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
+      propertyPath: item
+      value: 
+      objectReference: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
     - target: {fileID: 8347254574299863122, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
