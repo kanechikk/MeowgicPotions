@@ -2,10 +2,12 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using JetBrains.Annotations;
+using Unity.Mathematics;
 
 public class Cauldron: MonoBehaviour
 {
     private List<Ingredient> m_addedIngredients;
+    public IReadOnlyList<Ingredient> addedIngredients => m_addedIngredients;
     public int aquaCount { private set; get; } = 0;
     public int ignisCount { private set; get; } = 0;
     public int terraCount { private set; get; } = 0;
@@ -35,11 +37,6 @@ public class Cauldron: MonoBehaviour
 
     public void RemoveIngredient(Ingredient ingredient)
     {
-        if (m_addedIngredients.Count == 0)
-        {
-            Debug.LogWarning("Котел пуст, нечего удалять");
-            return;
-        }
         if (ingredient != null)
         {
             m_addedIngredients.Remove(ingredient);

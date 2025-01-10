@@ -18,6 +18,7 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_cauldronSlots;
     [SerializeField] private GameObject m_inventorySlots;
     [SerializeField] private GameObject m_brewButton;
+    [SerializeField] private GameObject m_clearButton;
     [SerializeField] private Item m_itemSample;
 
     private void Start()
@@ -82,6 +83,7 @@ public class BrewingState : MonoBehaviour
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
         BrewButtonOnOff();
+        ClearButtonOnOff();
     }
 
     //вызывается при перетаскивании объекта в инвентарь
@@ -91,6 +93,7 @@ public class BrewingState : MonoBehaviour
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
         BrewButtonOnOff();
+        ClearButtonOnOff();
     }
 
     //проверка на соответствие рецепту
@@ -108,6 +111,19 @@ public class BrewingState : MonoBehaviour
             {
                 m_brewButton.GetComponent<Button>().interactable = false;
             }
+        }
+    }
+
+    private void ClearButtonOnOff()
+    {
+        // Включаем кнопку очищения котла, только если там есть ингредиенты
+        if (m_cauldron.addedIngredients.Count > 0)
+        {
+            m_clearButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            m_clearButton.GetComponent<Button>().interactable = false;
         }
     }
 
@@ -134,7 +150,7 @@ public class BrewingState : MonoBehaviour
         // Все слоты инвенторя
         DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
 
-        // Заполняем слоты инвенторя айтемами оставшимеся
+        // Заполняем слоты инвенторя айтемами оставшимися
         for (int i = 0; i < itemsInventory.Length; i++)
         {
             itemsInventory[i].transform.SetParent(transformsInventory[i].transform);
@@ -145,6 +161,7 @@ public class BrewingState : MonoBehaviour
         }
 
         BrewButtonOnOff();
+        ClearButtonOnOff();
     }
 
     //метод, который висит на кнопке открытия книги с зельями
@@ -167,14 +184,15 @@ public class BrewingState : MonoBehaviour
     
     private void FillSlots()
     {
-        // Вызываем айтемы из инвенторя
+        // Вызываем айтемы из инвентаря
         DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
-        // Меняет айтем на тот, что есть в инвенторе игрока
+        // Меняет айтем на тот, что есть в инвентаре игрока
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
         {
             items[i].item = (Ingredient)ingredients[i].item;
+            Debug.Log(ingredients[i].item);
         }
     }
 
@@ -185,7 +203,7 @@ public class BrewingState : MonoBehaviour
         
         for (int i = 0; i < items.Length; i++)
         {
-            // Если айтем не нул, то мы его убираем из инвенторя, из котла и закидываем на его место сэмпловый
+            // Если айтем не нул, то мы его убираем из инвентаря, из котла и закидываем на его место сэмпловый
             if (items[i].item != null)
             {
                 GamePlayState.inventory.RemoveItem(items[i].item);
@@ -195,7 +213,7 @@ public class BrewingState : MonoBehaviour
             }
         }
 
-        // Перекидывает айтемы назад в правое окно инвенторя
+        // Перекидывает айтемы назад в правое окно инвентаря
         SetItemsBack();
         // Добавляет зелье готовое
         GamePlayState.inventory.AddItem(m_chosenPotion);
