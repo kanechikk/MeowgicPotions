@@ -9,6 +9,7 @@ public class InventoryState : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject potionsPanel;
     public GameObject ingredientsPanel;
+    public SampleItem sampleItem;
     // public GameObject seedsPanel;
     private UIInventoryItem[] potionPanelSlots;
     private UIInventoryItem[] ingredientPanelSlots;
@@ -33,14 +34,21 @@ public class InventoryState : MonoBehaviour
     }
     private void FillInventoryUI()
     {
+        Debug.Log("FillInv");
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
 
         for (int i = 0; i < Math.Min(potionPanelSlots.Length, potions.Count); i++)
         {
-            potionPanelSlots[i].item = potions[i].item;
-            Debug.Log("potion " + i);
+            if (potions[i].item == null)
+            {
+                potionPanelSlots[i].item = sampleItem;
+            }
+            else
+            {
+                potionPanelSlots[i].item = potions[i].item;
+            }
         }
 
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
@@ -48,8 +56,14 @@ public class InventoryState : MonoBehaviour
 
         for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, ingredients.Count); i++)
         {
-            ingredientPanelSlots[i].item = ingredients[i].item;
-            Debug.Log("ingredient " + i);
+            if (ingredients[i].item == null)
+            {
+                ingredientPanelSlots[i].item = sampleItem;
+            }
+            else
+            {
+                ingredientPanelSlots[i].item = ingredients[i].item;
+            }
         }
 
         //seedPanelSlots = seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();

@@ -17,11 +17,11 @@ public class DraggableItemSlot : MonoBehaviour, IDropHandler
 
             if (draggableItem.parentAfterDrag.gameObject.tag != draggableItem.parentBeforeDrag.gameObject.tag && draggableItem.parentAfterDrag.gameObject.tag == "CauldronSlot")
             {
-                onAddIngredient?.Invoke(draggableItem.item);
+                onAddIngredient?.Invoke((Ingredient)draggableItem.item);
             }
             else if (draggableItem.parentAfterDrag.gameObject.tag != draggableItem.parentBeforeDrag.gameObject.tag && draggableItem.parentAfterDrag.gameObject.tag == "InventorySlot")
             {
-                onReturnFromCauldron?.Invoke(draggableItem.item);
+                onReturnFromCauldron?.Invoke((Ingredient)draggableItem.item);
             }
             
         }
@@ -36,7 +36,7 @@ public class DraggableItemSlot : MonoBehaviour, IDropHandler
             currentDraggable.transform.SetParent(draggableItem.parentAfterDrag);
             draggableItem.parentAfterDrag = transform;
 
-            onAddIngredient?.Invoke(draggableItem.item);
+            onAddIngredient?.Invoke((Ingredient)draggableItem.item);
         }
     }
 
