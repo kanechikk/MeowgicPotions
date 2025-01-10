@@ -29,6 +29,11 @@ public class Inventory
         {
             SetItem(index, item);
         }
+        else
+        {
+            m_slots.Add(new InventorySlot());
+            SetItem(m_slots.Count - 1, item);
+        }
     }
 
     public void RemoveItem(Item item)
