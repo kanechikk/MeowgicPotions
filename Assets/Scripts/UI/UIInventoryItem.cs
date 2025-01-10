@@ -6,24 +6,24 @@ public class UIInventoryItem : MonoBehaviour
     public Item item;
     private Image image;
 
-    private void OnEnable()
+    private void Awake()
+    {
+        image = GetComponent<Image>();
+    }
+
+    private void Start()
     {
         InitialiseItem(item);
     }
 
-    private void Awake()
+    private void OnEnable()
     {
-        image = GetComponent<Image>();
+        InitialiseItem(item);
     }
 
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
         image.sprite = item.icon;
-    }
-
-    private void OnTransformParentChanged()
-    {
-        InitialiseItem(item);
     }
 }

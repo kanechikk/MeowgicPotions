@@ -11,6 +11,16 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform parentBeforeDrag;
 
+    private void Awake()
+    {
+        image = GetComponent<Image>();
+    }
+
+    private void Start()
+    {
+        InitialiseItem(item);
+    }
+
     private void OnEnable()
     {
         InitialiseItem(item);
@@ -20,11 +30,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.icon;
-    }
-
-    private void Awake()
-    {
-        image = GetComponent<Image>();
     }
 
     private void OnTransformParentChanged()

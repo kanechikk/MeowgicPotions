@@ -39,8 +39,6 @@ public class BrewingState : MonoBehaviour
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
-
-        FillSlots();
     }
 
     private void OnEnable()
@@ -128,18 +126,18 @@ public class BrewingState : MonoBehaviour
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
 
-        DraggableItem[] slotsCouldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
-        DraggableItem[] slotsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] itemsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
 
         DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
 
-        for (int i = 0; i < slotsInventory.Length; i++)
+        for (int i = 0; i < itemsInventory.Length; i++)
         {
-            slotsInventory[i].transform.SetParent(transformsInventory[i].transform);
+            itemsInventory[i].transform.SetParent(transformsInventory[i].transform);
         }
-        for (int i = slotsInventory.Length; i < slotsInventory.Length + slotsCouldron.Length; i++)
+        for (int i = itemsInventory.Length; i < itemsInventory.Length + itemsCauldron.Length; i++)
         {
-            slotsCouldron[i - slotsInventory.Length].transform.SetParent(transformsInventory[i].transform);
+            itemsCauldron[i - itemsInventory.Length].transform.SetParent(transformsInventory[i].transform);
         }
 
         BrewButtonOnOff();
@@ -165,27 +163,29 @@ public class BrewingState : MonoBehaviour
     
     private void FillSlots()
     {
-        DraggableItem[] slots = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
         {
-            slots[i].item = (Ingredient)ingredients[i].item;
+            items[i].item = (Ingredient)ingredients[i].item;
         }
+
+        Debug.Log("FillSlotsCalled");
     }
 
     public void Brew()
     {
-        DraggableItem[] slots = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] items = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
         
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            if (slots[i].item != null)
+            if (items[i].item != null)
             {
-                GamePlayState.inventory.RemoveItem(slots[i].item);
+                GamePlayState.inventory.RemoveItem(items[i].item);
                 
-                m_cauldron.RemoveIngredient((Ingredient)slots[i].item);
-                slots[i].item = m_itemSample;
+                m_cauldron.RemoveIngredient((Ingredient)items[i].item);
+                items[i].item = m_itemSample;
             }
         }
 
