@@ -43,7 +43,7 @@ public class BrewingState : MonoBehaviour
 
     private void OnEnable()
     {
-        m_brewingUI.SetActive(true);
+        m_brewingUI?.SetActive(true);
         //заполнение ячеек
         FillSlots();
     }
@@ -122,15 +122,19 @@ public class BrewingState : MonoBehaviour
 
     public void SetItemsBack()
     {
+        // Очищаем котел
         m_cauldron.ClearAll();
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
 
+        // Получаем все айтемы в брюинге
         DraggableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
         DraggableItem[] itemsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
 
+        // Все слоты инвенторя
         DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
 
+        // Заполняем слоты инвенторя айтемами оставшимеся
         for (int i = 0; i < itemsInventory.Length; i++)
         {
             itemsInventory[i].transform.SetParent(transformsInventory[i].transform);
@@ -163,23 +167,25 @@ public class BrewingState : MonoBehaviour
     
     private void FillSlots()
     {
+        // Вызываем айтемы из инвенторя
         DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
+        // Меняет айтем на тот, что есть в инвенторе игрока
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
         {
             items[i].item = (Ingredient)ingredients[i].item;
         }
-
-        Debug.Log("FillSlotsCalled");
     }
 
     public void Brew()
     {
+        // Вызываем все айтемы из котла
         DraggableItem[] items = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
         
         for (int i = 0; i < items.Length; i++)
         {
+            // Если айтем не нул, то мы его убираем из инвенторя, из котла и закидываем на его место сэмпловый
             if (items[i].item != null)
             {
                 GamePlayState.inventory.RemoveItem(items[i].item);
@@ -189,7 +195,9 @@ public class BrewingState : MonoBehaviour
             }
         }
 
+        // Перекидывает айтемы назад в правое окно инвенторя
         SetItemsBack();
+        // Добавляет зелье готовое
         GamePlayState.inventory.AddItem(m_chosenPotion);
     }
 }

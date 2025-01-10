@@ -39,8 +39,10 @@ public class InventoryState : MonoBehaviour
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
 
+        // Если слот пустой, то в него кладем сэмпл, если нет, то зелье
         for (int i = 0; i < Math.Min(potionPanelSlots.Length, potions.Count); i++)
         {
+            // Убираем все нулы чтобы не возникали ошибки при вызове картинки айтема
             if (potions[i].item == null)
             {
                 potionPanelSlots[i].item = sampleItem;
