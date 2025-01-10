@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BrewingState : MonoBehaviour
 {
-    private Ingredient[] m_allIngredients;
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
     //UI элементы
@@ -18,14 +18,12 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_cauldronSlots;
     [SerializeField] private GameObject m_inventorySlots;
     [SerializeField] private GameObject m_brewButton;
+    [SerializeField] private Item m_itemSample;
 
-    private void OnEnable()
+    private void Start()
     {
-        m_brewingUI.SetActive(true);
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
         m_brewButton.GetComponent<Button>().interactable = false;
-        //полуение всех существующих ингредиентов (зачем-то??) // вполне можно удалять это, оно уже не надо, все ингредиенты загружаются в других скриптах
-        m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
 
         //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
         foreach (Transform slot in m_cauldronSlots.transform)
@@ -41,7 +39,11 @@ public class BrewingState : MonoBehaviour
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
+    }
 
+    private void OnEnable()
+    {
+        m_brewingUI.SetActive(true);
         //заполнение ячеек
         FillSlots();
     }
@@ -118,12 +120,27 @@ public class BrewingState : MonoBehaviour
         m_chosenPotionNameUI.text = m_chosenPotion.itemName;
     }
 
-    //очищение котла, обнуление значений
-    public void ClearCauldron()
+    public void SetItemsBack()
     {
         m_cauldron.ClearAll();
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
+
+        DraggableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] itemsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+
+        DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
+
+        for (int i = 0; i < itemsInventory.Length; i++)
+        {
+            itemsInventory[i].transform.SetParent(transformsInventory[i].transform);
+        }
+        for (int i = itemsInventory.Length; i < itemsInventory.Length + itemsCauldron.Length; i++)
+        {
+            itemsCauldron[i - itemsInventory.Length].transform.SetParent(transformsInventory[i].transform);
+        }
+
+        BrewButtonOnOff();
     }
 
     //метод, который висит на кнопке открытия книги с зельями
@@ -146,12 +163,33 @@ public class BrewingState : MonoBehaviour
     
     private void FillSlots()
     {
-        DraggableItem[] slots = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+        DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
         {
-            slots[i].item = (Ingredient)ingredients[i].item;
+            items[i].item = (Ingredient)ingredients[i].item;
         }
+
+        Debug.Log("FillSlotsCalled");
+    }
+
+    public void Brew()
+    {
+        DraggableItem[] items = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i].item != null)
+            {
+                GamePlayState.inventory.RemoveItem(items[i].item);
+                
+                m_cauldron.RemoveIngredient((Ingredient)items[i].item);
+                items[i].item = m_itemSample;
+            }
+        }
+
+        SetItemsBack();
+        GamePlayState.inventory.AddItem(m_chosenPotion);
     }
 }

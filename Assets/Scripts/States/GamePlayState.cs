@@ -1,28 +1,28 @@
+using Mono.Cecil;
 using UnityEngine;
 
 public class GamePlayState : MonoBehaviour
 {
 	public static Inventory inventory;
-	private Ingredient[] ingredients;
-	private Potion[] potions;
-	
-	
+	private Ingredient[] m_ingredients;
+	private Potion[] m_potions;
+
 	private void Awake()
 	{
 		inventory = new Inventory(32);
-		ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-		potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+		m_ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+		m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
 	}
 	private void Start()
 	{
 		inventory.AddCoins(1000);
 		for (int i = 0; i < 5; i++)
 		{
-			inventory.AddItem(potions[i]);
+			inventory.AddItem(m_potions[i]);
 		}
 		for (int i = 0; i < 8; i++)
 		{
-			inventory.AddItem(ingredients[i]);
+			inventory.AddItem(m_ingredients[i]);
 		}
 	}
 }
