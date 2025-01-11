@@ -24,15 +24,24 @@ public class Inventory
 
     public void AddItem(Item item)
     {
-        int index = m_slots.FindIndex(x => x.item == null);
+        int index = m_slots.FindIndex(x => x.item == item);
+
         if (index >= 0)
         {
-            SetItem(index, item);
+            StackItem(index);
         }
         else
         {
-            m_slots.Add(new InventorySlot());
-            SetItem(m_slots.Count - 1, item);
+            index = m_slots.FindIndex(x => x.item == null);
+            if (index >= 0)
+            {
+                SetItem(index, item);
+            }
+            else
+            {
+                m_slots.Add(new InventorySlot());
+                SetItem(m_slots.Count - 1, item);
+            }
         }
     }
 
@@ -48,7 +57,7 @@ public class Inventory
         }
     }
 
-    public void SetItem(int indexSlot, Item item)
+    private void SetItem(int indexSlot, Item item)
     {
         if (m_slots.Count > 0 && indexSlot < m_slots.Count)
         {
@@ -66,6 +75,11 @@ public class Inventory
             slot.item = item;
             slot.count++;
         }
+    }
+
+    private void StackItem(int indexSlot)
+    {
+        m_slots[indexSlot].count++;
     }
 
     public List<InventorySlot> GetItemsByType(ItemCategory itemCategory)
