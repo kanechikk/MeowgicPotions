@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -8,12 +9,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public Item item;
     private Image image;
+    private TextMeshProUGUI m_countText;
     [HideInInspector] public Transform parentAfterDrag;
     [HideInInspector] public Transform parentBeforeDrag;
 
     private void Awake()
     {
         image = GetComponent<Image>();
+        m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -30,6 +33,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.icon;
+        m_countText.text = RefreshCount(newItem);
+    }
+
+    private string RefreshCount(Item newItem)
+    {
+        int count = GamePlayState.inventory.slots.Find(x => x.item == newItem).count;
+        return count.ToString();
     }
 
     private void OnTransformParentChanged()

@@ -9,7 +9,7 @@ public class Inventory
 {
     private List<InventorySlot> m_slots;
 
-    public IReadOnlyList<InventorySlot> slots => m_slots;
+    public List<InventorySlot> slots => m_slots;
 
     private Item m_coins;
 
