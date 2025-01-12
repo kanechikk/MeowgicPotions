@@ -54,6 +54,7 @@ public class Inventory
             {
                 slot.item = null;
             }
+            slot.category = ItemCategory.Nothing;
         }
     }
 
@@ -70,6 +71,14 @@ public class Inventory
             else if (item is Ingredient)
             {
                 slot.category = ItemCategory.Ingredient;
+            }
+            else if (item is Seed)
+            {
+                slot.category = ItemCategory.Seed;
+            }
+            else if (item is SampleItem)
+            {
+                slot.category = ItemCategory.Nothing;
             }
             
             slot.item = item;
