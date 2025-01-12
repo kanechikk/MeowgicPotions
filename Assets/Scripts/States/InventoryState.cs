@@ -9,11 +9,11 @@ public class InventoryState : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject potionsPanel;
     public GameObject ingredientsPanel;
+    public GameObject seedsPanel;
     public SampleItem sampleItem;
-    // public GameObject seedsPanel;
     private UIInventoryItem[] potionPanelSlots;
     private UIInventoryItem[] ingredientPanelSlots;
-    //private Transform[] seedPanelSlots;
+    private UIInventoryItem[] seedPanelSlots;
     private int page;
 
     private void OnEnable()
@@ -68,6 +68,19 @@ public class InventoryState : MonoBehaviour
             }
         }
 
-        //seedPanelSlots = seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
+        List<InventorySlot> seeds = GamePlayState.inventory.GetItemsByType(ItemCategory.Seed);
+
+        for (int i = 0; i < Math.Min(seedPanelSlots.Length, seeds.Count); i++)
+        {
+            if (seeds[i].item == null)
+            {
+                seedPanelSlots[i].item = sampleItem;
+            }
+            else
+            {
+                seedPanelSlots[i].item = seeds[i].item;
+            }
+        }
     }
 }

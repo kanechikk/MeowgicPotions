@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef0f86a55c201f4085528dd702dc71b, type: 3}
-  m_Name: SampleItem
+  m_Script: {fileID: 11500000, guid: 1c4e3692b1c79c04a99d4c9620e3c320, type: 3}
+  m_Name: NightOrchidSeed
   m_EditorClassIdentifier: 
-  m_itemName: ItemSample
+  m_itemName: NightOrchidSeed
   m_price: 100
-  m_icon: {fileID: 21300000, guid: 6412ce4fa10312942a1d24fda78635f5, type: 3}
+  m_icon: {fileID: 21300000, guid: 364b422db46c7c94fa21c5987dc17e3a, type: 3}
+  m_daysToGrow: 1

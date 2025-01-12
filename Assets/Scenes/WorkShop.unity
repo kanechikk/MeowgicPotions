@@ -20242,7 +20242,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95.07361, y: -47}
+  m_AnchoredPosition: {x: 95.07373, y: -47}
   m_SizeDelta: {x: 190.14722, y: 94}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1144768270
@@ -67337,6 +67337,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 1527556885}
   potionsPanel: {fileID: 288939983}
   ingredientsPanel: {fileID: 304891962}
+  seedsPanel: {fileID: 238657713}
   sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
 --- !u!1 &1892237506
 GameObject:
