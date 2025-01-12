@@ -32,6 +32,10 @@ public class ShoppingState : MonoBehaviour
     {
         shoppingUI.SetActive(false);
     }
+    public void CloseShop()
+    {
+        gameObject.SetActive(false);
+    }
     private void FillTheShop()
     {
         // Заполнение массива ингредиентов из папки Resources
