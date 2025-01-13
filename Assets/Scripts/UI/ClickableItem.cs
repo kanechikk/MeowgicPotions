@@ -1,11 +1,16 @@
+using System;
+using NUnit.Framework.Internal.Commands;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UIInventoryItem : UIItem
+public class ClickableItem : UIItem, IPointerClickHandler
 {
+    public Action<Ingredient> onAddIngredient;
+    public Action<Item> onAddItem;
     private TextMeshProUGUI m_countText;
-
     private void Awake()
     {
         image = GetComponent<Image>();
@@ -21,12 +26,10 @@ public class UIInventoryItem : UIItem
     {
         InitialiseItem(item);
     }
-
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;
         image.sprite = item.icon;
-        m_countText.text = RefreshCount(newItem);
     }
 
     private string RefreshCount(Item newItem)
@@ -42,5 +45,11 @@ public class UIInventoryItem : UIItem
         {
             return null;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        onAddIngredient?.Invoke((Ingredient)item);
+        onAddItem?.Invoke(item);
     }
 }

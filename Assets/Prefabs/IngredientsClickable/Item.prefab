@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 1229105137841752745}
   - component: {fileID: 3896816720920726892}
   - component: {fileID: 3559608495866625686}
-  - component: {fileID: 3109333412361701734}
+  - component: {fileID: -5558420135735105763}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3109333412361701734
+--- !u!114 &-5558420135735105763
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,9 +224,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4452621622090308277}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54eec90d07be03d4bb21fc61538d59fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 52d1ae6d598df5042b8ff74259756860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
-  parentAfterDrag: {fileID: 0}
-  parentBeforeDrag: {fileID: 0}
+  image: {fileID: 0}

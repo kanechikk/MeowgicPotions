@@ -22,7 +22,6 @@ public class Cauldron: MonoBehaviour
     {
         if (ingredient != null)
         {
-            Debug.Log(ingredient);
             m_addedIngredients.Add(ingredient);
 
             aquaCount += ingredient.elements["Aqua"];

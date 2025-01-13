@@ -27,15 +27,15 @@ public class BrewingState : MonoBehaviour
         m_brewButton.GetComponent<Button>().interactable = false;
 
         //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
-        foreach (Transform slot in m_cauldronSlots.transform)
+        foreach (Transform slot in m_inventorySlots.transform)
         {
-            slot.gameObject.GetComponent<DraggableItemSlot>().onAddIngredient += OnAddIngredient;
+            slot.gameObject.GetComponentInChildren<ClickableItem>().onAddIngredient += OnAddIngredient;
         }
 
         //подписываемся на события, которые реагируют на добавление объектов в слоты инвентаря
-        foreach (Transform slot in m_inventorySlots.transform)
+        foreach (Transform slot in m_cauldronSlots.transform)
         {
-            slot.gameObject.GetComponent<DraggableItemSlot>().onReturnFromCauldron += OnRemoveIngredient;
+            slot.gameObject.GetComponentInChildren<CauldronClickableItem>().onRemoveIngredient += OnRemoveIngredient;
         }
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
@@ -77,19 +77,19 @@ public class BrewingState : MonoBehaviour
     }
     
     //вызывается при добавлении объекта в котел
-    private void OnAddIngredient(Ingredient item)
+    private void OnAddIngredient(Ingredient ingredient)
     {
-        m_cauldron.AddIngredient(item);
+        m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
 
-    //вызывается при перетаскивании объекта в инвентарь
-    private void OnRemoveIngredient(Ingredient item)
+    //вызывается при возвращении объекта в инвентарь
+    private void OnRemoveIngredient(Ingredient ingredient)
     {
-        m_cauldron.RemoveIngredient(item);
+        m_cauldron.RemoveIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
         BrewButtonOnOff();
@@ -136,7 +136,7 @@ public class BrewingState : MonoBehaviour
         m_chosenPotionNameUI.text = m_chosenPotion.itemName;
     }
 
-    public void SetItemsBack()
+    /*public void SetItemsBack()
     {
         // Очищаем котел
         m_cauldron.ClearAll();
@@ -162,7 +162,7 @@ public class BrewingState : MonoBehaviour
 
         BrewButtonOnOff();
         ClearButtonOnOff();
-    }
+    }*/
 
     //метод, который висит на кнопке открытия книги с зельями
     public void OpenBook()
@@ -185,7 +185,7 @@ public class BrewingState : MonoBehaviour
     private void FillSlots()
     {
         // Вызываем айтемы из инвентаря
-        DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
+        ClickableItem[] items = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
@@ -199,7 +199,7 @@ public class BrewingState : MonoBehaviour
     public void Brew()
     {
         // Вызываем все айтемы из котла
-        DraggableItem[] items = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
         
         for (int i = 0; i < items.Length; i++)
         {
@@ -207,6 +207,7 @@ public class BrewingState : MonoBehaviour
             if (items[i].item != null)
             {
                 GamePlayState.inventory.RemoveItem(items[i].item);
+                Ingredient ingredient = new Ingredient();
                 
                 m_cauldron.RemoveIngredient((Ingredient)items[i].item);
                 items[i].item = m_itemSample;
@@ -214,7 +215,7 @@ public class BrewingState : MonoBehaviour
         }
 
         // Перекидывает айтемы назад в правое окно инвентаря
-        SetItemsBack();
+        //SetItemsBack();
         // Добавляет зелье готовое
         GamePlayState.inventory.AddItem(m_chosenPotion);
     }
