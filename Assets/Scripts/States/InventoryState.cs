@@ -37,7 +37,7 @@ public class InventoryState : MonoBehaviour
         Debug.Log("FillInv");
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
 
         // Если слот пустой, то в него кладем сэмпл, если нет, то зелье
         for (int i = 0; i < Math.Min(potionPanelSlots.Length, potions.Count); i++)
@@ -54,7 +54,7 @@ public class InventoryState : MonoBehaviour
         }
 
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, ingredients.Count); i++)
         {
@@ -69,7 +69,7 @@ public class InventoryState : MonoBehaviour
         }
 
         seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> seeds = GamePlayState.inventory.GetItemsByType(ItemCategory.Seed);
+        List<InventorySlot> seeds = WalkingState.inventory.GetItemsByType(ItemCategory.Seed);
 
         for (int i = 0; i < Math.Min(seedPanelSlots.Length, seeds.Count); i++)
         {

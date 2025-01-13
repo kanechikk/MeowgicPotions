@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BrewingState : MonoBehaviour
+public class BrewingState : GameStateBase
 {
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
@@ -20,6 +20,9 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_brewButton;
     [SerializeField] private GameObject m_clearButton;
     [SerializeField] private Item m_itemSample;
+
+    private readonly GameFSM m_gameFSM;
+	private readonly GameInstance m_context;
 
     private void Start()
     {
@@ -186,7 +189,7 @@ public class BrewingState : MonoBehaviour
     {
         // Вызываем айтемы из инвентаря
         DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
-        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
@@ -206,7 +209,7 @@ public class BrewingState : MonoBehaviour
             // Если айтем не нул, то мы его убираем из инвентаря, из котла и закидываем на его место сэмпловый
             if (items[i].item != null)
             {
-                GamePlayState.inventory.RemoveItem(items[i].item);
+                WalkingState.inventory.RemoveItem(items[i].item);
                 
                 m_cauldron.RemoveIngredient((Ingredient)items[i].item);
                 items[i].item = m_itemSample;
@@ -216,6 +219,16 @@ public class BrewingState : MonoBehaviour
         // Перекидывает айтемы назад в правое окно инвентаря
         SetItemsBack();
         // Добавляет зелье готовое
-        GamePlayState.inventory.AddItem(m_chosenPotion);
+        WalkingState.inventory.AddItem(m_chosenPotion);
+    }
+
+    public override void PotionBook()
+    {
+        m_gameFSM.ActivateState(GameStateEnum.PotionBook);
+    }
+
+    public override void Walking()
+    {
+        m_gameFSM.ActivateState(GameStateEnum.Walking);
     }
 }

@@ -7,10 +7,10 @@ public class ShopListUI : MonoBehaviour
     
     public void BuyItem()
     {
-        if (GamePlayState.inventory.slots[0].count >= item.price)
+        if (WalkingState.inventory.slots[0].count >= item.price)
         {
-            GamePlayState.inventory.AddItem(item);
-            GamePlayState.inventory.slots[0].count -= item.price;
+            WalkingState.inventory.AddItem(item);
+            WalkingState.inventory.slots[0].count -= item.price;
         }
         else
         {

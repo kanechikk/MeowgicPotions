@@ -38,7 +38,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private string RefreshCount(Item newItem)
     {
-        int count = GamePlayState.inventory.slots.Find(x => x.item == newItem).count;
+        int count = WalkingState.inventory.slots.Find(x => x.item == newItem).count;
         return count.ToString();
     }
 

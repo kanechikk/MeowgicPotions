@@ -34,11 +34,11 @@ public class UIInventoryItem : MonoBehaviour
 
     private string RefreshCount(Item newItem)
     {
-        InventorySlot slot = GamePlayState.inventory.slots.Find(x => x.item == newItem);
+        InventorySlot slot = WalkingState.inventory.slots.Find(x => x.item == newItem);
         int count;
         if (slot != null && slot.count > 0)
         {
-            count = GamePlayState.inventory.slots.Find(x => x.item == newItem).count;
+            count = WalkingState.inventory.slots.Find(x => x.item == newItem).count;
             return count.ToString();
         }
         else
