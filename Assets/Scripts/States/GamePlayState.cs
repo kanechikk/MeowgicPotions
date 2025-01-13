@@ -4,7 +4,8 @@ using UnityEngine;
 public class GamePlayState : MonoBehaviour
 {
 	public static Inventory inventory;
-	private Ingredient[] m_ingredients;
+	private static Ingredient[] m_ingredients;
+	public static Ingredient[] ingredients => m_ingredients;
 	private Potion[] m_potions;
 
 	private void Awake()
