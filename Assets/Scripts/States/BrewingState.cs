@@ -82,6 +82,16 @@ public class BrewingState : MonoBehaviour
         m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
+        GamePlayState.inventory.RemoveItem(ingredient);
+        CauldronClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
+        foreach (CauldronClickableItem item in itemsCauldron)
+        {
+            if (item.item is SampleItem)
+            {
+                item.item = ingredient;
+                break;
+            }
+        }
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
@@ -92,6 +102,15 @@ public class BrewingState : MonoBehaviour
         m_cauldron.RemoveIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
+        GamePlayState.inventory.AddItem(ingredient);
+        /*foreach (Transform slot in m_cauldronSlots.transform)
+        {
+            if (slot.gameObject.GetComponent<CauldronClickableItem>().item == ingredient)
+            {
+                slot.gameObject.GetComponent<CauldronClickableItem>().item = m_itemSample;
+                break;
+            }
+        }*/
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
@@ -204,10 +223,9 @@ public class BrewingState : MonoBehaviour
         for (int i = 0; i < items.Length; i++)
         {
             // Если айтем не нул, то мы его убираем из инвентаря, из котла и закидываем на его место сэмпловый
-            if (items[i].item != null)
+            if (items[i].item is Ingredient)
             {
                 GamePlayState.inventory.RemoveItem(items[i].item);
-                Ingredient ingredient = new Ingredient();
                 
                 m_cauldron.RemoveIngredient((Ingredient)items[i].item);
                 items[i].item = m_itemSample;

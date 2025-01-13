@@ -30,6 +30,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         item = newItem;
         image.sprite = item.icon;
+        m_countText.text = RefreshCount(item);
     }
 
     private string RefreshCount(Item newItem)
@@ -51,5 +52,6 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         onAddIngredient?.Invoke((Ingredient)item);
         onAddItem?.Invoke(item);
+        m_countText.text = RefreshCount(item);
     }
 }
