@@ -32,7 +32,6 @@ public class PotionBookState : MonoBehaviour
         GameObject curBtn;
         if (m_btnParent.transform.childCount == 0)
         {
-            Debug.Log("Buttons created");
             foreach (var potion in m_potions)
             {
                 curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent.transform, potion.itemName);

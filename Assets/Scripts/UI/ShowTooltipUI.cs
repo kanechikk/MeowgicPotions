@@ -17,7 +17,6 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         else item = null;
         if (item != null) 
         {
-            Debug.Log("item found: " + item);
             UpdateDescText();
         }
         tooltipUI.ShowTooltip(itemDesc);

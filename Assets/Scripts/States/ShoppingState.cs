@@ -40,20 +40,23 @@ public class ShoppingState : MonoBehaviour
     {
         // Заполнение массива ингредиентов из папки Resources
         m_allIngredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+
         // Заполняем инвентарь магазина
-        foreach (Ingredient ingredient in m_allIngredients)
+        for (int i = 0; i < m_allIngredients.Length; i++)
         {
-            shop.AddItem(ingredient);
+            int index = shop.AddItem(m_allIngredients[i]);
+            shop.AddItem(m_allIngredients[i]);
             // Создание новой строчки в магазине
             GameObject newLine = Instantiate(linePrefab, ingredientsPanel.transform);
             // Передает спрайт
-            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = ingredient.icon;
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = m_allIngredients[i].icon;
             // Заполнение текста строки
-            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{ingredient.itemName}: {ingredient.price}";
-            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = ingredient.ElementsToString();
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{m_allIngredients[i].itemName}: {m_allIngredients[i].price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = m_allIngredients[i].ElementsToString();
 
             // Привязывает айтем к строке
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().item = ingredient;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
             // Добавляет метод покупки к кнопке
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
         }
@@ -62,15 +65,18 @@ public class ShoppingState : MonoBehaviour
 
         m_allSeeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
 
-        foreach (Seed seeds in m_allSeeds)
+        for (int i = 0; i < m_allSeeds.Length; i++)
         {
-            shop.AddItem(seeds);
-            GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
-            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = seeds.icon;
-            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{seeds.itemName}: {seeds.price}";
-            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {seeds.daysToGrow}";
+            int index = shop.AddItem(m_allSeeds[i]);
+            shop.AddItem(m_allSeeds[i]);
 
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().item = seeds;
+            GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
+            newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = m_allSeeds[i].icon;
+            newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{m_allSeeds[i].itemName}: {m_allSeeds[i].price}";
+            newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {m_allSeeds[i].daysToGrow}";
+
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
         }
 

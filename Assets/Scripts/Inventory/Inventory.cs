@@ -22,13 +22,15 @@ public class Inventory
         }
     }
 
-    public void AddItem(Item item)
+    public int AddItem(Item item)
     {
         int index = m_slots.FindIndex(x => x.item == item);
 
         if (index >= 0)
         {
             StackItem(index);
+            // Индекс слота с айтемом
+            return index;
         }
         else
         {
@@ -42,7 +44,14 @@ public class Inventory
                 m_slots.Add(new InventorySlot());
                 SetItem(m_slots.Count - 1, item);
             }
+            // Индекс слота с новым айтемом
+            return index;
         }
+    }
+    public void AddCoins(int value, Coins coins)
+    {
+        int index = AddItem(coins);
+        m_slots[index].count = value;
     }
 
     public void RemoveItem(Item item)
@@ -80,6 +89,10 @@ public class Inventory
             {
                 slot.category = ItemCategory.Nothing;
             }
+            else if (item is Coins)
+            {
+                slot.category = ItemCategory.Coins;
+            }
             
             slot.item = item;
             slot.count++;
@@ -102,11 +115,5 @@ public class Inventory
             }
         }
         return items;
-    }
-    
-    public void AddCoins(int value)
-    {
-        m_slots[0].item = m_coins;
-        m_slots[0].count = value;
     }
 }
