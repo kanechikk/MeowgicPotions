@@ -57,8 +57,11 @@ public class ShoppingState : MonoBehaviour
             // Привязывает айтем к строке
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
             // Добавляет метод покупки к кнопке
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
+            // Вывод количества объектов
+            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
         }
 
         ingredients_stocked = true;
@@ -77,7 +80,9 @@ public class ShoppingState : MonoBehaviour
 
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
+            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
         }
 
         seeds_stocked = true;
