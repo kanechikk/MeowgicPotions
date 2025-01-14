@@ -8,21 +8,22 @@ public class Plant : MonoBehaviour
     private Seed m_seed;
     private bool m_isWatered = false;
     private bool m_isReadyToHarvest;
-    [SerializeField] private DayTimeManager m_dayTimeManager;
 
-    private void Start()
+    //подписываемся на событие смены дня
+    public void SubscribeOnDayTimeManager(DayTimeManager dayTimeManager)
     {
-        m_dayTimeManager.onDateTimeChange += OnDateTimeChange;
+        dayTimeManager.onDateTimeChange += OnDateTimeChange;
     }
 
     public void PlantSeed(Seed seed)
     {
         m_seed = seed;
-        Debug.Log(seed);
-        Debug.Log(seed.itemName);
-        m_plant = Array.Find(LevelController.ingredients, x => $"{x.itemName} Seed" == seed.itemName);
-        Debug.Log(m_plant);
+        //по имени ищем ингредиент, семечко которого посадили
+        //позже строчку нужно будет поменять
+        m_plant = Array.Find(GardenLevelController.ingredients, x => $"{x.itemName} Seed" == seed.itemName);
+        //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
+        //получаем картинку посаженного растения
         transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = m_plant.icon;
     }
 
@@ -36,6 +37,7 @@ public class Plant : MonoBehaviour
         plant.SetActive(false);
     }
 
+    //помечаем, полито ли сегодня растение
     public void WaterPlant()
     {
         m_isWatered = true;
@@ -43,12 +45,15 @@ public class Plant : MonoBehaviour
 
     private void OnDateTimeChange()
     {
+        //при смене дня, если растение было полито, оно продолжает расти, если нет, то нет
         if (m_isWatered)
         {
             m_daysAfterPlanting += 1;
             m_isWatered = false;
         }
 
+        //если растение выросло, мы показываем спрайт вырасшего растения, скрываем росток
+        //помечаем, что растение готово для сбора
         if (m_daysAfterPlanting == m_seed.daysToGrow)
         {
             UnshowPlant(transform.GetChild(0).gameObject);
@@ -59,6 +64,7 @@ public class Plant : MonoBehaviour
 
     public Ingredient HarvestPlant()
     {
+        //если растение готово для сбора, то мы обнуляем значения и возвращаем объект ингредиента, который вырос
         if (m_isReadyToHarvest)
         {
             m_daysAfterPlanting = 0;
