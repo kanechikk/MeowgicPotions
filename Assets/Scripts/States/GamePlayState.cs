@@ -28,5 +28,8 @@ public class GamePlayState : MonoBehaviour
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
+		inventory.AddItem(m_potions[1]);
+		inventory.AddItem(m_potions[1]);
+		inventory.AddItem(m_potions[1]);
 	}
 }
