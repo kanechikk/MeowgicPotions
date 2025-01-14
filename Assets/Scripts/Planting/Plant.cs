@@ -3,22 +3,72 @@ using UnityEngine;
 
 public class Plant : MonoBehaviour
 {
-    [SerializeField] private Sprite m_sprite;
     private Ingredient m_plant;
     private int m_daysAfterPlanting = 0;
-    private bool m_isWatered;
+    private Seed m_seed;
+    private bool m_isWatered = false;
+    private bool m_isReadyToHarvest;
+    [SerializeField] private DayTimeManager m_dayTimeManager;
 
-    public Plant(Seed seed)
+    private void Start()
     {
-        m_plant = Array.Find(GamePlayState.ingredients, x => x.itemName == seed.itemName);
-        gameObject.SetActive(true);
+        m_dayTimeManager.onDateTimeChange += OnDateTimeChange;
     }
 
-    private void OnEnable()
+    public void PlantSeed(Seed seed)
     {
-        if (m_plant != null)
+        m_seed = seed;
+        Debug.Log(seed);
+        Debug.Log(seed.itemName);
+        m_plant = Array.Find(LevelController.ingredients, x => $"{x.itemName} Seed" == seed.itemName);
+        Debug.Log(m_plant);
+        ShowPlant(transform.GetChild(0).gameObject);
+        transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = m_plant.icon;
+    }
+
+    private void ShowPlant(GameObject plant)
+    {
+        plant.SetActive(true);
+    }
+
+    private void UnshowPlant(GameObject plant)
+    {
+        plant.SetActive(false);
+    }
+
+    public void WaterPlant()
+    {
+        m_isWatered = true;
+    }
+
+    private void OnDateTimeChange()
+    {
+        if (m_isWatered)
         {
-            
+            m_daysAfterPlanting += 1;
+            m_isWatered = false;
+        }
+
+        if (m_daysAfterPlanting == m_seed.daysToGrow)
+        {
+            UnshowPlant(transform.GetChild(0).gameObject);
+            ShowPlant(transform.GetChild(1).gameObject);
+            m_isReadyToHarvest = true;
+        }
+    }
+
+    public Ingredient HarvestPlant()
+    {
+        if (m_isReadyToHarvest)
+        {
+            m_daysAfterPlanting = 0;
+            m_isReadyToHarvest = false;
+            UnshowPlant(transform.GetChild(1).gameObject);
+            return m_plant;
+        }
+        else
+        {
+            return null;
         }
     }
 }
