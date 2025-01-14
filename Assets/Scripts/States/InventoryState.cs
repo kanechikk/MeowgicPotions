@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ public class InventoryState : MonoBehaviour
     public GameObject ingredientsPanel;
     public GameObject seedsPanel;
     public SampleItem sampleItem;
+    public TextMeshProUGUI coins;
     private UIInventoryItem[] potionPanelSlots;
     private UIInventoryItem[] ingredientPanelSlots;
     private UIInventoryItem[] seedPanelSlots;
@@ -20,6 +22,7 @@ public class InventoryState : MonoBehaviour
     {
         inventoryUI.SetActive(true);
         FillInventoryUI();
+        coins.text = $"Coins: {GamePlayState.inventory.coins}";
     }
     private void OnDisable()
     {
@@ -49,6 +52,7 @@ public class InventoryState : MonoBehaviour
             else
             {
                 potionPanelSlots[i].item = potions[i].item;
+                Debug.Log(potions[i].item);
             }
         }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEditor.PackageManager.UI;
 using UnityEditor.Search;
 using UnityEngine;
@@ -9,9 +10,11 @@ public class Inventory
 {
     private List<InventorySlot> m_slots;
 
-    public List<InventorySlot> slots => m_slots;
+    private int m_coins = 0;
 
-    private Item m_coins;
+    public int coins => m_coins;
+
+    public List<InventorySlot> slots => m_slots;
 
     public Inventory(int slotSize)
     {
@@ -48,10 +51,10 @@ public class Inventory
             return index;
         }
     }
-    public void AddCoins(int value, Coins coins)
+
+    public void AddCoins(int value)
     {
-        int index = AddItem(coins);
-        m_slots[index].count = value;
+        m_coins += value;
     }
 
     public void RemoveItem(Item item)
@@ -88,10 +91,6 @@ public class Inventory
             else if (item is SampleItem)
             {
                 slot.category = ItemCategory.Nothing;
-            }
-            else if (item is Coins)
-            {
-                slot.category = ItemCategory.Coins;
             }
             
             slot.item = item;

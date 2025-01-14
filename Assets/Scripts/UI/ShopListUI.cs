@@ -7,15 +7,16 @@ public class ShopListUI : MonoBehaviour
     public Inventory shop;
     public int index;
     public GameObject countText;
+    public Potion potionToSell;
     
     public void BuyItem()
     {
-        if (GamePlayState.inventory.slots[0].count >= shop.slots[index].item.price)
+        if (GamePlayState.inventory.coins >= shop.slots[index].item.price)
         {
             GamePlayState.inventory.AddItem(shop.slots[index].item);
-            GamePlayState.inventory.slots[0].count -= shop.slots[index].item.price;
+            GamePlayState.inventory.AddCoins(-shop.slots[index].item.price);
 
-            ShoppingState.shop.RemoveItem(shop.slots[index].item);
+            shop.RemoveItem(shop.slots[index].item);
             countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
             if (shop.slots[index].count == 0)
             {
@@ -25,6 +26,20 @@ public class ShopListUI : MonoBehaviour
         else
         {
             Debug.Log("Not enough coins");
+        }
+    }
+
+    public void SellItem()
+    {
+        GamePlayState.inventory.AddCoins(potionToSell.price);
+        GamePlayState.inventory.RemoveItem(potionToSell);
+        if (GamePlayState.inventory.slots[index].count == 0)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
+        else
+        {
+            countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {GamePlayState.inventory.slots[index].count}";
         }
     }
 }
