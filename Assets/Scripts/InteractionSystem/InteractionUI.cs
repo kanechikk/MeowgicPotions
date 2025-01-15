@@ -1,12 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InteractionUI : MonoBehaviour
 {
     private Camera m_mainCamera;
+    public GameObject pressIcon;
+
+    private void Awake()
+    {
+        m_mainCamera = Camera.main;
+    }
 
     private void Start()
     {
-        m_mainCamera = Camera.main;
+        pressIcon.SetActive(false);
     }
 
     private void LateUpdate()

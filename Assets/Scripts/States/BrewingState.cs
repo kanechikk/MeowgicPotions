@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,6 +18,9 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_brewButton;
     [SerializeField] private GameObject m_clearButton;
     [SerializeField] private Item m_itemSample;
+    [SerializeField] private GameObject m_clickableItemPrefab;
+    [SerializeField] private GameObject m_cauldronClickableItemPrefab;
+
 
     private void Start()
     {
@@ -83,15 +84,30 @@ public class BrewingState : MonoBehaviour
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
         GamePlayState.inventory.RemoveItem(ingredient);
+        ClickableItem[] itemsInventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
+
+        foreach (ClickableItem item in itemsInventory)
+        {
+            if (item.item == ingredient)
+            {
+                item.item = m_itemSample;
+                break;
+            }
+        }
+
         CauldronClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
+
         foreach (CauldronClickableItem item in itemsCauldron)
         {
             if (item.item is SampleItem)
             {
                 item.item = ingredient;
+                item.gameObject.SetActive(false);
+                item.gameObject.SetActive(true);
                 break;
             }
         }
+
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
@@ -204,14 +220,13 @@ public class BrewingState : MonoBehaviour
     private void FillSlots()
     {
         // Вызываем айтемы из инвентаря
-        ClickableItem[] items = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
         List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
-        for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
+        foreach (InventorySlot ingredient in ingredients)
         {
-            items[i].item = (Ingredient)ingredients[i].item;
-            Debug.Log(ingredients[i].item);
+            GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
+            newItem.GetComponentInChildren<ClickableItem>().item = ingredient.item;
         }
     }
 

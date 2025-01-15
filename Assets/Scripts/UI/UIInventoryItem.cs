@@ -22,6 +22,11 @@ public class UIInventoryItem : UIItem
         InitialiseItem(item);
     }
 
+    private void OnDisable()
+    {
+        InitialiseItem(item);
+    }
+
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;

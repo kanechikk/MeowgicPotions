@@ -21,11 +21,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         InitialiseItem(item);
     }
-
-    private void OnEnable()
-    {
-        InitialiseItem(item);
-    }
+    
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;

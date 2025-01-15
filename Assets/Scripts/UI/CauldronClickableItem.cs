@@ -15,11 +15,6 @@ public class CauldronClickableItem : UIItem, IPointerClickHandler
     {
         InitialiseItem(item);
     }
-
-    private void OnEnable()
-    {
-        InitialiseItem(item);
-    }
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;
@@ -29,5 +24,6 @@ public class CauldronClickableItem : UIItem, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         onRemoveIngredient?.Invoke((Ingredient)item);
+        InitialiseItem(item);
     }
 }
