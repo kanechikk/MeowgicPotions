@@ -28,8 +28,7 @@ public class PlaeyrConroller : MonoBehaviour
         // Временный код для удобной проверки
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
-            inventoryState.SetActive(true);
-            
+            m_gameMode.GoToInventory();
         }
     }
 }

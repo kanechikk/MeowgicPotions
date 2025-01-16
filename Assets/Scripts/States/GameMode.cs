@@ -40,7 +40,8 @@ public class GameMode : MonoBehaviour
         {
             GoToBrewing();
         }
-        else if (state is ShoppingState)
+        
+        if (state is ShoppingState)
         {
             GoToShopping();
         }

@@ -10,7 +10,7 @@ public class BrewingState : GameStateBehaviour
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
     //UI элементы
-    [SerializeField] private GameObject m_brewingUI;
+    //[SerializeField] private GameObject m_brewingUI;
     [SerializeField] private TextMeshProUGUI[] m_cauldronInfoUI;
     [SerializeField] private TextMeshProUGUI[] m_chosenPotionInfoUI;
     [SerializeField] private PotionBookState m_potionBookState;
@@ -192,7 +192,6 @@ public class BrewingState : GameStateBehaviour
         for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
         {
             items[i].item = (Ingredient)ingredients[i].item;
-            Debug.Log(ingredients[i].item);
         }
     }
 
