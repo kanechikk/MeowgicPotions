@@ -29,13 +29,5 @@ public class WalkingState : GameStateBehaviour
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
-
-		foreach (var item in inventory.slots)
-		{
-			if (item.item != null)
-			{
-				Debug.Log($"{item.item.itemName} : {item.count}");
-			}
-		}
 	}
 }

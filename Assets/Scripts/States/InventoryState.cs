@@ -18,20 +18,20 @@ public class InventoryState : GameStateBehaviour
 
     private void OnEnable()
     {
-        inventoryUI.SetActive(true);
+        //inventoryUI.SetActive(true);
         FillInventoryUI();
     }
-    private void OnDisable()
-    {
-        if (inventoryUI)
-        {
-            inventoryUI.SetActive(false);
-        }
-    }
-    public void CloseInventory()
-    {
-        gameObject.SetActive(false);
-    }
+    // private void OnDisable()
+    // {
+    //     if (inventoryUI)
+    //     {
+    //         inventoryUI.SetActive(false);
+    //     }
+    // }
+    // public void CloseInventory()
+    // {
+    //     gameObject.SetActive(false);
+    // }
     private void FillInventoryUI()
     {
         Debug.Log("FillInv");

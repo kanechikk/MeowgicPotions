@@ -22,20 +22,20 @@ public class ShoppingState : GameStateBehaviour
     }
     private void OnEnable()
     {
-        shoppingUI.SetActive(true);
+        //shoppingUI.SetActive(true);
         if (!ingredients_stocked || !seeds_stocked)
         {
             FillTheShop();
         }
     }
-    private void OnDisable()
-    {
-        shoppingUI.SetActive(false);
-    }
-    public void CloseShop()
-    {
-        gameObject.SetActive(false);
-    }
+    // private void OnDisable()
+    // {
+    //     shoppingUI.SetActive(false);
+    // }
+    // public void CloseShop()
+    // {
+    //     gameObject.SetActive(false);
+    // }
     private void FillTheShop()
     {
         // Заполнение массива ингредиентов из папки Resources

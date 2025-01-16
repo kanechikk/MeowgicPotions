@@ -71,20 +71,25 @@ public class PotionBookState : GameStateBehaviour
         }
     }
 
-    //метод, который висит на кнопке "Выбрать"
-    public void ChoosePotion()
+    public void OnPotionChosen()
     {
         onChoosePotion?.Invoke(m_chosenPotion);
-        CloseBook();
     }
 
-    public void CloseBook()
-    {
-        gameObject.SetActive(false);
-    }
+    // //метод, который висит на кнопке "Выбрать"
+    // public void ChoosePotion()
+    // {
+    //     onChoosePotion?.Invoke(m_chosenPotion);
+    //     CloseBook();
+    // }
 
-    private void OnDisable()
-    {
-        m_PotionBookUI.SetActive(false);
-    }
+    // public void CloseBook()
+    // {
+    //     gameObject.SetActive(false);
+    // }
+
+    // private void OnDisable()
+    // {
+    //     onChoosePotion?.Invoke(m_chosenPotion);
+    // }
 }

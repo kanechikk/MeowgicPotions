@@ -44,7 +44,7 @@ public class BrewingState : GameStateBehaviour
 
     private void OnEnable()
     {
-        m_brewingUI?.SetActive(true);
+        //m_brewingUI?.SetActive(true);
         //заполнение ячеек
         FillSlots();
     }
@@ -165,22 +165,22 @@ public class BrewingState : GameStateBehaviour
     }
 
     //метод, который висит на кнопке открытия книги с зельями
-    public void OpenBook()
-    {
-        m_potionBookState.gameObject.SetActive(true);
-        m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
-    }
+    // public void OpenBook()
+    // {
+    //     m_potionBookState.gameObject.SetActive(true);
+    //     m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
+    // }
 
     //остановка стейта
-    public void StopBrewing()
-    {
-        gameObject.SetActive(false);
-    }
+    // public void StopBrewing()
+    // {
+    //     gameObject.SetActive(false);
+    // }
 
-    private void OnDisable()
-    {
-        m_brewingUI?.SetActive(false);
-    }
+    // private void OnDisable()
+    // {
+    //     m_brewingUI?.SetActive(false);
+    // }
     
     private void FillSlots()
     {

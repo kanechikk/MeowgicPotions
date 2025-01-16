@@ -3,26 +3,27 @@ using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private GameObject stateOfInteractable;
-    [SerializeField] private GameObject uiSign;
+    [SerializeField] private GameStateBehaviour m_stateOfInteractable;
+    [SerializeField] private GameMode m_gameMode;
+    [SerializeField] private GameObject m_uiSign;
     private bool active = false;
     private void OnTriggerEnter(Collider other)
     {
         active = true;
-        uiSign.SetActive(true);
+        m_uiSign.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
         active = false;
-        uiSign.SetActive(false);
+        m_uiSign.SetActive(false);
     }
 
     private void Update()
     {
-        if (active && Keyboard.current.eKey.wasPressedThisFrame && stateOfInteractable != null)
+        if (active && Keyboard.current.eKey.wasPressedThisFrame && m_stateOfInteractable != null)
         {
-            stateOfInteractable.SetActive(true);
+            m_gameMode.GoToState(m_stateOfInteractable);
         }
     }
 }

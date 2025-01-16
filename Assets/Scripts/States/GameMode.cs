@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameMode : MonoBehaviour
@@ -32,9 +34,25 @@ public class GameMode : MonoBehaviour
         m_stateActivator.Back();
     }
 
+    public void GoToState(IGameState state)
+    {
+        if (state is BrewingState)
+        {
+            GoToBrewing();
+        }
+        else if (state is ShoppingState)
+        {
+            GoToShopping();
+        }
+        // else if (state is SleepState)
+        // {
+        //     GoToSleep();
+        // }
+    }
+
     public void GoToBrewing()
     {
-        m_stateActivator.Activate<WalkingState>();
+        m_stateActivator.Push<BrewingState>();
     }
 
     public void GoToPotionBook()
@@ -44,11 +62,21 @@ public class GameMode : MonoBehaviour
 
     public void GoToInventory()
     {
-        m_stateActivator.Activate<InventoryState>();
+        m_stateActivator.Push<InventoryState>();
     }
 
     public void GoToShopping()
     {
-        m_stateActivator.Activate<ShoppingState>();
+        m_stateActivator.Push<ShoppingState>();
     }
+
+    public void GoToWalking()
+    {
+        m_stateActivator.Activate<WalkingState>();
+    }
+
+    // public void GoToSleep()
+    // {
+    //     m_stateActivator.Activate<SleepState>();
+    // }
 }

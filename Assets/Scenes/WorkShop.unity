@@ -3177,6 +3177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 161518585}
   - component: {fileID: 161518586}
+  - component: {fileID: 161518587}
   m_Layer: 0
   m_Name: BrewingState
   m_TagString: Untagged
@@ -3232,6 +3233,20 @@ MonoBehaviour:
   m_brewButton: {fileID: 1468623932}
   m_clearButton: {fileID: 39543300}
   m_itemSample: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
+--- !u!114 &161518587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161518584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 928374176}
 --- !u!1 &162113300
 GameObject:
   m_ObjectHideFlags: 0
@@ -12131,8 +12146,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateOfInteractable: {fileID: 0}
-  uiSign: {fileID: 1701234113}
+  m_stateOfInteractable: {fileID: 0}
+  m_gameMode: {fileID: 1297597204}
+  m_uiSign: {fileID: 1701234113}
 --- !u!64 &594863004
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13400,6 +13416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 224121630}
   inputActions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  m_gameMode: {fileID: 0}
   inventoryState: {fileID: 1873986606}
 --- !u!4 &648140058
 Transform:
@@ -15373,8 +15390,9 @@ GameObject:
   m_Component:
   - component: {fileID: 784498278}
   - component: {fileID: 784498279}
+  - component: {fileID: 784498280}
   m_Layer: 0
-  m_Name: GamePlayState
+  m_Name: WalkingState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15407,6 +15425,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eefa8ea88bc5f24fbe1d0634b8d9e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &784498280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 784498277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects: []
 --- !u!1 &786763777
 GameObject:
   m_ObjectHideFlags: 0
@@ -17564,9 +17595,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 924820824}
-        m_TargetAssemblyTypeName: ShoppingState, Assembly-CSharp
-        m_MethodName: CloseShop
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18000,6 +18031,7 @@ GameObject:
   m_Component:
   - component: {fileID: 924820823}
   - component: {fileID: 924820824}
+  - component: {fileID: 924820825}
   m_Layer: 0
   m_Name: ShoppingState
   m_TagString: Untagged
@@ -18038,6 +18070,20 @@ MonoBehaviour:
   ingredientsPanel: {fileID: 409678900}
   seedsPanel: {fileID: 192609074}
   linePrefab: {fileID: 2981095539308258188, guid: 13c6758abfe809c489423ac1810dc5f7, type: 3}
+--- !u!114 &924820825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924820822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 791138439}
 --- !u!1 &928374176
 GameObject:
   m_ObjectHideFlags: 0
@@ -18637,9 +18683,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2083617762}
         m_TargetAssemblyTypeName: PotionBookState, Assembly-CSharp
-        m_MethodName: ChoosePotion
+        m_MethodName: OnPotionChosen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -23090,7 +23148,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95.07361, y: -21.097046}
+  m_AnchoredPosition: {x: 95.07373, y: -21.097046}
   m_SizeDelta: {x: 190.14722, y: 42.19409}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1144768270
@@ -24492,9 +24550,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 161518586}
-        m_TargetAssemblyTypeName: BrewingState, Assembly-CSharp
-        m_MethodName: OpenBook
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: GoToPotionBook
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -60535,6 +60593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1297597203}
+  - component: {fileID: 1297597204}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -60563,6 +60622,18 @@ Transform:
   - {fileID: 197978011}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1297597204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1297597202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d0b23c21c43f439566a90dc5ef679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1301355106
 GameObject:
   m_ObjectHideFlags: 0
@@ -64843,9 +64914,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2083617762}
-        m_TargetAssemblyTypeName: PotionBookState, Assembly-CSharp
-        m_MethodName: CloseBook
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -66252,8 +66323,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateOfInteractable: {fileID: 924820822}
-  uiSign: {fileID: 1701234113}
+  m_stateOfInteractable: {fileID: 924820824}
+  m_gameMode: {fileID: 1297597204}
+  m_uiSign: {fileID: 1701234113}
 --- !u!224 &1587449224 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8347254574299863122, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
@@ -70917,9 +70989,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 161518586}
-        m_TargetAssemblyTypeName: BrewingState, Assembly-CSharp
-        m_MethodName: StopBrewing
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -71470,6 +71542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1873986607}
   - component: {fileID: 1873986608}
+  - component: {fileID: 1873986609}
   m_Layer: 0
   m_Name: InventoryState
   m_TagString: Untagged
@@ -71509,6 +71582,20 @@ MonoBehaviour:
   ingredientsPanel: {fileID: 304891962}
   seedsPanel: {fileID: 238657713}
   sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
+--- !u!114 &1873986609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873986606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 1527556885}
 --- !u!1 &1892237506
 GameObject:
   m_ObjectHideFlags: 0
@@ -74267,8 +74354,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateOfInteractable: {fileID: 197978010}
-  uiSign: {fileID: 1701234113}
+  m_stateOfInteractable: {fileID: 197978012}
+  m_gameMode: {fileID: 1297597204}
+  m_uiSign: {fileID: 1701234113}
 --- !u!64 &2048780178
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -74684,9 +74772,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1873986608}
-        m_TargetAssemblyTypeName: InventoryState, Assembly-CSharp
-        m_MethodName: CloseInventory
+      - m_Target: {fileID: 1297597204}
+        m_TargetAssemblyTypeName: GameMode, Assembly-CSharp
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -74870,6 +74958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083617761}
   - component: {fileID: 2083617762}
+  - component: {fileID: 2083617763}
   m_Layer: 0
   m_Name: PotionBookState
   m_TagString: Untagged
@@ -74914,6 +75003,20 @@ MonoBehaviour:
   m_btnParent: {fileID: 167046376}
   m_buttonsCreating: {fileID: 1421327247}
   m_PotionBookUI: {fileID: 138781781}
+--- !u!114 &2083617763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083617760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 138781781}
 --- !u!224 &2093347748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8347254574299863122, guid: 2abe8e13cb96181498ae2ebb79b44ea1, type: 3}
@@ -75424,8 +75527,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateOfInteractable: {fileID: 161518584}
-  uiSign: {fileID: 1701234113}
+  m_stateOfInteractable: {fileID: 161518586}
+  m_gameMode: {fileID: 1297597204}
+  m_uiSign: {fileID: 1701234113}
 --- !u!64 &2126428940
 MeshCollider:
   m_ObjectHideFlags: 0
