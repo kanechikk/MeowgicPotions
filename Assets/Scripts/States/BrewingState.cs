@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BrewingState : GameStateBase
+public class BrewingState : GameStateBehaviour
 {
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
@@ -20,9 +20,6 @@ public class BrewingState : GameStateBase
     [SerializeField] private GameObject m_brewButton;
     [SerializeField] private GameObject m_clearButton;
     [SerializeField] private Item m_itemSample;
-
-    private readonly GameFSM m_gameFSM;
-	private readonly GameInstance m_context;
 
     private void Start()
     {
@@ -222,13 +219,4 @@ public class BrewingState : GameStateBase
         WalkingState.inventory.AddItem(m_chosenPotion);
     }
 
-    public override void PotionBook()
-    {
-        m_gameFSM.ActivateState(GameStateEnum.PotionBook);
-    }
-
-    public override void Walking()
-    {
-        m_gameFSM.ActivateState(GameStateEnum.Walking);
-    }
 }

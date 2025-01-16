@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryState : MonoBehaviour
+public class InventoryState : GameStateBehaviour
 {
     public GameObject inventoryUI;
     public GameObject potionsPanel;

@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShoppingState : MonoBehaviour
+public class ShoppingState : GameStateBehaviour
 {
     public GameObject shoppingUI;
     public static Inventory shop;

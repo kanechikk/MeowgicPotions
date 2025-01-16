@@ -1,20 +1,12 @@
 using Mono.Cecil;
 using UnityEngine;
 
-public class WalkingState : GameStateBase
+public class WalkingState : GameStateBehaviour
 {
 	public static Inventory inventory;
 	private static Ingredient[] m_ingredients;
 	public static Ingredient[] ingredients => m_ingredients;
 	private Potion[] m_potions;
-	private readonly GameFSM m_gameFSM;
-	private readonly GameInstance m_context;
-
-	public WalkingState(GameFSM gameFSM, GameInstance context)
-	{
-		m_gameFSM = gameFSM;
-		m_context = context;
-	}
 
 	private void Awake()
 	{
@@ -46,24 +38,4 @@ public class WalkingState : GameStateBase
 			}
 		}
 	}
-
-    public override void Brewing()
-    {
-        m_gameFSM.ActivateState(GameStateEnum.Brewing);
-    }
-
-    public override void Shop()
-    {
-        m_gameFSM.ActivateState(GameStateEnum.Shop);
-    }
-
-    public override void Inventory()
-    {
-        m_gameFSM.ActivateState(GameStateEnum.Inventory);
-    }
-
-    public override void Sleep()
-    {
-		m_gameFSM.ActivateState(GameStateEnum.Sleep);
-    }
 }

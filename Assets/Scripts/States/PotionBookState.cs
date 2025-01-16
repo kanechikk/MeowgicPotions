@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PotionBookState : MonoBehaviour
+public class PotionBookState : GameStateBehaviour
 {
     private Potion[] m_potions;
     private List<GameObject> m_buttons;
