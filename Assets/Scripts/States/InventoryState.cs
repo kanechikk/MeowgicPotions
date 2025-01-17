@@ -77,6 +77,7 @@ public class InventoryState : MonoBehaviour
             else
             {
                 ingredientPanelSlots[i].item = ingredients[i].item;
+                //Debug.Log(ingredients[i].item);
             }
         }
 

@@ -49,5 +49,9 @@ public class ClickableItem : UIItem, IPointerClickHandler
         onAddIngredient?.Invoke((Ingredient)item);
         onAddItem?.Invoke(item);
         m_countText.text = RefreshCount(item);
+        if (m_countText.text == null)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 }

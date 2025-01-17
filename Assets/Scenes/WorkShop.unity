@@ -8225,7 +8225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423798164007417663, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_Name
-      value: Tooltip
+      value: TooltipInv
       objectReference: {fileID: 0}
     - target: {fileID: 8423798164007417663, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_IsActive
@@ -72491,15 +72491,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 676164193020806622, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 676164193020806622, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 676164193020806622, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 676164193020806622, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -72523,7 +72523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8423798164007417663, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_Name
-      value: Tooltip
+      value: TooltipBrew
       objectReference: {fileID: 0}
     - target: {fileID: 8423798164007417663, guid: c1a3fa3785311944e965888c430be69b, type: 3}
       propertyPath: m_IsActive

@@ -24,6 +24,6 @@ public class CauldronClickableItem : UIItem, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         onRemoveIngredient?.Invoke((Ingredient)item);
-        InitialiseItem(item);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
