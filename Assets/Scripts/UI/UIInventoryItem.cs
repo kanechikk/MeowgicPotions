@@ -12,17 +12,7 @@ public class UIInventoryItem : UIItem
         m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void Start()
-    {
-        InitialiseItem(item);
-    }
-
     private void OnEnable()
-    {
-        InitialiseItem(item);
-    }
-
-    private void OnDisable()
     {
         InitialiseItem(item);
     }
@@ -30,7 +20,7 @@ public class UIInventoryItem : UIItem
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;
-        image.sprite = item.icon;
+        image.sprite = newItem.icon;
         m_countText.text = RefreshCount(newItem);
     }
 

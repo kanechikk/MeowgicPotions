@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private Item m_itemSample;
     [SerializeField] private GameObject m_clickableItemPrefab;
     [SerializeField] private GameObject m_cauldronClickableItemPrefab;
+    private bool needToRefreshInventory = true;
 
 
     private void Start()
@@ -30,13 +32,23 @@ public class BrewingState : MonoBehaviour
 
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
+
+        GamePlayState.inventory.onInvChange += OnInventoryChange;
+    }
+
+    private void OnInventoryChange()
+    {
+        needToRefreshInventory = true;
     }
 
     private void OnEnable()
     {
         m_brewingUI?.SetActive(true);
         //заполнение ячеек
-        FillSlots();
+        if (needToRefreshInventory)
+        {
+            FillSlots();
+        }
     }
 
     //остановка стейта
@@ -48,7 +60,14 @@ public class BrewingState : MonoBehaviour
     private void OnDisable()
     {
         m_brewingUI?.SetActive(false);
-
+        if (needToRefreshInventory)
+        {
+            Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+            for (int i = 0; i < inventorySlots.Length; i++)
+            {
+                Destroy(inventorySlots[i].gameObject);
+            }
+        }
     }
 
     private void FillSlots()

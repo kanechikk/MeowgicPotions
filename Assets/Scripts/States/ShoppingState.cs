@@ -1,9 +1,7 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
 using UnityEngine.UI;
 
 public class ShoppingState : MonoBehaviour
@@ -18,12 +16,24 @@ public class ShoppingState : MonoBehaviour
     public GameObject seedsPanel;
     public GameObject potionsPanel;
     public GameObject linePrefab;
+    public TextMeshProUGUI coins;
+    private bool needToRefreshInventory = true;
 
 
     private void Awake()
     {
         shop = new Inventory(32);
     }
+    private void Start()
+    {
+        GamePlayState.inventory.onInvChange += OnInventoryChange;
+    }
+
+    private void OnInventoryChange()
+    {
+        needToRefreshInventory = true;
+    }
+
     private void OnEnable()
     {
         shoppingUI.SetActive(true);
@@ -31,14 +41,22 @@ public class ShoppingState : MonoBehaviour
         {
             FillTheShop();
         }
-        FillSellList();
+        if (needToRefreshInventory)
+        {
+            FillSellList();
+            needToRefreshInventory = false;
+        }
+        coins.text = $"Coins: {GamePlayState.inventory.coins}";
     }
     private void OnDisable()
     {
-        Transform[] sellLists = potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
-        for (int i = 0; i < sellLists.Length; i ++)
+        if (needToRefreshInventory)
         {
-            Destroy(sellLists[i].gameObject);
+            Transform[] sellLists = potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+            for (int i = 0; i < sellLists.Length; i++)
+            {
+                Destroy(sellLists[i].gameObject);
+            }
         }
         shoppingUI.SetActive(false);
     }

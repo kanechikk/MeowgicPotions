@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 
 public class Inventory
@@ -9,6 +10,8 @@ public class Inventory
     public int coins => m_coins;
 
     public List<InventorySlot> slots => m_slots;
+
+    public Action onInvChange;
 
     public Inventory(int slotSize)
     {
@@ -61,6 +64,7 @@ public class Inventory
                 slot.item = null;
             }
             slot.category = ItemCategory.Nothing;
+            onInvChange?.Invoke();
         }
     }
 
@@ -89,6 +93,7 @@ public class Inventory
             
             slot.item = item;
             slot.count++;
+            onInvChange?.Invoke();
         }
     }
 
