@@ -20,80 +20,120 @@ public class BrewingState : MonoBehaviour
     [SerializeField] private GameObject m_brewButton;
     [SerializeField] private GameObject m_clearButton;
     [SerializeField] private Item m_itemSample;
+    [SerializeField] private GameObject m_clickableItemPrefab;
+    [SerializeField] private GameObject m_cauldronClickableItemPrefab;
+    private bool needToRefreshInventory = true;
+
 
     private void Start()
     {
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
         m_brewButton.GetComponent<Button>().interactable = false;
 
-        //подписываемся на события, которые реагируют на добавление объектов в слоты котла 
-        foreach (Transform slot in m_cauldronSlots.transform)
-        {
-            slot.gameObject.GetComponent<DraggableItemSlot>().onAddIngredient += OnAddIngredient;
-        }
-
-        //подписываемся на события, которые реагируют на добавление объектов в слоты инвентаря
-        foreach (Transform slot in m_inventorySlots.transform)
-        {
-            slot.gameObject.GetComponent<DraggableItemSlot>().onReturnFromCauldron += OnRemoveIngredient;
-        }
-
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
+
+        GamePlayState.inventory.onInvChange += OnInventoryChange;
+    }
+
+    private void OnInventoryChange()
+    {
+        needToRefreshInventory = true;
     }
 
     private void OnEnable()
     {
         m_brewingUI?.SetActive(true);
         //заполнение ячеек
-        FillSlots();
+        if (needToRefreshInventory)
+        {
+            FillSlots();
+        }
     }
 
-    //обновление значений элементов в UI
-    //вызывается при каждом добавлении/удалении ингредиента
-    public void ElementsInfoChange(int aqua, int terra, int solar, int ignis, int aer, TextMeshProUGUI[] elementsInfoUI)
+    //остановка стейта
+    public void StopBrewing()
     {
-        foreach (var elementUI in elementsInfoUI)
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        m_brewingUI?.SetActive(false);
+        if (needToRefreshInventory)
         {
-            switch (elementUI.name)
+            Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+            for (int i = 0; i < inventorySlots.Length; i++)
             {
-                case "Aqua":
-                    elementUI.text = $"Aqua: {aqua}";
-                    break;
-                case "Terra":
-                    elementUI.text = $"Terra: {terra}";
-                    break;
-                case "Solar":
-                    elementUI.text = $"Solar: {solar}";
-                    break;
-                case "Ignis":
-                    elementUI.text = $"Ignis: {ignis}";
-                    break;
-                case "Aer":
-                    elementUI.text = $"Aer: {aer}";
-                    break;
+                Destroy(inventorySlots[i].gameObject);
             }
         }
     }
-    
-    //вызывается при добавлении объекта в котел
-    private void OnAddIngredient(Ingredient item)
+
+    private void FillSlots()
     {
-        m_cauldron.AddIngredient(item);
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
-                           m_cauldron.aerCount, m_cauldronInfoUI);
+        // Вызываем айтемы из инвентаря
+        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+
+        // Меняет айтем на тот, что есть в инвентаре игрока
+        foreach (InventorySlot ingredient in ingredients)
+        {
+            GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
+            newItem.GetComponentInChildren<ClickableItem>().item = ingredient.item;
+            newItem.GetComponentInChildren<ClickableItem>().onAddIngredient = OnAddIngredient;
+        }
+    }
+
+    private void OnAddIngredient(Ingredient ingredient)
+    {
+        AddToCauldron(ingredient);
+
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
 
-    //вызывается при перетаскивании объекта в инвентарь
-    private void OnRemoveIngredient(Ingredient item)
+    private void OnRemoveIngredient(Ingredient ingredient)
     {
-        m_cauldron.RemoveIngredient(item);
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
-                           m_cauldron.aerCount, m_cauldronInfoUI);
+        RemoveFromCaldron(ingredient);
+
         BrewButtonOnOff();
         ClearButtonOnOff();
+    }
+
+    private void AddToCauldron(Ingredient ingredient)
+    {
+        m_cauldron.AddIngredient(ingredient);
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
+                           m_cauldron.aerCount, m_cauldronInfoUI);
+        GamePlayState.inventory.RemoveItem(ingredient);
+
+        GameObject newItemCauldron = Instantiate(m_cauldronClickableItemPrefab, m_cauldronSlots.transform);
+        newItemCauldron.GetComponentInChildren<CauldronClickableItem>().InitialiseItem(ingredient);
+        newItemCauldron.GetComponentInChildren<CauldronClickableItem>().onRemoveIngredient += OnRemoveIngredient;
+    }
+
+    private void RemoveFromCaldron(Ingredient ingredient)
+    {
+        m_cauldron.RemoveIngredient(ingredient);
+        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
+                           m_cauldron.aerCount, m_cauldronInfoUI);
+        GamePlayState.inventory.AddItem(ingredient);
+
+
+        ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
+
+        if (Array.Exists(inventory, x => x.item == ingredient))
+        {
+            Debug.Log("Item found");
+            Array.Find(inventory, x => x.item == ingredient).InitialiseItem(ingredient);
+        }
+        else
+        {
+            Debug.Log("Item new");
+            GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
+            newItemCauldron.GetComponentInChildren<ClickableItem>().InitialiseItem(ingredient);
+            newItemCauldron.GetComponentInChildren<ClickableItem>().onAddIngredient += OnAddIngredient;
+        }
     }
 
     //проверка на соответствие рецепту
@@ -136,34 +176,6 @@ public class BrewingState : MonoBehaviour
         m_chosenPotionNameUI.text = m_chosenPotion.itemName;
     }
 
-    public void SetItemsBack()
-    {
-        // Очищаем котел
-        m_cauldron.ClearAll();
-        ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
-                           m_cauldron.aerCount, m_cauldronInfoUI);
-
-        // Получаем все айтемы в брюинге
-        DraggableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
-        DraggableItem[] itemsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
-
-        // Все слоты инвенторя
-        DraggableItemSlot[] transformsInventory = m_inventorySlots.GetComponentsInChildren<DraggableItemSlot>();
-
-        // Заполняем слоты инвенторя айтемами оставшимися
-        for (int i = 0; i < itemsInventory.Length; i++)
-        {
-            itemsInventory[i].transform.SetParent(transformsInventory[i].transform);
-        }
-        for (int i = itemsInventory.Length; i < itemsInventory.Length + itemsCauldron.Length; i++)
-        {
-            itemsCauldron[i - itemsInventory.Length].transform.SetParent(transformsInventory[i].transform);
-        }
-
-        BrewButtonOnOff();
-        ClearButtonOnOff();
-    }
-
     //метод, который висит на кнопке открытия книги с зельями
     public void OpenBook()
     {
@@ -171,51 +183,66 @@ public class BrewingState : MonoBehaviour
         m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
     }
 
-    //остановка стейта
-    public void StopBrewing()
-    {
-        gameObject.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        m_brewingUI?.SetActive(false);
-    }
-    
-    private void FillSlots()
-    {
-        // Вызываем айтемы из инвентаря
-        DraggableItem[] items = m_inventorySlots.GetComponentsInChildren<DraggableItem>();
-        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
-
-        // Меняет айтем на тот, что есть в инвентаре игрока
-        for (int i = 0; i < Math.Min(8, ingredients.Count); i++)
-        {
-            items[i].item = (Ingredient)ingredients[i].item;
-            Debug.Log(ingredients[i].item);
-        }
-    }
-
     public void Brew()
     {
         // Вызываем все айтемы из котла
-        DraggableItem[] items = m_cauldronSlots.GetComponentsInChildren<DraggableItem>();
+        CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
         
         for (int i = 0; i < items.Length; i++)
         {
-            // Если айтем не нул, то мы его убираем из инвентаря, из котла и закидываем на его место сэмпловый
-            if (items[i].item != null)
-            {
-                GamePlayState.inventory.RemoveItem(items[i].item);
+            GamePlayState.inventory.RemoveItem(items[i].ingredient);
                 
-                m_cauldron.RemoveIngredient((Ingredient)items[i].item);
-                items[i].item = m_itemSample;
-            }
+            m_cauldron.RemoveIngredient(items[i].ingredient);
+            items[i].item = m_itemSample;
+            items[i].Remove();
         }
-
-        // Перекидывает айтемы назад в правое окно инвентаря
-        SetItemsBack();
         // Добавляет зелье готовое
         GamePlayState.inventory.AddItem(m_chosenPotion);
+
+        BrewButtonOnOff();
+        ClearButtonOnOff();
+    }
+
+    public void SetItemsBack()
+    {
+        // Получаем все айтемы в брюинге
+        CauldronClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
+
+        // Заполняем слоты инвенторя айтемами оставшимися
+        for (int i = 0; i < itemsCauldron.Length; i++)
+        {
+            RemoveFromCaldron(itemsCauldron[i].ingredient);
+            itemsCauldron[i].Remove();
+        }
+
+        BrewButtonOnOff();
+        ClearButtonOnOff();
+    }
+
+    //обновление значений элементов в UI
+    //вызывается при каждом добавлении/удалении ингредиента
+    public void ElementsInfoChange(int aqua, int terra, int solar, int ignis, int aer, TextMeshProUGUI[] elementsInfoUI)
+    {
+        foreach (var elementUI in elementsInfoUI)
+        {
+            switch (elementUI.name)
+            {
+                case "Aqua":
+                    elementUI.text = $"Aqua: {aqua}";
+                    break;
+                case "Terra":
+                    elementUI.text = $"Terra: {terra}";
+                    break;
+                case "Solar":
+                    elementUI.text = $"Solar: {solar}";
+                    break;
+                case "Ignis":
+                    elementUI.text = $"Ignis: {ignis}";
+                    break;
+                case "Aer":
+                    elementUI.text = $"Aer: {aer}";
+                    break;
+            }
+        }
     }
 }

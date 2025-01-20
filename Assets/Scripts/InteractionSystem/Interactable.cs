@@ -6,6 +6,7 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameObject stateOfInteractable;
     [SerializeField] private GameObject uiSign;
     private bool active = false;
+    
     private void OnTriggerEnter(Collider other)
     {
         active = true;

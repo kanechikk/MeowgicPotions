@@ -1,4 +1,3 @@
-using Mono.Cecil;
 using UnityEngine;
 
 public class GamePlayState : MonoBehaviour
@@ -29,13 +28,8 @@ public class GamePlayState : MonoBehaviour
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
 		inventory.AddItem(m_ingredients[1]);
-
-		foreach (var item in inventory.slots)
-		{
-			if (item.item != null)
-			{
-				Debug.Log($"{item.item.itemName} : {item.count}");
-			}
-		}
+		inventory.AddItem(m_potions[1]);
+		inventory.AddItem(m_potions[1]);
+		inventory.AddItem(m_potions[1]);
 	}
 }

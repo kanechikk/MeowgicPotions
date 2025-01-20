@@ -2,11 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIInventoryItem : MonoBehaviour
+public class UIInventoryItem : UIItem
 {
-    public Item item;
-    private Image image;
-
     private TextMeshProUGUI m_countText;
 
     private void Awake()
@@ -15,20 +12,15 @@ public class UIInventoryItem : MonoBehaviour
         m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void Start()
-    {
-        InitialiseItem(item);
-    }
-
     private void OnEnable()
     {
         InitialiseItem(item);
     }
 
-    public void InitialiseItem(Item newItem)
+    public override void InitialiseItem(Item newItem)
     {
         item = newItem;
-        image.sprite = item.icon;
+        image.sprite = newItem.icon;
         m_countText.text = RefreshCount(newItem);
     }
 
