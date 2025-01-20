@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CauldronClickableItem : UIItem, IPointerClickHandler
 {
+    public Ingredient ingredient;
     public Action<Ingredient> onRemoveIngredient;
     private void Awake()
     {
@@ -15,15 +16,21 @@ public class CauldronClickableItem : UIItem, IPointerClickHandler
     {
         InitialiseItem(item);
     }
-    public override void InitialiseItem(Item newItem)
+
+    public void InitialiseItem(Ingredient newIngredient)
     {
-        item = newItem;
-        image.sprite = item.icon;
+        ingredient = newIngredient;
+        image.sprite = ingredient.icon;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        onRemoveIngredient?.Invoke((Ingredient)item);
+        onRemoveIngredient?.Invoke(ingredient);
+        Remove();
+    }
+
+    public void Remove()
+    {
         Destroy(gameObject.transform.parent.gameObject);
     }
 }
