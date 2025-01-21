@@ -4,20 +4,26 @@ using UnityEngine.InputSystem;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private GameStateBehaviour stateOfInteractable;
-    [SerializeField] private GameObject uiSign;
+    [SerializeField] private RectTransform uiSign;
+    [SerializeField] private RectTransform showPlace;
+    [SerializeField] private RectTransform hidePlace;
     [SerializeField] private GameMode m_gameMode;
     private bool active = false;
     
     private void OnTriggerEnter(Collider other)
     {
         active = true;
-        uiSign.SetActive(true);
+        uiSign.position = showPlace.position;
+        uiSign.rotation = showPlace.rotation;
+        Debug.Log("Enter");
     }
 
     private void OnTriggerExit(Collider other)
     {
         active = false;
-        uiSign.SetActive(false);
+        uiSign.position = hidePlace.position;
+        uiSign.rotation = hidePlace.rotation;
+        Debug.Log("Exit");
     }
 
     private void Update()

@@ -4,16 +4,10 @@ using UnityEngine.UI;
 public class InteractionUI : MonoBehaviour
 {
     private Camera m_mainCamera;
-    public GameObject pressIcon;
 
     private void Awake()
     {
         m_mainCamera = Camera.main;
-    }
-
-    private void Start()
-    {
-        pressIcon.SetActive(false);
     }
 
     private void LateUpdate()

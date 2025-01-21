@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class CauldronClickableItem : UIItem, IPointerClickHandler
 {
-    private new Item item;
     public Ingredient ingredient;
     public Action<Ingredient> onRemoveIngredient;
     private void Awake()
