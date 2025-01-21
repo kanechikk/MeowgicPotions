@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GamePlayState : MonoBehaviour
+public class WalkingState : GameStateBehaviour
 {
 	public static Inventory inventory;
 	private static Ingredient[] m_ingredients;

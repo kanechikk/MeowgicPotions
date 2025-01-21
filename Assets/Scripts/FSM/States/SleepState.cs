@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SleepState : MonoBehaviour
+public class SleepState : GameStateBehaviour
 {
     [SerializeField] private DayTimeManager dayTimeManager;
 

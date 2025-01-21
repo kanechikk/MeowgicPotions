@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryState : MonoBehaviour
+public class InventoryState : GameStateBehaviour
 {
     public GameObject inventoryUI;
     public GameObject potionsPanel;
@@ -27,7 +27,7 @@ public class InventoryState : MonoBehaviour
     {
         inventoryUI.SetActive(true);
         FillInventoryUI();
-        coins.text = $"Coins: {GamePlayState.inventory.coins}";
+        coins.text = $"Coins: {WalkingState.inventory.coins}";
     }
     private void OnDisable()
     {
@@ -44,7 +44,7 @@ public class InventoryState : MonoBehaviour
     {
         // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
 
         foreach (UIInventoryItem slot in potionPanelSlots)
         {
@@ -58,7 +58,7 @@ public class InventoryState : MonoBehaviour
         }
 
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         foreach (UIInventoryItem slot in ingredientPanelSlots)
         {
@@ -72,7 +72,7 @@ public class InventoryState : MonoBehaviour
         }
 
         seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> seeds = GamePlayState.inventory.GetItemsByType(ItemCategory.Seed);
+        List<InventorySlot> seeds = WalkingState.inventory.GetItemsByType(ItemCategory.Seed);
 
         foreach (UIInventoryItem slot in seedPanelSlots)
         {

@@ -3,8 +3,9 @@ using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private GameObject stateOfInteractable;
+    [SerializeField] private GameStateBehaviour stateOfInteractable;
     [SerializeField] private GameObject uiSign;
+    [SerializeField] private GameMode m_gameMode;
     private bool active = false;
     
     private void OnTriggerEnter(Collider other)
@@ -23,7 +24,7 @@ public class Interactable : MonoBehaviour
     {
         if (active && Keyboard.current.eKey.wasPressedThisFrame && stateOfInteractable != null)
         {
-            stateOfInteractable.SetActive(true);
+            m_gameMode.GoToState(stateOfInteractable);
         }
     }
 }

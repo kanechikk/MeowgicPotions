@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BrewingState : MonoBehaviour
+public class BrewingState : GameStateBehaviour
 {
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
@@ -33,7 +33,7 @@ public class BrewingState : MonoBehaviour
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
 
-        GamePlayState.inventory.onInvChange += OnInventoryChange;
+        WalkingState.inventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange()
@@ -43,7 +43,7 @@ public class BrewingState : MonoBehaviour
 
     private void OnEnable()
     {
-        m_brewingUI?.SetActive(true);
+        //m_brewingUI?.SetActive(true);
         //заполнение ячеек
         if (needToRefreshInventory)
         {
@@ -59,7 +59,7 @@ public class BrewingState : MonoBehaviour
 
     private void OnDisable()
     {
-        m_brewingUI?.SetActive(false);
+        //m_brewingUI?.SetActive(false);
         if (needToRefreshInventory)
         {
             Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
@@ -73,7 +73,7 @@ public class BrewingState : MonoBehaviour
     private void FillSlots()
     {
         // Вызываем айтемы из инвентаря
-        List<InventorySlot> ingredients = GamePlayState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot ingredient in ingredients)
@@ -105,7 +105,7 @@ public class BrewingState : MonoBehaviour
         m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
-        GamePlayState.inventory.RemoveItem(ingredient);
+        WalkingState.inventory.RemoveItem(ingredient);
 
         GameObject newItemCauldron = Instantiate(m_cauldronClickableItemPrefab, m_cauldronSlots.transform);
         newItemCauldron.GetComponentInChildren<CauldronClickableItem>().InitialiseItem(ingredient);
@@ -117,7 +117,7 @@ public class BrewingState : MonoBehaviour
         m_cauldron.RemoveIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
-        GamePlayState.inventory.AddItem(ingredient);
+        WalkingState.inventory.AddItem(ingredient);
 
 
         ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
@@ -177,11 +177,11 @@ public class BrewingState : MonoBehaviour
     }
 
     //метод, который висит на кнопке открытия книги с зельями
-    public void OpenBook()
-    {
-        m_potionBookState.gameObject.SetActive(true);
-        m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
-    }
+    // public void OpenBook()
+    // {
+    //     m_potionBookState.gameObject.SetActive(true);
+    //     m_brewingUI.GetComponent<CanvasRenderer>().cullTransparentMesh = false;
+    // }
 
     public void Brew()
     {
@@ -190,14 +190,14 @@ public class BrewingState : MonoBehaviour
         
         for (int i = 0; i < items.Length; i++)
         {
-            GamePlayState.inventory.RemoveItem(items[i].ingredient);
+            WalkingState.inventory.RemoveItem(items[i].ingredient);
                 
             m_cauldron.RemoveIngredient(items[i].ingredient);
             items[i].item = m_itemSample;
             items[i].Remove();
         }
         // Добавляет зелье готовое
-        GamePlayState.inventory.AddItem(m_chosenPotion);
+        WalkingState.inventory.AddItem(m_chosenPotion);
 
         BrewButtonOnOff();
         ClearButtonOnOff();

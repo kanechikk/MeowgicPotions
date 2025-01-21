@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PotionBookState : MonoBehaviour
+public class PotionBookState : GameStateBehaviour
 {
     private Potion[] m_potions;
     private List<GameObject> m_buttons;
@@ -24,7 +24,7 @@ public class PotionBookState : MonoBehaviour
     }
     private void OnEnable()
     {
-        m_PotionBookUI.SetActive(true);
+        //m_PotionBookUI.SetActive(true);
         //получение списка всех существующих зелий
         m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
 
@@ -74,16 +74,15 @@ public class PotionBookState : MonoBehaviour
     public void ChoosePotion()
     {
         onChoosePotion?.Invoke(m_chosenPotion);
-        CloseBook();
     }
 
-    public void CloseBook()
-    {
-        gameObject.SetActive(false);
-    }
+    // public void CloseBook()
+    // {
+    //     gameObject.SetActive(false);
+    // }
 
-    private void OnDisable()
-    {
-        m_PotionBookUI.SetActive(false);
-    }
+    // private void OnDisable()
+    // {
+    //     m_PotionBookUI.SetActive(false);
+    // }
 }

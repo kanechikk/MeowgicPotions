@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShoppingState : MonoBehaviour
+public class ShoppingState : GameStateBehaviour
 {
     public GameObject shoppingUI;
     public Inventory shop;
@@ -26,7 +26,7 @@ public class ShoppingState : MonoBehaviour
     }
     private void Start()
     {
-        GamePlayState.inventory.onInvChange += OnInventoryChange;
+        WalkingState.inventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange()
@@ -36,7 +36,7 @@ public class ShoppingState : MonoBehaviour
 
     private void OnEnable()
     {
-        shoppingUI.SetActive(true);
+        //shoppingUI.SetActive(true);
         if (!ingredients_stocked || !seeds_stocked)
         {
             FillTheShop();
@@ -46,7 +46,7 @@ public class ShoppingState : MonoBehaviour
             FillSellList();
             needToRefreshInventory = false;
         }
-        coins.text = $"Coins: {GamePlayState.inventory.coins}";
+        coins.text = $"Coins: {WalkingState.inventory.coins}";
     }
     private void OnDisable()
     {
@@ -58,12 +58,12 @@ public class ShoppingState : MonoBehaviour
                 Destroy(sellLists[i].gameObject);
             }
         }
-        shoppingUI.SetActive(false);
+        //shoppingUI.SetActive(false);
     }
-    public void CloseShop()
-    {
-        gameObject.SetActive(false);
-    }
+    // public void CloseShop()
+    // {
+    //     gameObject.SetActive(false);
+    // }
     private void FillTheShop()
     {
         // Заполнение массива ингредиентов из папки Resources
@@ -118,7 +118,7 @@ public class ShoppingState : MonoBehaviour
 
     private void FillSellList()
     {
-        List<InventorySlot> potions = GamePlayState.inventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
         
         for (int i = 0; i < potions.Count; i++)
         {
@@ -130,7 +130,7 @@ public class ShoppingState : MonoBehaviour
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = potion.ElementsToString();
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().potionToSell = potion;
 
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = GamePlayState.inventory.slots.FindIndex(x => x == potions[i]);
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = WalkingState.inventory.slots.FindIndex(x => x == potions[i]);
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
 
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().SellItem);

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1068189805500071840}
   - component: {fileID: 7048100112441213638}
+  - component: {fileID: 6018791036443842081}
   m_Layer: 0
   m_Name: PotionBookState
   m_TagString: Untagged
@@ -54,6 +55,20 @@ MonoBehaviour:
   m_btnParent: {fileID: 0}
   m_buttonsCreating: {fileID: 0}
   m_PotionBookUI: {fileID: 0}
+--- !u!114 &6018791036443842081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14247441365007823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &1089379309934141011
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,6 +78,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9092467340196784839}
+  - component: {fileID: 5069815130382966154}
   m_Layer: 0
   m_Name: States
   m_TagString: Untagged
@@ -91,6 +107,18 @@ Transform:
   - {fileID: 3441828817453346972}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5069815130382966154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089379309934141011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 022d0b23c21c43f439566a90dc5ef679, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2965355054151991624
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1310304027283527446}
   - component: {fileID: 2070638483644484004}
+  - component: {fileID: 4713423422752658166}
   m_Layer: 0
   m_Name: BrewingState
   m_TagString: Untagged
@@ -158,6 +187,20 @@ MonoBehaviour:
   m_itemSample: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
   m_clickableItemPrefab: {fileID: 2129481219752210446, guid: 2ee825f9d4182bb4caa9e89dba8ae946, type: 3}
   m_cauldronClickableItemPrefab: {fileID: 8344881386399602189, guid: 87e5772560ee12e49873c7b84453a28b, type: 3}
+--- !u!114 &4713423422752658166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2965355054151991624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &3386497599858163871
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8547504901500215116}
   - component: {fileID: 1005373988975620553}
+  - component: {fileID: 172485784533160560}
   m_Layer: 0
   m_Name: ShoppingState
   m_TagString: Untagged
@@ -208,6 +252,20 @@ MonoBehaviour:
   potionsPanel: {fileID: 0}
   linePrefab: {fileID: 2981095539308258188, guid: 13c6758abfe809c489423ac1810dc5f7, type: 3}
   coins: {fileID: 0}
+--- !u!114 &172485784533160560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386497599858163871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &5018099130240940595
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,9 +275,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6945810446442456085}
-  - component: {fileID: 3092393933272948777}
+  - component: {fileID: 2860707615326778305}
+  - component: {fileID: 8890015927477002318}
   m_Layer: 0
-  m_Name: GamePlayState
+  m_Name: WalkingState
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +299,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 9092467340196784839}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3092393933272948777
+--- !u!114 &2860707615326778305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,9 +308,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5018099130240940595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7eefa8ea88bc5f24fbe1d0634b8d9e07, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d873397523326644a2af343011dbe79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8890015927477002318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5018099130240940595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects: []
 --- !u!1 &8173587581364513908
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,6 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1811464934222734934}
   - component: {fileID: 8397969596143248450}
+  - component: {fileID: 5827645761092750229}
   m_Layer: 0
   m_Name: InventoryState
   m_TagString: Untagged
@@ -347,3 +420,17 @@ MonoBehaviour:
   seedsPanel: {fileID: 0}
   sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
   coins: {fileID: 0}
+--- !u!114 &5827645761092750229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8602593018285999002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
