@@ -12,7 +12,7 @@ public class UIInventoryItem : UIItem
         m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
         InitialiseItem(item);
     }

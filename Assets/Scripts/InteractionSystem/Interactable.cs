@@ -15,7 +15,6 @@ public class Interactable : MonoBehaviour
         active = true;
         uiSign.position = showPlace.position;
         uiSign.rotation = showPlace.rotation;
-        Debug.Log("Enter");
     }
 
     private void OnTriggerExit(Collider other)
@@ -23,7 +22,6 @@ public class Interactable : MonoBehaviour
         active = false;
         uiSign.position = hidePlace.position;
         uiSign.rotation = hidePlace.rotation;
-        Debug.Log("Exit");
     }
 
     private void Update()
