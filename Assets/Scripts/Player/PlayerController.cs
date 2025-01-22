@@ -7,6 +7,7 @@ public class PlaeyrConroller : MonoBehaviour
     public Player player;
     public InputActionAsset inputActions;
     private InputAction m_moveAction;
+    [SerializeField] private GameMode m_states;
     
     // Временный код для удобной проверки
     public GameObject inventoryState;
@@ -27,7 +28,7 @@ public class PlaeyrConroller : MonoBehaviour
         // Временный код для удобной проверки
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
-            inventoryState.SetActive(true);
+            m_states.GoToInventory();
         }
     }
 }
