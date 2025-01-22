@@ -18,15 +18,12 @@ public class InventoryState : GameStateBehaviour
     private UIInventoryItem[] seedPanelSlots;
     private int page;
 
-    private void Start()
-    {
-        FillInventoryUI();
-    }
-
     private void OnEnable()
     {
         inventoryUI.SetActive(true);
-        FillInventoryUI();
+        FillPotions();
+        FillIngredients();
+        FillSeeds();
         coins.text = $"Coins: {WalkingState.inventory.coins}";
     }
     private void OnDisable()
@@ -40,9 +37,8 @@ public class InventoryState : GameStateBehaviour
     {
         gameObject.SetActive(false);
     }
-    private void FillInventoryUI()
+    private void FillPotions()
     {
-        // Скипает первый элемент массива, так как он туда закидывает еще трансформ бэкграунда магазина
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
 
@@ -56,7 +52,9 @@ public class InventoryState : GameStateBehaviour
         {
             potionPanelSlots[i].InitialiseItem(potions[i].item);
         }
-
+    }
+    private void FillIngredients()
+    {
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
 
@@ -70,7 +68,9 @@ public class InventoryState : GameStateBehaviour
             ingredientPanelSlots[i].InitialiseItem(ingredients[i].item);
             //Debug.Log(ingredients[i].item);
         }
-
+    }
+    private void FillSeeds()
+    {
         seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
         List<InventorySlot> seeds = WalkingState.inventory.GetItemsByType(ItemCategory.Seed);
 
