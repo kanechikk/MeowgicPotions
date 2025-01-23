@@ -39,16 +39,24 @@ public class GameMode : MonoBehaviour
         if (state is BrewingState)
         {
             GoToBrewing();
+            return;
         }
         
         if (state is ShoppingState)
         {
             GoToShopping();
+            return;
         }
         // else if (state is SleepState)
         // {
         //     GoToSleep();
         // }
+
+        if (state is PlantingState)
+        {
+            GoToPlanting();
+            return;
+        }
     }
 
     public void GoToBrewing()
@@ -74,6 +82,11 @@ public class GameMode : MonoBehaviour
     public void GoToWalking()
     {
         m_stateActivator.Activate<WalkingState>();
+    }
+
+    public void GoToPlanting()
+    {
+        m_stateActivator.Push<PlantingState>();
     }
 
     // public void GoToSleep()
