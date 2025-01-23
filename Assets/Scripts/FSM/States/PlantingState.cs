@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,9 +10,17 @@ public class PlantingState : GameStateBehaviour
     [SerializeField] private GameObject m_inventorySlots;
 
     private Seed m_currentSeed;
+    private bool m_needToRefreshInventory;
+
     public event Action<Seed> onPlantSeed;
 
     private void OnEnable()
+    {
+        FillSlots();
+        WalkingState.inventory.onInvChange += OnInventoryChange;
+    }
+
+    private void OnInventoryChange()
     {
         FillSlots();
     }
@@ -33,10 +42,22 @@ public class PlantingState : GameStateBehaviour
     private void OnAddItem(Item seed)
     {
         m_currentSeed = (Seed)seed;
+        Debug.Log("Seed chosen");
     }
 
     public void Plant()
     {
+        WalkingState.inventory.RemoveItem(m_currentSeed);
         onPlantSeed?.Invoke(m_currentSeed);
+        Debug.Log($"{m_currentSeed.itemName} planted");
+    }
+
+    private void OnDisable()
+    {
+        Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            Destroy(inventorySlots[i].gameObject);
+        }
     }
 }

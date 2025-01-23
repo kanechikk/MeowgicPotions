@@ -47,6 +47,7 @@ public class GameMode : MonoBehaviour
             GoToShopping();
             return;
         }
+        
         // else if (state is SleepState)
         // {
         //     GoToSleep();
