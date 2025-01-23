@@ -48,10 +48,11 @@ public class GameMode : MonoBehaviour
             return;
         }
         
-        // else if (state is SleepState)
-        // {
-        //     GoToSleep();
-        // }
+        if (state is SleepState)
+        {
+            GoToSleep();
+            return;
+        }
 
         if (state is PlantingState)
         {
@@ -90,8 +91,8 @@ public class GameMode : MonoBehaviour
         m_stateActivator.Push<PlantingState>();
     }
 
-    // public void GoToSleep()
-    // {
-    //     m_stateActivator.Activate<SleepState>();
-    // }
+    public void GoToSleep()
+    {
+        m_stateActivator.Push<SleepState>();
+    }
 }

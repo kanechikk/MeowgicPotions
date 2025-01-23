@@ -7,7 +7,9 @@ public class Plant : MonoBehaviour
     private int m_daysAfterPlanting = 0;
     private Seed m_seed;
     private bool m_isWatered = false;
+    public bool isWatered => m_isWatered;
     private bool m_isReadyToHarvest;
+    public bool isReadyToHarvest => m_isReadyToHarvest;
 
     //подписываемся на событие смены дня
     public void SubscribeOnDayTimeManager(DayTimeManager dayTimeManager)
@@ -17,14 +19,17 @@ public class Plant : MonoBehaviour
 
     public void PlantSeed(Seed seed)
     {
+        Debug.Log($"{seed.itemName} is planted");
         m_seed = seed;
         //по имени ищем ингредиент, семечко которого посадили
         //позже строчку нужно будет поменять
-        m_plant = Array.Find(GardenLevelController.ingredients, x => $"{x.itemName} Seed" == seed.itemName);
+        m_plant = Array.Find(WalkingState.ingredients, x => $"{x.itemName} Seed" == seed.itemName);
         //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
         //получаем картинку посаженного растения
         transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = m_plant.icon;
+
+        transform.GetComponentInParent<SoilHole>().GetBusy(true);
     }
 
     private void ShowPlant(GameObject plant)
@@ -41,6 +46,7 @@ public class Plant : MonoBehaviour
     public void WaterPlant()
     {
         m_isWatered = true;
+        Debug.Log($"{m_seed} is watered");
     }
 
     private void OnDateTimeChange()
@@ -50,8 +56,8 @@ public class Plant : MonoBehaviour
         {
             m_daysAfterPlanting += 1;
             m_isWatered = false;
+            Debug.Log("plant is growing");
         }
-
         //если растение выросло, мы показываем спрайт вырасшего растения, скрываем росток
         //помечаем, что растение готово для сбора
         if (m_daysAfterPlanting == m_seed.daysToGrow)
@@ -70,6 +76,7 @@ public class Plant : MonoBehaviour
             m_daysAfterPlanting = 0;
             m_isReadyToHarvest = false;
             UnshowPlant(transform.GetChild(1).gameObject);
+            Debug.Log($"{m_seed} is harvested");
             return m_plant;
         }
         else

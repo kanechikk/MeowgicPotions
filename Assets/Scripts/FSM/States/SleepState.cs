@@ -3,10 +3,11 @@ using UnityEngine;
 public class SleepState : GameStateBehaviour
 {
     [SerializeField] private DayTimeManager dayTimeManager;
+    [SerializeField] private GameMode m_gameMode;
 
     private void OnEnable()
     {
         dayTimeManager.DayAdd();
-        gameObject.SetActive(false);
+        m_gameMode.Back();
     }
 }

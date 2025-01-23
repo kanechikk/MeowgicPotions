@@ -8,11 +8,18 @@ public class PlantingState : GameStateBehaviour
 {
     [SerializeField] private GameObject m_clickableItemPrefab;
     [SerializeField] private GameObject m_inventorySlots;
-
+    [SerializeField] private DayTimeManager m_dayTimeManager;
+    [SerializeField] private Plant[] m_plants;
     private Seed m_currentSeed;
-    private bool m_needToRefreshInventory;
-
     public event Action<Seed> onPlantSeed;
+
+    private void Start()
+    {
+        foreach (Plant plant in m_plants)
+        {
+            plant.SubscribeOnDayTimeManager(m_dayTimeManager);
+        }
+    }
 
     private void OnEnable()
     {
@@ -42,14 +49,13 @@ public class PlantingState : GameStateBehaviour
     private void OnAddItem(Item seed)
     {
         m_currentSeed = (Seed)seed;
-        Debug.Log("Seed chosen");
+        Debug.Log($"{m_currentSeed.itemName} chosen");
     }
 
     public void Plant()
     {
         WalkingState.inventory.RemoveItem(m_currentSeed);
         onPlantSeed?.Invoke(m_currentSeed);
-        Debug.Log($"{m_currentSeed.itemName} planted");
     }
 
     private void OnDisable()
