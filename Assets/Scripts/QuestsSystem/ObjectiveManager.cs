@@ -5,7 +5,6 @@ using UnityEngine;
 public class ObjectiveManager
 {
 	public Action<Objective> OnObjectiveAdded;
-
 	public List<Objective> Objectives { get; } = new();
 	private readonly Dictionary<string, List<Objective>> _objectiveMap = new();
 

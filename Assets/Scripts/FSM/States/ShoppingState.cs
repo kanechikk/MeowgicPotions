@@ -26,7 +26,7 @@ public class ShoppingState : GameStateBehaviour
     }
     private void Start()
     {
-        WalkingState.inventory.onInvChange += OnInventoryChange;
+        GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange()
@@ -46,7 +46,7 @@ public class ShoppingState : GameStateBehaviour
             FillSellList();
             needToRefreshInventory = false;
         }
-        coins.text = $"Coins: {WalkingState.inventory.coins}";
+        coins.text = $"Coins: {GameManager.playerInventory.coins}";
     }
     private void OnDisable()
     {
@@ -118,7 +118,7 @@ public class ShoppingState : GameStateBehaviour
 
     private void FillSellList()
     {
-        List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = GameManager.playerInventory.GetItemsByType(ItemCategory.Potion);
         
         for (int i = 0; i < potions.Count; i++)
         {
@@ -130,7 +130,7 @@ public class ShoppingState : GameStateBehaviour
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = potion.ElementsToString();
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().potionToSell = potion;
 
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = WalkingState.inventory.slots.FindIndex(x => x == potions[i]);
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = GameManager.playerInventory.slots.FindIndex(x => x == potions[i]);
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
 
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().SellItem);

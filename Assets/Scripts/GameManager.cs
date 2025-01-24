@@ -3,19 +3,32 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Inventory playerInventory;
-    public ObjectiveManager objectiveManager;
-    public QuestInfo objectiveInfo;
-    public Objective objective;
+    public static Inventory playerInventory;
+    public static ObjectiveManager objectiveManager;
+    [SerializeField] private QuestInfo objectiveInfo;
+    [SerializeField] private Objective objective;
+    public ItemsDB itemsDB;
 
     private void Awake()
     {
-        objectiveInfo = Resources.Load<QuestInfo>("ScriptableObjects/MakeOneHealthPotion");
+        Ingredient[] m_ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        Potion[] m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+        Seed[] m_seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
+        itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
+
+        playerInventory = new Inventory(32);
         objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
+        objectiveManager = new ObjectiveManager();
     }
 
     private void Start()
     {
         objectiveManager.AddObjective(objective);
+        for (int i = 0 ; i < 5; i++)
+        {
+            playerInventory.AddItem(itemsDB.ingredients[i]);
+            playerInventory.AddItem(itemsDB.potions[i]);
+            playerInventory.AddItem(itemsDB.seeds[i]);
+        }
     }
 }

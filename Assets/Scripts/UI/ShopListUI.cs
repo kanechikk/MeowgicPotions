@@ -11,10 +11,10 @@ public class ShopListUI : MonoBehaviour
     
     public void BuyItem()
     {
-        if (WalkingState.inventory.coins >= shop.slots[index].item.price)
+        if (GameManager.playerInventory.coins >= shop.slots[index].item.price)
         {
-            WalkingState.inventory.AddItem(shop.slots[index].item);
-            WalkingState.inventory.AddCoins(-shop.slots[index].item.price);
+            GameManager.playerInventory.AddItem(shop.slots[index].item);
+            GameManager.playerInventory.AddCoins(-shop.slots[index].item.price);
 
             shop.RemoveItem(shop.slots[index].item);
             countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
@@ -31,15 +31,15 @@ public class ShopListUI : MonoBehaviour
 
     public void SellItem()
     {
-        WalkingState.inventory.AddCoins(potionToSell.price);
-        WalkingState.inventory.RemoveItem(potionToSell);
-        if (WalkingState.inventory.slots[index].count == 0)
+        GameManager.playerInventory.AddCoins(potionToSell.price);
+        GameManager.playerInventory.RemoveItem(potionToSell);
+        if (GameManager.playerInventory.slots[index].count == 0)
         {
             Destroy(gameObject.transform.parent.gameObject);
         }
         else
         {
-            countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {WalkingState.inventory.slots[index].count}";
+            countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {GameManager.playerInventory.slots[index].count}";
         }
     }
 }

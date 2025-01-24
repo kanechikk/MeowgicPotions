@@ -24,7 +24,7 @@ public class InventoryState : GameStateBehaviour
         FillPotions();
         FillIngredients();
         FillSeeds();
-        coins.text = $"Coins: {WalkingState.inventory.coins}";
+        coins.text = $"Coins: {GameManager.playerInventory.coins}";
     }
     private void OnDisable()
     {
@@ -40,7 +40,7 @@ public class InventoryState : GameStateBehaviour
     private void FillPotions()
     {
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> potions = WalkingState.inventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = GameManager.playerInventory.GetItemsByType(ItemCategory.Potion);
 
         foreach (UIInventoryItem slot in potionPanelSlots)
         {
@@ -56,7 +56,7 @@ public class InventoryState : GameStateBehaviour
     private void FillIngredients()
     {
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = GameManager.playerInventory.GetItemsByType(ItemCategory.Ingredient);
 
         foreach (UIInventoryItem slot in ingredientPanelSlots)
         {
@@ -72,7 +72,7 @@ public class InventoryState : GameStateBehaviour
     private void FillSeeds()
     {
         seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> seeds = WalkingState.inventory.GetItemsByType(ItemCategory.Seed);
+        List<InventorySlot> seeds = GameManager.playerInventory.GetItemsByType(ItemCategory.Seed);
 
         foreach (UIInventoryItem slot in seedPanelSlots)
         {
