@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayTimeManager: {fileID: 0}
-  m_gameMode: {fileID: 0}
+  m_gameMode: {fileID: 5069815130382966154}
 --- !u!1 &8602593018285999002
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,6 +483,10 @@ PrefabInstance:
     - target: {fileID: 2750932561876652095, guid: deb21d5502a1bba448010c5e824aff3d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4136381463843207995, guid: deb21d5502a1bba448010c5e824aff3d, type: 3}
+      propertyPath: m_plants.Array.size
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8153823643056993172, guid: deb21d5502a1bba448010c5e824aff3d, type: 3}
       propertyPath: m_Name

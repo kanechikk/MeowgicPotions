@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 public class WateringPot
 {
     private int m_maxValue;
@@ -8,7 +10,7 @@ public class WateringPot
     public WateringPot(int maxValue)
     {
         m_maxValue = maxValue;
-        m_currentValue = maxValue;
+        m_currentValue = 0;
     }
 
     public void FillPot()

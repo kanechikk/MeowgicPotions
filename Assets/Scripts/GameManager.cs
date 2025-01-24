@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private WateringPot m_wateringPot;
-    public WateringPot wateringPot => m_wateringPot;
+    public WateringPot wateringPot;
     [SerializeField] private int m_wateringPotMaxValue;
     private void OnEnable()
     {
         CreateWateringPot(m_wateringPotMaxValue);
+        Debug.Log(wateringPot.currentValue);
     }
 
     private void CreateWateringPot(int maxValue)
     {
-        m_wateringPot = new WateringPot(maxValue);
+        wateringPot = new WateringPot(maxValue);
     }
 }

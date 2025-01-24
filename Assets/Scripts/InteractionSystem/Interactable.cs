@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class Interactable : MonoBehaviour
 {
     [SerializeField] private GameStateBehaviour stateOfInteractable;
+    [SerializeField] private WateringPotController m_wateringPotController;
     [SerializeField] private GameMode m_gameMode;
     private bool active = false;
     
@@ -19,9 +20,16 @@ public class Interactable : MonoBehaviour
 
     private void Update()
     {
-        if (active && Keyboard.current.eKey.wasPressedThisFrame && stateOfInteractable != null)
+        if (active && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            m_gameMode.GoToState(stateOfInteractable);
+            if (stateOfInteractable != null)
+            {
+                m_gameMode.GoToState(stateOfInteractable);
+            }
+            else if (m_wateringPotController != null)
+            {
+                m_wateringPotController.FillPot();
+            }
         }
     }
 }
