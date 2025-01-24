@@ -10,7 +10,7 @@ public class WateringPot
     public WateringPot(int maxValue)
     {
         m_maxValue = maxValue;
-        m_currentValue = 0;
+        m_currentValue = maxValue;
     }
 
     public void FillPot()

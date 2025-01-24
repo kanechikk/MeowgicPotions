@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         CreateWateringPot(m_wateringPotMaxValue);
-        Debug.Log(wateringPot.currentValue);
+        Debug.Log($"Watering Pot: {wateringPot.currentValue}");
     }
 
     private void CreateWateringPot(int maxValue)
