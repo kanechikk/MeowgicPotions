@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private WateringPot m_wateringPot;
+    public WateringPot wateringPot => m_wateringPot;
+    [SerializeField] private int m_wateringPotMaxValue;
+    private void OnEnable()
     {
-        
+        CreateWateringPot(m_wateringPotMaxValue);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void CreateWateringPot(int maxValue)
     {
-        
+        m_wateringPot = new WateringPot(maxValue);
     }
 }
