@@ -33,13 +33,13 @@ public class InteractableGarden : MonoBehaviour
             {
                 m_gameMode.GoToPlanting();
             }
-            else if (!plant.isWatered)
-            {
-                plant.WaterPlant();
-            }
             else if (plant.isReadyToHarvest)
             {
                 WalkingState.inventory.AddItem(plant.HarvestPlant());
+            }
+            else if (!plant.isWatered)
+            {
+                plant.WaterPlant();
             }
         }
     }

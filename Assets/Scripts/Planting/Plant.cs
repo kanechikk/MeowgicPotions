@@ -51,20 +51,22 @@ public class Plant : MonoBehaviour
 
     private void OnDateTimeChange()
     {
-        //при смене дня, если растение было полито, оно продолжает расти, если нет, то нет
-        if (m_isWatered)
+        if (m_seed != null)
         {
-            m_daysAfterPlanting += 1;
-            m_isWatered = false;
-            Debug.Log("plant is growing");
-        }
-        //если растение выросло, мы показываем спрайт вырасшего растения, скрываем росток
-        //помечаем, что растение готово для сбора
-        if (m_daysAfterPlanting == m_seed.daysToGrow)
-        {
-            UnshowPlant(transform.GetChild(0).gameObject);
-            ShowPlant(transform.GetChild(1).gameObject);
-            m_isReadyToHarvest = true;
+            //при смене дня, если растение было полито, оно продолжает расти, если нет, то нет
+            if (m_isWatered)
+            {
+                m_daysAfterPlanting += 1;
+                m_isWatered = false;
+            }
+            //если растение выросло, мы показываем спрайт вырасшего растения, скрываем росток
+            //помечаем, что растение готово для сбора
+            if (m_daysAfterPlanting == m_seed.daysToGrow)
+            {
+                UnshowPlant(transform.GetChild(0).gameObject);
+                ShowPlant(transform.GetChild(1).gameObject);
+                m_isReadyToHarvest = true;
+            }
         }
     }
 
