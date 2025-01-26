@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static ObjectiveManager objectiveManager;
     [SerializeField] private QuestInfo objectiveInfo;
     [SerializeField] private Objective objective;
-    public ItemsDB itemsDB;
+    public static ItemsDB itemsDB;
 
     private void Awake()
     {
@@ -24,11 +24,15 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         objectiveManager.AddObjective(objective);
-        for (int i = 0 ; i < 5; i++)
+        for (int i = 0 ; i < 8; i++)
         {
             playerInventory.AddItem(itemsDB.ingredients[i]);
-            playerInventory.AddItem(itemsDB.potions[i]);
             playerInventory.AddItem(itemsDB.seeds[i]);
+        }
+        for (int i = 0; i < 5; i++)
+        {
+
+            playerInventory.AddItem(itemsDB.potions[i]);
         }
     }
 }
