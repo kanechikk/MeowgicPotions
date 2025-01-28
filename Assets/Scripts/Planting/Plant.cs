@@ -27,7 +27,11 @@ public class Plant : MonoBehaviour
         //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
         //получаем картинку посаженного растения
-        transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = m_plant.icon;
+        
+        Renderer ren = transform.GetChild(1).GetComponent<Renderer>();
+        Material[] mat = ren.materials;
+        mat[0] = m_plant.material;
+        ren.materials = mat;
 
         transform.GetComponentInParent<SoilHole>().GetBusy(true);
     }

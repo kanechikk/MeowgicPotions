@@ -1,13 +1,15 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
     public static Inventory playerInventory;
     public static ObjectiveManager objectiveManager;
-    [SerializeField] private QuestInfo objectiveInfo;
-    [SerializeField] private Objective objective;
-    public static ItemsDB itemsDB;
+    // [SerializeField] private QuestInfo objectiveInfo;
+    // [SerializeField] private Objective objective;
+    public ItemsDB itemsDB;
+    public WateringPot wateringPot;
+    [SerializeField] private int m_wateringPotMaxValue;
 
     private void Awake()
     {
@@ -17,22 +19,25 @@ public class GameManager : MonoBehaviour
         itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
 
         playerInventory = new Inventory(32);
-        objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
-        objectiveManager = new ObjectiveManager();
+        // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
+        // objectiveManager = new ObjectiveManager();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        objectiveManager.AddObjective(objective);
-        for (int i = 0 ; i < 8; i++)
+        CreateWateringPot(m_wateringPotMaxValue);
+        Debug.Log($"Watering Pot: {wateringPot.currentValue}");
+    }
+
+    private void CreateWateringPot(int maxValue)
+    {
+        // objectiveManager.AddObjective(objective);
+        for (int i = 0 ; i < 5; i++)
         {
             playerInventory.AddItem(itemsDB.ingredients[i]);
+            playerInventory.AddItem(itemsDB.potions[i]);
             playerInventory.AddItem(itemsDB.seeds[i]);
         }
-        for (int i = 0; i < 5; i++)
-        {
-
-            playerInventory.AddItem(itemsDB.potions[i]);
-        }
+        wateringPot = new WateringPot(maxValue);
     }
 }

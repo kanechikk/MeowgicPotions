@@ -3,6 +3,7 @@ using UnityEngine;
 public class GardeningController : MonoBehaviour
 {
     [SerializeField] private PlantingState m_plantingState;
+    
     private Plant m_plant;
 
     private void Start()
