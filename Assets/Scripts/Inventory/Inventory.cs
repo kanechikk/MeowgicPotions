@@ -62,8 +62,8 @@ public class Inventory
             if (--slot.count == 0)
             {
                 slot.item = null;
+                slot.category = ItemCategory.Nothing;
             }
-            slot.category = ItemCategory.Nothing;
             onInvChange?.Invoke();
         }
     }
