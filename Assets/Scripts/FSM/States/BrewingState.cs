@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +25,6 @@ public class BrewingState : GameStateBehaviour
     [SerializeField] private GameObject m_cauldronClickableItemPrefab;
     private bool needToRefreshInventory = true;
 
-
     private void Start()
     {
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
@@ -33,7 +33,7 @@ public class BrewingState : GameStateBehaviour
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
         m_potionBookState.onChoosePotion += OnChoosePotion;
 
-        WalkingState.inventory.onInvChange += OnInventoryChange;
+        GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange()
@@ -73,7 +73,7 @@ public class BrewingState : GameStateBehaviour
     private void FillSlots()
     {
         // Вызываем айтемы из инвентаря
-        List<InventorySlot> ingredients = WalkingState.inventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = GameManager.playerInventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot ingredient in ingredients)
@@ -105,7 +105,7 @@ public class BrewingState : GameStateBehaviour
         m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
-        WalkingState.inventory.RemoveItem(ingredient);
+        GameManager.playerInventory.RemoveItem(ingredient);
 
         GameObject newItemCauldron = Instantiate(m_cauldronClickableItemPrefab, m_cauldronSlots.transform);
         newItemCauldron.GetComponentInChildren<CauldronClickableItem>().InitialiseItem(ingredient);
@@ -117,19 +117,17 @@ public class BrewingState : GameStateBehaviour
         m_cauldron.RemoveIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
-        WalkingState.inventory.AddItem(ingredient);
+        GameManager.playerInventory.AddItem(ingredient);
 
 
         ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
 
         if (Array.Exists(inventory, x => x.item == ingredient))
         {
-            Debug.Log("Item found");
             Array.Find(inventory, x => x.item == ingredient).InitialiseItem(ingredient);
         }
         else
         {
-            Debug.Log("Item new");
             GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
             newItemCauldron.GetComponentInChildren<ClickableItem>().InitialiseItem(ingredient);
             newItemCauldron.GetComponentInChildren<ClickableItem>().onAddIngredient += OnAddIngredient;
@@ -190,14 +188,14 @@ public class BrewingState : GameStateBehaviour
         
         for (int i = 0; i < items.Length; i++)
         {
-            WalkingState.inventory.RemoveItem(items[i].ingredient);
+            GameManager.playerInventory.RemoveItem(items[i].ingredient);
                 
             m_cauldron.RemoveIngredient(items[i].ingredient);
             items[i].item = m_itemSample;
             items[i].Remove();
         }
         // Добавляет зелье готовое
-        WalkingState.inventory.AddItem(m_chosenPotion);
+        GameManager.playerInventory.AddItem(m_chosenPotion);
 
         BrewButtonOnOff();
         ClearButtonOnOff();

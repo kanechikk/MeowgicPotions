@@ -37,8 +37,7 @@ public class InteractableGarden : MonoBehaviour
             }
             else if (plant.isReadyToHarvest)
             {
-                WalkingState.inventory.AddItem(plant.HarvestPlant());
-                m_soilHole.GetBusy(false);
+                GameManager.playerInventory.AddItem(plant.HarvestPlant());
             }
             else if (!plant.isWatered && m_gameManager.wateringPot.currentValue > 0)
             {

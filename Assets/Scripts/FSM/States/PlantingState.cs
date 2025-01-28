@@ -24,7 +24,7 @@ public class PlantingState : GameStateBehaviour
     private void OnEnable()
     {
         FillSlots();
-        WalkingState.inventory.onInvChange += OnInventoryChange;
+        GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange()
@@ -35,7 +35,7 @@ public class PlantingState : GameStateBehaviour
     private void FillSlots()
     {
         // Вызываем айтемы из инвентаря
-        List<InventorySlot> seeds = WalkingState.inventory.GetItemsByType(ItemCategory.Seed);
+        List<InventorySlot> seeds = GameManager.playerInventory.GetItemsByType(ItemCategory.Seed);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot seed in seeds)
@@ -54,7 +54,7 @@ public class PlantingState : GameStateBehaviour
 
     public void Plant()
     {
-        WalkingState.inventory.RemoveItem(m_currentSeed);
+        GameManager.playerInventory.RemoveItem(m_currentSeed);
         onPlantSeed?.Invoke(m_currentSeed);
     }
 

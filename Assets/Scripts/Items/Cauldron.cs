@@ -29,8 +29,6 @@ public class Cauldron: MonoBehaviour
             terraCount += ingredient.elements["Terra"];
             aerCount += ingredient.elements["Aer"];
             solarCount += ingredient.elements["Solar"];
-
-            Debug.Log($"Добавлен ингредиент: {ingredient.itemName}");
         }
     }
 
@@ -45,20 +43,7 @@ public class Cauldron: MonoBehaviour
             terraCount -= ingredient.elements["Terra"];
             aerCount -= ingredient.elements["Aer"];
             solarCount -= ingredient.elements["Solar"];
-
-            Debug.Log($"Удален ингредиент: {ingredient.itemName}"); 
         }
-    }
-
-    public void ClearAll()
-    {
-        m_addedIngredients.Clear();
-
-        aquaCount = 0;
-        ignisCount = 0;
-        terraCount = 0;
-        aerCount = 0;
-        solarCount = 0;
     }
 
     public bool RecipeCheck(Potion recipe)
@@ -75,20 +60,6 @@ public class Cauldron: MonoBehaviour
         {
             return false;
         }
-    }
-
-    public void ShowIngredients()
-    {
-        Debug.Log("Содержимое котла:");
-        foreach (var ingredient in m_addedIngredients)
-            Debug.Log($"- {ingredient.itemName}");
-        
-        Debug.Log("Свойства в котле:");
-        Debug.Log($"Aqua: {aquaCount}");
-        Debug.Log($"Ignis: {ignisCount}");
-        Debug.Log($"Terra: {terraCount}");
-        Debug.Log($"Aer: {aerCount}");
-        Debug.Log($"Solar: {solarCount}");
     }
 }
 
