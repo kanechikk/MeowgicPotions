@@ -7,7 +7,7 @@ public class SleepState : GameStateBehaviour
 
     private void OnEnable()
     {
-        dayTimeManager.DayAdd();
+        dayTimeManager.DayPass();
         m_gameMode.Back();
     }
 }
