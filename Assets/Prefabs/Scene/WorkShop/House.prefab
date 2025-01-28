@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1702
+  m_VersionIndex: 1690
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1099
+  m_VersionIndex: 1087
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -722,6 +722,7 @@ GameObject:
   - component: {fileID: 5374580263522538190}
   - component: {fileID: 7573455000559717212}
   - component: {fileID: 5553277811970696692}
+  - component: {fileID: 9215567381443573003}
   m_Layer: 0
   m_Name: ShopTableCollider
   m_TagString: Untagged
@@ -957,7 +958,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1067
+  m_VersionIndex: 1055
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1077,6 +1078,21 @@ MonoBehaviour:
   m_wateringPotController: {fileID: 0}
   m_gameMode: {fileID: 0}
 --- !u!114 &5553277811970696692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726956112863280656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
+--- !u!114 &9215567381443573003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1657,7 +1673,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2478
+  m_VersionIndex: 2466
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2012,7 +2028,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3057
+  m_VersionIndex: 3045
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2682,7 +2698,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2478
+  m_VersionIndex: 2466
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -2805,6 +2821,7 @@ GameObject:
   - component: {fileID: 2803825526667225179}
   - component: {fileID: 3215808911907489654}
   - component: {fileID: 7510266913216834852}
+  - component: {fileID: 6799514391992550909}
   m_Layer: 0
   m_Name: DoorToGardenCollider
   m_TagString: Untagged
@@ -3040,7 +3057,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1642
+  m_VersionIndex: 1630
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -3160,6 +3177,21 @@ MonoBehaviour:
   m_wateringPotController: {fileID: 0}
   m_gameMode: {fileID: 0}
 --- !u!114 &7510266913216834852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3985789291983497722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
+--- !u!114 &6799514391992550909
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3422,7 +3454,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3057
+  m_VersionIndex: 3045
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4092,7 +4124,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2478
+  m_VersionIndex: 2466
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -38187,7 +38219,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 930
+  m_VersionIndex: 918
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -38577,7 +38609,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2550
+  m_VersionIndex: 2538
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -40504,7 +40536,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1043
+  m_VersionIndex: 1031
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -41182,7 +41214,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1512
+  m_VersionIndex: 1500
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -41554,7 +41586,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1219
+  m_VersionIndex: 1207
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -41906,7 +41938,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1913
+  m_VersionIndex: 1901
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -42258,7 +42290,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5171
+  m_VersionIndex: 5159
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -42378,6 +42410,7 @@ GameObject:
   - component: {fileID: 3002661365349176973}
   - component: {fileID: 1628570436425982729}
   - component: {fileID: 3339656630625084920}
+  - component: {fileID: 3912340405521543601}
   m_Layer: 0
   m_Name: BedCollider
   m_TagString: Untagged
@@ -42613,7 +42646,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3006
+  m_VersionIndex: 2994
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -42747,6 +42780,21 @@ MonoBehaviour:
   uiSign: {fileID: 0}
   showPlace: {fileID: 0}
   hidePlace: {fileID: 0}
+--- !u!114 &3912340405521543601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7846672625568429753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
 --- !u!1 &7932253767637007126
 GameObject:
   m_ObjectHideFlags: 0
@@ -42763,6 +42811,7 @@ GameObject:
   - component: {fileID: 2788736435272405604}
   - component: {fileID: 1460176701927066042}
   - component: {fileID: 118808373999587492}
+  - component: {fileID: 6012442203004559908}
   m_Layer: 0
   m_Name: CauldronCollider
   m_TagString: Untagged
@@ -42998,7 +43047,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2965
+  m_VersionIndex: 2953
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -43118,6 +43167,21 @@ MonoBehaviour:
   m_wateringPotController: {fileID: 0}
   m_gameMode: {fileID: 0}
 --- !u!114 &118808373999587492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7932253767637007126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
+--- !u!114 &6012442203004559908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43698,7 +43762,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2478
+  m_VersionIndex: 2466
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -44053,7 +44117,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5563
+  m_VersionIndex: 5551
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -44405,7 +44469,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5563
+  m_VersionIndex: 5551
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -44700,7 +44764,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2150
+  m_VersionIndex: 2138
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
