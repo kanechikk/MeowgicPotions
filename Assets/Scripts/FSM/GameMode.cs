@@ -20,7 +20,7 @@ public class GameMode : MonoBehaviour
 
         //m_stateActivator.Add(new PauseState());
 
-        m_stateActivator.Activate<WalkingState>();
+        GoToWalking();
     }
 
     private void OnDestroy()
@@ -94,5 +94,10 @@ public class GameMode : MonoBehaviour
     public void GoToSleep()
     {
         m_stateActivator.Push<SleepState>();
+    }
+
+    public void GoToWatering()
+    {
+        m_stateActivator.RunWhile<WateringState>();
     }
 }

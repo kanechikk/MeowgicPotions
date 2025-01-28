@@ -8,6 +8,7 @@ public class PlaeyrConroller : MonoBehaviour
     public InputActionAsset inputActions;
     private InputAction m_moveAction;
     [SerializeField] private GameMode m_states;
+    [SerializeField] private GameObject m_wateringState;
     
     // Временный код для удобной проверки
     public GameObject inventoryState;
@@ -29,6 +30,15 @@ public class PlaeyrConroller : MonoBehaviour
         if (Keyboard.current.iKey.wasPressedThisFrame)
         {
             m_states.GoToInventory();
+        }
+
+        if (Keyboard.current.qKey.wasPressedThisFrame && WateringState.isActive)
+        {
+            m_states.Back();
+        }
+        else if (Keyboard.current.qKey.wasPressedThisFrame)
+        {
+            m_states.GoToWatering();
         }
     }
 }

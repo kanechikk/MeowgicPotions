@@ -82,5 +82,19 @@ public class StateActivator
             nextState.Activate();
         }
     }
+
+    public void RunWhile<T>()
+    {
+        Debug.Log(m_current);
+        var state = m_states.Find(state => state is T);
+        if (state != null)
+        {
+            m_stack.Add(m_current);
+            state.Enter();
+            state.Activate();
+
+            m_current = state;
+        }
+    }
 }
 

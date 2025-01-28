@@ -40,7 +40,7 @@ public class InteractableGarden : MonoBehaviour
                 GameManager.playerInventory.AddItem(plant.HarvestPlant());
                 m_soilHole.GetBusy(false);
             }
-            else if (!plant.isWatered && m_gameManager.wateringPot.currentValue > 0)
+            else if (!plant.isWatered && m_gameManager.wateringPot.currentValue > 0 && WateringState.isActive)
             {
                 m_wateringPotController.WaterPlant();
                 plant.WaterPlant();
