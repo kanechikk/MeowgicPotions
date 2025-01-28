@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public static ObjectiveManager objectiveManager;
     // [SerializeField] private QuestInfo objectiveInfo;
     // [SerializeField] private Objective objective;
-    public ItemsDB itemsDB;
+    public static ItemsDB itemsDB;
     public WateringPot wateringPot;
     [SerializeField] private int m_wateringPotMaxValue;
 
