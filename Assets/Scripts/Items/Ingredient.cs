@@ -10,6 +10,8 @@ public class Ingredient : Item
     [SerializeField] private int m_ignis;
     [SerializeField] private int m_aer;
     private Dictionary<string, int> m_elements;
+    [SerializeField] private Material m_material;
+    public Material material => m_material;
 
     public Dictionary<string, int> elements => this.m_elements;
 

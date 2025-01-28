@@ -5,9 +5,11 @@ public class GameManager : MonoBehaviour
 
     public static Inventory playerInventory;
     public static ObjectiveManager objectiveManager;
-    [SerializeField] private QuestInfo objectiveInfo;
-    [SerializeField] private Objective objective;
+    // [SerializeField] private QuestInfo objectiveInfo;
+    // [SerializeField] private Objective objective;
     public ItemsDB itemsDB;
+    public WateringPot wateringPot;
+    [SerializeField] private int m_wateringPotMaxValue;
 
     private void Awake()
     {
@@ -17,10 +19,10 @@ public class GameManager : MonoBehaviour
         itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
 
         playerInventory = new Inventory(32);
-        objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
-        objectiveManager = new ObjectiveManager();
-    public WateringPot wateringPot;
-    [SerializeField] private int m_wateringPotMaxValue;
+        // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
+        // objectiveManager = new ObjectiveManager();
+    }
+
     private void OnEnable()
     {
         CreateWateringPot(m_wateringPotMaxValue);
@@ -29,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     private void CreateWateringPot(int maxValue)
     {
-        objectiveManager.AddObjective(objective);
+        // objectiveManager.AddObjective(objective);
         for (int i = 0 ; i < 5; i++)
         {
             playerInventory.AddItem(itemsDB.ingredients[i]);
