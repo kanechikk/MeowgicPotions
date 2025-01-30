@@ -81,8 +81,8 @@ GameObject:
   - component: {fileID: 8313068587247557293}
   - component: {fileID: 10994076296600884}
   - component: {fileID: 4617700567731136686}
-  - component: {fileID: 842292455869550306}
   - component: {fileID: 118654267828916232}
+  - component: {fileID: 4572277093509870803}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -146,23 +146,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_speedMove: 10
   m_speedRotation: 800
---- !u!114 &842292455869550306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4838403621713056606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56f66833cb91034e9c5f7dbd26eaebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_triggerTag: SwitchCamera
-  m_workShopCamera: {fileID: 0}
-  m_cinemachineCameras:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!95 &118654267828916232
 Animator:
   serializedVersion: 7
@@ -185,6 +168,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4572277093509870803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838403621713056606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56f66833cb91034e9c5f7dbd26eaebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_triggerTag: SwitchCamera
+  m_workShopCamera: {fileID: 0}
+  m_cinemachineCameras:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8528826353288324963
 GameObject:
   m_ObjectHideFlags: 0
