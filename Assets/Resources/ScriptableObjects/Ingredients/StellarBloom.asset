@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
-  m_Name: Weavemoss
+  m_Name: StellarBloom
   m_EditorClassIdentifier: 
-  m_itemName: Weavemoss
+  m_itemName: Stellar Bloom
   m_price: 100
-  m_icon: {fileID: 21300000, guid: ab10bf63ed0733f46bbc7a9de96b0027, type: 3}
+  m_icon: {fileID: 21300000, guid: 275ca9862604f264c8d044993cac83e1, type: 3}
   m_aqua: 0
-  m_terra: 0
-  m_solar: 4
+  m_terra: 5
+  m_solar: 0
   m_ignis: 0
   m_aer: 0
+  m_material: {fileID: 2100000, guid: b35d27122af08d8409e36f784af02596, type: 2}

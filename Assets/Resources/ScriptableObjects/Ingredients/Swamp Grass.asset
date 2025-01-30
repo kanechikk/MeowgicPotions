@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
-  m_Name: NightOrchid
+  m_Name: Swamp Grass
   m_EditorClassIdentifier: 
-  m_itemName: Night Orchid
+  m_itemName: Swamp Grass
   m_price: 100
-  m_icon: {fileID: 21300000, guid: 78ab37527e13f2c4a938f1ae32b415a1, type: 3}
+  m_icon: {fileID: 21300000, guid: 9ae30a8f342729d4a95361484374aa6c, type: 3}
   m_aqua: 0
   m_terra: 0
   m_solar: 0
-  m_ignis: 0
-  m_aer: 3
+  m_ignis: 2
+  m_aer: 0
+  m_material: {fileID: 2100000, guid: 046c5aa72c8465f4594aa4c8781ec117, type: 2}

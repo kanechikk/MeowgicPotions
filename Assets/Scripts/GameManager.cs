@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private void CreateWateringPot(int maxValue)
     {
         // objectiveManager.AddObjective(objective);
-        for (int i = 0 ; i < 8; i++)
+        for (int i = 0 ; i < 6; i++)
         {
             playerInventory.AddItem(itemsDB.ingredients[i]);
             playerInventory.AddItem(itemsDB.seeds[i]);
