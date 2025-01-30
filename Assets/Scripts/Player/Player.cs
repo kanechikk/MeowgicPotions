@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    private Animator m_animator;
     private CharacterController m_characterController;
     [SerializeField]
     private float m_speedMove = 5f;
@@ -13,6 +14,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         m_characterController = GetComponent<CharacterController>();
+        m_animator = GetComponent<Animator>();
     }
 
     public void Move(Vector2 input) // Метод передачи импута в SimpleMove и вращения персонажа в направлении движения
@@ -21,6 +23,14 @@ public class Player : MonoBehaviour
         {
             Vector3 dir = new Vector3(input.x, 0f, input.y);
             m_characterController.SimpleMove(dir * m_speedMove);
+            if (dir != Vector3.zero)
+            {
+                m_animator.SetBool("Walking", true);
+            }
+            else
+            {
+                m_animator.SetBool("Walking", false);
+            }
 
             if (input.sqrMagnitude > 0)
             {
