@@ -115,7 +115,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemDesc: test1
+  toolTip: {fileID: 0}
   tooltipUI: {fileID: 0}
+  tagOfToolTip: 
 --- !u!1001 &7773402897599551398
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -207,6 +209,22 @@ PrefabInstance:
     - target: {fileID: 6585938921607837970, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398080035532867648, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25.1234
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398080035532867648, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 36.4933
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398080035532867648, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 72.56177
+      objectReference: {fileID: 0}
+    - target: {fileID: 8398080035532867648, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -68.24664
       objectReference: {fileID: 0}
     - target: {fileID: 8620382080185559310, guid: 1998d36aa7304ad48a3ad4f85c16d9fd, type: 3}
       propertyPath: m_Name

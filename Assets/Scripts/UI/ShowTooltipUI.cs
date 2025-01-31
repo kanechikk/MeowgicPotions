@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public string itemDesc = "test";
+    public string itemDesc = "";
     [HideInInspector]
     public GameObject toolTip;
     [HideInInspector]
@@ -14,19 +14,28 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private void Start()
     {
         toolTip = GameObject.FindGameObjectWithTag(tagOfToolTip);
-        Debug.Log(toolTip);
         tooltipUI = toolTip.GetComponent<TooltipUI>();
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (gameObject.GetComponentsInChildren<UIItem>().Length > 0)
+        {
             m_item = gameObject.GetComponentsInChildren<UIItem>()[0].item;
-        else m_item = null;
+            if (m_item is SampleItem)
+            {
+                m_item = null;
+            }
+        }
+        else
+        {
+            m_item = null;
+        }
+
         if (m_item != null)
         {
             UpdateDescText();
+            tooltipUI.ShowTooltip(itemDesc);
         }
-        tooltipUI.ShowTooltip(itemDesc);
     }
 
     public void OnPointerExit(PointerEventData eventData)

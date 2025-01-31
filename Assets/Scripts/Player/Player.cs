@@ -25,7 +25,8 @@ public class Player : MonoBehaviour
         {
             Vector3 dir = new Vector3(input.x, m_yVelocity * -1, input.y);
             m_characterController.Move(dir * m_speedMove * Time.deltaTime);
-            if (dir != Vector3.zero)
+
+            if (input != Vector2.zero)
             {
                 m_animator.SetBool("Walking", true);
             }
