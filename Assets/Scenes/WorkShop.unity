@@ -1998,11 +1998,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4352321530679937328, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
   m_PrefabInstance: {fileID: 6599041770381487813}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &178574941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4838403621713056606, guid: feacf11781262354b80d5576a34db954, type: 3}
-  m_PrefabInstance: {fileID: 211156240592429099}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &192609074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3653386673261134047, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
@@ -11495,7 +11490,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4617700567731136686, guid: feacf11781262354b80d5576a34db954, type: 3}
   m_PrefabInstance: {fileID: 211156240592429099}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178574941}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10ac58a58acb6284fa113b738ba8d1e1, type: 3}
@@ -11506,23 +11501,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8313068587247557293, guid: feacf11781262354b80d5576a34db954, type: 3}
   m_PrefabInstance: {fileID: 211156240592429099}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1197361590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 178574941}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f56f66833cb91034e9c5f7dbd26eaebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_triggerTag: SwitchCamera
-  m_workShopCamera: {fileID: 304871125}
-  m_cinemachineCameras:
-  - {fileID: 304871125}
-  - {fileID: 1571644626}
 --- !u!43 &1207673366
 Mesh:
   m_ObjectHideFlags: 0
@@ -17702,10 +17680,26 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 162198310}
+    - target: {fileID: 4617700567731136686, guid: feacf11781262354b80d5576a34db954, type: 3}
+      propertyPath: m_yVelocity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4838403621713056606, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5236040160043975298, guid: feacf11781262354b80d5576a34db954, type: 3}
+      propertyPath: m_workShopCamera
+      value: 
+      objectReference: {fileID: 304871125}
+    - target: {fileID: 5236040160043975298, guid: feacf11781262354b80d5576a34db954, type: 3}
+      propertyPath: 'm_cinemachineCameras.Array.data[0]'
+      value: 
+      objectReference: {fileID: 304871125}
+    - target: {fileID: 5236040160043975298, guid: feacf11781262354b80d5576a34db954, type: 3}
+      propertyPath: 'm_cinemachineCameras.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1571644626}
     - target: {fileID: 8313068587247557293, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.82
@@ -17749,10 +17743,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4838403621713056606, guid: feacf11781262354b80d5576a34db954, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1197361590}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: feacf11781262354b80d5576a34db954, type: 3}
 --- !u!1001 &767745584754866056
 PrefabInstance:
@@ -20209,18 +20200,110 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244787969980858882, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 278183671382842527, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 549318565810225625, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 655018340506428947, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 161518586}
+    - target: {fileID: 770641683747309390, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 860663226236020902, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 896242561993816788, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205917435446999322, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267463822476427775, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2008
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267463822476427775, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1164
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324555207284094323, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1324555207284094323, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433083896694801773, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1433083896694801773, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464276125585461978, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 1730128772970508371, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 161518586}
+    - target: {fileID: 1903381975635932473, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066490201169015016, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2066490201169015016, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2070301070280627187, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2089033992079539249, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 2118713560405261158, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1297597204}
+    - target: {fileID: 2161489843113194815, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2554383124956120526, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561423250575934073, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759249357746586789, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 2978664065437794918, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -20232,6 +20315,70 @@ PrefabInstance:
     - target: {fileID: 3094331894688410652, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 3309942995183615520, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328837420282590946, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3328837420282590946, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_TagString
+      value: ToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3424547112391552113, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3531277139001903090, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894697068229593342, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4117707357303278525, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4192057186185132559, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538445986855332427, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4538445986855332427, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_TagString
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4596260408377967176, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4609245851801767139, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886131543175014511, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886131543175014511, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891480991678892166, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5030042120020091438, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
       objectReference: {fileID: 0}
     - target: {fileID: 5039079245261849082, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -20325,9 +20472,61 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5328696495289183109, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339005133421259923, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339005133421259923, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339005133421259923, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5339005133421259923, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5352722919187796055, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372148965039902550, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372148965039902550, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5383610054864665983, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_Spacing.x
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5639290156635901249, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5749793519846788769, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752740730023496004, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5932939893847770092, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5948862213966573550, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
       objectReference: {fileID: 0}
     - target: {fileID: 5958154663712681469, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -20336,6 +20535,22 @@ PrefabInstance:
     - target: {fileID: 6242219850531839691, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 95.07373
+      objectReference: {fileID: 0}
+    - target: {fileID: 6403285702842712966, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573948899293756459, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573948899293756459, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721070314604499892, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
       objectReference: {fileID: 0}
     - target: {fileID: 6725213916277684979, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -20389,14 +20604,114 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 6806944269209337527, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6836037172616800311, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6840934195890030838, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 6869480614312368770, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1297597204}
+    - target: {fileID: 7056798826107122562, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7056798826107122562, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7233086512719196848, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     - target: {fileID: 7400427565713815109, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1297597204}
+    - target: {fileID: 7576091727702707856, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 7631519798980466897, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787726155317654302, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787726155317654302, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_TagString
+      value: ToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051522214404657445, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051522214404657445, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051522214404657445, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051522214404657445, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8148210338864871175, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8454357714054997067, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517152171723593512, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544071605783288758, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8544071605783288758, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8696471761265617846, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723980951695336687, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8954450836940301593, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 8997052697257453022, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042386902960939802, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 9181709441410813227, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: tagOfToolTip
+      value: InvToolTip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

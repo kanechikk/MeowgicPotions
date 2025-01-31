@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     private float m_speedMove = 5f;
     [SerializeField]
     private float m_speedRotation = 800f;
+    [SerializeField]
+    private float m_yVelocity = 1f;
 
     private void Awake()
     {
@@ -21,8 +23,8 @@ public class Player : MonoBehaviour
     {
         if (m_characterController)
         {
-            Vector3 dir = new Vector3(input.x, 0f, input.y);
-            m_characterController.SimpleMove(dir * m_speedMove);
+            Vector3 dir = new Vector3(input.x, m_yVelocity * -1, input.y);
+            m_characterController.Move(dir * m_speedMove * Time.deltaTime);
             if (dir != Vector3.zero)
             {
                 m_animator.SetBool("Walking", true);
@@ -34,7 +36,8 @@ public class Player : MonoBehaviour
 
             if (input.sqrMagnitude > 0)
             {
-                transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(dir), m_speedRotation * Time.deltaTime);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, 
+                Quaternion.LookRotation(new Vector3(input.x, 0f, input.y)), m_speedRotation * Time.deltaTime);
             }
         }
     }

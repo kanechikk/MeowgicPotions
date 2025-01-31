@@ -8,6 +8,7 @@ public class TooltipUI : MonoBehaviour
     private TextMeshProUGUI textMeshProUGUI;
     private RectTransform tooltipTransform;
     public Vector2 padding = new Vector2(10, 10);
+    private GameObject m_background;
     [SerializeField] private RectTransform canvasTransformArea;
 
     void Awake()
@@ -15,6 +16,7 @@ public class TooltipUI : MonoBehaviour
         bgTransform = gameObject.GetComponentsInChildren<RectTransform>()[1];
         textMeshProUGUI = gameObject.GetComponentsInChildren<TextMeshProUGUI>()[0];
         tooltipTransform = gameObject.GetComponent<RectTransform>();
+        m_background = gameObject.GetComponentsInChildren<Transform>()[1].gameObject;
         SetText("test \n \n \n \n");
         HideTooltip();
     }
@@ -55,12 +57,11 @@ public class TooltipUI : MonoBehaviour
 
     public void ShowTooltip(string tooltipText)
     {
-        gameObject.SetActive(true);
+        m_background.SetActive(true);
         SetText(tooltipText);
     }
     public void HideTooltip()
     {
-        SetText("Error after inactive state");
-        gameObject.SetActive(false);
+        m_background.SetActive(false);
     }
 }
