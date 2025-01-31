@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         CreateWateringPot(m_wateringPotMaxValue);
-        Debug.Log($"Watering Pot: {wateringPot.currentValue}");
 
         //for test
         m_questManager.GoToDesk();

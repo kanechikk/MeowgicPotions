@@ -19,8 +19,6 @@ public class DayTimeManager : MonoBehaviour
     private void Awake()
     {
         m_dayTime = new DayTime(day, hour, minute);
-
-        Debug.Log(m_dayTime.DayToString());
     }
 
     private void Update()
@@ -63,12 +61,10 @@ public class DayTimeManager : MonoBehaviour
     private void Pause()
     {
         timePass = false;
-        Debug.Log("Pause");
     }
 
     private void Start()
     {
         timePass = true;
-        Debug.Log("Start");
     }
 }
