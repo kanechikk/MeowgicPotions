@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 607043300644767164}
   - component: {fileID: 2972383433799858790}
   - component: {fileID: 9138321817345353349}
-  - component: {fileID: 1138534795324857992}
+  - component: {fileID: 7239140261867452820}
   m_Layer: 0
   m_Name: WorkShopCinemachine
   m_TagString: Untagged
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1380938217127761604}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21462458, y: 0.047093038, z: -0.010361114, w: 0.9755056}
-  m_LocalPosition: {x: -10.022249, y: 6.5772495, z: -14.608517}
+  m_LocalRotation: {x: 0.29253307, y: 0.000000097847824, z: -0.00000002993314, w: 0.95625544}
+  m_LocalPosition: {x: -8.75518, y: 7.2447433, z: -11.515789}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Priority:
-    Enabled: 0
-    m_Value: 0
+    Enabled: 1
+    m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -106,7 +106,7 @@ MonoBehaviour:
     Time: 0
     Smoothing: 0
     IgnoreY: 0
---- !u!114 &1138534795324857992
+--- !u!114 &7239140261867452820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,14 +115,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1380938217127761604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Script: {fileID: 11500000, guid: b617507da6d07e749b7efdb34e1173e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weight: 1
-  FocusTracking: 1
-  FocusTarget: {fileID: 0}
-  FocusOffset: 0
-  Profile: {fileID: 0}
+  TrackerSettings:
+    BindingMode: 4
+    PositionDamping: {x: 1, y: 1, z: 2.53}
+    AngularDampingMode: 0
+    RotationDamping: {x: 1, y: 1, z: 1}
+    QuaternionDamping: 1
+  FollowOffset: {x: 0, y: 6.75, z: -10}
 --- !u!1 &2330210439235912173
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +183,7 @@ MonoBehaviour:
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
-    FieldOfView: 60.000004
+    FieldOfView: 60
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000

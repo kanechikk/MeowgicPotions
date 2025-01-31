@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static ItemsDB itemsDB;
     public WateringPot wateringPot;
     [SerializeField] private int m_wateringPotMaxValue;
+    [SerializeField] private QuestManager m_questManager;
 
     private void Awake()
     {
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour
     {
         CreateWateringPot(m_wateringPotMaxValue);
         Debug.Log($"Watering Pot: {wateringPot.currentValue}");
+
+        //for test
+        m_questManager.GoToDesk();
     }
 
     private void CreateWateringPot(int maxValue)
