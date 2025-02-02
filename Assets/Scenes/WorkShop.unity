@@ -17978,22 +17978,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 118654267828916232, guid: feacf11781262354b80d5576a34db954, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 118654267828916232, guid: feacf11781262354b80d5576a34db954, type: 3}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 118654267828916232, guid: feacf11781262354b80d5576a34db954, type: 3}
-      propertyPath: m_AnimatePhysics
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 118654267828916232, guid: feacf11781262354b80d5576a34db954, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3966445821567404960, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_Camera
       value: 
@@ -18010,10 +17994,6 @@ PrefabInstance:
       propertyPath: 'm_cinemachineCameras.Array.data[1]'
       value: 
       objectReference: {fileID: 1571644626}
-    - target: {fileID: 4617700567731136686, guid: feacf11781262354b80d5576a34db954, type: 3}
-      propertyPath: m_yVelocity
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4838403621713056606, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_Name
       value: Player
@@ -18024,7 +18004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8313068587247557293, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8313068587247557293, guid: feacf11781262354b80d5576a34db954, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18132,6 +18112,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.75518
+      objectReference: {fileID: 0}
+    - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.2447433
+      objectReference: {fileID: 0}
     - target: {fileID: 1168069611464324573, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: Lens.FieldOfView
       value: 60
@@ -18147,6 +18135,22 @@ PrefabInstance:
     - target: {fileID: 3411879509462239838, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_Name
       value: Cinemachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937047406990062973, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.8512793
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937047406990062973, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.09810542
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937047406990062973, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5120707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4937047406990062973, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.059013437
       objectReference: {fileID: 0}
     - target: {fileID: 8498877032219463362, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19040,7 +19044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8958387981249307601, guid: dc3d01fd927071140afbb66fde0f7221, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.75
+      value: 6.75
       objectReference: {fileID: 0}
     - target: {fileID: 8958387981249307601, guid: dc3d01fd927071140afbb66fde0f7221, type: 3}
       propertyPath: m_LocalPosition.z

@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         m_characterController = GetComponent<CharacterController>();
-        m_animator = GetComponent<Animator>();
+        m_animator = GetComponentInChildren<Animator>();
     }
 
     public void Move(Vector2 input) // Метод передачи импута в SimpleMove и вращения персонажа в направлении движения
