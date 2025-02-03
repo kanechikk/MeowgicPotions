@@ -96,6 +96,11 @@ public class GameMode : MonoBehaviour
         m_stateActivator.Push<SleepState>();
     }
 
+    public void GoToRhythmGame()
+    {
+        m_stateActivator.Push<RhythmGameState>();
+    }
+
     public void GoToWatering()
     {
         m_stateActivator.RunWhile<WateringState>();
