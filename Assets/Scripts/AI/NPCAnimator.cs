@@ -21,7 +21,7 @@ public class NPCAnimator : MonoBehaviour
     {
         Vector3 thisPosition = m_thisTransform.position;
         float speed = Vector3.Distance(m_lastPosition, thisPosition) / Time.deltaTime;
-        if (speed > 0.5)
+        if (speed > 2)
         {
             m_animator.SetBool("Walking", true);
         }

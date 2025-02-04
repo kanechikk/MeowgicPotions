@@ -18778,6 +18778,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 132487453}
+    - target: {fileID: 6460072588844018680, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460072588844018680, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460072588844018680, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460072588844018680, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 6460072588844018680, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6554709028145972239, guid: 5326d3b128c1a1d4794bcd45b37dcf9e, type: 3}
       propertyPath: m_Mesh
       value: 
