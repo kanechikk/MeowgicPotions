@@ -4,31 +4,27 @@ using UnityEngine;
 using JetBrains.Annotations;
 using Unity.Mathematics;
 
-public class Cauldron: MonoBehaviour
+public class Cauldron : MonoBehaviour
 {
     private List<Ingredient> m_addedIngredients;
     public IReadOnlyList<Ingredient> addedIngredients => m_addedIngredients;
-    public int aquaCount { private set; get; } = 0;
-    public int ignisCount { private set; get; } = 0;
-    public int terraCount { private set; get; } = 0;
-    public int aerCount { private set; get; } = 0;
-    public int solarCount { private set; get; } = 0;
+    private Ingredient cauldron;
+    // public int aquaCount { private set; get; } = 0;
+    // public int ignisCount { private set; get; } = 0;
+    // public int terraCount { private set; get; } = 0;
+    // public int aerCount { private set; get; } = 0;
+    // public int solarCount { private set; get; } = 0;
 
     private void Awake()
     {
         m_addedIngredients = new List<Ingredient>();
+        cauldron = new Ingredient();
     }
     public void AddIngredient(Ingredient ingredient)
     {
         if (ingredient != null)
         {
             m_addedIngredients.Add(ingredient);
-
-            aquaCount += ingredient.elements["Aqua"];
-            ignisCount += ingredient.elements["Ignis"];
-            terraCount += ingredient.elements["Terra"];
-            aerCount += ingredient.elements["Aer"];
-            solarCount += ingredient.elements["Solar"];
         }
     }
 
@@ -37,29 +33,26 @@ public class Cauldron: MonoBehaviour
         if (ingredient != null)
         {
             m_addedIngredients.Remove(ingredient);
-            
-            aquaCount -= ingredient.elements["Aqua"];
-            ignisCount -= ingredient.elements["Ignis"];
-            terraCount -= ingredient.elements["Terra"];
-            aerCount -= ingredient.elements["Aer"];
-            solarCount -= ingredient.elements["Solar"];
         }
     }
 
     public bool RecipeCheck(Potion recipe)
     {
-        if (recipe.elements["Aqua"] == aquaCount &&
-            recipe.elements["Ignis"] == ignisCount &&
-            recipe.elements["Terra"] == terraCount &&
-            recipe.elements["Aer"] == aerCount &&
-            recipe.elements["Solar"] == solarCount)
+        foreach (Element item in recipe.elements)
         {
-            return true;
+            int val = 0;
+            foreach (Ingredient ingr in m_addedIngredients)
+            {
+                val += ingr.elements.Find(x => x.type == item.type).value;
+            }
+
+            if (val != item.value)
+            {
+                return false;
+            }  
         }
-        else
-        {
-            return false;
-        }
+
+        return true;
     }
 }
 

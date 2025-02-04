@@ -1,7 +1,8 @@
 using System;
 using UnityEngine;
 
-public class Element : ScriptableObject
+[System.Serializable]
+public class Element
 {
     public ElementType type;
 	public String elementName;
