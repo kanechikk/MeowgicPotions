@@ -19,10 +19,10 @@ public class BrewingState : GameStateBehaviour
     [SerializeField] private GameObject m_inventorySlots;
     [SerializeField] private GameObject m_brewButton;
     [SerializeField] private GameObject m_clearButton;
-    [SerializeField] private Item m_itemSample;
     [SerializeField] private GameObject m_clickableItemPrefab;
     [SerializeField] private GameObject m_cauldronClickableItemPrefab;
     [SerializeField] private GameMode m_gameMode;
+    [SerializeField] private Item m_itemSample;
     private bool needToRefreshInventory = true;
 
     private void Start()
@@ -52,10 +52,10 @@ public class BrewingState : GameStateBehaviour
     }
 
     //остановка стейта
-    public void StopBrewing()
-    {
-        gameObject.SetActive(false);
-    }
+    // public void StopBrewing()
+    // {
+    //     gameObject.SetActive(false);
+    // }
 
     private void OnDisable()
     {
@@ -105,7 +105,6 @@ public class BrewingState : GameStateBehaviour
         m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange(m_cauldron.aquaCount, m_cauldron.terraCount, m_cauldron.solarCount, m_cauldron.ignisCount,
                            m_cauldron.aerCount, m_cauldronInfoUI);
-        GameManager.playerInventory.RemoveItem(ingredient);
 
         GameObject newItemCauldron = Instantiate(m_cauldronClickableItemPrefab, m_cauldronSlots.transform);
         newItemCauldron.GetComponentInChildren<CauldronClickableItem>().InitialiseItem(ingredient);
@@ -183,21 +182,21 @@ public class BrewingState : GameStateBehaviour
 
     public void Brew()
     {
-        // // Вызываем все айтемы из котла
-        // CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
+        // Вызываем все айтемы из котла
+        CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
         
-        // for (int i = 0; i < items.Length; i++)
-        // {
-        //     GameManager.playerInventory.RemoveItem(items[i].ingredient);
+        for (int i = 0; i < items.Length; i++)
+        {
+            GameManager.playerInventory.RemoveItem(items[i].ingredient);
                 
-        //     m_cauldron.RemoveIngredient(items[i].ingredient);
-        //     items[i].item = m_itemSample;
-        //     items[i].Remove();
-        // }
-        // // Добавляет зелье готовое
-        // GameManager.playerInventory.AddItem(m_chosenPotion);
+            m_cauldron.RemoveIngredient(items[i].ingredient);
+            items[i].item = m_itemSample;
+            items[i].Remove();
+        }
+        // Добавляет зелье готовое
+        GameManager.playerInventory.AddItem(m_chosenPotion);
 
-        m_gameMode.GoToRhythmGame();
+        //m_gameMode.GoToRhythmGame();
 
         BrewButtonOnOff();
         ClearButtonOnOff();

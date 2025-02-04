@@ -7,7 +7,7 @@ public class DeleteChildren : MonoBehaviour
     {
         while (m_object.transform.childCount > 0)
         {
-            DestroyImmediate(m_object.transform.GetChild(0).gameObject);
+            Destroy(m_object.transform.GetChild(0).gameObject);
         }
     }
 }

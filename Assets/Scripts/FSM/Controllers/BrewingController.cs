@@ -1,16 +1,74 @@
+using System;
 using UnityEngine;
 
 public class BrewingController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Cauldron m_cauldron;
+    public Cauldron cauldron => m_cauldron;
+    private Potion m_chosenPotion;
+    [SerializeField] private PotionBookState m_potionBookState;
+    [SerializeField] private GameMode m_gameMode;
+    [SerializeField] private Item m_itemSample;
+
+    private void Start()
     {
-        
+        //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
+        m_potionBookState.onChoosePotion += OnChoosePotion;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnChoosePotion(Potion potion)
     {
+        m_chosenPotion = potion;
+    }
+
+    public void OnAddIngredient(Ingredient ingredient)
+    {
+        m_cauldron.AddIngredient(ingredient);
+        //GameManager.playerInventory.RemoveItem(ingredient);
+    }
+
+    public void OnRemoveIngredient(Ingredient ingredient)
+    {
+        m_cauldron.RemoveIngredient(ingredient);
+        //GameManager.playerInventory.AddItem(ingredient);
+    }
+
+    public void Brew()
+    {
+        m_gameMode.GoToRhythmGame();
+    }
+
+    public void MakePotion()
+    {
+        for (int i = 0; i < m_cauldron.addedIngredients.Count; i++)
+        {
+            GameManager.playerInventory.RemoveItem(m_cauldron.addedIngredients[i]);
+        }
         
+        m_cauldron.ClearCauldron();
+        // Добавляет зелье готовое
+        GameManager.playerInventory.AddItem(m_chosenPotion);
+
+        //m_gameMode.GoToRhythmGame();
+    }
+
+    public void SetItemsBack()
+    {
+        m_cauldron.ClearCauldron();
+    }
+
+    public void GoToPotionBook()
+    {
+        m_gameMode.GoToPotionBook();
+    }
+
+    public bool RecipeCheck()
+    {
+        if (m_chosenPotion)
+        {
+            return m_cauldron.RecipeCheck(m_chosenPotion);
+        }
+
+        return false;
     }
 }

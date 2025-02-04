@@ -36,6 +36,11 @@ public class Cauldron : MonoBehaviour
         }
     }
 
+    public void ClearCauldron()
+    {
+        m_addedIngredients = new List<Ingredient>();
+    }
+
     public bool RecipeCheck(Potion recipe)
     {
         foreach (Element item in recipe.elements)

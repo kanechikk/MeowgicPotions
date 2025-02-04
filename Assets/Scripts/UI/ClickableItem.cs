@@ -8,13 +8,15 @@ using UnityEngine.UI;
 
 public class ClickableItem : UIItem, IPointerClickHandler
 {
-    public Action<Ingredient> onAddIngredient;
+    public Action<ClickableItem> onAddIngredient;
+    public Action<ClickableItem> onRemoveIngredient;
     public Action<Item> onAddItem;
+    public int count;
     private TextMeshProUGUI m_countText;
     private void Awake()
     {
         image = GetComponent<Image>();
-        m_countText = GetComponentInChildren<TextMeshProUGUI>();
+        //m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -26,32 +28,38 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         item = newItem;
         image.sprite = item.icon;
-        m_countText.text = RefreshCount(item);
+        //m_countText.text = RefreshCount(item);
     }
 
-    private string RefreshCount(Item newItem)
+    public void Remove()
     {
-        InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
-        int count;
-        if (slot != null && slot.count > 0)
-        {
-            count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
-            return count.ToString();
-        }
-        else
-        {
-            return null;
-        }
+        Destroy(gameObject);
     }
+
+    // private string RefreshCount(Item newItem)
+    // {
+    //     InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
+    //     int count;
+    //     if (slot != null && slot.count > 0)
+    //     {
+    //         count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
+    //         return count.ToString();
+    //     }
+    //     else
+    //     {
+    //         return null;
+    //     }
+    // }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        onAddIngredient?.Invoke((Ingredient)item);
-        onAddItem?.Invoke(item);
-        m_countText.text = RefreshCount(item);
-        if (m_countText.text == null)
-        {
-            Destroy(gameObject.transform.parent.gameObject);
-        }
+        onAddIngredient?.Invoke(this);
+        onRemoveIngredient?.Invoke(this);
+        // onAddItem?.Invoke(item);
+        // m_countText.text = RefreshCount(item);
+        // if (m_countText.text == null)
+        // {
+        //     Destroy(gameObject.transform.parent.gameObject);
+        // }
     }
 }
