@@ -6,21 +6,19 @@ public class BeatCircle : MonoBehaviour
 {
     public float timeToScroll;
     public RectTransform hitButtonPos;
-    private Vector3 startPos;
+    public Vector3 startPos;
     private float startTime;
     private float timer;
 
-    void Start()
+    private void Start()
     {
         startPos = transform.position;
         startTime = (float)AudioSettings.dspTime;
     }
 
-
-    void Update()
+    private void Update()
     {
         //transform.position += new Vector3(speed * bpm * (float)AudioSettings.dspTime, 0, 0);
-
         if (Vector3.Distance(transform.position, hitButtonPos.position) > 0.01f)
         {
             float step = timer / timeToScroll;

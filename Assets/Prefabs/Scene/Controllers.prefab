@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b941f0a07b82ffa4a9202646c0ddc2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bpm: 120
+  bpm: 260
   beatSpawner: {fileID: 0}
   rhythmCheck: {fileID: 0}
   layoutTextFile: {fileID: 4900000, guid: 36a5d324a1180ac46847235f147c72e3, type: 3}
@@ -167,7 +167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7150512821123471012
 Transform:
   m_ObjectHideFlags: 0
@@ -197,8 +197,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ratingSpawner: {fileID: 0}
   rhythmCheck: {fileID: 0}
-  rhythmController: {fileID: 0}
+  rhythmController: {fileID: 3923991243042935820}
   m_score: 0
+  m_gameMode: {fileID: 0}
+  m_winWindow: {fileID: 0}
+  m_loseWindow: {fileID: 0}
+  m_hpPict:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &6226416884280469728
 GameObject:
   m_ObjectHideFlags: 0

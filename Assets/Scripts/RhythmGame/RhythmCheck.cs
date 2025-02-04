@@ -16,11 +16,16 @@ public class RhythmCheck : MonoBehaviour
     private float startTime;
     private float perfectBeatTime;
 
+    private void OnEnable()
+    {
+        m_checkingOngoing = false;
+        m_inputDetected = false;
+    }
+
     void FixedUpdate()
     {
         if (m_checkingOngoing)
         {
-            
             if (m_inputDetected)
             {
                 if (Mathf.Abs(m_timer - perfectBeatTime) < offsetMax)
