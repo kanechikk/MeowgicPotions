@@ -9,8 +9,10 @@ public class GameManager : MonoBehaviour
     // [SerializeField] private Objective objective;
     public static ItemsDB itemsDB;
     public WateringPot wateringPot;
+    [SerializeField] private Collider m_counterCollider;
     [SerializeField] private int m_wateringPotMaxValue;
     [SerializeField] private QuestManager m_questManager;
+    [SerializeField] private AgentController m_agentController;
 
     private void Awake()
     {
@@ -22,6 +24,22 @@ public class GameManager : MonoBehaviour
         playerInventory = new Inventory(32);
         // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
         // objectiveManager = new ObjectiveManager();
+    }
+
+    private void Start()
+    {
+        m_agentController.onStopped += OnAgentStop;
+        m_agentController.onGoing += OnAgentGo;
+    }
+
+    private void OnAgentStop()
+    {
+        m_counterCollider.enabled = true;
+    }
+
+    private void OnAgentGo()
+    {
+        m_counterCollider.enabled = false;
     }
 
     private void OnEnable()
