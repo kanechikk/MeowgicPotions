@@ -39030,6 +39030,7 @@ Transform:
   - {fileID: 121066414579443300}
   - {fileID: 3257920537179740641}
   - {fileID: 732311955473092126}
+  - {fileID: 8131373044652892640}
   m_Father: {fileID: 5302484737394797853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5759164047694411585
@@ -39062,6 +39063,38 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5106445662305719906}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5974586373195665112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8131373044652892640}
+  m_Layer: 0
+  m_Name: CounterCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8131373044652892640
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5974586373195665112}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2529816049895167259}
+  m_Father: {fileID: 2763156282097934164}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6075085484472349709
 GameObject:
@@ -39187,13 +39220,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6222605107360601803}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.28101596, z: 0, w: 0.95970315}
-  m_LocalPosition: {x: 12.770033, y: -2.0252128, z: -1.071244}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4289428541108026677}
-  m_Father: {fileID: 5302484737394797853}
+  m_Father: {fileID: 8131373044652892640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3914253129141159092
 MonoBehaviour:
@@ -39545,7 +39578,6 @@ Transform:
   - {fileID: 7045998238883713649}
   - {fileID: 4903960057094413585}
   - {fileID: 8739309818643709635}
-  - {fileID: 2529816049895167259}
   - {fileID: 2763156282097934164}
   - {fileID: 963432426777628157}
   - {fileID: 3496476378680091605}
