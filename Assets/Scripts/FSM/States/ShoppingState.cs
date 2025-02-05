@@ -36,7 +36,6 @@ public class ShoppingState : GameStateBehaviour
 
     private void OnEnable()
     {
-        //shoppingUI.SetActive(true);
         if (!ingredients_stocked || !seeds_stocked)
         {
             FillTheShop();

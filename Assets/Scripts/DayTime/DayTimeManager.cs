@@ -21,7 +21,7 @@ public class DayTimeManager : MonoBehaviour
         m_dayTime = new DayTime(day, hour, minute);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (timePass)
         {
@@ -42,6 +42,7 @@ public class DayTimeManager : MonoBehaviour
         {
             Pause();
         }
+        Debug.Log(m_dayTime.Hour);
     }
 
     private void AdvanceTime()
