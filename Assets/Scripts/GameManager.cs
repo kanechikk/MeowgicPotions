@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        m_agentController.onStopped += OnAgentStop;
-        m_agentController.onGoing += OnAgentGo;
+        m_agentController.onReachSpot += OnAgentStop;
+        m_agentController.onLeave += OnAgentGo;
     }
 
     private void OnAgentStop()

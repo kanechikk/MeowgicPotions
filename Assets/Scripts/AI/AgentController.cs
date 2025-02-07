@@ -5,8 +5,10 @@ using UnityEngine.AI;
 public class AgentController : MonoBehaviour
 {
     [SerializeField] private NavMeshAgent m_navMeshAgent;
-    public Action onStopped;
-    public Action onGoing;
+    [SerializeField] private GameObject m_pathDesck;
+    [SerializeField] private GameObject m_agent;
+    public Action onReachSpot;
+    public Action onLeave;
 
     public void GoToDestination(Vector3 destinationPoint)
     {
@@ -15,13 +17,13 @@ public class AgentController : MonoBehaviour
 
     private void Update()
     {
-        if (m_navMeshAgent.velocity == Vector3.zero)
+        if (Vector3.Distance(m_agent.transform.position, m_pathDesck.transform.position) < 0.1)
         {
-            onStopped?.Invoke();
+            onReachSpot?.Invoke();
         }
         else
         {
-            onGoing?.Invoke();
+            onLeave?.Invoke();
         }
     }
 }
