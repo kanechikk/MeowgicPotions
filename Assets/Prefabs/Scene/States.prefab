@@ -54,7 +54,6 @@ MonoBehaviour:
   m_btnPrefab: {fileID: 2429208491016628861, guid: 9101974ad6240c947b8516aaa9317452, type: 3}
   m_btnParent: {fileID: 0}
   m_buttonsCreating: {fileID: 0}
-  m_PotionBookUI: {fileID: 0}
 --- !u!114 &6018791036443842081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,6 +107,7 @@ Transform:
   - {fileID: 2062560380756804451}
   - {fileID: 2699241644720892182}
   - {fileID: 7806215412818592609}
+  - {fileID: 5235924365688967272}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5069815130382966154
@@ -122,6 +122,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d0b23c21c43f439566a90dc5ef679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2148891132320363977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5235924365688967272}
+  - component: {fileID: 4772578290725069162}
+  - component: {fileID: 8249372285718385797}
+  m_Layer: 0
+  m_Name: TalkingState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5235924365688967272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148891132320363977}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.9585128, y: -2.9665694, z: 7.38817}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9092467340196784839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4772578290725069162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148891132320363977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 932c7e4a415e37442a5e255c8977f0e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8249372285718385797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148891132320363977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects: []
 --- !u!1 &2965355054151991624
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,7 +226,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_cauldron: {fileID: 0}
-  m_brewingUI: {fileID: 0}
   m_cauldronInfoUI:
   - {fileID: 0}
   - {fileID: 0}
@@ -309,7 +366,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6207fa7595c884fb5510325cbb273e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shoppingUI: {fileID: 0}
   ingredientsPanel: {fileID: 0}
   seedsPanel: {fileID: 0}
   potionsPanel: {fileID: 0}

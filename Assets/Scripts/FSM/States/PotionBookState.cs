@@ -16,7 +16,6 @@ public class PotionBookState : GameStateBehaviour
     [SerializeField] private GameObject m_btnPrefab;
     [SerializeField] private GameObject m_btnParent;
     [SerializeField] private ButtonsCreating m_buttonsCreating;
-    [SerializeField] private GameObject m_PotionBookUI;
     
     private void Awake()
     {

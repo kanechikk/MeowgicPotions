@@ -11,7 +11,6 @@ public class BrewingState : GameStateBehaviour
     [SerializeField] private Cauldron m_cauldron;
     private Potion m_chosenPotion;
     //UI элементы
-    [SerializeField] private GameObject m_brewingUI;
     [SerializeField] private TextMeshProUGUI[] m_cauldronInfoUI;
     [SerializeField] private TextMeshProUGUI[] m_chosenPotionInfoUI;
     [SerializeField] private PotionBookState m_potionBookState;
