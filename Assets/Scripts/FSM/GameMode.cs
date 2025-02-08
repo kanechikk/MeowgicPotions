@@ -59,6 +59,12 @@ public class GameMode : MonoBehaviour
             GoToPlanting();
             return;
         }
+
+        if (state is TalkingState)
+        {
+            GoToTalking();
+            return;
+        }
     }
 
     public void GoToBrewing()
@@ -104,5 +110,10 @@ public class GameMode : MonoBehaviour
     public void GoToWatering()
     {
         m_stateActivator.RunWhile<WateringState>();
+    }
+
+    public void GoToTalking()
+    {
+        m_stateActivator.RunWhile<TalkingState>();
     }
 }
