@@ -7,11 +7,6 @@ public class ObjectiveManager
 	public Action<Objective> OnObjectiveAdded;
 	public List<Objective> Objectives { get; } = new();
 	private readonly Dictionary<string, List<Objective>> _objectiveMap = new();
-
-	// Adds an objective to the objective manager.
-	// If the objective has an EventTrigger, it's progress will be incremented
-	// by AddProgress when the event is triggered. Multiple objectives can have
-	// the same EventTrigger (i.e. MobKilled, ItemCollected, etc)
 	public void AddObjective(Objective objective)
 	{
 		Objectives.Add(objective);

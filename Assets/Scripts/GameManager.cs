@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
         itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
 
         playerInventory = new Inventory(32);
-        // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
-        // objectiveManager = new ObjectiveManager();
     }
 
     private void Start()

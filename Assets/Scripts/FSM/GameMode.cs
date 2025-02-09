@@ -114,6 +114,6 @@ public class GameMode : MonoBehaviour
 
     public void GoToTalking()
     {
-        m_stateActivator.RunWhile<TalkingState>();
+        m_stateActivator.Push<TalkingState>();
     }
 }

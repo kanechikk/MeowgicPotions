@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,21 +7,26 @@ public class Interactable : MonoBehaviour
     [SerializeField] private GameStateBehaviour stateOfInteractable;
     [SerializeField] private WateringPotController m_wateringPotController;
     [SerializeField] private GameMode m_gameMode;
-    private bool active = false;
+    private bool m_active = false;
+
+    public Action onActive;
+    public Action onDeactive;
     
     private void OnTriggerEnter(Collider other)
     {
-        active = true;
+        m_active = true;
+        onActive?.Invoke();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        active = false;
+        m_active = false;
+        onDeactive?.Invoke();
     }
 
     private void Update()
     {
-        if (active && Keyboard.current.eKey.wasPressedThisFrame)
+        if (m_active && Keyboard.current.eKey.wasPressedThisFrame)
         {
             if (stateOfInteractable != null)
             {
@@ -30,6 +36,8 @@ public class Interactable : MonoBehaviour
             {
                 m_wateringPotController.FillPot();
             }
+            m_active = false;
+            onDeactive?.Invoke();
         }
     }
 }
