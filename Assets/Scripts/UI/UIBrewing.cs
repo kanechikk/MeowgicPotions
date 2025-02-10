@@ -14,8 +14,9 @@ public class UIBrewing : MonoBehaviour
     [SerializeField] private Button m_brewButton;
     [SerializeField] private Button m_clearButton;
     [SerializeField] private GameObject m_clickableItemPrefab;
-    [SerializeField] private GameObject m_cauldronClickableItemPrefab;
+    //[SerializeField] private GameObject m_cauldronClickableItemPrefab;
     [SerializeField] private BrewingController m_brewingController;
+    [SerializeField] private Cauldron m_cauldron;
     private bool needToRefreshInventory = true;
     private GameObject[] m_ingredientObjects;
 
@@ -56,85 +57,66 @@ public class UIBrewing : MonoBehaviour
 
     private void FillSlots()
     {
-        // Вызываем айтемы из инвентаря
+        //Вызываем айтемы из инвентаря
         List<InventorySlot> ingredients = GameManager.playerInventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot ingredient in ingredients)
         {
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
-            clickableItem.InitialiseItem(ingredient.item);
-            clickableItem.onAddIngredient += OnAddIngredient;
+            newItem.GetComponent<ClickableItem>().item = ingredient.item;
+            newItem.GetComponent<ClickableItem>().onAddIngredient += OnAddIngredient;
+            newItem.GetComponent<ClickableItem>().onAddIngredient += m_brewingController.OnAddIngredient;
         }
+
+        needToRefreshInventory = false;
     }
 
-    private void OnAddIngredient(ClickableItem clickableItem)
+    private void OnAddIngredient(Ingredient ingredient)
     {
-        AddToCauldron(clickableItem);
+        AddToCauldron(ingredient);
 
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
 
-    private void OnRemoveIngredient(ClickableItem clickableItem)
+    private void OnRemoveIngredient(Ingredient ingredient)
     {
-        RemoveFromCauldron(clickableItem);
+        RemoveFromCauldron(ingredient);
 
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
 
-    private void AddToCauldron(ClickableItem clickItem)
+    private void AddToCauldron(Ingredient ingredient)
     {
+        m_cauldron.AddIngredient(ingredient);
         ElementsInfoChange();
 
-
-        if (--clickItem.count == 0)
-        {
-            clickItem.gameObject.transform.parent = m_cauldronSlots.transform;
-            clickItem.onAddIngredient -= OnAddIngredient;
-            clickItem.onRemoveIngredient += OnRemoveIngredient;
-        }
-        else
-        {
-            GameObject newItem = Instantiate(m_clickableItemPrefab, m_cauldronSlots.transform);
-
-            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
-            clickableItem.InitialiseItem(clickItem.item);
-            clickableItem.onRemoveIngredient += OnRemoveIngredient;
-        }
+        GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_cauldronSlots.transform);
+        newItemCauldron.GetComponent<ClickableItem>().InitialiseItem(ingredient);
+        newItemCauldron.GetComponent<ClickableItem>().onRemoveIngredient += OnRemoveIngredient;
+        newItemCauldron.GetComponent<ClickableItem>().onRemoveIngredient += m_brewingController.OnRemoveIngredient;
+        newItemCauldron.transform.GetChild(0).gameObject.SetActive(false);
     }
 
-    private void RemoveFromCauldron(ClickableItem clickItem)
+    private void RemoveFromCauldron(Ingredient ingredient)
     {
         ElementsInfoChange();
 
-        ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
+        ClickableItem[] inventory = m_inventorySlots.GetComponents<ClickableItem>();
 
-        if (clickItem.count == 0)
+        if (Array.Exists(inventory, x => x.item == ingredient))
         {
-            clickItem.gameObject.transform.parent = m_inventorySlots.transform;
-            clickItem.onRemoveIngredient -= OnRemoveIngredient;
-            clickItem.onAddIngredient += OnAddIngredient;
+            Array.Find(inventory, x => x.item == ingredient).InitialiseItem(ingredient);
         }
         else
         {
-            clickItem.Remove();
+            GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
+            newItemCauldron.GetComponent<ClickableItem>().InitialiseItem(ingredient);
+            newItemCauldron.GetComponent<ClickableItem>().onAddIngredient += OnAddIngredient;
+            newItemCauldron.GetComponent<ClickableItem>().onAddIngredient += m_brewingController.OnAddIngredient;
         }
-
-        clickItem.count++;
-
-        // if (Array.Exists(inventory, x => x.item == ingredient))
-        // {
-        //     Array.Find(inventory, x => x.item == ingredient).InitialiseItem(ingredient);
-        // }
-        // else
-        // {
-        //     GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-        //     newItemCauldron.GetComponentInChildren<ClickableItem>().InitialiseItem(ingredient);
-        //     newItemCauldron.GetComponentInChildren<ClickableItem>().onAddIngredient += OnAddIngredient;
-        // }
     }
 
     //проверка на соответствие рецепту
@@ -174,13 +156,14 @@ public class UIBrewing : MonoBehaviour
 
     public void SetItemsBack()
     {
-        // Получаем все айтемы в брюинге
-        ClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<ClickableItem>();
+        //Получаем все айтемы в брюинге
+        CauldronClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
 
-        // Заполняем слоты инвентаря айтемами оставшимися
+        // Заполняем слоты инвенторя айтемами оставшимися
         for (int i = 0; i < itemsCauldron.Length; i++)
         {
-            RemoveFromCauldron(itemsCauldron[i]);
+            RemoveFromCauldron(itemsCauldron[i].ingredient);
+            itemsCauldron[i].Remove();
         }
 
         BrewButtonOnOff();
@@ -189,7 +172,7 @@ public class UIBrewing : MonoBehaviour
 
     public void ElementsInfoChange()
     {
-        m_cauldronInfoUI.text += 
+        m_cauldronInfoUI.text = m_cauldron.elementsInfo;
     }
 }
 

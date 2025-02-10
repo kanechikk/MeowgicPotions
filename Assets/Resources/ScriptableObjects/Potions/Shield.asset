@@ -16,8 +16,11 @@ MonoBehaviour:
   m_price: 100
   m_icon: {fileID: 21300000, guid: 7513b8d39cd606d428fb8b3f3730bdf6, type: 3}
   id: 4
-  m_aqua: 0
-  m_terra: 15
-  m_solar: 0
-  m_ignis: 7
-  m_aer: 10
+  m_elements:
+  - type: 3
+    elementName: Ignis
+    value: 1
+  - type: 4
+    elementName: Aer
+    value: 1
+  m_description: shield

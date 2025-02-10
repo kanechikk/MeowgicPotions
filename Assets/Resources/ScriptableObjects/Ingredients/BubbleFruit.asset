@@ -16,9 +16,8 @@ MonoBehaviour:
   m_price: 100
   m_icon: {fileID: 21300000, guid: 92d33facea436f54c82fb697696e54e9, type: 3}
   id: 0
-  m_aqua: 6
-  m_terra: 0
-  m_solar: 0
-  m_ignis: 0
-  m_aer: 0
   m_material: {fileID: 2100000, guid: af092082398959b4c8d1321ccef0cb71, type: 2}
+  m_elements:
+  - type: 0
+    elementName: Aqua
+    value: 1

@@ -8,7 +8,8 @@ public class Cauldron : MonoBehaviour
 {
     private List<Ingredient> m_addedIngredients;
     public IReadOnlyList<Ingredient> addedIngredients => m_addedIngredients;
-    private Ingredient cauldron;
+    private string m_elementsInfo;
+    public string elementsInfo => m_elementsInfo;
     // public int aquaCount { private set; get; } = 0;
     // public int ignisCount { private set; get; } = 0;
     // public int terraCount { private set; get; } = 0;
@@ -18,7 +19,8 @@ public class Cauldron : MonoBehaviour
     private void Awake()
     {
         m_addedIngredients = new List<Ingredient>();
-        cauldron = new Ingredient();
+        m_elementsInfo = "";
+
     }
     public void AddIngredient(Ingredient ingredient)
     {
@@ -43,6 +45,7 @@ public class Cauldron : MonoBehaviour
 
     public bool RecipeCheck(Potion recipe)
     {
+        m_elementsInfo = "";
         foreach (Element item in recipe.elements)
         {
             int val = 0;
@@ -50,6 +53,8 @@ public class Cauldron : MonoBehaviour
             {
                 val += ingr.elements.Find(x => x.type == item.type).value;
             }
+
+            m_elementsInfo += $"{item.elementName}: {val}]\n";
 
             if (val != item.value)
             {

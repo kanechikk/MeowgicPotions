@@ -13,7 +13,8 @@ public class Potion : Item
 
     [SerializeField] private List<Element> m_elements;
     public List<Element> elements => m_elements;
-
+    [SerializeField] private string m_description;
+    public string description => m_description;
     private string m_elementString = "";
 
     // public Dictionary<string, int> elements => this.m_elements;

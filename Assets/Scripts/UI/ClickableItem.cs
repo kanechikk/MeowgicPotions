@@ -8,15 +8,16 @@ using UnityEngine.UI;
 
 public class ClickableItem : UIItem, IPointerClickHandler
 {
-    public Action<ClickableItem> onAddIngredient;
-    public Action<ClickableItem> onRemoveIngredient;
+    public Action<Ingredient> onAddIngredient;
+    public Action<Ingredient> onRemoveIngredient;
     public Action<Item> onAddItem;
     public int count;
     private TextMeshProUGUI m_countText;
+
     private void Awake()
     {
         image = GetComponent<Image>();
-        //m_countText = GetComponentInChildren<TextMeshProUGUI>();
+        m_countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -28,7 +29,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         item = newItem;
         image.sprite = item.icon;
-        //m_countText.text = RefreshCount(item);
+        m_countText.text = RefreshCount(item);
     }
 
     public void Remove()
@@ -36,30 +37,29 @@ public class ClickableItem : UIItem, IPointerClickHandler
         Destroy(gameObject);
     }
 
-    // private string RefreshCount(Item newItem)
-    // {
-    //     InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
-    //     int count;
-    //     if (slot != null && slot.count > 0)
-    //     {
-    //         count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
-    //         return count.ToString();
-    //     }
-    //     else
-    //     {
-    //         return null;
-    //     }
-    // }
+    private string RefreshCount(Item newItem)
+    {
+        InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
+        int count;
+        if (slot != null && slot.count > 0)
+        {
+            count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
+            return count.ToString();
+        }
+        else
+        {
+            return null;
+        }
+    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        onAddIngredient?.Invoke(this);
-        onRemoveIngredient?.Invoke(this);
-        // onAddItem?.Invoke(item);
-        // m_countText.text = RefreshCount(item);
-        // if (m_countText.text == null)
-        // {
-        //     Destroy(gameObject.transform.parent.gameObject);
-        // }
+        onAddIngredient?.Invoke((Ingredient)item);
+        onRemoveIngredient?.Invoke((Ingredient)item);
+        m_countText.text = RefreshCount(item);
+        if (m_countText.text == null)
+        {
+            Destroy(gameObject.transform.parent.gameObject);
+        }
     }
 }

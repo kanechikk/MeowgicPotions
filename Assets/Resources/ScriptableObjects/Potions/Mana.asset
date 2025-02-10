@@ -16,8 +16,11 @@ MonoBehaviour:
   m_price: 100
   m_icon: {fileID: 21300000, guid: 4d86529d71e47ff4989f0a812560cfa2, type: 3}
   id: 2
-  m_aqua: 0
-  m_terra: 0
-  m_solar: 7
-  m_ignis: 0
-  m_aer: 10
+  m_elements:
+  - type: 1
+    elementName: Terra
+    value: 1
+  - type: 2
+    elementName: Solar
+    value: 1
+  m_description: mana

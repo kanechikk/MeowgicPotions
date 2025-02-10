@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
 
         playerInventory = new Inventory(32);
+
+        CreateWateringPot(m_wateringPotMaxValue);
         // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
         // objectiveManager = new ObjectiveManager();
     }
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour
             playerInventory.AddItem(itemsDB.seeds[i]);
         }
         wateringPot = new WateringPot(maxValue);
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             playerInventory.AddItem(itemsDB.potions[i]);
         }

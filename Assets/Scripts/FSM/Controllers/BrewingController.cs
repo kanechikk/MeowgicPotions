@@ -6,14 +6,14 @@ public class BrewingController : MonoBehaviour
     [SerializeField] private Cauldron m_cauldron;
     public Cauldron cauldron => m_cauldron;
     private Potion m_chosenPotion;
-    [SerializeField] private PotionBookState m_potionBookState;
+    [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private GameMode m_gameMode;
     [SerializeField] private Item m_itemSample;
 
     private void Start()
     {
         //подписываемся на событие, которое реагирует на выбор зелья в книге рецептов
-        m_potionBookState.onChoosePotion += OnChoosePotion;
+        m_potionBookController.onChoosePotion += OnChoosePotion;
     }
 
     private void OnChoosePotion(Potion potion)
@@ -70,5 +70,10 @@ public class BrewingController : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void OpenPotionBook()
+    {
+        m_gameMode.Back();
     }
 }

@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &639768028165539703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890968131737382127}
+  - component: {fileID: 3668224875555930115}
+  m_Layer: 0
+  m_Name: PotionBookController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1890968131737382127
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639768028165539703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3668224875555930115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639768028165539703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a0bba7912bbfa42bdcc3cf294ecc4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_potionInfo: {fileID: 0}
+  m_btnPrefab: {fileID: 0}
+  m_btnParent: {fileID: 0}
+  m_buttonsCreating: {fileID: 0}
+  m_sprite: {fileID: 0}
+  m_description: {fileID: 0}
 --- !u!1 &833316302934131185
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +59,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 30746040309889080}
-  - component: {fileID: 3395420041426505958}
+  - component: {fileID: 6697446726796551009}
+  - component: {fileID: 8927576682546359786}
   m_Layer: 0
   m_Name: BrewingController
   m_TagString: Untagged
@@ -32,7 +83,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6821195583399251993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3395420041426505958
+--- !u!114 &6697446726796551009
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +95,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1141c8397d01b194a97a8ec776615231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_cauldron: {fileID: 0}
+  m_potionBookController: {fileID: 0}
+  m_gameMode: {fileID: 0}
+  m_itemSample: {fileID: 0}
+--- !u!114 &8927576682546359786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833316302934131185}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5068392f1bd42c45a9278dcc4f99ef0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cauldronInfoUI: {fileID: 0}
+  m_cauldronSlots: {fileID: 0}
+  m_inventorySlots: {fileID: 0}
+  m_brewButton: {fileID: 0}
+  m_clearButton: {fileID: 0}
+  m_clickableItemPrefab: {fileID: 0}
+  m_cauldronClickableItemPrefab: {fileID: 0}
+  m_brewingController: {fileID: 0}
+  m_cauldron: {fileID: 0}
 --- !u!1 &3021703673554270349
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +409,55 @@ Transform:
   - {fileID: 948170496927413956}
   - {fileID: 7150512821123471012}
   - {fileID: 30746040309889080}
+  - {fileID: 2200567322425870415}
+  - {fileID: 1890968131737382127}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8772483840550857635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2200567322425870415}
+  - component: {fileID: 2075332505520685474}
+  m_Layer: 0
+  m_Name: WateringPotController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2200567322425870415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772483840550857635}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.746577, y: 14.72465, z: -23.133114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2075332505520685474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8772483840550857635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bcea1a7d903a743bae550cbd648e1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gameManager: {fileID: 0}
 --- !u!1001 &691791459969087069
 PrefabInstance:
   m_ObjectHideFlags: 0

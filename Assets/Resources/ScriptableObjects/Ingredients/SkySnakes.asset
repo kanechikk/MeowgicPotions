@@ -16,10 +16,8 @@ MonoBehaviour:
   m_price: 100
   m_icon: {fileID: 21300000, guid: 90fa71017b9421a4ca6291f8eaebb948, type: 3}
   id: 3
-  m_aqua: 0
-  m_terra: 0
-  m_solar: 3
-  m_ignis: 0
-  m_aer: 0
-  ielements: []
   m_material: {fileID: 2100000, guid: a45b34e90fdc5e34ba4f9afaa2b420b1, type: 2}
+  m_elements:
+  - type: 3
+    elementName: Ignis
+    value: 1
