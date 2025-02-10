@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8f9dba994bfb2449391803585990ce, type: 3}
   m_Name: 0MakeOneHealthPotion
   m_EditorClassIdentifier: 
+  m_id: 0
   m_eventTrigger: HealthPotionMade
   m_maxValue: 1
   m_statusText: Brew {0} of {1} items
+  m_day: 1
