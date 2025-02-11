@@ -54,6 +54,11 @@ public class BrewingController : MonoBehaviour
 
     public void SetItemsBack()
     {
+        foreach (Ingredient item in m_cauldron.addedIngredients)
+        {
+            GameManager.playerInventory.AddItem(item);
+        }
+
         m_cauldron.ClearCauldron();
     }
 

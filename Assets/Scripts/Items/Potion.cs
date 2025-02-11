@@ -15,12 +15,13 @@ public class Potion : Item
     public List<Element> elements => m_elements;
     [SerializeField] private string m_description;
     public string description => m_description;
-    private string m_elementString = "";
+    private string m_elementString;
 
     // public Dictionary<string, int> elements => this.m_elements;
 
     private void OnEnable()
     {
+        m_elementString = "";
         foreach (Element element in m_elements)
         {
             m_elementString += $"{element.elementName}: {element.value}\n";

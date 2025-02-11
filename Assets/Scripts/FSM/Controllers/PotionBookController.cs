@@ -19,8 +19,6 @@ public class PotionBookController : MonoBehaviour
     [SerializeField] private Image m_sprite;
     [SerializeField] private TextMeshProUGUI m_description;
 
-    [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
-
     private void Awake()
     {
         m_buttons = new List<GameObject>();
@@ -65,7 +63,6 @@ public class PotionBookController : MonoBehaviour
     //метод, который висит на кнопке "Выбрать"
     public void ChoosePotion()
     {
-        m_brewingPotionInfo.text = m_chosenPotion.ElementsToString();
         onChoosePotion?.Invoke(m_chosenPotion);
     }
 }

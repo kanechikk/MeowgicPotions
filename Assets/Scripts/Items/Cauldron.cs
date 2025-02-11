@@ -8,8 +8,8 @@ public class Cauldron : MonoBehaviour
 {
     private List<Ingredient> m_addedIngredients;
     public IReadOnlyList<Ingredient> addedIngredients => m_addedIngredients;
-    private string m_elementsInfo;
-    public string elementsInfo => m_elementsInfo;
+    private List<object> m_addedElements;
+
     // public int aquaCount { private set; get; } = 0;
     // public int ignisCount { private set; get; } = 0;
     // public int terraCount { private set; get; } = 0;
@@ -19,14 +19,18 @@ public class Cauldron : MonoBehaviour
     private void Awake()
     {
         m_addedIngredients = new List<Ingredient>();
-        m_elementsInfo = "";
-
+        m_addedElements = new List<object>();
     }
     public void AddIngredient(Ingredient ingredient)
     {
         if (ingredient != null)
         {
             m_addedIngredients.Add(ingredient);
+
+            foreach (Element element in ingredient.elements)
+            {
+                AddElement(element);
+            }
         }
     }
 
@@ -35,26 +39,65 @@ public class Cauldron : MonoBehaviour
         if (ingredient != null)
         {
             m_addedIngredients.Remove(ingredient);
+
+            foreach (Element element in ingredient.elements)
+            {
+                RemoveElement(element);
+            }
         }
     }
 
     public void ClearCauldron()
     {
         m_addedIngredients = new List<Ingredient>();
+        m_addedElements = new List<object>();
+    }
+
+    private void AddElement(Element element)
+    {
+        foreach (Element elem in m_addedElements)
+        {
+            if (elem.type == element.type)
+            {
+                elem.value += element.value;
+                return;
+            }
+        }
+
+        m_addedElements.Add(element.Clone());
+    }
+
+    private void RemoveElement(Element element)
+    {
+        foreach (Element elem in m_addedElements)
+        {
+            if (elem.type == element.type)
+            {
+                elem.value -= element.value;
+
+                if (elem.value == 0)
+                {
+                    m_addedElements.Remove(elem);
+                    return;
+                }
+            }
+        }
     }
 
     public bool RecipeCheck(Potion recipe)
     {
-        m_elementsInfo = "";
+        Element element;
         foreach (Element item in recipe.elements)
         {
             int val = 0;
             foreach (Ingredient ingr in m_addedIngredients)
             {
-                val += ingr.elements.Find(x => x.type == item.type).value;
+                element = ingr.elements.Find(x => x.type == item.type);
+                if (element != null)
+                {
+                    val += element.value;
+                }
             }
-
-            m_elementsInfo += $"{item.elementName}: {val}]\n";
 
             if (val != item.value)
             {
@@ -62,6 +105,18 @@ public class Cauldron : MonoBehaviour
             }  
         }
         return true;
+    }
+
+    public string GetInfo()
+    {
+        string elementsInfo = "";
+        
+        foreach (Element element in m_addedElements)
+        {
+            elementsInfo += $"{element.elementName}: {element.value}\n";
+        }
+
+        return elementsInfo;
     }
 }
 

@@ -18,7 +18,8 @@ public class UIBrewing : MonoBehaviour
     [SerializeField] private BrewingController m_brewingController;
     [SerializeField] private Cauldron m_cauldron;
     private bool needToRefreshInventory = true;
-    private GameObject[] m_ingredientObjects;
+    [SerializeField] private PotionBookController m_potionBookController;
+    [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
 
     private void Start()
     {
@@ -27,6 +28,12 @@ public class UIBrewing : MonoBehaviour
         m_clearButton.interactable = false;
 
         GameManager.playerInventory.onInvChange += OnInventoryChange;
+        m_potionBookController.onChoosePotion += OnChoosePotion;
+    }
+
+    private void OnChoosePotion(Potion potion)
+    {
+        m_brewingPotionInfo.text = potion.ElementsToString();
     }
 
     private void OnInventoryChange()
@@ -158,23 +165,31 @@ public class UIBrewing : MonoBehaviour
 
     public void SetItemsBack()
     {
-        //Получаем все айтемы в брюинге
-        // ClickableItem[] itemsCauldron = m_cauldronSlots.GetComponents<ClickableItem>();
+        // Получаем все айтемы в брюинге
+        ClickableItem[] itemsCauldron = m_cauldronSlots.GetComponentsInChildren<ClickableItem>();
 
-        // // Заполняем слоты инвенторя айтемами оставшимися
-        // for (int i = 0; i < itemsCauldron.Length; i++)
-        // {
-        //     RemoveFromCauldron(itemsCauldron[i].ingredient);
-        //     itemsCauldron[i].Remove();
-        // }
+        // Заполняем слоты инвентаря айтемами оставшимися
+        for (int i = 0; i < itemsCauldron.Length; i++)
+        {
+            RemoveFromCauldron((Ingredient)itemsCauldron[i].item);
+            itemsCauldron[i].Remove();
+        }
 
-        // BrewButtonOnOff();
-        // ClearButtonOnOff();
+        BrewButtonOnOff();
+        ClearButtonOnOff();
     }
 
     public void ElementsInfoChange()
     {
-        m_cauldronInfoUI.text = m_cauldron.elementsInfo;
+        string inf = m_cauldron.GetInfo();
+        if (inf == "")
+        {
+            m_cauldronInfoUI.text = "Cauldron is empty!";
+        }
+        else
+        {
+            m_cauldronInfoUI.text = m_cauldron.GetInfo();
+        }
     }
 }
 
