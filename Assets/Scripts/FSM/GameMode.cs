@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class GameMode : MonoBehaviour
 {
@@ -65,6 +66,12 @@ public class GameMode : MonoBehaviour
             GoToTalking();
             return;
         }
+
+        if (state is CheckingQuestsState)
+        {
+            GoToQuests();
+            return;
+        }
     }
 
     public void GoToBrewing()
@@ -115,5 +122,10 @@ public class GameMode : MonoBehaviour
     public void GoToTalking()
     {
         m_stateActivator.Push<TalkingState>();
+    }
+
+    public void GoToQuests()
+    {
+        m_stateActivator.Push<CheckingQuestsState>();
     }
 }
