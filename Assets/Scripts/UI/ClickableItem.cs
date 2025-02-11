@@ -11,8 +11,9 @@ public class ClickableItem : UIItem, IPointerClickHandler
     public Action<Ingredient> onAddIngredient;
     public Action<Ingredient> onRemoveIngredient;
     public Action<Item> onAddItem;
-    public int count;
+    public int count = 1;
     private TextMeshProUGUI m_countText;
+    public bool isInCauldron = false;
 
     private void Awake()
     {
@@ -32,15 +33,10 @@ public class ClickableItem : UIItem, IPointerClickHandler
         m_countText.text = RefreshCount(item);
     }
 
-    public void Remove()
-    {
-        Destroy(gameObject);
-    }
-
     private string RefreshCount(Item newItem)
     {
         InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
-        int count;
+
         if (slot != null && slot.count > 0)
         {
             count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
@@ -48,18 +44,25 @@ public class ClickableItem : UIItem, IPointerClickHandler
         }
         else
         {
+            count = 0;
             return null;
         }
     }
+
+    // public void Remove()
+    // {
+    //     Destroy(gameObject);
+    // }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         onAddIngredient?.Invoke((Ingredient)item);
         onRemoveIngredient?.Invoke((Ingredient)item);
         m_countText.text = RefreshCount(item);
-        if (m_countText.text == null)
+        if (count == 0 || isInCauldron)
         {
-            Destroy(gameObject.transform.parent.gameObject);
+            Destroy(gameObject);
+            return;
         }
     }
 }

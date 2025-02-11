@@ -24,13 +24,13 @@ public class BrewingController : MonoBehaviour
     public void OnAddIngredient(Ingredient ingredient)
     {
         m_cauldron.AddIngredient(ingredient);
-        //GameManager.playerInventory.RemoveItem(ingredient);
+        GameManager.playerInventory.RemoveItem(ingredient);
     }
 
     public void OnRemoveIngredient(Ingredient ingredient)
     {
         m_cauldron.RemoveIngredient(ingredient);
-        //GameManager.playerInventory.AddItem(ingredient);
+        GameManager.playerInventory.AddItem(ingredient);
     }
 
     public void Brew()

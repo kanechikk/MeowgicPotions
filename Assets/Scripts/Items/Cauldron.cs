@@ -61,7 +61,6 @@ public class Cauldron : MonoBehaviour
                 return false;
             }  
         }
-
         return true;
     }
 }
