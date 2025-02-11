@@ -14,7 +14,7 @@ public class RhythmGameController : MonoBehaviour
     [SerializeField] private GameObject m_loseWindow;
     private int m_healthPoints;
     [SerializeField] private List<GameObject> m_hpPict;
-    public event Action<int> onGameEnd;
+    //public event Action<int> onGameEnd;
     public event Action<int> onScoreInc;
 
     public void OnEnable()

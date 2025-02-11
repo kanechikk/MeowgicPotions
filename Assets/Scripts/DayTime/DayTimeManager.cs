@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class DayTimeManager : MonoBehaviour
 {
-    public int day = 1;
-    public int hour; 
-    public int minute;
+    [SerializeField] private int day = 1;
+    [SerializeField] private int hour;
+    [SerializeField] private int minute;
     private DayTime m_dayTime;
 
     public int tickMinutesIncrease = 10;
     public float timeBetweenTicks = 1;
     public float currentTimeBetweenTicks = 0;
     public bool timePass;
+    public DayTime dayTime => m_dayTime;
 
     public Action<DayTime> onDayTimeChange;
     public Action onDayChange;
@@ -57,6 +58,7 @@ public class DayTimeManager : MonoBehaviour
         m_dayTime.DayPass();
         onDayChange?.Invoke();
         Start();
+        Debug.Log("Day passed");
     }
 
     private void Pause()

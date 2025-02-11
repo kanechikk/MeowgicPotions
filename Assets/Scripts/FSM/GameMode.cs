@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class GameMode : MonoBehaviour
 {
@@ -59,6 +60,18 @@ public class GameMode : MonoBehaviour
             GoToPlanting();
             return;
         }
+
+        if (state is TalkingState)
+        {
+            GoToTalking();
+            return;
+        }
+
+        if (state is CheckingQuestsState)
+        {
+            GoToQuests();
+            return;
+        }
     }
 
     public void GoToBrewing()
@@ -112,5 +125,15 @@ public class GameMode : MonoBehaviour
     {
         m_stateActivator.RunWhile<WateringState>();
         Time.timeScale = 0;
+    }
+
+    public void GoToTalking()
+    {
+        m_stateActivator.Push<TalkingState>();
+    }
+
+    public void GoToQuests()
+    {
+        m_stateActivator.Push<CheckingQuestsState>();
     }
 }

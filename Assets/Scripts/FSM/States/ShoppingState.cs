@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ShoppingState : GameStateBehaviour
 {
-    public GameObject shoppingUI;
     public Inventory shop;
     private Ingredient[] m_allIngredients;
     private Seed[] m_allSeeds;
@@ -29,7 +28,7 @@ public class ShoppingState : GameStateBehaviour
         GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
-    private void OnInventoryChange()
+    private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
     }
