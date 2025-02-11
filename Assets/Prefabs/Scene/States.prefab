@@ -45,15 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f43e776984b4146b73df759957dd05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_potionInfo:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_btnPrefab: {fileID: 2429208491016628861, guid: 9101974ad6240c947b8516aaa9317452, type: 3}
-  m_btnParent: {fileID: 0}
-  m_buttonsCreating: {fileID: 0}
 --- !u!114 &6018791036443842081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +52,66 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 14247441365007823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!1 &1030268464026327071
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3713130630542199669}
+  - component: {fileID: 4740382298616828883}
+  - component: {fileID: 5627152911592935382}
+  m_Layer: 0
+  m_Name: QuestState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3713130630542199669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030268464026327071}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9092467340196784839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4740382298616828883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030268464026327071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faddc1852c4ee654482512fff3d7d038, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5627152911592935382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030268464026327071}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
@@ -108,6 +159,7 @@ Transform:
   - {fileID: 2699241644720892182}
   - {fileID: 7806215412818592609}
   - {fileID: 5235924365688967272}
+  - {fileID: 3713130630542199669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5069815130382966154
@@ -139,7 +191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5235924365688967272
 Transform:
   m_ObjectHideFlags: 0
@@ -167,6 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 932c7e4a415e37442a5e255c8977f0e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_counterCamera: {fileID: 0}
 --- !u!114 &8249372285718385797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_objects: []
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &2965355054151991624
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,29 +279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da9557cb7580794c854e6457d3a2e8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_cauldron: {fileID: 0}
-  m_cauldronInfoUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_chosenPotionInfoUI:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  m_potionBookState: {fileID: 7048100112441213638}
-  m_chosenPotionNameUI: {fileID: 0}
-  m_cauldronSlots: {fileID: 0}
-  m_inventorySlots: {fileID: 0}
-  m_brewButton: {fileID: 0}
-  m_clearButton: {fileID: 0}
-  m_itemSample: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
-  m_clickableItemPrefab: {fileID: 2129481219752210446, guid: 2ee825f9d4182bb4caa9e89dba8ae946, type: 3}
-  m_cauldronClickableItemPrefab: {fileID: 8344881386399602189, guid: 87e5772560ee12e49873c7b84453a28b, type: 3}
-  m_gameMode: {fileID: 5069815130382966154}
 --- !u!114 &4713423422752658166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &3352840937729588879
 GameObject:
@@ -320,6 +352,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &3386497599858163871
 GameObject:

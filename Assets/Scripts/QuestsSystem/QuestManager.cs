@@ -13,6 +13,8 @@ public class QuestManager : MonoBehaviour
     [SerializeField] private DayTimeManager m_dayTimeManager;
     public TalkingUI talkingUI;
     public TalkingState talkingState;
+    public QuestUI questUI;
+    public CheckingQuestsState checkingQuestsState;
 
     private void Awake()
     {
@@ -30,6 +32,12 @@ public class QuestManager : MonoBehaviour
         m_dayTimeManager.onDayChange += OnDayChange;
 
         talkingState.onActivated += OnTalkingStateActive;
+        checkingQuestsState.onActivated += OnQuestStateActive;
+    }
+
+    private void OnQuestStateActive()
+    {
+        questUI.FillQuestList(m_objectiveManager.Objectives);
     }
 
     private void OnTalkingStateActive()

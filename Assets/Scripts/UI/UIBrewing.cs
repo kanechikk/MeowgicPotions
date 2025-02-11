@@ -36,7 +36,7 @@ public class UIBrewing : MonoBehaviour
         m_brewingPotionInfo.text = potion.ElementsToString();
     }
 
-    private void OnInventoryChange()
+    private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
     }

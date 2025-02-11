@@ -34,6 +34,11 @@ public class PlaeyrConroller : MonoBehaviour
             m_states.GoToInventory();
         }
 
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            m_states.GoToQuests();
+        }
+
         if (Keyboard.current.qKey.wasPressedThisFrame && WateringState.isActive)
         {
             m_states.Back();

@@ -19,8 +19,6 @@ public class GameMode : MonoBehaviour
             m_stateActivator.Add(state);
         }
 
-        //m_stateActivator.Add(new PauseState());
-
         GoToWalking();
     }
 
@@ -77,25 +75,21 @@ public class GameMode : MonoBehaviour
     public void GoToBrewing()
     {
         m_stateActivator.Push<BrewingState>();
-        Time.timeScale = 0;
     }
 
     public void GoToPotionBook()
     {
         m_stateActivator.Push<PotionBookState>();
-        Time.timeScale = 0;
     }
 
     public void GoToInventory()
     {
         m_stateActivator.Push<InventoryState>();
-        Time.timeScale = 0;
     }
 
     public void GoToShopping()
     {
         m_stateActivator.Push<ShoppingState>();
-        Time.timeScale = 0;
     }
 
     public void GoToWalking()
@@ -106,25 +100,21 @@ public class GameMode : MonoBehaviour
     public void GoToPlanting()
     {
         m_stateActivator.Push<PlantingState>();
-        Time.timeScale = 0;
     }
 
     public void GoToSleep()
     {
         m_stateActivator.Push<SleepState>();
-        Time.timeScale = 0;
     }
 
     public void GoToRhythmGame()
     {
         m_stateActivator.Push<RhythmGameState>();
-        Time.timeScale = 0;
     }
 
     public void GoToWatering()
     {
         m_stateActivator.RunWhile<WateringState>();
-        Time.timeScale = 0;
     }
 
     public void GoToTalking()

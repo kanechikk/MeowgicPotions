@@ -11,7 +11,7 @@ public class TalkingUI : MonoBehaviour
 
     public void FillQuestInfo(QuestInfo questInfo)
     {
-        //itemToShow.sprite = questInfo.Item.icon;
+        itemToShow.sprite = questInfo.Item.icon;
         questName.text = questInfo.QuestName;
         questDesciption.text = questInfo.QuestDecsription;
 
