@@ -57,6 +57,7 @@ public class DayTimeManager : MonoBehaviour
         m_dayTime.DayPass();
         onDayChange?.Invoke();
         Start();
+        Debug.Log("Day passed");
     }
 
     private void Pause()

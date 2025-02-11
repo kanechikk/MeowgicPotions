@@ -28,7 +28,7 @@ public class ShoppingState : GameStateBehaviour
         GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
-    private void OnInventoryChange()
+    private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
     }

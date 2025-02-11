@@ -11,7 +11,7 @@ public class Inventory
 
     public List<InventorySlot> slots => m_slots;
 
-    public Action onInvChange;
+    public Action<Item> onInvChange;
 
     public Inventory(int slotSize)
     {
@@ -30,6 +30,7 @@ public class Inventory
         {
             StackItem(index);
             // Индекс слота с айтемом
+            onInvChange?.Invoke(item);
             return index;
         }
         else
@@ -45,6 +46,7 @@ public class Inventory
                 SetItem(m_slots.Count - 1, item);
             }
             // Индекс слота с новым айтемом
+            onInvChange?.Invoke(item);
             return index;
         }
     }
@@ -64,7 +66,7 @@ public class Inventory
                 slot.item = null;
                 slot.category = ItemCategory.Nothing;
             }
-            onInvChange?.Invoke();
+            onInvChange?.Invoke(item);
         }
     }
 
@@ -93,7 +95,6 @@ public class Inventory
             
             slot.item = item;
             slot.count++;
-            onInvChange?.Invoke();
         }
     }
 

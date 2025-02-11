@@ -4,9 +4,6 @@ public class GameManager : MonoBehaviour
 {
 
     public static Inventory playerInventory;
-    public static ObjectiveManager objectiveManager;
-    // [SerializeField] private QuestInfo objectiveInfo;
-    // [SerializeField] private Objective objective;
     public static ItemsDB itemsDB;
     public WateringPot wateringPot;
     [SerializeField] private Collider m_counterCollider;
@@ -50,12 +47,12 @@ public class GameManager : MonoBehaviour
 
     private void CreateWateringPot(int maxValue)
     {
-        // objectiveManager.AddObjective(objective);
         for (int i = 0 ; i < 6; i++)
         {
             playerInventory.AddItem(itemsDB.ingredients[i]);
             playerInventory.AddItem(itemsDB.seeds[i]);
         }
+        playerInventory.AddCoins(1000);
         wateringPot = new WateringPot(maxValue);
         for (int i = 0; i < 5; i++)
         {

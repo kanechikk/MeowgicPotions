@@ -18,13 +18,11 @@ public class ShowInteractionSign : MonoBehaviour
     {
         uiSign.position = showPlace.position;
         uiSign.rotation = showPlace.rotation;
-        Debug.Log("Show");
     }
 
     private void Hide()
     {
         uiSign.position = hidePlace.position;
         uiSign.rotation = hidePlace.rotation;
-        Debug.Log("Hide");
     }
 }

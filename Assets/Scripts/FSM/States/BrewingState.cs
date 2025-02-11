@@ -36,7 +36,7 @@ public class BrewingState : GameStateBehaviour
         GameManager.playerInventory.onInvChange += OnInventoryChange;
     }
 
-    private void OnInventoryChange()
+    private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
     }
@@ -183,21 +183,21 @@ public class BrewingState : GameStateBehaviour
 
     public void Brew()
     {
-        // // Вызываем все айтемы из котла
-        // CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
+        // Вызываем все айтемы из котла
+        CauldronClickableItem[] items = m_cauldronSlots.GetComponentsInChildren<CauldronClickableItem>();
         
-        // for (int i = 0; i < items.Length; i++)
-        // {
-        //     GameManager.playerInventory.RemoveItem(items[i].ingredient);
+        for (int i = 0; i < items.Length; i++)
+        {
+            GameManager.playerInventory.RemoveItem(items[i].ingredient);
                 
-        //     m_cauldron.RemoveIngredient(items[i].ingredient);
-        //     items[i].item = m_itemSample;
-        //     items[i].Remove();
-        // }
-        // // Добавляет зелье готовое
-        // GameManager.playerInventory.AddItem(m_chosenPotion);
+            m_cauldron.RemoveIngredient(items[i].ingredient);
+            items[i].item = m_itemSample;
+            items[i].Remove();
+        }
+        // Добавляет зелье готовое
+        GameManager.playerInventory.AddItem(m_chosenPotion);
 
-        m_gameMode.GoToRhythmGame();
+        //m_gameMode.GoToRhythmGame();
 
         BrewButtonOnOff();
         ClearButtonOnOff();

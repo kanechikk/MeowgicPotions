@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d8f9dba994bfb2449391803585990ce, type: 3}
   m_Name: GetPoisonPotion
   m_EditorClassIdentifier: 
-  id: 0
-  m_eventTrigger: PoisonPotionMade
+  m_id: 0
   m_maxValue: 1
   m_statusText: Brew {0} of {1} items
+  m_day: 0
+  m_item: {fileID: 11400000, guid: 5abb2f398ace2774bacf4d1a23e6dfa2, type: 2}
+  m_questName: Get Potion
+  m_questDescription: "\u041E\u0442\u0440\u0430\u0432\u044B \u0445\u043E\u0447\u0443"
+  m_main: 0

@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d8f9dba994bfb2449391803585990ce, type: 3}
-  m_Name: GetShieldPotion
+  m_Name: 1GrowBubbleFruit
   m_EditorClassIdentifier: 
   m_id: 1
   m_maxValue: 1
-  m_statusText: Brew {0} of {1} items
-  m_day: 0
-  m_item: {fileID: 11400000, guid: 6074facfd6f9f984e8c39fdb379456b7, type: 2}
-  m_questName: Get Potion
-  m_questDescription: "\u0417\u0430\u0449\u0438\u0442\u044B \u0445\u043E\u0447\u0443"
-  m_main: 0
+  m_statusText: Has {0} of {1} Bubble Fruits
+  m_day: 4
+  m_item: {fileID: 11400000, guid: 3c08da028f0ea9e40a21bb04aee2437f, type: 2}
+  m_questName: Growig Fruits
+  m_questDescription: "\u041C\u043E\u0436\u0435\u0448\u044C \u0434\u043E\u0441\u0442\u0430\u0442\u044C
+    \u043C\u0434\u043B\u044F \u043C\u0435\u043D\u044F \u0444\u0440\u0443\u043A\u0442"
+  m_main: 1

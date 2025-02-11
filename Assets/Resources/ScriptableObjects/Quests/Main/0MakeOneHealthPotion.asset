@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: 0MakeOneHealthPotion
   m_EditorClassIdentifier: 
   m_id: 0
-  m_eventTrigger: HealthPotionMade
-  m_maxValue: 1
+  m_maxValue: 2
   m_statusText: Brew {0} of {1} items
-  m_day: 1
+  m_day: 2
+  m_item: {fileID: 11400000, guid: 458a6b36aa6417443ad9198dfedaa958, type: 2}
+  m_questName: Get Health Potion
+  m_questDescription: "\u0414\u043E\u0441\u0442\u0430\u0442\u044C \u043C\u043D\u0435
+    \u0437\u0435\u043B\u044C\u0435 \u043B\u0435\u0447\u0435\u043D\u0438\u044F"
+  m_main: 1
