@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class QuestUI : MonoBehaviour
 {
-    [SerializeField] private GameObject questsList;
+    [SerializeField] private GameObject questsListPanel;
+    private List<GameObject> questsList = new List<GameObject>();
     [SerializeField] private GameObject questLinePrefab;
     private QuestLineUI questLineUI;
     [SerializeField] private TextMeshProUGUI questsNameUI;
@@ -17,18 +18,35 @@ public class QuestUI : MonoBehaviour
     {
         for (int i = 0; i < quests.Count; i++)
         {
-            GameObject line = Instantiate(questLinePrefab, questsList.transform);
+            GameObject line = Instantiate(questLinePrefab, questsListPanel.transform);
+
+            questsList.Add(line);
+
             questLineUI = line.GetComponent<QuestLineUI>();
             questLineUI.FillLine(quests[i].QuestName);
 
-            line.GetComponent<Button>().onClick.AddListener(() => FillQuestInfo(quests[i - 1]));
+            Button button = line.GetComponent<Button>();
+            SetListenerToButton(button, quests[i]);
         }
+    }
+
+    private void SetListenerToButton(Button button, Objective quest)
+    {
+        button.onClick.AddListener(() => FillQuestInfo(quest));
     }
 
     public void FillQuestInfo(Objective quest)
     {
         questsNameUI.text = quest.QuestName;
-        questBodyUI.text = quest.QuestDecsription;
+        questBodyUI.text = quest.QuestDecsription + "\n" + quest.GetStatusText();
         item.sprite = quest.Item.icon;
+    }
+
+    public void EraseQuestsList()
+    {
+        foreach (GameObject line in questsList)
+        {
+            Destroy(line);
+        }
     }
 }

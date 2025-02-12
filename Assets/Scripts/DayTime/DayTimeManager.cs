@@ -4,7 +4,7 @@ using UnityEngine;
 public class DayTimeManager : MonoBehaviour
 {
     [SerializeField] private int day = 1;
-    [SerializeField] private int hour;
+    [SerializeField] private int hour = 8;
     [SerializeField] private int minute;
     private DayTime m_dayTime;
 
@@ -16,6 +16,7 @@ public class DayTimeManager : MonoBehaviour
 
     public Action<DayTime> onDayTimeChange;
     public Action onDayChange;
+    public Action onDayEnd;
 
     private void Awake()
     {
@@ -39,7 +40,7 @@ public class DayTimeManager : MonoBehaviour
     private void Tick()
     {
         AdvanceTime();
-        if (m_dayTime.Hour == 23)
+        if (m_dayTime.Hour == 10)
         {
             Pause();
         }
@@ -64,6 +65,7 @@ public class DayTimeManager : MonoBehaviour
     private void Pause()
     {
         timePass = false;
+        onDayEnd?.Invoke();
     }
 
     private void Start()

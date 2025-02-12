@@ -24,6 +24,12 @@ public class Interactable : MonoBehaviour
         onDeactive?.Invoke();
     }
 
+    private void OnDisable()
+    {
+        m_active = false;
+        onDeactive?.Invoke();
+    }
+
     private void Update()
     {
         if (m_active && Keyboard.current.eKey.wasPressedThisFrame)

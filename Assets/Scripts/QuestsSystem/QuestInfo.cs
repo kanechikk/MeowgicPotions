@@ -6,7 +6,6 @@ public class QuestInfo : ScriptableObject
 	[SerializeField] private int m_id;
 	[SerializeField] private int m_maxValue;
 	[SerializeField] private string m_statusText;
-	[SerializeField] private int m_day;
 	[SerializeField] private Item m_item;
 	[SerializeField] private string m_questName;
 	[SerializeField] private string m_questDescription;
@@ -15,7 +14,6 @@ public class QuestInfo : ScriptableObject
 	public int MaxValue => this.m_maxValue;
 	public string StatusText => this.m_statusText;
 	public int Id => this.m_id;
-	public int Day => this.m_day;
 	public Item Item => this.m_item;
 	public string QuestName => this.m_questName;
 	public string QuestDecsription => this.m_questDescription;

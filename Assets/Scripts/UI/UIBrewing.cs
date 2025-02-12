@@ -72,9 +72,10 @@ public class UIBrewing : MonoBehaviour
         foreach (InventorySlot ingredient in ingredients)
         {
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            newItem.GetComponent<ClickableItem>().item = ingredient.item;
-            newItem.GetComponent<ClickableItem>().onAddIngredient += m_brewingController.OnAddIngredient;
-            newItem.GetComponent<ClickableItem>().onAddIngredient += OnAddIngredient;
+            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
+            clickableItem.item = ingredient.item;
+            clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
+            clickableItem.onAddIngredient += OnAddIngredient;
         }
 
         needToRefreshInventory = false;
@@ -101,11 +102,12 @@ public class UIBrewing : MonoBehaviour
         ElementsInfoChange();
 
         GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_cauldronSlots.transform);
-        newItemCauldron.GetComponent<ClickableItem>().InitialiseItem(ingredient);
+        ClickableItem clickableItem = newItemCauldron.GetComponent<ClickableItem>();
+        clickableItem.InitialiseItem(ingredient);
         
-        newItemCauldron.GetComponent<ClickableItem>().onRemoveIngredient += m_brewingController.OnRemoveIngredient;
-        newItemCauldron.GetComponent<ClickableItem>().onRemoveIngredient += OnRemoveIngredient;
-        newItemCauldron.GetComponent<ClickableItem>().isInCauldron = true;
+        clickableItem.onRemoveIngredient += m_brewingController.OnRemoveIngredient;
+        clickableItem.onRemoveIngredient += OnRemoveIngredient;
+        clickableItem.isInCauldron = true;
         newItemCauldron.transform.GetChild(0).gameObject.SetActive(false);
     }
 
@@ -122,9 +124,10 @@ public class UIBrewing : MonoBehaviour
         else
         {
             GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            newItemCauldron.GetComponent<ClickableItem>().InitialiseItem(ingredient);
-            newItemCauldron.GetComponent<ClickableItem>().onAddIngredient += m_brewingController.OnAddIngredient;
-            newItemCauldron.GetComponent<ClickableItem>().onAddIngredient += OnAddIngredient;
+            ClickableItem clickableItem = newItemCauldron.GetComponent<ClickableItem>();
+            clickableItem.InitialiseItem(ingredient);
+            clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
+            clickableItem.onAddIngredient += OnAddIngredient;
         }
     }
 

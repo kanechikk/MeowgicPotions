@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
+    private int mainQuestProgress;
     public static QuestsDB questsDB;
     private ObjectiveManager m_objectiveManager = new ObjectiveManager();
     private QuestInfo m_questHolder;
@@ -27,9 +28,8 @@ public class QuestManager : MonoBehaviour
     private void Start()
     {
         GameManager.playerInventory.onInvChange += OnInventoryChange;
-
-        m_objectiveManager.OnObjectiveAdded += OnObjectiveAdded;
         m_dayTimeManager.onDayChange += OnDayChange;
+        m_dayTimeManager.onDayEnd += OnDayEnd;
 
         talkingState.onActivated += OnTalkingStateActive;
         checkingQuestsState.onActivated += OnQuestStateActive;
@@ -64,9 +64,10 @@ public class QuestManager : MonoBehaviour
         bool gotMain = false;
         if (m_dayTimeManager.dayTime.TotalNumDays % 2 == 0)
         {
+            GoToCounter();
             foreach (QuestInfo quest in questsDB.mainQuests)
             {
-                if (quest.Day == m_dayTimeManager.dayTime.TotalNumDays)
+                if (quest.Id == mainQuestProgress)
                 {
                     m_questHolder = quest;
                     gotMain = true;
@@ -81,19 +82,14 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    private void OnObjectiveAdded(Objective objective)
+    private void OnDayEnd()
     {
-        m_agentController.GoToDestination(m_destinationPoints[1].position);
-    }
-
-    public void GoToDesk()
-    {
-        m_agentController.GoToDestination(m_destinationPoints[0].position);
+        GoHome();
     }
 
     public void Refuse()
     {
-        m_agentController.GoToDestination(m_destinationPoints[1].position);
+        GoHome();
     }
 
     public void Accept()
@@ -112,6 +108,13 @@ public class QuestManager : MonoBehaviour
         {
             m_objectiveManager.AddProgress(m_questHolder.Item, hasSuch);
         }
+        
+        if (m_questHolder.Main)
+        {
+            mainQuestProgress++;
+        }
+
+        GoHome();
     }
 
     private int CheckIfHasItem(Item itemToFind)
@@ -127,5 +130,15 @@ public class QuestManager : MonoBehaviour
             }
         }
         return 0;
+    }
+
+    private void GoToCounter()
+    {
+        m_agentController.GoToDestination(m_destinationPoints[0].position);
+    }
+
+    private void GoHome()
+    {
+        m_agentController.GoToDestination(m_destinationPoints[1].position);
     }
 }
