@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: acd2be62c788c174b9023d1d83822a0f
+guid: bd1c2ec4c1c208d4ca24c1ef8fc41a50
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: CarTexture.png
-    second: {fileID: 2100000, guid: dfe72af234942074298b4f915e369f18, type: 2}
+      name: CustomerTexture.png
+    second: {fileID: 2100000, guid: 5c1eaf1fc673ece47975a8ecbb13fef4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -125,7 +125,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1.8
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -180,8 +180,8 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1.8
-    rootMotionBoneName: chest2
+    globalScale: 1
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -189,7 +189,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   importBlendShapeDeformPercent: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
