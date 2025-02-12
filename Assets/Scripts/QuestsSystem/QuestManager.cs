@@ -152,5 +152,7 @@ public class QuestManager : MonoBehaviour
             GameManager.playerInventory.RemoveItem(item);
         }
         GameManager.playerInventory.AddCoins(sum);
+        questUI.EraseQuestsList();
+        questUI.FillQuestList(m_objectiveManager.Objectives);
     }
 }

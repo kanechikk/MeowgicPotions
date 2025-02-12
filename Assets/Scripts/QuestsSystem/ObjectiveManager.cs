@@ -37,11 +37,15 @@ public class ObjectiveManager
 
 		for (int i = 0; i < Objectives.Count; i++)
 		{
-			for (int j = 0; j < Objectives[i].MaxValue; j++)
+			if (Objectives[i].Done)
 			{
-				items.Add(Objectives[i].Item);
-			};
-			Objectives.Remove(Objectives[i]);
+				for (int j = 0; j < Objectives[i].MaxValue; j++)
+				{
+					items.Add(Objectives[i].Item);
+				}
+				;
+				Objectives.Remove(Objectives[i]);
+			}
 		}
 		
 		return items;

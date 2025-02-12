@@ -4237,6 +4237,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &495933327 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+  m_PrefabInstance: {fileID: 6599041770381487813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &498143161
 Mesh:
   m_ObjectHideFlags: 0
@@ -18656,6 +18667,14 @@ PrefabInstance:
       value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 4615583154784161222, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: sampleImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 6412ce4fa10312942a1d24fda78635f5, type: 3}
+    - target: {fileID: 4615583154784161222, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: finishButton
+      value: 
+      objectReference: {fileID: 495933327}
+    - target: {fileID: 4615583154784161222, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: questsListPanel
       value: 
       objectReference: {fileID: 299170731}
@@ -18843,6 +18862,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 95.07373
       objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1582081308}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FinishQuests
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: QuestManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6402359798520276728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6573948899293756459, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -18882,6 +18929,10 @@ PrefabInstance:
     - target: {fileID: 6966381823042164281, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7035149685398511857, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_text
+      value: 'To Do:'
       objectReference: {fileID: 0}
     - target: {fileID: 7050895284422091055, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -18938,6 +18989,10 @@ PrefabInstance:
     - target: {fileID: 7309250323293137878, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7350858771037281793, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_text
+      value: Quest Name
       objectReference: {fileID: 0}
     - target: {fileID: 7400427565713815109, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

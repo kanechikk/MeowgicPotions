@@ -13,6 +13,7 @@ public class QuestUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI questsNameUI;
     [SerializeField] private TextMeshProUGUI questBodyUI;
     [SerializeField] private Image item;
+    [SerializeField] private Sprite sampleImage;
     [SerializeField] private Button finishButton;
 
     public void FillQuestList(List<Objective> quests)
@@ -43,7 +44,10 @@ public class QuestUI : MonoBehaviour
         questsNameUI.text = quest.QuestName;
         questBodyUI.text = quest.QuestDecsription + "\n" + quest.GetStatusText();
         item.sprite = quest.Item.icon;
-        finishButton.interactable = true;
+        if (quest.Done)
+        {
+            finishButton.interactable = true;
+        }
     }
 
     public void EraseQuestsList()
@@ -52,5 +56,9 @@ public class QuestUI : MonoBehaviour
         {
             Destroy(line);
         }
+        questsNameUI.text = "Quest Name";
+        questBodyUI.text = "To Do:";
+        item.sprite = sampleImage;
+        finishButton.interactable = false;
     }
 }

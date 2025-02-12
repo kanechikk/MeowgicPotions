@@ -31,14 +31,14 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0 ; i < 6; i++)
         {
-            playerInventory.AddItem(itemsDB.ingredients[i]);
+            //playerInventory.AddItem(itemsDB.ingredients[i]);
             playerInventory.AddItem(itemsDB.seeds[i]);
         }
         playerInventory.AddCoins(1000);
         wateringPot = new WateringPot(maxValue);
         for (int i = 0; i < 4; i++)
         {
-            playerInventory.AddItem(itemsDB.potions[i]);
+            //playerInventory.AddItem(itemsDB.potions[i]);
         }
         playerInventory.AddItem(itemsDB.seeds[0]);
     }
