@@ -32,7 +32,6 @@ public class Objective
             IsComplete = true;
             OnComplete?.Invoke();
             Done = true;
-            Debug.Log($"{Item.name} done");
         }
     }
 

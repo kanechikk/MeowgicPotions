@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ObjectiveManager
@@ -30,14 +31,19 @@ public class ObjectiveManager
 		}
 	}
 
-	public void RemoveDoneQuests()
+	public List<Item> FinishAllQuests()
 	{
-		foreach (Objective quest in Objectives)
+		List<Item> items = new List<Item>();
+
+		for (int i = 0; i < Objectives.Count; i++)
 		{
-			if (quest.Done)
+			for (int j = 0; j < Objectives[i].MaxValue; j++)
 			{
-				Objectives.Remove(quest);
-			}
+				items.Add(Objectives[i].Item);
+			};
+			Objectives.Remove(Objectives[i]);
 		}
+		
+		return items;
 	}
 }

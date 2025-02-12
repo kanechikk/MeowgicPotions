@@ -141,4 +141,16 @@ public class QuestManager : MonoBehaviour
     {
         m_agentController.GoToDestination(m_destinationPoints[1].position);
     }
+
+    public void FinishQuests()
+    {
+        List<Item> itemsErase = m_objectiveManager.FinishAllQuests();
+        int sum = 0;
+        foreach (Item item in itemsErase)
+        {
+            sum += item.price * 2;
+            GameManager.playerInventory.RemoveItem(item);
+        }
+        GameManager.playerInventory.AddCoins(sum);
+    }
 }
