@@ -16,9 +16,17 @@ public class RhythmGameController : MonoBehaviour
     [SerializeField] private List<GameObject> m_hpPict;
     //public event Action<int> onGameEnd;
     public event Action<int> onScoreInc;
+    [SerializeField] private GameObject m_gamePlayWindow;
+    private UIWinLose m_uiWinLose;
 
+    private void Start()
+    {
+        m_uiWinLose = gameObject.GetComponent<UIWinLose>();
+    }
     public void OnEnable()
     {
+
+        m_gamePlayWindow.SetActive(true);
         //m_timer = AudioSettings.dspTime - m_delay;
         //stick.onCollisionStick += OnCollisionStick;
         rhythmCheck.onBeatBad += OnBeatBad;
@@ -82,8 +90,10 @@ public class RhythmGameController : MonoBehaviour
         
         if (m_healthPoints == 0)
         {
-            m_gameMode.Back();
-            //m_loseWindow.SetActive(true);
+            //m_gameMode.Back();
+            m_gamePlayWindow.SetActive(false);
+            m_uiWinLose.ChangeIngredients();
+            m_loseWindow.SetActive(true);
             return;
         }
 
@@ -96,8 +106,10 @@ public class RhythmGameController : MonoBehaviour
     {
         Debug.Log("GAME END");
         //onGameEnd?.Invoke(m_score);
-        m_gameMode.Back();
-        //m_winWindow.SetActive(true);
+        //m_gameMode.Back();
+        m_winWindow.SetActive(true);
+        m_uiWinLose.ChangePotion();
+        m_gamePlayWindow.SetActive(false);
     }
 
     public void BackToBrewing()
