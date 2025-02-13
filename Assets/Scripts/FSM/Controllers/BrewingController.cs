@@ -54,8 +54,6 @@ public class BrewingController : MonoBehaviour
         SetItemsBack();
         // Добавляет зелье готовое
         GameManager.playerInventory.AddItem(m_chosenPotion);
-
-        //m_gameMode.GoToRhythmGame();
     }
 
     public void SetItemsBack()

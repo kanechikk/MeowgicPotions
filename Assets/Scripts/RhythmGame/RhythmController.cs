@@ -23,6 +23,9 @@ public class RhythmController : MonoBehaviour
     private List<int> beatArray;
     public float musicDelay = 3f;
 
+    [SerializeField] private RhythmGameController m_rhythmGameController;
+    private bool m_isGameOver;
+
     void OnEnable()
     {
         secPerBeat = 60f / bpm;
@@ -32,6 +35,9 @@ public class RhythmController : MonoBehaviour
         musicSource.Play();
         beatSpawner.timeToScroll = musicDelay;
         rhythmCheck.offsetMax = Mathf.Min(rhythmCheck.offsetMax, secPerBeat - 0.02f);
+
+        m_rhythmGameController.onGameEnd += OnGameEnd;
+        m_isGameOver = false;
     }
     void OnDisable()
     {
@@ -49,6 +55,11 @@ public class RhythmController : MonoBehaviour
         }
     }
 
+    private void OnGameEnd()
+    {
+        m_isGameOver = true;
+    }
+
     private void BeatSupplier()
     {
         if (beatCount < beatArray.Count)
@@ -58,9 +69,11 @@ public class RhythmController : MonoBehaviour
                 beatCount++;
                 beatSpawner.Spawn();
                 //Invoke(nameof(rhythmCheck.CheckStart), musicDelay - 0.45f);
+                
                 Invoke(nameof(TempSolutionAAAAA), musicDelay - Mathf.Min(rhythmCheck.offsetMax, secPerBeat - 0.02f));
 
                 Invoke(nameof(TempSolution), musicDelay - 0.58f);
+                
             }
         }
     }

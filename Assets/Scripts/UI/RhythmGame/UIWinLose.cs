@@ -24,8 +24,7 @@ public class UIWinLose : MonoBehaviour
     public void ChangePotion()
     {
         //m_rewardPotion.InitialiseItem(potion, 1);
-        m_rewardPotion.GetComponent<Image>().sprite = potion.icon;
-        m_rewardPotion.GetComponentInChildren<TextMeshProUGUI>().text = "1";
+        m_reward.GetComponent<Image>().sprite = potion.icon;
     }
 
     public void ChangeIngredients()
