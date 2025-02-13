@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -5,44 +6,49 @@ using UnityEngine.UI;
 public class UIWinLose : MonoBehaviour
 {
     [SerializeField] private GameObject m_reward;
-    [SerializeField] private GameObject m_loss;
-    private UIInventoryItem[] m_uiInventoryItem;
-
+    [SerializeField] private GameObject[] m_loss;
+    private List<UIInventoryItem> m_lossItems;
+    private UIInventoryItem m_rewardPotion;
     public Potion potion;
     public Ingredient[] ingredients;
 
     private void Start()
     {
-        m_uiInventoryItem = m_loss.GetComponentsInChildren<UIInventoryItem>();
+        // foreach (GameObject item in m_loss)
+        // {
+        //     m_lossItems.Add(item.GetComponent<UIInventoryItem>());
+        // }
+        // m_rewardPotion = m_reward.GetComponent<UIInventoryItem>();
     }
 
     public void ChangePotion()
     {
-        m_reward.GetComponentInChildren<UIInventoryItem>().InitialiseItem(potion, 1);
+        //m_rewardPotion.InitialiseItem(potion, 1);
+        m_rewardPotion.GetComponent<Image>().sprite = potion.icon;
+        m_rewardPotion.GetComponentInChildren<TextMeshProUGUI>().text = "1";
     }
 
     public void ChangeIngredients()
     {
         for (int i = 0; i < ingredients.Length; i++)
         {
-            m_uiInventoryItem[i].gameObject.SetActive(true);
-            foreach (UIInventoryItem item in m_uiInventoryItem)
-            {
-                if (item.item == ingredients[i])
-                {
-                    item.InitialiseItem(ingredients[i], int.Parse(item.gameObject.GetComponent<TextMeshProUGUI>().text));
-                }
+            m_loss[i].GetComponent<Image>().sprite = ingredients[i].icon;
+        }
 
-                item.InitialiseItem(ingredients[i], 1);
+        if (ingredients.Length < m_loss.Length)
+        {
+            for (int i = ingredients.Length; i < m_loss.Length; i++)
+            {
+                m_loss[i].SetActive(false);
             }
         }
     }
 
     private void OnDisable()
     {
-        foreach (Transform child in m_loss.transform) 
+        foreach (GameObject item in m_loss) 
         {
-            child.gameObject.SetActive(false);
+            item.SetActive(true);
         }
     }
 }

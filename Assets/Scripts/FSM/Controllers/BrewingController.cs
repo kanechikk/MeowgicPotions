@@ -40,6 +40,7 @@ public class BrewingController : MonoBehaviour
     {
         m_uiWinLose.potion = m_chosenPotion;
         m_uiWinLose.ingredients = m_cauldron.addedIngredients.ToArray();
+        SetItemsBack();
         m_gameMode.GoToRhythmGame();
     }
 

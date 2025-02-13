@@ -92,8 +92,9 @@ public class RhythmGameController : MonoBehaviour
         {
             //m_gameMode.Back();
             m_gamePlayWindow.SetActive(false);
-            m_uiWinLose.ChangeIngredients();
             m_loseWindow.SetActive(true);
+            m_uiWinLose.ChangeIngredients();
+            rhythmController.OnMusicEnd -= OnMusicEnd;
             return;
         }
 
@@ -110,6 +111,8 @@ public class RhythmGameController : MonoBehaviour
         m_winWindow.SetActive(true);
         m_uiWinLose.ChangePotion();
         m_gamePlayWindow.SetActive(false);
+
+        rhythmController.OnMusicEnd -= OnMusicEnd;
     }
 
     public void BackToBrewing()

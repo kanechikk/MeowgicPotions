@@ -43,7 +43,7 @@ public class DayTimeManager : MonoBehaviour
         {
             Pause();
         }
-        Debug.Log(m_dayTime.Hour);
+        //Debug.Log(m_dayTime.Hour);
     }
 
     private void AdvanceTime()
