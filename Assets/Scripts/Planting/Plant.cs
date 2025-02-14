@@ -23,7 +23,7 @@ public class Plant : MonoBehaviour
         m_seed = seed;
         //по имени ищем ингредиент, семечко которого посадили
         //позже строчку нужно будет поменять
-        m_plant = Array.Find(GameManager.itemsDB.ingredients, x => x.id == seed.id);
+        m_plant = Array.Find(GameManager.instance.itemsDB.ingredients, x => x.id == seed.id);
         //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
         //получаем картинку посаженного растения

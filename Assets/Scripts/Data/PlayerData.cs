@@ -2,19 +2,23 @@ using UnityEngine;
 
 public class PlayerData
 {
-    private Inventory m_inventory;
+    public Inventory inventory = new Inventory(32);
+
+    public WateringPot wateringPot = new WateringPot(4);
 
     public PlayerState lastPlayerState = new PlayerState();
 
     public PlayerData()
     {
-        m_inventory = new Inventory(32);
+        
     }
 
     public string ToJson()
     {
         SaveData saveData = new SaveData();
         saveData.state = lastPlayerState;
+        saveData.inventory = inventory;
+        saveData.wateringPot = wateringPot;
 
         return JsonUtility.ToJson(saveData);
     }
@@ -25,6 +29,8 @@ public class PlayerData
         if (saveData != null)
         {
             lastPlayerState = saveData.state;
+            inventory = saveData.inventory;
+            wateringPot = saveData.wateringPot;
         }
     }
 
@@ -32,6 +38,8 @@ public class PlayerData
     private class SaveData
     {
         public PlayerState state;
+        public Inventory inventory;
+        public WateringPot wateringPot;
     }
 }
 

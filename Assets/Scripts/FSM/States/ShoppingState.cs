@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ShoppingState : GameStateBehaviour
 {
-    public Inventory shop;
     private Ingredient[] m_allIngredients;
     private Seed[] m_allSeeds;
     private bool ingredients_stocked;
@@ -18,14 +17,9 @@ public class ShoppingState : GameStateBehaviour
     public TextMeshProUGUI coins;
     private bool needToRefreshInventory = true;
 
-
-    private void Awake()
-    {
-        shop = new Inventory(32);
-    }
     private void Start()
     {
-        GameManager.playerInventory.onInvChange += OnInventoryChange;
+        GameManager.instance.shopData.inventory.onInvChange += OnInventoryChange;
     }
 
     private void OnInventoryChange(Item item)
@@ -44,7 +38,7 @@ public class ShoppingState : GameStateBehaviour
             FillSellList();
             needToRefreshInventory = false;
         }
-        coins.text = $"Coins: {GameManager.playerInventory.coins}";
+        coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
     }
     private void OnDisable()
     {
@@ -70,8 +64,8 @@ public class ShoppingState : GameStateBehaviour
         // Заполняем инвентарь магазина
         for (int i = 0; i < m_allIngredients.Length; i++)
         {
-            int index = shop.AddItem(m_allIngredients[i]);
-            shop.AddItem(m_allIngredients[i]);
+            int index = GameManager.instance.shopData.inventory.AddItem(m_allIngredients[i]);
+            GameManager.instance.shopData.inventory.AddItem(m_allIngredients[i]);
             // Создание новой строчки в магазине
             GameObject newLine = Instantiate(linePrefab, ingredientsPanel.transform);
             // Передает спрайт
@@ -81,13 +75,13 @@ public class ShoppingState : GameStateBehaviour
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = m_allIngredients[i].ElementsToString();
 
             // Привязывает айтем к строке
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = GameManager.instance.shopData.inventory;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
             // Добавляет метод покупки к кнопке
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
             // Вывод количества объектов
-            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
+            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {GameManager.instance.shopData.inventory.slots[index].count}";
         }
 
         ingredients_stocked = true;
@@ -96,19 +90,19 @@ public class ShoppingState : GameStateBehaviour
 
         for (int i = 0; i < m_allSeeds.Length; i++)
         {
-            int index = shop.AddItem(m_allSeeds[i]);
-            shop.AddItem(m_allSeeds[i]);
+            int index = GameManager.instance.shopData.inventory.AddItem(m_allSeeds[i]);
+            GameManager.instance.shopData.inventory.AddItem(m_allSeeds[i]);
 
             GameObject newLine = Instantiate(linePrefab, seedsPanel.transform);
             newLine.transform.GetChild(0).gameObject.GetComponent<Image>().sprite = m_allSeeds[i].icon;
             newLine.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>().text = $"{m_allSeeds[i].itemName}: {m_allSeeds[i].price}";
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = $"Дней роста: {m_allSeeds[i].daysToGrow}";
 
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = shop;
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().shop = GameManager.instance.shopData.inventory;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = index;
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().BuyItem);
-            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
+            newLine.transform.GetChild(4).gameObject.GetComponent<TextMeshProUGUI>().text = $"Count: {GameManager.instance.shopData.inventory.slots[index].count}";
         }
 
         seeds_stocked = true;
@@ -116,7 +110,7 @@ public class ShoppingState : GameStateBehaviour
 
     private void FillSellList()
     {
-        List<InventorySlot> potions = GameManager.playerInventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Potion);
         
         for (int i = 0; i < potions.Count; i++)
         {
@@ -128,7 +122,7 @@ public class ShoppingState : GameStateBehaviour
             newLine.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>().text = potion.ElementsToString();
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().potionToSell = potion;
 
-            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = GameManager.playerInventory.slots.FindIndex(x => x == potions[i]);
+            newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().index = GameManager.instance.player.inventory.slots.FindIndex(x => x == potions[i]);
             newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().countText = newLine.transform.GetChild(4).gameObject;
 
             newLine.transform.GetChild(3).gameObject.GetComponent<Button>().onClick.AddListener(newLine.transform.GetChild(3).gameObject.GetComponent<ShopListUI>().SellItem);

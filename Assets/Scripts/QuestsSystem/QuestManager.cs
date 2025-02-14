@@ -27,7 +27,10 @@ public class QuestManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.playerInventory.onInvChange += OnInventoryChange;
+        Debug.Log(GameManager.instance.player.inventory);
+        Debug.Log(GameManager.instance.shopData.inventory);
+        Debug.Log(GameManager.instance.itemsDB.ingredients);
+        GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_dayTimeManager.onDayChange += OnDayChange;
         m_dayTimeManager.onDayEnd += OnDayEnd;
 
@@ -119,7 +122,7 @@ public class QuestManager : MonoBehaviour
 
     private int CheckIfHasItem(Item itemToFind)
     {
-        foreach (InventorySlot itemSlot in GameManager.playerInventory.slots)
+        foreach (InventorySlot itemSlot in GameManager.instance.player.inventory.slots)
         {
             if (itemSlot.category != ItemCategory.Nothing)
             {
@@ -149,9 +152,9 @@ public class QuestManager : MonoBehaviour
         foreach (Item item in itemsErase)
         {
             sum += item.price * 2;
-            GameManager.playerInventory.RemoveItem(item);
+            GameManager.instance.player.inventory.RemoveItem(item);
         }
-        GameManager.playerInventory.AddCoins(sum);
+        GameManager.instance.player.inventory.AddCoins(sum);
         questUI.EraseQuestsList();
         questUI.FillQuestList(m_objectiveManager.Objectives);
     }

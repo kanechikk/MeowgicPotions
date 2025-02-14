@@ -2,43 +2,89 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static Inventory playerInventory;
-    public static ItemsDB itemsDB;
-    public WateringPot wateringPot;
-    [SerializeField] private int m_wateringPotMaxValue;
+    private static GameManager m_instance;
+    public static GameManager instance
+    {
+        get
+        {
+            if (m_instance == null)
+            {
+                m_instance = FindAnyObjectByType<GameManager>();
+            }
+            return m_instance;
+        }
+    }
+
+    public ItemsDB itemsDB { private set; get; }
+    public PlayerData player { private set; get; } = new PlayerData();
+    public ShopData shopData { private set; get; } = new ShopData();
+
 
     private void Awake()
     {
-        Ingredient[] m_ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-        Potion[] m_potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
-        Seed[] m_seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
-        itemsDB = new ItemsDB(m_ingredients, m_potions, m_seeds);
+        if (m_instance == null)
+        {
+            m_instance = this;
+        }
 
-        playerInventory = new Inventory(32);
+        if (m_instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
 
-        CreateWateringPot(m_wateringPotMaxValue);
-        // objective = new Objective(objectiveInfo.EventTrigger, objectiveInfo.StatusText, objectiveInfo.MaxValue);
-        // objectiveManager = new ObjectiveManager();
+        DontDestroyOnLoad(gameObject);
+
+        LoadItemsDB();
+
+        LoadPlayerData();
+        LoadShopData();
     }
 
-    private void OnEnable()
+    private void LoadItemsDB()
     {
-        CreateWateringPot(m_wateringPotMaxValue);
+        Ingredient[] ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        Potion[] potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+        Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
+
+        itemsDB = new ItemsDB(ingredients, potions, seeds);
     }
 
-    private void CreateWateringPot(int maxValue)
+    public void SavePlayerData()
     {
-        for (int i = 0 ; i < 6; i++)
-        {
-            //playerInventory.AddItem(itemsDB.ingredients[i]);
-            playerInventory.AddItem(itemsDB.seeds[i]);
-        }
-        playerInventory.AddCoins(1000);
-        wateringPot = new WateringPot(maxValue);
-        for (int i = 0; i < 4; i++)
-        {
-            //playerInventory.AddItem(itemsDB.potions[i]);
-        }
-        playerInventory.AddItem(itemsDB.seeds[0]);
+        PlayerDataProcess.SavePlayer(player);
+    }
+
+    public void LoadPlayerData()
+    {
+        PlayerDataProcess.LoadPlayer(player);
+    }
+
+    public void SaveShopData()
+    {
+        ShopDataProcess.SaveShop(shopData);
+    }
+
+    public void LoadShopData()
+    {
+        ShopDataProcess.LoadShop(shopData);
+    }
+
+    private void OnApplicationPause(bool pauseStatus)
+    {
+        Debug.Log($"[GameManager]: OnApplicationPause({pauseStatus})");
+    }
+
+    private void OnApplicationFocus(bool focusStatus)
+    {
+        Debug.Log($"[GameManager]: OnApplicationFocus({focusStatus})");
+    }
+
+    private void OnApplicationQuit()
+    {
+        Debug.Log($"[GameManager]: OnApplicationQuit()");
+
+        SavePlayerData();
+        SaveShopData();
     }
 }

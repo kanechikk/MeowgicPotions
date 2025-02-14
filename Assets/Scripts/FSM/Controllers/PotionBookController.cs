@@ -29,7 +29,7 @@ public class PotionBookController : MonoBehaviour
         GameObject curBtn;
         if (m_btnParent.transform.childCount == 0)
         {
-            foreach (var potion in GameManager.itemsDB.potions)
+            foreach (var potion in GameManager.instance.itemsDB.potions)
             {
                 curBtn = m_buttonsCreating.CreateObject(m_btnPrefab, m_btnParent.transform, potion.icon, potion.itemName);
                 //добавление методов к кнопкам
@@ -46,7 +46,7 @@ public class PotionBookController : MonoBehaviour
         string clickedButtonName = EventSystem.current.currentSelectedGameObject.name;
 
         //определяем, какое зелье мы выбрали
-        foreach (var potion in GameManager.itemsDB.potions)
+        foreach (var potion in GameManager.instance.itemsDB.potions)
         {
             if (potion.itemName == clickedButtonName)
             {

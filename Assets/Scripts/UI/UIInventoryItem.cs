@@ -26,11 +26,11 @@ public class UIInventoryItem : UIItem
 
     private string RefreshCount(Item newItem)
     {
-        InventorySlot slot = GameManager.playerInventory.slots.Find(x => x.item == newItem);
+        InventorySlot slot = GameManager.instance.player.inventory.slots.Find(x => x.item == newItem);
         int count;
         if (slot != null && slot.count > 0)
         {
-            count = GameManager.playerInventory.slots.Find(x => x.item == newItem).count;
+            count = GameManager.instance.player.inventory.slots.Find(x => x.item == newItem).count;
             return count.ToString();
         }
         else

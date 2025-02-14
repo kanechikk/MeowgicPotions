@@ -24,13 +24,13 @@ public class BrewingController : MonoBehaviour
     public void OnAddIngredient(Ingredient ingredient)
     {
         m_cauldron.AddIngredient(ingredient);
-        GameManager.playerInventory.RemoveItem(ingredient);
+        GameManager.instance.player.inventory.RemoveItem(ingredient);
     }
 
     public void OnRemoveIngredient(Ingredient ingredient)
     {
         m_cauldron.RemoveIngredient(ingredient);
-        GameManager.playerInventory.AddItem(ingredient);
+        GameManager.instance.player.inventory.AddItem(ingredient);
     }
 
     public void Brew()
@@ -42,12 +42,12 @@ public class BrewingController : MonoBehaviour
     {
         for (int i = 0; i < m_cauldron.addedIngredients.Count; i++)
         {
-            GameManager.playerInventory.RemoveItem(m_cauldron.addedIngredients[i]);
+            GameManager.instance.player.inventory.RemoveItem(m_cauldron.addedIngredients[i]);
         }
         
         m_cauldron.ClearCauldron();
         // Добавляет зелье готовое
-        GameManager.playerInventory.AddItem(m_chosenPotion);
+        GameManager.instance.player.inventory.AddItem(m_chosenPotion);
 
         //m_gameMode.GoToRhythmGame();
     }
@@ -56,7 +56,7 @@ public class BrewingController : MonoBehaviour
     {
         foreach (Ingredient item in m_cauldron.addedIngredients)
         {
-            GameManager.playerInventory.AddItem(item);
+            GameManager.instance.player.inventory.AddItem(item);
         }
 
         m_cauldron.ClearCauldron();
