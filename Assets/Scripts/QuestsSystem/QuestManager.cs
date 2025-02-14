@@ -16,6 +16,7 @@ public class QuestManager : MonoBehaviour
     public TalkingState talkingState;
     public QuestUI questUI;
     public CheckingQuestsState checkingQuestsState;
+    private bool questsChanged = true;
 
     private void Awake()
     {
@@ -33,14 +34,24 @@ public class QuestManager : MonoBehaviour
         GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_dayTimeManager.onDayChange += OnDayChange;
         m_dayTimeManager.onDayEnd += OnDayEnd;
+        m_objectiveManager.OnQuestDeleted += OnQuestDeleted;
 
         talkingState.onActivated += OnTalkingStateActive;
         checkingQuestsState.onActivated += OnQuestStateActive;
     }
 
+    private void OnQuestDeleted()
+    {
+        questsChanged = true;
+    }
+
     private void OnQuestStateActive()
     {
-        questUI.FillQuestList(m_objectiveManager.Objectives);
+        if (questsChanged)
+        {
+            questUI.FillQuestList(m_objectiveManager.Objectives);
+            questsChanged = false;
+        }
     }
 
     private void OnTalkingStateActive()
