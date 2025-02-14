@@ -13,6 +13,7 @@ public class ShopData
     {
         SaveData saveData = new SaveData();
         saveData.inventory = inventory;
+        Debug.Log(JsonUtility.ToJson(saveData));
 
         return JsonUtility.ToJson(saveData);
     }
