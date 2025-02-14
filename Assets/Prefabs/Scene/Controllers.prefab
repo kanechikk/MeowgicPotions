@@ -273,6 +273,7 @@ MonoBehaviour:
   rhythmCheck: {fileID: 0}
   layoutTextFile: {fileID: 4900000, guid: 36a5d324a1180ac46847235f147c72e3, type: 3}
   musicDelay: 3
+  m_rhythmGameController: {fileID: 6386435235780376207}
 --- !u!1 &4780500603575329604
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +344,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_reward: {fileID: 0}
-  m_loss: {fileID: 0}
+  m_loss:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   potion: {fileID: 0}
   ingredients: []
 --- !u!1 &6226416884280469728

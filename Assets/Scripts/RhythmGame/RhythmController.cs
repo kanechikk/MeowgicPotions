@@ -48,7 +48,7 @@ public class RhythmController : MonoBehaviour
     {
         songPosition = (float)(AudioSettings.dspTime - dspSongTime);
         songPositionInBeats = songPosition / secPerBeat;
-        BeatSupplier();
+        StartCoroutine("BeatSupplier");
         if (!musicSource.isPlaying)
         {
             OnMusicEnd?.Invoke();
@@ -58,9 +58,10 @@ public class RhythmController : MonoBehaviour
     private void OnGameEnd()
     {
         m_isGameOver = true;
+        StopCoroutine("BeatSupplier");
     }
 
-    private void BeatSupplier()
+    private IEnumerator BeatSupplier()
     {
         if (beatCount < beatArray.Count)
         {
@@ -70,9 +71,11 @@ public class RhythmController : MonoBehaviour
                 beatSpawner.Spawn();
                 //Invoke(nameof(rhythmCheck.CheckStart), musicDelay - 0.45f);
                 
-                Invoke(nameof(TempSolutionAAAAA), musicDelay - Mathf.Min(rhythmCheck.offsetMax, secPerBeat - 0.02f));
+                yield return new WaitForSeconds(musicDelay - Mathf.Min(rhythmCheck.offsetMax, secPerBeat - 0.02f));
+                TempSolutionAAAAA();
+                //Invoke(nameof(TempSolutionAAAAA), musicDelay - Mathf.Min(rhythmCheck.offsetMax, secPerBeat - 0.02f));
 
-                Invoke(nameof(TempSolution), musicDelay - 0.58f);
+                //Invoke(nameof(TempSolution), musicDelay - 0.58f);
                 
             }
         }
@@ -84,7 +87,10 @@ public class RhythmController : MonoBehaviour
     }
     private void TempSolutionAAAAA()
     {
-        rhythmCheck.CheckStart();
+        if (!m_isGameOver)
+        {
+            rhythmCheck.CheckStart();
+        }
     }
 
 }
