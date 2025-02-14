@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ShopDataProcess
 {
-    public static string pathFile => Path.Combine(Application.persistentDataPath, "playerSaveData.json");
+    public static string pathFile => Path.Combine(Application.persistentDataPath, "shopSaveData.json");
 
     public static void SaveShop(ShopData shopData)
     {

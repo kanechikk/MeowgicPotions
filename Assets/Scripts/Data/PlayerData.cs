@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class PlayerData
 {
-    public Inventory inventory = new Inventory(32);
+    public Inventory inventory;
 
-    public WateringPot wateringPot = new WateringPot(4);
+    public WateringPot wateringPot;
 
     public PlayerState lastPlayerState = new PlayerState();
 
     public PlayerData()
     {
-        
+        inventory = new Inventory(32);
+        wateringPot = new WateringPot(4);
     }
 
     public string ToJson()

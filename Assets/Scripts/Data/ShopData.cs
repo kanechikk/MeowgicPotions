@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class ShopData
 {
-    public Inventory inventory = new Inventory(32);
+    public Inventory inventory;
 
     public ShopData()
     {
-        
+        inventory = new Inventory(32);
     }
 
     public string ToJson()

@@ -37,8 +37,9 @@ public class GameManager : MonoBehaviour
 
         LoadItemsDB();
 
-        LoadPlayerData();
+        //LoadPlayerData();
         LoadShopData();
+        player.inventory.AddCoins(1000);
     }
 
     private void LoadItemsDB()
@@ -84,7 +85,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"[GameManager]: OnApplicationQuit()");
 
-        SavePlayerData();
+        //SavePlayerData();
         SaveShopData();
     }
 }
