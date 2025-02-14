@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static Inventory playerInventory;
     public static ItemsDB itemsDB;
     public WateringPot wateringPot;
