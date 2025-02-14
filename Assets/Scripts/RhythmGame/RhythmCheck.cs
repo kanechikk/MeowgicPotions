@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RhythmCheck : MonoBehaviour
 {
-
     public event System.Action onBeatGood;
     public event System.Action onBeatMid;
     public event System.Action onBeatBad;
@@ -17,6 +16,12 @@ public class RhythmCheck : MonoBehaviour
     private float perfectBeatTime;
 
     private void OnEnable()
+    {
+        m_checkingOngoing = false;
+        m_inputDetected = false;
+    }
+
+    private void OnDisable()
     {
         m_checkingOngoing = false;
         m_inputDetected = false;

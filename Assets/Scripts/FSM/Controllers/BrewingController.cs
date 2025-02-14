@@ -1,4 +1,6 @@
 using System;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class BrewingController : MonoBehaviour
@@ -9,6 +11,7 @@ public class BrewingController : MonoBehaviour
     [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private GameMode m_gameMode;
     [SerializeField] private Item m_itemSample;
+    [SerializeField] private UIWinLose m_uiWinLose;
 
     private void Start()
     {
@@ -35,6 +38,9 @@ public class BrewingController : MonoBehaviour
 
     public void Brew()
     {
+        m_uiWinLose.potion = m_chosenPotion;
+        m_uiWinLose.ingredients = m_cauldron.addedIngredients.ToArray();
+        SetItemsBack();
         m_gameMode.GoToRhythmGame();
     }
 
@@ -44,22 +50,23 @@ public class BrewingController : MonoBehaviour
         {
             GameManager.playerInventory.RemoveItem(m_cauldron.addedIngredients[i]);
         }
-        
-        m_cauldron.ClearCauldron();
+
+        SetItemsBack();
         // Добавляет зелье готовое
         GameManager.playerInventory.AddItem(m_chosenPotion);
-
-        //m_gameMode.GoToRhythmGame();
     }
 
     public void SetItemsBack()
+    {
+        m_cauldron.ClearCauldron();
+    }
+
+    public void ItemsBackToInventory()
     {
         foreach (Ingredient item in m_cauldron.addedIngredients)
         {
             GameManager.playerInventory.AddItem(item);
         }
-
-        m_cauldron.ClearCauldron();
     }
 
     public void GoToPotionBook()

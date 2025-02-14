@@ -16,9 +16,20 @@ public class RhythmGameController : MonoBehaviour
     [SerializeField] private List<GameObject> m_hpPict;
     //public event Action<int> onGameEnd;
     public event Action<int> onScoreInc;
+    [SerializeField] private CanvasGroup m_gamePlayWindow;
+    private UIWinLose m_uiWinLose;
 
+    public event Action onGameEnd;
+
+    private void Start()
+    {
+        m_uiWinLose = gameObject.GetComponent<UIWinLose>();
+    }
     public void OnEnable()
     {
+
+        m_gamePlayWindow.alpha = 1;
+        m_gamePlayWindow.gameObject.SetActive(true);
         //m_timer = AudioSettings.dspTime - m_delay;
         //stick.onCollisionStick += OnCollisionStick;
         rhythmCheck.onBeatBad += OnBeatBad;
@@ -82,8 +93,15 @@ public class RhythmGameController : MonoBehaviour
         
         if (m_healthPoints == 0)
         {
-            m_gameMode.Back();
-            //m_loseWindow.SetActive(true);
+            //m_gameMode.Back();
+            m_gamePlayWindow.alpha = 0;
+            m_loseWindow.SetActive(true);
+            m_uiWinLose.ChangeIngredients();
+            rhythmController.OnMusicEnd -= OnMusicEnd;
+            //m_beatSpawner.SetActive(false);
+            //Time.timeScale = 0;
+            m_gamePlayWindow.gameObject.SetActive(false);
+            onGameEnd?.Invoke();
             return;
         }
 
@@ -96,8 +114,13 @@ public class RhythmGameController : MonoBehaviour
     {
         Debug.Log("GAME END");
         //onGameEnd?.Invoke(m_score);
-        m_gameMode.Back();
-        //m_winWindow.SetActive(true);
+        //m_gameMode.Back();
+        m_gamePlayWindow.alpha = 0;
+        m_winWindow.SetActive(true);
+        m_uiWinLose.ChangePotion();
+        m_gamePlayWindow.gameObject.SetActive(false);
+        //m_beatSpawner.SetActive(false);
+        //Time.timeScale = 0;
     }
 
     public void BackToBrewing()

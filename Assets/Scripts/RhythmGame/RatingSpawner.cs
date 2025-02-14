@@ -14,6 +14,4 @@ public class RatingSpawner : MonoBehaviour
         else
         return Instantiate(prefabs[2], transform);
     }
-
-
 }

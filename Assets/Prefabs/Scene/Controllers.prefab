@@ -99,6 +99,7 @@ MonoBehaviour:
   m_potionBookController: {fileID: 3668224875555930115}
   m_gameMode: {fileID: 0}
   m_itemSample: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
+  m_uiWinLose: {fileID: 7270114270426280983}
 --- !u!114 &8927576682546359786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +273,7 @@ MonoBehaviour:
   rhythmCheck: {fileID: 0}
   layoutTextFile: {fileID: 4900000, guid: 36a5d324a1180ac46847235f147c72e3, type: 3}
   musicDelay: 3
+  m_rhythmGameController: {fileID: 6386435235780376207}
 --- !u!1 &4780500603575329604
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +284,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7150512821123471012}
   - component: {fileID: 6386435235780376207}
+  - component: {fileID: 7270114270426280983}
   m_Layer: 0
   m_Name: RhythmGameController
   m_TagString: Untagged
@@ -327,6 +330,29 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  m_gamePlayWindow: {fileID: 0}
+--- !u!114 &7270114270426280983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780500603575329604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73405558b55fbca48929bf7a22fd2e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_reward: {fileID: 0}
+  m_loss:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  potion: {fileID: 0}
+  ingredients: []
 --- !u!1 &6226416884280469728
 GameObject:
   m_ObjectHideFlags: 0

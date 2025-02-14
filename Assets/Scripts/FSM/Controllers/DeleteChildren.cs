@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DeleteChildren : MonoBehaviour
@@ -5,9 +6,15 @@ public class DeleteChildren : MonoBehaviour
     [SerializeField] private GameObject m_object;
     private void OnDisable()
     {
-        while (m_object.transform.childCount > 0)
+        List<GameObject> children = new List<GameObject>();
+        for (int i = 0; i < m_object.transform.childCount; i ++)
         {
-            Destroy(m_object.transform.GetChild(0).gameObject);
+            children.Add(m_object.transform.GetChild(i).gameObject);
         }
+        foreach (GameObject child in children)
+        {
+            Destroy(child);
+        }
+        Debug.Log("workedRithmUI");
     }
 }

@@ -34,6 +34,7 @@ public class UIBrewing : MonoBehaviour
     private void OnChoosePotion(Potion potion)
     {
         m_brewingPotionInfo.text = potion.ElementsToString();
+        BrewButtonOnOff();
     }
 
     private void OnInventoryChange(Item item)
