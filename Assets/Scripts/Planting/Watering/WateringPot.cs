@@ -6,6 +6,7 @@ public class WateringPot
     private int m_maxValue;
     private int m_currentValue;
     public int currentValue => m_currentValue;
+    public int maxValue => m_maxValue;
 
     public WateringPot(int maxValue)
     {
