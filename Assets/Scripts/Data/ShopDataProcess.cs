@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -12,13 +13,13 @@ public class ShopDataProcess
         File.WriteAllText(pathFile, json);
     }
 
-    public static void LoadShop(ShopData shopData)
+    public static void LoadShop(ShopData shopData, List<Item> items)
     {
         if (File.Exists(pathFile))
         {
             var json = File.ReadAllText(pathFile);
 
-            shopData.FromJson(json);
+            shopData.FromJson(json, items);
         }
     }
 }

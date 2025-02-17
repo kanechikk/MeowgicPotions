@@ -8,9 +8,10 @@ public class PlayerData
 
     public PlayerState lastPlayerState = new PlayerState();
 
-    public PlayerData()
+    public PlayerData(int coins)
     {
         inventory = new Inventory(32);
+        inventory.AddCoins(coins);
         wateringPot = new WateringPot(4);
     }
 
