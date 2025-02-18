@@ -22,11 +22,15 @@ public class Ingredient : Item
 
     private void OnEnable()
     {
-        foreach (Element element in m_elements)
+        if (m_elementString == "")
         {
-            m_elementString += $"{element.elementName}: {element.value}";
+            foreach (Element element in m_elements)
+            {
+                m_elementString += $"{element.elementName}: {element.value}";
+            }
         }
     }
+    
     public string ElementsToString()
     {
         return m_elementString;

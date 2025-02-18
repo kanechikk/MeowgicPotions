@@ -21,10 +21,12 @@ public class Potion : Item
 
     private void OnEnable()
     {
-        m_elementString = "";
-        foreach (Element element in m_elements)
+        if (m_elementString == "")
         {
-            m_elementString += $"{element.elementName}: {element.value}\n";
+            foreach (Element element in m_elements)
+            {
+                m_elementString += $"{element.elementName}: {element.value}\n";
+            }
         }
     }
 
