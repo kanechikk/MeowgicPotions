@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public ItemsDB itemsDB { private set; get; }
     public ShopData shopData { private set; get; }
+    public DayData dayData { private set; get; }
     public PlayerData player { private set; get; } = new PlayerData(1000);
 
     void Update()
@@ -38,6 +39,8 @@ public class GameManager : MonoBehaviour
         Potion[] potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
         Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
 
+        dayData = new DayData(m_dayTimeManager);
+
         if (m_instance == null)
         {
             m_instance = this;
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
         LoadItemsDB(ingredients, potions, seeds);
         LoadShop(ingredients, seeds);
 
+        LoadDayData();
         LoadPlayerData();
     }
 
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
     private void OnDayChange()
     {
         SavePlayerData();
+        SaveDayData();
     }
 
     private void LoadItemsDB(Ingredient[] ingredients, Potion[] potions, Seed[] seeds)
@@ -87,6 +92,16 @@ public class GameManager : MonoBehaviour
         items.AddRange(itemsDB.potions);
         items.AddRange(itemsDB.seeds);
         DataProcess.LoadPlayer(player, items);
+    }
+
+    private void SaveDayData()
+    {
+        DataProcess.SaveDay(dayData);
+    }
+
+    private void LoadDayData()
+    {
+        DataProcess.LoadDay(dayData);
     }
 
     private void OnApplicationPause(bool pauseStatus)

@@ -46,7 +46,7 @@ public struct DayTime
 	{
 		if ((m_hour + 1) == 24)
 		{
-			m_hour = 0;
+			m_hour = 8;
 			AdvanceDay();
 		}
 		else
@@ -72,6 +72,13 @@ public struct DayTime
 		AdvanceDay();
 		m_hour = 8;
 		m_minute = 0;
+	}
+
+	public void SetDay(int day)
+	{
+		m_hour = 8;
+		m_minute = 0;
+		m_totalNumDays = day;
 	}
 
 	public string DayToString()
