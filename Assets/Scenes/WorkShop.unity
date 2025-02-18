@@ -13041,6 +13041,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6183036295987266035, guid: feacf11781262354b80d5576a34db954, type: 3}
   m_PrefabInstance: {fileID: 211156240592429099}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695918630 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1169734822503526390, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+  m_PrefabInstance: {fileID: 6599041770381487813}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf16ca6802e7a64b9a976c68bb669b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1696454113 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4593227987739333656, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
@@ -15447,6 +15458,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2310092080733690225}
     - target: {fileID: 8927576682546359786, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_toolTip
+      value: 
+      objectReference: {fileID: 1695918630}
+    - target: {fileID: 8927576682546359786, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_cauldron
       value: 
       objectReference: {fileID: 1287297736}
@@ -17744,13 +17759,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1961896340264540116}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 762968028640519344, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-    - {fileID: 9173719094789930922, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-    - {fileID: 5382625976270605668, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-    - {fileID: 2334174882786173248, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-    - {fileID: 1190883254522869512, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-    - {fileID: 7035259109232369905, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
@@ -17857,10 +17866,6 @@ PrefabInstance:
       propertyPath: 'm_objects.Array.data[0]'
       value: 
       objectReference: {fileID: 6599041770381487814}
-    - target: {fileID: 3623626352665649891, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: m_objects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3623626352665649891, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: 'm_objects.Array.data[0]'
       value: 
