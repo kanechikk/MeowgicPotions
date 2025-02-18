@@ -17,6 +17,7 @@ public class QuestManager : MonoBehaviour
     public QuestUI questUI;
     public CheckingQuestsState checkingQuestsState;
     private bool questsChanged = true;
+    private QuestsData questsData;
 
     private void Awake()
     {
@@ -24,13 +25,20 @@ public class QuestManager : MonoBehaviour
         QuestInfo[] secondaryQuests = Resources.LoadAll<QuestInfo>("ScriptableObjects/Quests/Second");
 
         questsDB = new QuestsDB(mainQuests, secondaryQuests);
+        questsData = new QuestsData(m_objectiveManager.Objectives);
+        LoadQuests();
+    }
+
+    private void LoadQuests()
+    {
+        List<QuestInfo> quests = new List<QuestInfo>();
+        quests.AddRange(questsDB.mainQuests);
+        quests.AddRange(questsDB.secondaryQuests);
+        DataProcess.LoadQuests(questsData, quests);
     }
 
     private void Start()
     {
-        Debug.Log(GameManager.instance.player.inventory);
-        Debug.Log(GameManager.instance.shopData.inventory);
-        Debug.Log(GameManager.instance.itemsDB.ingredients);
         GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_dayTimeManager.onDayChange += OnDayChange;
         m_dayTimeManager.onDayEnd += OnDayEnd;
@@ -47,7 +55,7 @@ public class QuestManager : MonoBehaviour
 
     private void OnQuestStateActive()
     {
-        if (questsChanged)
+        if (questsChanged && m_objectiveManager.Objectives.Count != 0)
         {
             questUI.FillQuestList(m_objectiveManager.Objectives);
             questsChanged = false;
@@ -94,6 +102,7 @@ public class QuestManager : MonoBehaviour
                 m_questHolder = questsDB.secondaryQuests[rand];
             }
         }
+        DataProcess.SaveQuests(questsData);
     }
 
     private void OnDayEnd()
@@ -109,7 +118,7 @@ public class QuestManager : MonoBehaviour
     public void Accept()
     {
         m_objectiveManager.AddObjective(new Objective(m_questHolder.Item, m_questHolder.StatusText, m_questHolder.MaxValue,
-        m_questHolder.QuestName, m_questHolder.QuestDecsription, m_questHolder.Main));
+        m_questHolder.QuestName, m_questHolder.QuestDecsription, m_questHolder.Main, m_questHolder.Id, 0));
         m_itemTypesNeeded.Add(m_questHolder.Item);
 
         int hasSuch = CheckIfHasItem(m_questHolder.Item);
@@ -129,6 +138,7 @@ public class QuestManager : MonoBehaviour
         }
 
         GoHome();
+        Debug.Log(m_objectiveManager.Objectives[0]);
     }
 
     private int CheckIfHasItem(Item itemToFind)

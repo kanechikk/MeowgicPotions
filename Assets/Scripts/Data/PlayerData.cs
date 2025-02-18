@@ -7,8 +7,6 @@ public class PlayerData
 
     public WateringPot wateringPot;
 
-    public PlayerState lastPlayerState = new PlayerState();
-
     public PlayerData(int coins)
     {
         inventory = new Inventory(32);
@@ -28,6 +26,7 @@ public class PlayerData
             }
         }
         saveData.waterAmount = wateringPot.currentValue;
+        saveData.coins = inventory.coins;
 
         return JsonUtility.ToJson(saveData);
     }
@@ -46,13 +45,14 @@ public class PlayerData
             }
         }
         wateringPot.SetNeededAmount(saveData.waterAmount);
+        inventory.AddCoins(saveData.coins);
     }
 
     [System.Serializable]
     private class SaveData
     {
-        public PlayerState state;
         public List<ItemToSerialize> items = new List<ItemToSerialize>();
+        public int coins;
         public int waterAmount;
     }
 }
@@ -73,24 +73,4 @@ public class ItemToSerialize
         this.id = id;
         this.count = count;
     }
-}
-
-[System.Serializable]
-public class PlayerState
-{
-    public Vec3 pos;
-    public Vec3 rot;
-    public int hp;
-    public bool valid;
-}
-
-[System.Serializable]
-public struct Vec3
-{
-    public float x;
-    public float y;
-    public float z;
-
-    public static implicit operator Vector3(Vec3 v3) => new Vector3(v3.x, v3.y, v3.z);
-    public static implicit operator Vec3(Vector3 v3) => new Vec3() { x = v3.x, y = v3.y, z = v3.z };
 }

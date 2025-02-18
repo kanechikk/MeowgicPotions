@@ -9,13 +9,13 @@ public class Objective
     public bool IsComplete { get; private set; }
     public int MaxValue { get; }
     public int CurrentValue { get; private set; }
-    public bool Done = false;
     public string QuestName;
     public string QuestDecsription;
     public bool IsMain;
+    public int Id { get; private set; }
 
     private readonly string _statusText;
-    public Objective(Item item, string statusText, int maxValue, string questName, string questDescription, bool main)
+    public Objective(Item item, string statusText, int maxValue, string questName, string questDescription, bool main, int id, int currentValue)
     {
         Item = item;
         _statusText = statusText;
@@ -23,6 +23,8 @@ public class Objective
         QuestName = questName;
         QuestDecsription = questDescription;
         IsMain = main;
+        Id = id;
+        CurrentValue = currentValue;
     }
 
     private void CheckCompletion()
@@ -31,7 +33,6 @@ public class Objective
         {
             IsComplete = true;
             OnComplete?.Invoke();
-            Done = true;
         }
     }
 

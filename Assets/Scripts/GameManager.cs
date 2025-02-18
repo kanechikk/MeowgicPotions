@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,9 +17,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private DayTimeManager m_dayTimeManager;
+
     public ItemsDB itemsDB { private set; get; }
     public ShopData shopData { private set; get; }
-    public PlayerData player { private set; get; } = new PlayerData(100);
+    public PlayerData player { private set; get; } = new PlayerData(0);
 
     private void Awake()
     {
@@ -43,6 +46,17 @@ public class GameManager : MonoBehaviour
         LoadShop(ingredients, seeds);
 
         LoadPlayerData();
+        player.inventory.AddItem(potions[0]);
+    }
+
+    private void Start()
+    {
+        m_dayTimeManager.onDayChange += OnDayChange;
+    }
+
+    private void OnDayChange()
+    {
+        SavePlayerData();
     }
 
     private void LoadItemsDB(Ingredient[] ingredients, Potion[] potions, Seed[] seeds)
@@ -57,7 +71,7 @@ public class GameManager : MonoBehaviour
 
     public void SavePlayerData()
     {
-        PlayerDataProcess.SavePlayer(player);
+        DataProcess.SavePlayer(player);
     }
 
     public void LoadPlayerData()
@@ -66,7 +80,7 @@ public class GameManager : MonoBehaviour
         items.AddRange(itemsDB.ingredients);
         items.AddRange(itemsDB.potions);
         items.AddRange(itemsDB.seeds);
-        PlayerDataProcess.LoadPlayer(player, items);
+        DataProcess.LoadPlayer(player, items);
     }
 
     private void OnApplicationPause(bool pauseStatus)
@@ -82,8 +96,5 @@ public class GameManager : MonoBehaviour
     private void OnApplicationQuit()
     {
         Debug.Log($"[GameManager]: OnApplicationQuit()");
-
-        SavePlayerData();
-        Debug.Log(Application.persistentDataPath);
     }
 }

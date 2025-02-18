@@ -44,7 +44,7 @@ public class QuestUI : MonoBehaviour
         questsNameUI.text = quest.QuestName;
         questBodyUI.text = quest.QuestDecsription + "\n" + quest.GetStatusText();
         item.sprite = quest.Item.icon;
-        if (quest.Done)
+        if (quest.IsComplete)
         {
             finishButton.interactable = true;
         }

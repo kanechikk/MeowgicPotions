@@ -38,7 +38,7 @@ public class ObjectiveManager
 
 		for (int i = 0; i < Objectives.Count; i++)
 		{
-			if (Objectives[i].Done)
+			if (Objectives[i].IsComplete)
 			{
 				for (int j = 0; j < Objectives[i].MaxValue; j++)
 				{

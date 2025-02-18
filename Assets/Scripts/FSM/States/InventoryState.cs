@@ -16,7 +16,6 @@ public class InventoryState : GameStateBehaviour
     private UIInventoryItem[] potionPanelSlots;
     private UIInventoryItem[] ingredientPanelSlots;
     private UIInventoryItem[] seedPanelSlots;
-    private int page;
 
     private void OnEnable()
     {
@@ -66,7 +65,6 @@ public class InventoryState : GameStateBehaviour
         for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, ingredients.Count); i++)
         {
             ingredientPanelSlots[i].InitialiseItem(ingredients[i].item);
-            //Debug.Log(ingredients[i].item);
         }
     }
     private void FillSeeds()
