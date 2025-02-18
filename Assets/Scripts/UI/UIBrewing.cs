@@ -29,7 +29,7 @@ public class UIBrewing : MonoBehaviour
         m_brewButton.interactable = false;
         m_clearButton.interactable = false;
 
-        GameManager.playerInventory.onInvChange += OnInventoryChange;
+        GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_potionBookController.onChoosePotion += OnChoosePotion;
     }
 
@@ -69,7 +69,7 @@ public class UIBrewing : MonoBehaviour
     private void FillSlots()
     {
         //Вызываем айтемы из инвентаря
-        List<InventorySlot> ingredients = GameManager.playerInventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot ingredient in ingredients)

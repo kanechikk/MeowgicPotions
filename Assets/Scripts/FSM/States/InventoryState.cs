@@ -16,7 +16,6 @@ public class InventoryState : GameStateBehaviour
     private UIInventoryItem[] potionPanelSlots;
     private UIInventoryItem[] ingredientPanelSlots;
     private UIInventoryItem[] seedPanelSlots;
-    private int page;
 
     private void OnEnable()
     {
@@ -24,7 +23,7 @@ public class InventoryState : GameStateBehaviour
         FillPotions();
         FillIngredients();
         FillSeeds();
-        coins.text = $"Coins: {GameManager.playerInventory.coins}";
+        coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
     }
     private void OnDisable()
     {
@@ -40,7 +39,7 @@ public class InventoryState : GameStateBehaviour
     private void FillPotions()
     {
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> potions = GameManager.playerInventory.GetItemsByType(ItemCategory.Potion);
+        List<InventorySlot> potions = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Potion);
 
         foreach (UIInventoryItem slot in potionPanelSlots)
         {
@@ -56,7 +55,7 @@ public class InventoryState : GameStateBehaviour
     private void FillIngredients()
     {
         ingredientPanelSlots = ingredientsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> ingredients = GameManager.playerInventory.GetItemsByType(ItemCategory.Ingredient);
+        List<InventorySlot> ingredients = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Ingredient);
 
         foreach (UIInventoryItem slot in ingredientPanelSlots)
         {
@@ -66,13 +65,12 @@ public class InventoryState : GameStateBehaviour
         for (int i = 0; i < Math.Min(ingredientPanelSlots.Length, ingredients.Count); i++)
         {
             ingredientPanelSlots[i].InitialiseItem(ingredients[i].item);
-            //Debug.Log(ingredients[i].item);
         }
     }
     private void FillSeeds()
     {
         seedPanelSlots = seedsPanel.GetComponentsInChildren<UIInventoryItem>();
-        List<InventorySlot> seeds = GameManager.playerInventory.GetItemsByType(ItemCategory.Seed);
+        List<InventorySlot> seeds = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Seed);
 
         foreach (UIInventoryItem slot in seedPanelSlots)
         {

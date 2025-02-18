@@ -6,7 +6,6 @@ public class InteractableGarden : MonoBehaviour
     [SerializeField] private PlantingState m_stateOfInteractable;
     [SerializeField] private GameMode m_gameMode;
     [SerializeField] private WateringPotController m_wateringPotController;
-    [SerializeField] private GameManager m_gameManager;
     public bool active = false;
     private SoilHole m_soilHole;
     private Plant plant;
@@ -37,10 +36,10 @@ public class InteractableGarden : MonoBehaviour
             }
             else if (plant.isReadyToHarvest)
             {
-                GameManager.playerInventory.AddItem(plant.HarvestPlant());
+                GameManager.instance.player.inventory.AddItem(plant.HarvestPlant());
                 m_soilHole.GetBusy(false);
             }
-            else if (!plant.isWatered && m_gameManager.wateringPot.currentValue > 0 && WateringState.isActive)
+            else if (!plant.isWatered && GameManager.instance.player.wateringPot.currentValue > 0 && WateringState.isActive)
             {
                 m_wateringPotController.WaterPlant();
                 plant.WaterPlant();

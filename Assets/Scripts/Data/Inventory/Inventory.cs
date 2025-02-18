@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class Inventory
 {
     private List<InventorySlot> m_slots;

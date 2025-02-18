@@ -6,6 +6,7 @@ using UnityEngine;
 public class ObjectiveManager
 {
 	public Action<Objective> OnObjectiveAdded;
+	public Action OnQuestDeleted;
 	public List<Objective> Objectives { get; } = new();
 	private readonly Dictionary<string, List<Objective>> _objectiveMap = new();
 	public void AddObjective(Objective objective)
@@ -37,17 +38,18 @@ public class ObjectiveManager
 
 		for (int i = 0; i < Objectives.Count; i++)
 		{
-			if (Objectives[i].Done)
+			if (Objectives[i].IsComplete)
 			{
 				for (int j = 0; j < Objectives[i].MaxValue; j++)
 				{
 					items.Add(Objectives[i].Item);
 				}
-				;
+				
 				Objectives.Remove(Objectives[i]);
 			}
 		}
 		
+		OnQuestDeleted?.Invoke();
 		return items;
 	}
 }

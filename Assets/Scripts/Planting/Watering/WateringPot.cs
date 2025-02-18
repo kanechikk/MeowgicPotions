@@ -14,6 +14,11 @@ public class WateringPot
         m_currentValue = maxValue;
     }
 
+    public void SetNeededAmount(int amount)
+    {
+        m_currentValue = amount;
+    }
+
     public void FillPot()
     {
         m_currentValue = m_maxValue;
