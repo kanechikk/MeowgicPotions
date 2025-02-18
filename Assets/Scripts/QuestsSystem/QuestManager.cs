@@ -24,7 +24,7 @@ public class QuestManager : MonoBehaviour
         QuestInfo[] secondaryQuests = Resources.LoadAll<QuestInfo>("ScriptableObjects/Quests/Second");
 
         questsDB = new QuestsDB(mainQuests, secondaryQuests);
-        questsData = new QuestsData(m_objectiveManager.Objectives);
+        questsData = new QuestsData(m_objectiveManager);
         LoadQuests();
     }
 

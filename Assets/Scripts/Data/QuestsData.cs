@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class QuestsData
 {
-    public List<Objective> objectives = new List<Objective>();
+    public ObjectiveManager objectives;
 
-    public QuestsData(List<Objective> objectives)
+    public QuestsData(ObjectiveManager objectives)
     {
         this.objectives = objectives;
     }
@@ -15,7 +15,7 @@ public class QuestsData
     {
         SaveData saveData = new SaveData();
 
-        foreach (Objective quest in objectives)
+        foreach (Objective quest in objectives.Objectives)
         {
             saveData.quests.Add(new QuestToSerialize(quest.Id, quest.CurrentValue));
         }
@@ -32,7 +32,7 @@ public class QuestsData
             foreach (QuestToSerialize quest in saveData.quests)
             {
                 newQuest = quests.Find(x => x.Id == quest.id);
-                objectives.Add(new Objective(newQuest.Item, newQuest.StatusText, newQuest.MaxValue,
+                objectives.AddObjective(new Objective(newQuest.Item, newQuest.StatusText, newQuest.MaxValue,
                 newQuest.QuestName, newQuest.QuestDecsription, newQuest.Main, newQuest.Id, quest.currentValue));
             }
         }
