@@ -28,12 +28,12 @@ public class PlaeyrConroller : MonoBehaviour
         Vector2 move = m_moveAction.ReadValue<Vector2>();
         player.Move(move);
 
-        if (Keyboard.current.iKey.wasPressedThisFrame)
+        if (Keyboard.current.iKey.wasPressedThisFrame && m_states.CurrGameState is not InventoryState)
         {
             m_states.GoToInventory();
         }
 
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        if (Keyboard.current.fKey.wasPressedThisFrame && m_states.CurrGameState is not CheckingQuestsState)
         {
             m_states.GoToQuests();
         }

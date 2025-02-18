@@ -27,11 +27,13 @@ public class Inventory
     {
         int index = m_slots.FindIndex(x => x.item == item);
 
+        onInvChange?.Invoke(item);
+
         if (index >= 0)
         {
             StackItem(index);
             // Индекс слота с айтемом
-            onInvChange?.Invoke(item);
+            
             return index;
         }
         else
@@ -47,7 +49,7 @@ public class Inventory
                 SetItem(m_slots.Count - 1, item);
             }
             // Индекс слота с новым айтемом
-            onInvChange?.Invoke(item);
+            
             return index;
         }
     }

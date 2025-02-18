@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,7 +22,15 @@ public class GameManager : MonoBehaviour
 
     public ItemsDB itemsDB { private set; get; }
     public ShopData shopData { private set; get; }
-    public PlayerData player { private set; get; } = new PlayerData(0);
+    public PlayerData player { private set; get; } = new PlayerData(1000);
+
+    void Update()
+    {
+        if (Keyboard.current.gKey.wasPressedThisFrame)
+        {
+            player.inventory.AddItem(itemsDB.potions[0]);
+        }
+    }
 
     private void Awake()
     {
@@ -44,7 +53,6 @@ public class GameManager : MonoBehaviour
         LoadShop(ingredients, seeds);
 
         LoadPlayerData();
-        player.inventory.AddItem(potions[0]);
     }
 
     private void Start()

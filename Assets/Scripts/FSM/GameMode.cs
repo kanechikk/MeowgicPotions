@@ -1,11 +1,13 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR.Haptics;
 using UnityEngine.Video;
 
 public class GameMode : MonoBehaviour
 {
     private StateActivator m_stateActivator;
+    public IGameState CurrGameState => m_stateActivator.current;
     private void Awake()
     {
         m_stateActivator = new StateActivator();
