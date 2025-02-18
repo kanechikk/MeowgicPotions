@@ -4,7 +4,7 @@ using UnityEngine;
 public class DayTimeManager : MonoBehaviour
 {
     private int day = 1;
-    private int hour;
+    private int hour = 8;
     private int minute;
     private DayTime m_dayTime;
 
