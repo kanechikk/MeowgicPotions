@@ -52,7 +52,7 @@ public class BrewingController : MonoBehaviour
         }
 
         // Добавляет зелье готовое
-        GameManager.playerInventory.AddItem(m_chosenPotion);
+        GameManager.instance.player.inventory.AddItem(m_chosenPotion);
     }
 
     public void SetItemsBack()

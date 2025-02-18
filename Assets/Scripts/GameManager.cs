@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(gameObject);
-
         LoadItemsDB(ingredients, potions, seeds);
         LoadShop(ingredients, seeds);
 
