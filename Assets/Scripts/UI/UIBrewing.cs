@@ -21,6 +21,8 @@ public class UIBrewing : MonoBehaviour
     [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
 
+    [SerializeField] private TooltipUI m_toolTip;
+
     private void Start()
     {
         //блокируем кнопку "Сварить", пока добавленные ингредиенты не будут соответствовать выбранному рецепту
@@ -85,6 +87,8 @@ public class UIBrewing : MonoBehaviour
     private void OnAddIngredient(Ingredient ingredient)
     {
         AddToCauldron(ingredient);
+        
+        m_toolTip.HideTooltip();
 
         BrewButtonOnOff();
         ClearButtonOnOff();
@@ -93,6 +97,8 @@ public class UIBrewing : MonoBehaviour
     private void OnRemoveIngredient(Ingredient ingredient)
     {
         RemoveFromCauldron(ingredient);
+
+        m_toolTip.HideTooltip();
 
         BrewButtonOnOff();
         ClearButtonOnOff();
