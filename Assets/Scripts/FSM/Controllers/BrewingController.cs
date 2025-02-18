@@ -51,7 +51,6 @@ public class BrewingController : MonoBehaviour
             GameManager.playerInventory.RemoveItem(m_cauldron.addedIngredients[i]);
         }
 
-        SetItemsBack();
         // Добавляет зелье готовое
         GameManager.playerInventory.AddItem(m_chosenPotion);
     }

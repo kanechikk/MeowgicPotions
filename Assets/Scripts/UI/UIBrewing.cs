@@ -179,6 +179,9 @@ public class UIBrewing : MonoBehaviour
             itemsCauldron[i].Remove();
         }
 
+
+        m_cauldronInfoUI.text = "Cauldron is empty!";
+
         BrewButtonOnOff();
         ClearButtonOnOff();
     }
