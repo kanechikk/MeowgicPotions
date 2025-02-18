@@ -17,12 +17,15 @@ public class GameManager : MonoBehaviour
     }
 
     public ItemsDB itemsDB { private set; get; }
-    public PlayerData player { private set; get; } = new PlayerData(100);
     public ShopData shopData { private set; get; }
-
+    public PlayerData player { private set; get; } = new PlayerData(100);
 
     private void Awake()
     {
+        Ingredient[] ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
+        Potion[] potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
+        Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
+
         if (m_instance == null)
         {
             m_instance = this;
@@ -36,20 +39,19 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        LoadItemsDB();
+        LoadItemsDB(ingredients, potions, seeds);
+        LoadShop(ingredients, seeds);
 
-        //LoadPlayerData();
-        LoadShopData();
-        player.inventory.AddCoins(1000);
+        LoadPlayerData();
     }
 
-    private void LoadItemsDB()
+    private void LoadItemsDB(Ingredient[] ingredients, Potion[] potions, Seed[] seeds)
     {
-        Ingredient[] ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
-        Potion[] potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
-        Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
-
         itemsDB = new ItemsDB(ingredients, potions, seeds);
+    }
+
+    private void LoadShop(Ingredient[] ingredients, Seed[] seeds)
+    {
         shopData = new ShopData(ingredients, seeds);
     }
 
@@ -60,20 +62,11 @@ public class GameManager : MonoBehaviour
 
     public void LoadPlayerData()
     {
-        PlayerDataProcess.LoadPlayer(player);
-    }
-
-    public void SaveShopData()
-    {
-        ShopDataProcess.SaveShop(shopData);
-    }
-
-    public void LoadShopData()
-    {
         List<Item> items = new List<Item>();
         items.AddRange(itemsDB.ingredients);
+        items.AddRange(itemsDB.potions);
         items.AddRange(itemsDB.seeds);
-        ShopDataProcess.LoadShop(shopData, items);
+        PlayerDataProcess.LoadPlayer(player, items);
     }
 
     private void OnApplicationPause(bool pauseStatus)
@@ -90,8 +83,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"[GameManager]: OnApplicationQuit()");
 
-        //SavePlayerData();
-        SaveShopData();
+        SavePlayerData();
         Debug.Log(Application.persistentDataPath);
     }
 }

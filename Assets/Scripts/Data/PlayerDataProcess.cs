@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -12,13 +13,13 @@ public class PlayerDataProcess
         File.WriteAllText(pathFile, json);
     }
 
-    public static void LoadPlayer(PlayerData playerData)
+    public static void LoadPlayer(PlayerData playerData, List<Item> items)
     {
         if (File.Exists(pathFile))
         {
             var json = File.ReadAllText(pathFile);
 
-            playerData.FromJson(json);
+            playerData.FromJson(json, items);
         }
     }
 }
