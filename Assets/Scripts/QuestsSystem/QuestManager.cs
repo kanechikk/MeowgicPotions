@@ -28,12 +28,28 @@ public class QuestManager : MonoBehaviour
         LoadQuests();
     }
 
+    private void FindMainQuestID()
+    {
+        if (questsData.objectives.Objectives.Count > 0)
+        {
+            foreach (Objective objective in questsData.objectives.Objectives)
+            {
+                if (objective.IsMain)
+                {
+                    mainQuestProgress = objective.Id;
+                    break;
+                }
+            }
+        }
+    }
+
     private void LoadQuests()
     {
         List<QuestInfo> quests = new List<QuestInfo>();
         quests.AddRange(questsDB.mainQuests);
         quests.AddRange(questsDB.secondaryQuests);
         DataProcess.LoadQuests(questsData, quests);
+        FindMainQuestID();
     }
 
     private void Start()
