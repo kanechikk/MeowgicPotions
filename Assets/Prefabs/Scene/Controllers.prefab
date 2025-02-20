@@ -354,6 +354,56 @@ MonoBehaviour:
   - {fileID: 0}
   potion: {fileID: 0}
   ingredients: []
+--- !u!1 &5076486479680504405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5691234217798352816}
+  - component: {fileID: 6681264000070612880}
+  m_Layer: 0
+  m_Name: InventoryController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5691234217798352816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076486479680504405}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 40.631893, y: -0.038469315, z: -9.921799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6681264000070612880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5076486479680504405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d24088f15fe95845b9746430561db3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventoryUI: {fileID: 0}
+  potionsPanel: {fileID: 0}
+  ingredientsPanel: {fileID: 0}
+  seedsPanel: {fileID: 0}
+  sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
+  coins: {fileID: 0}
 --- !u!1 &6226416884280469728
 GameObject:
   m_ObjectHideFlags: 0
@@ -446,6 +496,7 @@ Transform:
   - {fileID: 1890968131737382127}
   - {fileID: 6170706352062090216}
   - {fileID: 8175457750807142530}
+  - {fileID: 5691234217798352816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8772483840550857635
