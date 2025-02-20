@@ -700,6 +700,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6112309941421437903, guid: 7f4f289bed324c84ca5eecb04ed89171, type: 3}
+      propertyPath: m_dayTimeManager
+      value: 
+      objectReference: {fileID: 4565620811308356589}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
