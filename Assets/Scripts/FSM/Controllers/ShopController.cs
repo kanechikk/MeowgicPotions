@@ -12,7 +12,7 @@ public class ShopController : MonoBehaviour
     [SerializeField] private GameObject m_potionsPanel;
     [SerializeField] private ShopUI shopUI;
 
-    private void Start()
+    private void Awake()
     {
         GameManager.instance.shopData.inventory.onInvChange += OnInventoryChange;
     }
@@ -31,6 +31,7 @@ public class ShopController : MonoBehaviour
         if (m_needToRefreshInventory)
         {
             FillSellList();
+            Debug.Log(m_needToRefreshInventory);
             m_needToRefreshInventory = false;
         }
     }

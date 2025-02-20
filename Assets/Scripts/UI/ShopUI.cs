@@ -61,16 +61,16 @@ public class ShopUI : MonoBehaviour
 
         List<GameObject> linesPotons = new List<GameObject>();
 
-        for (int i = 0; i < m_shop.slots.Count; i++)
+        for (int i = 0; i < m_inventroy.slots.Count; i++)
         {
             GameObject line = Instantiate(shopLinePrefab);
 
             shopListUI = line.GetComponent<ShopListUI>();
 
-            if (m_shop.slots[i].item is Potion)
+            if (m_inventroy.slots[i].item is Potion)
             {
-                shopListUI.FillLine(m_shop.slots[i].item, m_shop.slots[i].item.itemName, m_shop.slots[i].item.ToStringItem(),
-                m_shop.slots[i].count, SellItem);
+                shopListUI.FillLine(m_inventroy.slots[i].item, m_inventroy.slots[i].item.itemName, m_inventroy.slots[i].item.ToStringItem(),
+                m_inventroy.slots[i].count, SellItem);
                 linesPotons.Add(line);
             }
         }
