@@ -1852,6 +1852,8 @@ GameObject:
   - component: {fileID: 6659029248156888138}
   - component: {fileID: 8215085900160629969}
   - component: {fileID: 6837420653582808049}
+  - component: {fileID: 8756999132609030996}
+  - component: {fileID: 4870038729296743200}
   m_Layer: 0
   m_Name: CauldronCollider
   m_TagString: Untagged
@@ -1903,6 +1905,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.6234176, y: 1.5266824, z: 2.3770218}
   m_Center: {x: 0.017790437, y: 0.2633412, z: 0.40907526}
+--- !u!114 &8756999132609030996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019036862578303610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateOfInteractable: {fileID: 0}
+  m_wateringPotController: {fileID: 0}
+  m_gameMode: {fileID: 0}
+--- !u!114 &4870038729296743200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3019036862578303610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
 --- !u!1 &3032870615530694972
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3457,9 @@ GameObject:
   - component: {fileID: 7236904722454210183}
   - component: {fileID: 3926399192068139972}
   - component: {fileID: 3481796885564298626}
+  - component: {fileID: 4000441288994237319}
+  - component: {fileID: 6549757262300086384}
+  - component: {fileID: 4368294248274971390}
   m_Layer: 0
   m_Name: CounterCollider
   m_TagString: Untagged
@@ -3476,6 +3511,49 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.3997014, y: 1.5266824, z: 4.498496}
   m_Center: {x: -0.5940677, y: 0.2633412, z: -0.15522671}
+--- !u!114 &4000441288994237319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191873488644133578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
+--- !u!114 &6549757262300086384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191873488644133578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateOfInteractable: {fileID: 0}
+  m_wateringPotController: {fileID: 0}
+  m_gameMode: {fileID: 0}
+--- !u!114 &4368294248274971390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5191873488644133578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: baf3c5f5f8857a14b862afc2a68e2b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_agentController: {fileID: 0}
 --- !u!1 &5291361093023974917
 GameObject:
   m_ObjectHideFlags: 0
@@ -3959,8 +4037,10 @@ GameObject:
   - component: {fileID: 7581697880356092149}
   - component: {fileID: 7608570632203287971}
   - component: {fileID: 4701822616387469647}
+  - component: {fileID: 1123434740899529075}
+  - component: {fileID: 1557159128164762509}
   m_Layer: 0
-  m_Name: ShoppimgBookCollider
+  m_Name: ShoppingBookCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4010,6 +4090,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9677823, y: 1.5266824, z: 1.6015725}
   m_Center: {x: -0.31002724, y: 0.2633412, z: 0.3016492}
+--- !u!114 &1123434740899529075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127322464248175126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateOfInteractable: {fileID: 0}
+  m_wateringPotController: {fileID: 0}
+  m_gameMode: {fileID: 0}
+--- !u!114 &1557159128164762509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6127322464248175126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
 --- !u!1 &6231783134615896328
 GameObject:
   m_ObjectHideFlags: 0
@@ -4107,6 +4217,8 @@ GameObject:
   - component: {fileID: 104837925744670243}
   - component: {fileID: 7575376861920576219}
   - component: {fileID: 902886653956981757}
+  - component: {fileID: 3239350085286100898}
+  - component: {fileID: 8398187236817140727}
   m_Layer: 0
   m_Name: BedCollider
   m_TagString: Untagged
@@ -4158,6 +4270,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.261101, y: 1.5266824, z: 3.042242}
   m_Center: {x: 0.076153755, y: 0.2633412, z: -0.040112495}
+--- !u!114 &3239350085286100898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305199643488907536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962e2688c83d4aa49a51b2e5b46a20f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateOfInteractable: {fileID: 0}
+  m_wateringPotController: {fileID: 0}
+  m_gameMode: {fileID: 0}
+--- !u!114 &8398187236817140727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305199643488907536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f79f8e089372a4c8fa7ec2c42f7844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiSign: {fileID: 0}
+  showPlace: {fileID: 0}
+  hidePlace: {fileID: 0}
 --- !u!1 &6354802406094980508
 GameObject:
   m_ObjectHideFlags: 0
@@ -10317,6 +10459,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8633390760610655790, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6164259540290875252}
+    - targetCorrespondingSourceObject: {fileID: 5242409976582187290, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5769913972036426080}
     - targetCorrespondingSourceObject: {fileID: -1671139570352976757, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4845322911665764778}
@@ -11025,6 +11170,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -131913922478537766, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
+--- !u!1 &7140245419075887152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5242409976582187290, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
+  m_PrefabInstance: {fileID: 3159265766445271338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5769913972036426080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7140245419075887152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d80afad524e9847995ef99b458f541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7200378881937771531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4018595117284342495, guid: 9711da2a9a58a1440b9e3b5430738b32, type: 3}
