@@ -3,7 +3,87 @@ guid: 9711da2a9a58a1440b9e3b5430738b32
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CarTexture.png
+    second: {fileID: 2100000, guid: 8635adeac57e7a74783e54aff2d31286, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bedTexture.png
+    second: {fileID: 2100000, guid: 595fbad86ebc25b4183b90d16e86708e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caudronAreaTexture.png
+    second: {fileID: 2100000, guid: 8aede51ff78741f4dac61168c47492b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caudronAreaTextureSnip.png
+    second: {fileID: 2100000, guid: f199c2a9f92dc2c44902e36ae845eecc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: counterTexture.png
+    second: {fileID: 2100000, guid: 5843edcb2aebcd941953513aa55edb46, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: emptyWithBorders.png
+    second: {fileID: 2100000, guid: 62ca17c010f17814fb606c889a1a0c5a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pillarsTextureTemp.png
+    second: {fileID: 2100000, guid: a67d88a798d483e408edb775d7b4e874, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant1BubbleFruit.png
+    second: {fileID: 2100000, guid: 435a6add11472a542b53118da6810398, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant2PoisonSwampGrass.png
+    second: {fileID: 2100000, guid: f6ae4127c5faef94e8cf5e8886e9dd27, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant3StellarBloom.png
+    second: {fileID: 2100000, guid: 12cb29ccfcac852458870fb3f2563a62, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant4SkySnakes.png
+    second: {fileID: 2100000, guid: 3996447a28860f747909b346720a09e0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant5EarthCoral.png
+    second: {fileID: 2100000, guid: e9edbe0561f56f341baadd096449cfba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plant6CrystalFeather.png
+    second: {fileID: 2100000, guid: d6ae3dfb0ef02da4d91dea45ba716ca3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: roofTexture.png
+    second: {fileID: 2100000, guid: 9f961719c16edee48af14d7bfa641051, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: test.png
+    second: {fileID: 2100000, guid: 377f22e8f8fbec94bb330d7ed1629d51, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wallsTexture.png
+    second: {fileID: 2100000, guid: 2d57c9897bb48b942be360bd8e55b0c2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
