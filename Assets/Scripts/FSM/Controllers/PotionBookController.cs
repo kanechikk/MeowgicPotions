@@ -57,7 +57,7 @@ public class PotionBookController : MonoBehaviour
 
         m_sprite.sprite = m_chosenPotion.icon;
         m_description.text = m_chosenPotion.description;
-        m_potionInfo.text = m_chosenPotion.ElementsToString();
+        m_potionInfo.text = m_chosenPotion.ToStringItem();
     }
 
     //метод, который висит на кнопке "Выбрать"

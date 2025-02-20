@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 [System.Serializable]
 public class Inventory
@@ -12,7 +13,7 @@ public class Inventory
 
     public List<InventorySlot> slots => m_slots;
 
-    public Action<Item> onInvChange;
+    public event Action<Item> onInvChange;
 
     public Inventory(int slotSize)
     {
@@ -117,5 +118,20 @@ public class Inventory
             }
         }
         return items;
+    }
+
+    public int GetSlotIndex(Item item)
+    {
+        for (int i = 0; i < m_slots.Count; i++)
+        {
+            if (m_slots[i].item)
+            {
+                if (m_slots[i].item.id == item.id)
+                {
+                    return i;
+                }
+            }
+        }
+        return -1;
     }
 }

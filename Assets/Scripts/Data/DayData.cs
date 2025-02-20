@@ -24,7 +24,6 @@ public class DayData
         if (saveData != null)
         {
             dayTimeManager.SetDay(saveData.day);
-            Debug.Log(dayTimeManager.dayTime.TotalNumDays);
         }
     }
 

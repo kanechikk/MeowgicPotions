@@ -400,11 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab6207fa7595c884fb5510325cbb273e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ingredientsPanel: {fileID: 0}
-  seedsPanel: {fileID: 0}
-  potionsPanel: {fileID: 0}
-  linePrefab: {fileID: 2981095539308258188, guid: 13c6758abfe809c489423ac1810dc5f7, type: 3}
-  coins: {fileID: 0}
 --- !u!114 &172485784533160560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!1 &3429626576665171556
 GameObject:
@@ -649,6 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_objects:
+  - {fileID: 0}
   - {fileID: 0}
 --- !u!1001 &4229699366677074780
 PrefabInstance:

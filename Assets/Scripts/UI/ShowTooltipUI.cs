@@ -49,7 +49,7 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if (m_item.GetType() == typeof(Ingredient))
         {
             Ingredient temp = (Ingredient)m_item;
-            itemDesc += "\n" + temp.ElementsToString();
+            itemDesc += "\n" + temp.ToStringItem();
         }
         else if (m_item.GetType() == typeof(Potion))
         {

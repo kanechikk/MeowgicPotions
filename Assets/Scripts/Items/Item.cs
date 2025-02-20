@@ -11,4 +11,9 @@ public abstract class Item : ScriptableObject
     public string itemName => this.m_itemName;
     public int price => this.m_price;
     public Sprite icon => this.m_icon;
+
+    public virtual string ToStringItem()
+    {
+        return m_itemName;
+    }
 }
