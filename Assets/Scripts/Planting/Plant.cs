@@ -91,4 +91,12 @@ public class Plant : MonoBehaviour
             return null;
         }
     }
+
+    public void LoadSave(Ingredient plant, Seed seed, int daysAfterPlanting, bool isReadyToHarvest)
+    {
+        m_plant = plant;
+        m_seed = seed;
+        m_daysAfterPlanting = daysAfterPlanting;
+        m_isReadyToHarvest = isReadyToHarvest;
+    }
 }
