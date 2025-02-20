@@ -1,39 +1,19 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ShopController : MonoBehaviour
 {
-    private bool m_needToRefreshInventory = true;
-    private bool m_ingredients_stocked;
-    private bool m_seeds_stocked;
     [SerializeField] private GameObject m_ingredientsPanel;
     [SerializeField] private GameObject m_seedsPanel;
     [SerializeField] private GameObject m_potionsPanel;
     [SerializeField] private ShopUI shopUI;
 
-    private void Awake()
-    {
-        GameManager.instance.shopData.inventory.onInvChange += OnInventoryChange;
-    }
-
-    private void OnInventoryChange(Item item)
-    {
-        m_needToRefreshInventory = true;
-    }
-
     private void OnEnable()
     {
-        if (!m_ingredients_stocked || !m_seeds_stocked)
-        {
-            FillTheShop();
-        }
-        if (m_needToRefreshInventory)
-        {
-            FillSellList();
-            Debug.Log(m_needToRefreshInventory);
-            m_needToRefreshInventory = false;
-        }
+        FillTheShop();
+        FillSellList();
     }
 
     private void FillSellList()
@@ -58,5 +38,10 @@ public class ShopController : MonoBehaviour
         {
             seedLine.transform.SetParent(m_seedsPanel.transform);
         }
+    }
+
+    private void Erase()
+    {
+
     }
 }
