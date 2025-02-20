@@ -1,45 +1,39 @@
-using System.Data;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
-public class ShopListUI : MonoBehaviour
+public class ShopListUI: MonoBehaviour
 {
-    public Inventory shop;
-    public int index;
-    public GameObject countText;
-    public Potion potionToSell;
-    
-    public void BuyItem()
-    {
-        if (GameManager.instance.player.inventory.coins >= shop.slots[index].item.price)
-        {
-            GameManager.instance.player.inventory.AddItem(shop.slots[index].item);
-            GameManager.instance.player.inventory.AddCoins(-shop.slots[index].item.price);
+    public Item Item => m_item;
+    public TextMeshProUGUI Count => m_count;
+    private Item m_item;
+    private Image m_image;
+    private TextMeshProUGUI m_itemNameAndPrice;
+    private TextMeshProUGUI m_itemInfo;
+    private TextMeshProUGUI m_count;
+    private Button m_button;
 
-            shop.RemoveItem(shop.slots[index].item);
-            countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {shop.slots[index].count}";
-            if (shop.slots[index].count == 0)
-            {
-                Destroy(gameObject.transform.parent.gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Not enough coins");
-        }
-    }
-
-    public void SellItem()
+    public void FillLine(Item item, string itemNameAndPrice, string itemInfo, int count, Action buttonAction)
     {
-        GameManager.instance.player.inventory.AddCoins(potionToSell.price);
-        GameManager.instance.player.inventory.RemoveItem(potionToSell);
-        if (GameManager.instance.player.inventory.slots[index].count == 0)
-        {
-            Destroy(gameObject.transform.parent.gameObject);
-        }
-        else
-        {
-            countText.transform.GetComponent<TextMeshProUGUI>().text = $"Count: {GameManager.instance.player.inventory.slots[index].count}";
-        }
+        m_item = item;
+        m_image = gameObject.GetComponentInChildren<Image>();
+        m_image.sprite = item.icon;
+        
+        TextMeshProUGUI[] texts = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+
+        m_itemNameAndPrice = texts[0];
+        m_itemNameAndPrice.text = itemNameAndPrice;
+
+        m_itemInfo = texts[1];
+        m_itemInfo.text = itemInfo;
+
+        m_count = texts[2];
+        m_count.text = "Amount: " + count.ToString();
+
+        m_button = gameObject.GetComponentInChildren<Button>();
+        UnityAction unityAction = new UnityAction(buttonAction);
+        m_button.onClick.AddListener(unityAction);
     }
 }
