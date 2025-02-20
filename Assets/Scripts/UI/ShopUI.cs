@@ -15,7 +15,6 @@ public class ShopUI : MonoBehaviour
     {
         m_shop = GameManager.instance.shopData.inventory;
         m_inventroy = GameManager.instance.player.inventory;
-        Debug.Log(GameManager.instance.shopData.inventory);
     }
 
     private void OnEnable()
