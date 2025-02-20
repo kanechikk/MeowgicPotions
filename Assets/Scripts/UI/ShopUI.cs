@@ -5,45 +5,36 @@ using UnityEngine;
 
 public class ShopUI : MonoBehaviour
 {
-    private Inventory m_shop;
-    private Inventory m_inventroy;
     private ShopListUI shopListUI;
     [SerializeField] private GameObject shopLinePrefab;
     [SerializeField] private TextMeshProUGUI m_coins;
 
-    private void Awake()
-    {
-        m_shop = GameManager.instance.shopData.inventory;
-        m_inventroy = GameManager.instance.player.inventory;
-    }
-
     private void OnEnable()
     {
-
         m_coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
     }
 
-    public List<List<GameObject>> FillShop()
+    public List<List<GameObject>> FillShop(Inventory inventory, Inventory shop)
     {
         List<GameObject> linesIngredients = new List<GameObject>();
         List<GameObject> linesSeeds = new List<GameObject>();
 
-        for (int i = 0; i < m_shop.slots.Count; i++)
+        for (int i = 0; i < shop.slots.Count; i++)
         {
             GameObject line = Instantiate(shopLinePrefab);
 
             shopListUI = line.GetComponent<ShopListUI>();
             
-            if (m_shop.slots[i].item is Ingredient)
+            if (shop.slots[i].item is Ingredient)
             {
-                shopListUI.FillLine(m_shop.slots[i].item, m_shop.slots[i].item.itemName, m_shop.slots[i].item.ToStringItem(),
-                m_shop.slots[i].count, BuyItem);
+                shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
+                shop.slots[i].count, inventory, shop);
                 linesIngredients.Add(line);
             }
-            else if (m_shop.slots[i].item is Seed)
+            else if (shop.slots[i].item is Seed)
             {
-                shopListUI.FillLine(m_shop.slots[i].item, m_shop.slots[i].item.itemName, m_shop.slots[i].item.ToStringItem(),
-                m_shop.slots[i].count, BuyItem);
+                shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
+                shop.slots[i].count, inventory, shop);
                 linesSeeds.Add(line);
             }
         }
@@ -55,63 +46,24 @@ public class ShopUI : MonoBehaviour
         return lists;
     }
 
-    public List<GameObject> FillSell()
+    public List<GameObject> FillSell(Inventory inventory)
     {
-
         List<GameObject> linesPotons = new List<GameObject>();
 
-        for (int i = 0; i < m_inventroy.slots.Count; i++)
+        for (int i = 0; i < inventory.slots.Count; i++)
         {
             GameObject line = Instantiate(shopLinePrefab);
 
             shopListUI = line.GetComponent<ShopListUI>();
 
-            if (m_inventroy.slots[i].item is Potion)
+            if (inventory.slots[i].item is Potion)
             {
-                shopListUI.FillLine(m_inventroy.slots[i].item, m_inventroy.slots[i].item.itemName, m_inventroy.slots[i].item.ToStringItem(),
-                m_inventroy.slots[i].count, SellItem);
+                shopListUI.FillLineSell(inventory.slots[i].item, inventory.slots[i].item.itemName, inventory.slots[i].item.ToStringItem(),
+                inventory.slots[i].count, inventory);
+                Debug.Log(inventory.slots[i].item);
                 linesPotons.Add(line);
             }
         }
-
         return linesPotons;
-    }
-
-    public void BuyItem()
-    {
-        ShopListUI shopListUI = GetComponent<ShopListUI>();
-        if (m_inventroy.coins >= shopListUI.Item.price)
-        {
-            int index = m_shop.GetSlotIndex(shopListUI.Item);
-            m_inventroy.AddItem(shopListUI.Item);
-            m_inventroy.AddCoins(-shopListUI.Item.price);
-
-            m_shop.RemoveItem(shopListUI.Item);
-            shopListUI.Count.text = $"Count: {m_shop.slots[index].count}";
-            if (m_shop.slots[index].count == 0)
-            {
-                Destroy(gameObject);
-            }
-        }
-        else
-        {
-            Debug.Log("Not enough coins");
-        }
-    }
-
-    public void SellItem()
-    {
-        ShopListUI shopListUI = GetComponent<ShopListUI>();
-        int index = m_shop.GetSlotIndex(shopListUI.Item);
-        m_inventroy.AddCoins(shopListUI.Item.price);
-        m_inventroy.RemoveItem(shopListUI.Item);
-        if (m_inventroy.slots[index].count == 0)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            shopListUI.Count.text = $"Count: {m_inventroy.slots[index].count}";
-        }
     }
 }

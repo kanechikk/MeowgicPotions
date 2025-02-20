@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &394615357224075793
 Transform:
   m_ObjectHideFlags: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_potionsPanel: {fileID: 0}
   m_shopUI: {fileID: 0}
   m_dayTimeManager: {fileID: 4565620811308356589}
+  shoppingState: {fileID: 0}
 --- !u!1 &3021703673554270349
 GameObject:
   m_ObjectHideFlags: 0

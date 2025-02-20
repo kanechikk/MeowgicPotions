@@ -122,11 +122,14 @@ public class Inventory
 
     public int GetSlotIndex(Item item)
     {
-        for (int i = 0; i < slots.Count; i++)
+        for (int i = 0; i < m_slots.Count; i++)
         {
-            if (slots[i].item.id == item.id)
+            if (m_slots[i].item)
             {
-                return i;
+                if (m_slots[i].item.id == item.id)
+                {
+                    return i;
+                }
             }
         }
         return -1;

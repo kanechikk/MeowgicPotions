@@ -10,7 +10,8 @@ public class ShopController : MonoBehaviour
     [SerializeField] private GameObject m_potionsPanel;
     [SerializeField] private ShopUI m_shopUI;
     [SerializeField] private DayTimeManager m_dayTimeManager;
-    private bool needToRefreshInventory;
+    [SerializeField] private ShoppingState shoppingState;
+    private bool needToRefreshInventory = true;
     private bool seeds_stocked;
     private bool ingredients_stocked;
 
@@ -18,6 +19,24 @@ public class ShopController : MonoBehaviour
     {
         GameManager.instance.shopData.inventory.onInvChange += OnInventoryChange;
         m_dayTimeManager.onDayChange += OnDayChange;
+        shoppingState.onActivated += OnShoppigActive;
+    }
+
+    private void OnShoppigActive()
+    {
+        if (!ingredients_stocked || !seeds_stocked)
+        {
+            EraseBuy();
+            FillTheShop();
+            ingredients_stocked = true;
+            seeds_stocked = true;
+        }
+        if (needToRefreshInventory)
+        {
+            EraseSell();
+            FillSellList();
+            needToRefreshInventory = false;
+        }
     }
 
     private void OnDayChange()
@@ -29,36 +48,35 @@ public class ShopController : MonoBehaviour
     private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
-        Debug.Log(needToRefreshInventory);
     }
 
-    private void OnEnable()
+    private void EraseSell()
     {
-        if (!ingredients_stocked || !seeds_stocked)
+        Transform[] sellLists = m_potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < sellLists.Length; i++)
         {
-            FillTheShop();
-        }
-        if (needToRefreshInventory)
-        {
-            FillSellList();
-            needToRefreshInventory = false;
+            Destroy(sellLists[i].gameObject);
         }
     }
-    private void OnDisable()
+
+    private void EraseBuy()
     {
-        if (needToRefreshInventory)
+        Transform[] ingList = m_ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < ingList.Length; i++)
         {
-            Transform[] sellLists = m_potionsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
-            for (int i = 0; i < sellLists.Length; i++)
-            {
-                Destroy(sellLists[i].gameObject);
-            }
+            Destroy(ingList[i].gameObject);
+        }
+
+        Transform[] seedsList = m_seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < seedsList.Length; i++)
+        {
+            Destroy(seedsList[i].gameObject);
         }
     }
 
     private void FillSellList()
     {
-        List<GameObject> lines = m_shopUI.FillSell();
+        List<GameObject> lines = m_shopUI.FillSell(GameManager.instance.player.inventory);
         foreach(GameObject line in lines)
         {
             line.transform.SetParent(m_potionsPanel.transform);
@@ -67,7 +85,18 @@ public class ShopController : MonoBehaviour
 
     private void FillTheShop()
     {
-        List<List<GameObject>> twoLists = m_shopUI.FillShop();
+        Transform[] ingsLists = m_ingredientsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < ingsLists.Length; i++)
+        {
+            Destroy(ingsLists[i].gameObject);
+        }
+        Transform[] seedsLists = m_seedsPanel.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < seedsLists.Length; i++)
+        {
+            Destroy(seedsLists[i].gameObject);
+        }
+
+        List<List<GameObject>> twoLists = m_shopUI.FillShop(GameManager.instance.player.inventory, GameManager.instance.shopData.inventory);
 
         foreach(GameObject ingLine in twoLists[0])
         {
