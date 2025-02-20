@@ -418,7 +418,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7723263604279943207}
   - component: {fileID: 5304002814526710985}
-  - component: {fileID: 2333493836040568436}
+  - component: {fileID: 628990283688555937}
   m_Layer: 5
   m_Name: SellableItemLine
   m_TagString: Untagged
@@ -441,8 +441,8 @@ RectTransform:
   - {fileID: 2194824043605915698}
   - {fileID: 6609398418915478124}
   - {fileID: 8455965338869378353}
-  - {fileID: 8855410145369417291}
   - {fileID: 75379475919396803}
+  - {fileID: 8855410145369417291}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -458,7 +458,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2981095539308258188}
   m_CullTransparentMesh: 1
---- !u!114 &2333493836040568436
+--- !u!114 &628990283688555937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -467,27 +467,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2981095539308258188}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fe57c2a3e482bf4ea7b795a67747346, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.5849056, g: 0.5849056, b: 0.5849056, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5181471530388867719
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,7 +482,6 @@ GameObject:
   - component: {fileID: 8253030178432007964}
   - component: {fileID: 6186761317524696685}
   - component: {fileID: 443936717435211153}
-  - component: {fileID: 704791483150972120}
   m_Layer: 5
   m_Name: BuyItemButton
   m_TagString: Untagged
@@ -610,21 +591,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &704791483150972120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5181471530388867719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fe57c2a3e482bf4ea7b795a67747346, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  index: 0
-  countText: {fileID: 0}
-  potionToSell: {fileID: 0}
 --- !u!1 &5608665484356312799
 GameObject:
   m_ObjectHideFlags: 0

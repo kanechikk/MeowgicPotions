@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
         LoadItemsDB(ingredients, potions, seeds);
         LoadShop(ingredients, seeds);
 
+        DontDestroyOnLoad(gameObject);
+
         LoadDayData();
         LoadPlayerData();
     }
