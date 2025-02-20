@@ -21,21 +21,24 @@ public class ShopUI : MonoBehaviour
 
         for (int i = 0; i < shop.slots.Count; i++)
         {
-            GameObject line = Instantiate(shopLinePrefab);
+            if (shop.slots[i].category != ItemCategory.Nothing)
+            {
+                GameObject line = Instantiate(shopLinePrefab);
 
-            shopListUI = line.GetComponent<ShopListUI>();
-            
-            if (shop.slots[i].item is Ingredient)
-            {
-                shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
-                shop.slots[i].count, inventory, shop);
-                linesIngredients.Add(line);
-            }
-            else if (shop.slots[i].item is Seed)
-            {
-                shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
-                shop.slots[i].count, inventory, shop);
-                linesSeeds.Add(line);
+                shopListUI = line.GetComponent<ShopListUI>();
+                
+                if (shop.slots[i].item is Ingredient)
+                {
+                    shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
+                    shop.slots[i].count, inventory, shop);
+                    linesIngredients.Add(line);
+                }
+                else if (shop.slots[i].item is Seed)
+                {
+                    shopListUI.FillLineBuy(shop.slots[i].item, shop.slots[i].item.itemName, shop.slots[i].item.ToStringItem(),
+                    shop.slots[i].count, inventory, shop);
+                    linesSeeds.Add(line);
+                }
             }
         }
         List<List<GameObject>> lists = new List<List<GameObject>>
@@ -52,16 +55,18 @@ public class ShopUI : MonoBehaviour
 
         for (int i = 0; i < inventory.slots.Count; i++)
         {
-            GameObject line = Instantiate(shopLinePrefab);
-
-            shopListUI = line.GetComponent<ShopListUI>();
-
-            if (inventory.slots[i].item is Potion)
+            if (inventory.slots[i].category != ItemCategory.Nothing)
             {
-                shopListUI.FillLineSell(inventory.slots[i].item, inventory.slots[i].item.itemName, inventory.slots[i].item.ToStringItem(),
-                inventory.slots[i].count, inventory);
-                Debug.Log(inventory.slots[i].item);
-                linesPotons.Add(line);
+                GameObject line = Instantiate(shopLinePrefab);
+
+                shopListUI = line.GetComponent<ShopListUI>();
+
+                if (inventory.slots[i].item is Potion)
+                {
+                    shopListUI.FillLineSell(inventory.slots[i].item, inventory.slots[i].item.itemName, inventory.slots[i].item.ToStringItem(),
+                    inventory.slots[i].count, inventory);
+                    linesPotons.Add(line);
+                }
             }
         }
         return linesPotons;

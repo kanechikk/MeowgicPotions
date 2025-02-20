@@ -71,7 +71,7 @@ public class ShopListUI: MonoBehaviour
             inventory.AddCoins(-shopListUI.Item.price);
 
             shop.RemoveItem(shopListUI.Item);
-            shopListUI.Count.text = $"Count: {shop.slots[index].count}";
+            shopListUI.Count.text = $"Amount: {shop.slots[index].count}";
             if (shop.slots[index].count == 0)
             {
                 Destroy(gameObject);
@@ -95,7 +95,7 @@ public class ShopListUI: MonoBehaviour
         }
         else
         {
-            shopListUI.Count.text = $"Count: {inventory.slots[index].count}";
+            shopListUI.Count.text = $"Amount: {inventory.slots[index].count}";
         }
     }
 }

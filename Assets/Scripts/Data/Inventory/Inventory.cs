@@ -13,7 +13,7 @@ public class Inventory
 
     public List<InventorySlot> slots => m_slots;
 
-    public Action<Item> onInvChange;
+    public event Action<Item> onInvChange;
 
     public Inventory(int slotSize)
     {
