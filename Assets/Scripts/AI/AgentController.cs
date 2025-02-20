@@ -17,7 +17,7 @@ public class AgentController : MonoBehaviour
 
     private void Update()
     {
-        if (Vector3.Distance(m_agent.transform.position, m_pathDesck.transform.position) < 0.1)
+        if (Vector3.Distance(m_agent.transform.position, m_pathDesck.transform.position) < 0.3)
         {
             onReachSpot?.Invoke();
         }
