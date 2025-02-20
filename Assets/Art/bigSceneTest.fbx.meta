@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: bigPlaneTestTexture.png
+    second: {fileID: 2100000, guid: 359d503839f07a548bc74a5dc75e7189, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: caudronAreaTexture.png
     second: {fileID: 2100000, guid: 8aede51ff78741f4dac61168c47492b0, type: 2}
   - first:
@@ -72,8 +77,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: plantersTempTexture.png
+    second: {fileID: 2100000, guid: 52424cb2b9025b141ba39af77275bcaa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: roofTexture.png
     second: {fileID: 2100000, guid: 9f961719c16edee48af14d7bfa641051, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stairTexture.png
+    second: {fileID: 2100000, guid: 2c170582ae1d83847be4f046b8169de2, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
