@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
-    public GameObject inventoryUI;
     public GameObject potionsPanel;
     public GameObject ingredientsPanel;
     public GameObject seedsPanel;
@@ -16,19 +15,12 @@ public class InventoryController : MonoBehaviour
 
     private void OnEnable()
     {
-        inventoryUI.SetActive(true);
         FillPotions();
         FillIngredients();
         FillSeeds();
         coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
     }
-    private void OnDisable()
-    {
-        if (inventoryUI)
-        {
-            inventoryUI.SetActive(false);
-        }
-    }
+
     public void CloseInventory()
     {
         gameObject.SetActive(false);

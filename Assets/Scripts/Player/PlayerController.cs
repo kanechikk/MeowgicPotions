@@ -8,12 +8,7 @@ public class PlaeyrConroller : MonoBehaviour
     public InputActionAsset inputActions;
     private InputAction m_moveAction;
     [SerializeField] private GameMode m_states;
-    [SerializeField] private GameObject m_wateringState;
     [SerializeField] private RhythmCheck m_rhythmCheck;
-
-
-    // Временный код для удобной проверки
-    public GameObject inventoryState;
 
     private void Start()
     {
