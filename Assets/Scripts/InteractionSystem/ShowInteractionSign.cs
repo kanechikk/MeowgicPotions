@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class ShowInteractionSign : MonoBehaviour
 {
-    [SerializeField] private GameObject m_interactionInfo;
-    private TextMeshProUGUI m_interactionText;
+    [SerializeField] private TextMeshProUGUI m_interactionText;
     private Interactable m_interactable;
     private GameStateBehaviour m_state;
     private void Start()
     {
-        m_interactionText = m_interactionInfo.GetComponentInChildren<TextMeshProUGUI>();
         m_interactable = gameObject.GetComponent<Interactable>();
         m_state = m_interactable.stateOfInteractable;
         m_interactable.onActive += Show;
