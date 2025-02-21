@@ -11,7 +11,7 @@ public class DayTimeManager : MonoBehaviour
     public int tickMinutesIncrease = 10;
     public float timeBetweenTicks = 1;
     public float currentTimeBetweenTicks = 0;
-    public bool timePass = true;
+    public bool timePass;
     public DayTime dayTime => m_dayTime;
 
     public Action<DayTime> onDayTimeChange;
@@ -21,6 +21,7 @@ public class DayTimeManager : MonoBehaviour
     private void Awake()
     {
         m_dayTime = new DayTime(day, hour, minute);
+        StartTime();
     }
 
     private void FixedUpdate()
@@ -40,7 +41,7 @@ public class DayTimeManager : MonoBehaviour
     private void Tick()
     {
         AdvanceTime();
-        if (m_dayTime.Hour == 10)
+        if (m_dayTime.Hour == 20)
         {
             Pause();
         }

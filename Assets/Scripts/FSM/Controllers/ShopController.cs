@@ -48,7 +48,6 @@ public class ShopController : MonoBehaviour
     private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
-        Debug.Log(item);
     }
 
     private void EraseSell()
