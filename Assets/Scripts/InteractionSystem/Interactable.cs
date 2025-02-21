@@ -4,8 +4,10 @@ using UnityEngine.InputSystem;
 
 public class Interactable : MonoBehaviour
 {
-    [SerializeField] private GameStateBehaviour stateOfInteractable;
+    [SerializeField] private GameStateBehaviour m_stateOfInteractable;
+    public GameStateBehaviour stateOfInteractable => m_stateOfInteractable;
     [SerializeField] private WateringPotController m_wateringPotController;
+    public WateringPotController wateringPotController => m_wateringPotController;
     [SerializeField] private GameMode m_gameMode;
     private bool m_active = false;
 

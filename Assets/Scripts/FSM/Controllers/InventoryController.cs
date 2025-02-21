@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
+    
     public GameObject potionsPanel;
     public GameObject ingredientsPanel;
     public GameObject seedsPanel;
