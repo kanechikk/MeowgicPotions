@@ -8,6 +8,7 @@ public class DataProcess
     public static string pathFileForPlayer => Path.Combine(Application.persistentDataPath, "playerSaveData.json");
     public static string pathFileForQuests => Path.Combine(Application.persistentDataPath, "questsSaveData.json");
     public static string pathFileForDayData => Path.Combine(Application.persistentDataPath, "daySaveData.json");
+    public static string pathFileForGarden => Path.Combine(Application.persistentDataPath, "gardenSaveData.json");
 
     public static void SavePlayer(PlayerData playerData)
     {
@@ -57,6 +58,22 @@ public class DataProcess
             var json = File.ReadAllText(pathFileForDayData);
 
             dayData.FromJson(json);
+        }
+    }
+    public static void SaveGarden(GardenData gardenData)
+    {
+        var json = gardenData.ToJson();
+
+        File.WriteAllText(pathFileForGarden, json);
+    }
+
+    public static void LoadGarden(GardenData gardenData, List<Seed> seeds)
+    {
+        if (File.Exists(pathFileForGarden))
+        {
+            var json = File.ReadAllText(pathFileForGarden);
+
+            gardenData.FromJson(json, seeds);
         }
     }
 }

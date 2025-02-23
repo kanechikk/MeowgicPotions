@@ -8033,6 +8033,17 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1066016540 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 212850755039690437, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+  m_PrefabInstance: {fileID: 1961896340264540109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d63139c6aa59a41a233b017998fad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1070430480
 Mesh:
   m_ObjectHideFlags: 0
@@ -8704,25 +8715,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &1115696758 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 723123796692997502, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-  m_PrefabInstance: {fileID: 1961896340264540109}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1115696760
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1115696758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8c2fad21855f546883076de1697b1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_dayTimeManager: {fileID: 1284576577}
-  m_light: {fileID: 916245500}
 --- !u!1 &1121729071 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 639768028165539703, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
@@ -13096,6 +13088,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6112309941421437903, guid: 7f4f289bed324c84ca5eecb04ed89171, type: 3}
+      propertyPath: m_plantsManager
+      value: 
+      objectReference: {fileID: 1066016540}
+    - target: {fileID: 6112309941421437903, guid: 7f4f289bed324c84ca5eecb04ed89171, type: 3}
       propertyPath: m_dayTimeManager
       value: 
       objectReference: {fileID: 1284576577}
@@ -15294,6 +15290,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 212850755039690437, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_plants.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1407020659}
+    - target: {fileID: 212850755039690437, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_plants.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1669071830}
+    - target: {fileID: 212850755039690437, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_plants.Array.data[2]'
+      value: 
+      objectReference: {fileID: 248498516}
+    - target: {fileID: 212850755039690437, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_plants.Array.data[3]'
+      value: 
+      objectReference: {fileID: 634337203}
     - target: {fileID: 407576701208490482, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: player
       value: 
@@ -15314,6 +15326,10 @@ PrefabInstance:
       propertyPath: m_wateringState
       value: 
       objectReference: {fileID: 6921627569034374830}
+    - target: {fileID: 1501063233842696271, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_light
+      value: 
+      objectReference: {fileID: 916245500}
     - target: {fileID: 1718741417832657367, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_shopUI
       value: 
@@ -15331,45 +15347,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1166594028}
     - target: {fileID: 1718741417832657367, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: m_dayTimeManager
-      value: 
-      objectReference: {fileID: 1284576577}
-    - target: {fileID: 1718741417832657367, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_ingredientsPanel
       value: 
       objectReference: {fileID: 409678900}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: m_materialDay
-      value: 
-      objectReference: {fileID: 2100000, guid: 9aa8ed67591432941bb76f12eb23ff91, type: 2}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: m_dayTimeManager
-      value: 
-      objectReference: {fileID: 1284576577}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: m_materials.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: m_materialStandardMorning
-      value: 
-      objectReference: {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: 'm_materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: 'm_materials.Array.data[1]'
-      value: 
-      objectReference: {fileID: 2100000, guid: eb3e6f9a5cbaca64f967705a40558fef, type: 2}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: 'm_materials.Array.data[2]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 59e90fdb1ba2c494ba7de9f81dffe7e1, type: 2}
-    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      propertyPath: 'm_materials.Array.data[3]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 9c5018cc731a324409421b04dfe8f452, type: 2}
     - target: {fileID: 3668224875555930115, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_sprite
       value: 
@@ -15605,10 +15585,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 723123796692997502, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1115696760}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
 --- !u!1 &1961896340264540110 stripped
 GameObject:
@@ -17654,10 +17631,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 1297597204}
-    - target: {fileID: 4599815499637425874, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5039079245261849082, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17790,10 +17763,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1297597204}
-    - target: {fileID: 7317979802792509091, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7400427565713815109, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -17851,41 +17820,13 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 172485784533160560, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: m_objects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 172485784533160560, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: 'm_objects.Array.data[0]'
       value: 
       objectReference: {fileID: 791138439}
-    - target: {fileID: 172485784533160560, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: 'm_objects.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: m_dayTimeManager
-      value: 
-      objectReference: {fileID: 1284576577}
     - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: m_inventorySlots
       value: 
       objectReference: {fileID: 6599041770381487815}
-    - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: 'm_plants.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1407020659}
-    - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: 'm_plants.Array.data[1]'
-      value: 
-      objectReference: {fileID: 1669071830}
-    - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: 'm_plants.Array.data[2]'
-      value: 
-      objectReference: {fileID: 248498516}
-    - target: {fileID: 276276677373929575, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: 'm_plants.Array.data[3]'
-      value: 
-      objectReference: {fileID: 634337203}
     - target: {fileID: 1089379309934141011, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: m_Name
       value: States
@@ -17958,26 +17899,6 @@ PrefabInstance:
       propertyPath: 'm_objects.Array.data[0]'
       value: 
       objectReference: {fileID: 249410007}
-    - target: {fileID: 8397969596143248450, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: coins
-      value: 
-      objectReference: {fileID: 1870502850}
-    - target: {fileID: 8397969596143248450, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: seedsPanel
-      value: 
-      objectReference: {fileID: 238657713}
-    - target: {fileID: 8397969596143248450, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: inventoryUI
-      value: 
-      objectReference: {fileID: 1527556885}
-    - target: {fileID: 8397969596143248450, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: potionsPanel
-      value: 
-      objectReference: {fileID: 288939983}
-    - target: {fileID: 8397969596143248450, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
-      propertyPath: ingredientsPanel
-      value: 
-      objectReference: {fileID: 304891962}
     - target: {fileID: 8890015927477002318, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: 'm_objects.Array.data[0]'
       value: 

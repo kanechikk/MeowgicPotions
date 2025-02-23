@@ -414,7 +414,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_objects:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &3429626576665171556
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,12 +625,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6994d4c48b38bd849bcf297d80716b05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
-  potionsPanel: {fileID: 0}
-  ingredientsPanel: {fileID: 0}
-  seedsPanel: {fileID: 0}
-  sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
-  coins: {fileID: 0}
 --- !u!114 &5827645761092750229
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,6 +59,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9110479338831310525}
+  - component: {fileID: 1501063233842696271}
   m_Layer: 0
   m_Name: LightController
   m_TagString: Untagged
@@ -81,6 +82,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6821195583399251993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1501063233842696271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 723123796692997502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd8c2fad21855f546883076de1697b1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dayTimeManager: {fileID: 4565620811308356589}
+  m_light: {fileID: 0}
 --- !u!1 &833316302934131185
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,7 +498,7 @@ MonoBehaviour:
   m_seedsPanel: {fileID: 0}
   m_potionsPanel: {fileID: 0}
   m_shopUI: {fileID: 0}
-  m_dayTimeManager: {fileID: 0}
+  m_dayTimeManager: {fileID: 4565620811308356589}
   shoppingState: {fileID: 0}
 --- !u!1 &6226416884280469728
 GameObject:
@@ -582,9 +597,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e76144bb228f24c8135c17a7ec358d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_dayTimeManager: {fileID: 0}
-  m_materialDay: {fileID: 0}
-  m_materials: []
+  m_dayTimeManager: {fileID: 4565620811308356589}
+  m_materialDay: {fileID: 2100000, guid: 9aa8ed67591432941bb76f12eb23ff91, type: 2}
+  m_materials:
+  - {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
+  - {fileID: 2100000, guid: eb3e6f9a5cbaca64f967705a40558fef, type: 2}
+  - {fileID: 2100000, guid: 59e90fdb1ba2c494ba7de9f81dffe7e1, type: 2}
+  - {fileID: 2100000, guid: 9c5018cc731a324409421b04dfe8f452, type: 2}
 --- !u!1 &7890266988711906654
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,8 +647,59 @@ Transform:
   - {fileID: 1564265623631913936}
   - {fileID: 3791522261728379812}
   - {fileID: 9110479338831310525}
+  - {fileID: 6490529284155007722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8591141177595118634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6490529284155007722}
+  - component: {fileID: 212850755039690437}
+  m_Layer: 0
+  m_Name: PlantsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6490529284155007722
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591141177595118634}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1008.6058, y: 443.61014, z: -16.45951}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212850755039690437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8591141177595118634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d63139c6aa59a41a233b017998fad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_dayTimeManager: {fileID: 4565620811308356589}
+  m_plants:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &8772483840550857635
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +952,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6112309941421437903, guid: 7f4f289bed324c84ca5eecb04ed89171, type: 3}
+      propertyPath: m_plantsManager
+      value: 
+      objectReference: {fileID: 212850755039690437}
     - target: {fileID: 6112309941421437903, guid: 7f4f289bed324c84ca5eecb04ed89171, type: 3}
       propertyPath: m_dayTimeManager
       value: 

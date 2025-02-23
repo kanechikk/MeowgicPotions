@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,11 +20,13 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField] private DayTimeManager m_dayTimeManager;
+    [SerializeField] private PlantsManager m_plantsManager;
 
     public ItemsDB itemsDB { private set; get; }
     public ShopData shopData { private set; get; }
     public DayData dayData { private set; get; }
     public PlayerData player { private set; get; } = new PlayerData(1000);
+    public GardenData garden { private set; get; }
 
     void Update()
     {
@@ -40,6 +43,7 @@ public class GameManager : MonoBehaviour
         Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
 
         dayData = new DayData(m_dayTimeManager);
+        garden = new GardenData(m_plantsManager.plants);
 
         if (m_instance == null)
         {
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
 
         LoadDayData();
         LoadPlayerData();
+        LoadGardenData();
     }
 
     private void Start()
@@ -70,6 +75,19 @@ public class GameManager : MonoBehaviour
     {
         SavePlayerData();
         SaveDayData();
+        SaveGardenData();
+    }
+
+    private void SaveGardenData()
+    {
+        DataProcess.SaveGarden(garden);
+    }
+
+    private void LoadGardenData()
+    {
+        List<Seed> seeds = new List<Seed>();
+        seeds.AddRange(itemsDB.seeds);
+        DataProcess.LoadGarden(garden, seeds);
     }
 
     private void LoadItemsDB(Ingredient[] ingredients, Potion[] potions, Seed[] seeds)

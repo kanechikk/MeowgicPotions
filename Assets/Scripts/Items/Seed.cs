@@ -7,6 +7,8 @@ public class Seed : Item
 
 	public int daysToGrow => m_daysToGrow;
 
+	public string linkToIngredient;
+
 	public override string ToStringItem()
 	{
 		return $"Price: {price}, Days to grow: {m_daysToGrow}";

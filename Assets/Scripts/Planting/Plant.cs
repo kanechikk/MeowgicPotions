@@ -10,6 +10,16 @@ public class Plant : MonoBehaviour
     public bool isWatered => m_isWatered;
     private bool m_isReadyToHarvest;
     public bool isReadyToHarvest => m_isReadyToHarvest;
+    public Seed seed => m_seed;
+    public int daysAfterPlanting => m_daysAfterPlanting;
+
+    public void SetData(Seed seed, int daysAfterPlanting, bool isReadyToHarvest)
+    {
+        m_daysAfterPlanting = daysAfterPlanting;
+        m_seed = seed;
+        m_isReadyToHarvest = isReadyToHarvest;
+        m_isWatered = false;
+    }
 
     //подписываемся на событие смены дня
     public void SubscribeOnDayTimeManager(DayTimeManager dayTimeManager)
@@ -23,7 +33,7 @@ public class Plant : MonoBehaviour
         m_seed = seed;
         //по имени ищем ингредиент, семечко которого посадили
         //позже строчку нужно будет поменять
-        m_plant = Array.Find(GameManager.instance.itemsDB.ingredients, x => x.id == seed.id);
+        m_plant = Array.Find(GameManager.instance.itemsDB.ingredients, x => x.id == seed.linkToIngredient);
         //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
         //получаем картинку посаженного растения
