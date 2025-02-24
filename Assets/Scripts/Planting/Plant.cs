@@ -94,7 +94,10 @@ public class Plant : MonoBehaviour
             m_isReadyToHarvest = false;
             UnshowPlant(transform.GetChild(1).gameObject);
             Debug.Log($"{m_seed} is harvested");
-            return m_plant;
+            Ingredient harvestedPlant = m_plant;
+            m_plant = null;
+            m_seed = null;
+            return harvestedPlant;
         }
         else
         {

@@ -3,22 +3,26 @@ using UnityEngine;
 public class WateringPotController : MonoBehaviour
 {
     [SerializeField] private WaterBarUI m_waterBarUI;
+    private WateringPot m_wateringPot;
 
+    private void Awake()
+    {
+        m_wateringPot = GameManager.instance.player.wateringPot;
+        m_wateringPot.onValueChange += OnValueChange;  
+        OnValueChange();
+    }
     public void WaterPlant()
     {
-        GameManager.instance.player.wateringPot.UsePot();
-        
-        //m_waterBarUI.SetWater(CountPercent(GameManager.instance.player.wateringPot.currentValue, GameManager.instance.player.wateringPot.maxValue));
+        m_wateringPot.UsePot();
     }
 
     public void FillPot()
     {
-        GameManager.instance.player.wateringPot.FillPot();
-        //m_waterBarUI.SetWater(100);
+        m_wateringPot.FillPot();
     }
 
-    private float CountPercent(float value, float maxValue)
+    private void OnValueChange()
     {
-        return (value / maxValue) * 100;
+        m_waterBarUI.SetWater(m_wateringPot.currentValue);
     }
 }

@@ -11,7 +11,7 @@ public class PlayerData
     {
         inventory = new Inventory(32);
         inventory.AddCoins(coins);
-        wateringPot = new WateringPot(4);
+        wateringPot = new WateringPot(5);
     }
 
     public string ToJson()

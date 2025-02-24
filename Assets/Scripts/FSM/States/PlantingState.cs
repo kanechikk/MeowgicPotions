@@ -10,6 +10,7 @@ public class PlantingState : GameStateBehaviour
     [SerializeField] private GameObject m_inventorySlots;
     private Seed m_currentSeed;
     public event Action<Seed> onPlantSeed;
+    private bool needToRefreshInventory;
 
     private void OnEnable()
     {
@@ -24,16 +25,17 @@ public class PlantingState : GameStateBehaviour
 
     private void FillSlots()
     {
-        // Вызываем айтемы из инвентаря
         List<InventorySlot> seeds = GameManager.instance.player.inventory.GetItemsByType(ItemCategory.Seed);
 
-        // Меняет айтем на тот, что есть в инвентаре игрока
         foreach (InventorySlot seed in seeds)
         {
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            newItem.GetComponentInChildren<ClickableItem>().item = seed.item;
-            newItem.GetComponentInChildren<ClickableItem>().onAddItem += OnAddItem;
+            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
+            clickableItem.item = seed.item;
+            clickableItem.onAddIngredient += OnAddItem;
         }
+
+        needToRefreshInventory = false;
     }
 
     private void OnAddItem(Item seed)
@@ -56,4 +58,5 @@ public class PlantingState : GameStateBehaviour
             Destroy(inventorySlots[i].gameObject);
         }
     }
+
 }

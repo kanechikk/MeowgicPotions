@@ -47,7 +47,7 @@ MonoBehaviour:
   m_potionInfo: {fileID: 0}
   m_btnPrefab: {fileID: 2429208491016628861, guid: 9101974ad6240c947b8516aaa9317452, type: 3}
   m_btnParent: {fileID: 0}
-  m_buttonsCreating: {fileID: 0}
+  m_buttonsCreating: {fileID: 1894663783090865275}
   m_sprite: {fileID: 0}
   m_description: {fileID: 0}
 --- !u!1 &723123796692997502
@@ -444,7 +444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d24088f15fe95845b9746430561db3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryUI: {fileID: 0}
   potionsPanel: {fileID: 0}
   ingredientsPanel: {fileID: 0}
   seedsPanel: {fileID: 0}
@@ -553,6 +552,54 @@ MonoBehaviour:
   talkingState: {fileID: 0}
   questUI: {fileID: 0}
   checkingQuestsState: {fileID: 0}
+--- !u!1 &6765456283292206680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2043992448270441932}
+  - component: {fileID: 1894663783090865275}
+  m_Layer: 5
+  m_Name: ButtonsCreating
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2043992448270441932
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765456283292206680}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -20.703114}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 971.84656, y: 552.18463}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1894663783090865275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765456283292206680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76088940c4ab1c49bafd8cb5c4c2db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7090374717538272944
 GameObject:
   m_ObjectHideFlags: 0
@@ -648,6 +695,7 @@ Transform:
   - {fileID: 3791522261728379812}
   - {fileID: 9110479338831310525}
   - {fileID: 6490529284155007722}
+  - {fileID: 2043992448270441932}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8591141177595118634
@@ -696,6 +744,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dayTimeManager: {fileID: 4565620811308356589}
   m_plants:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

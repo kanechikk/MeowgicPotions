@@ -21,11 +21,7 @@ public class InventoryController : MonoBehaviour
         FillSeeds();
         coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
     }
-
-    public void CloseInventory()
-    {
-        gameObject.SetActive(false);
-    }
+    
     private void FillPotions()
     {
         potionPanelSlots = potionsPanel.GetComponentsInChildren<UIInventoryItem>();

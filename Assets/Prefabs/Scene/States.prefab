@@ -692,6 +692,10 @@ PrefabInstance:
       propertyPath: m_plants.Array.size
       value: 26
       objectReference: {fileID: 0}
+    - target: {fileID: 4136381463843207995, guid: deb21d5502a1bba448010c5e824aff3d, type: 3}
+      propertyPath: m_clickableItemPrefab
+      value: 
+      objectReference: {fileID: 4452621622090308277, guid: e3c908570001f6743a4858378c97ce24, type: 3}
     - target: {fileID: 8153823643056993172, guid: deb21d5502a1bba448010c5e824aff3d, type: 3}
       propertyPath: m_Name
       value: PlantingState

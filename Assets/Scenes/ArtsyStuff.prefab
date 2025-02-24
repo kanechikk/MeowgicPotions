@@ -613,9 +613,9 @@ MonoBehaviour:
         z: 0.91853124
       Rotation:
         value:
-          x: 0
+          x: 0.0000023383545
           y: 0.65255636
-          z: 0
+          z: 0.0000027152673
           w: 0.7577402
     - Position:
         x: 0
@@ -1537,7 +1537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2907431758018405678}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.11248448, y: 0.014497575, z: -0.0016413447, w: 0.99354637}
+  m_LocalRotation: {x: 0.11248444, y: 0.014497575, z: -0.0016413443, w: 0.99354637}
   m_LocalPosition: {x: -7.4755077, y: -9.79, z: 8.412851}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6689,21 +6689,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674468618419549093}
     m_Modifications:
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1935175182668902987, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1314
+      value: 1344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3573535907404476994, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     - target: {fileID: 5045898421260308189, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 5453016202329368504, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6579832966213286180, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6747,7 +6771,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981038133850236849, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 7797451127723617134, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_Name
@@ -6755,7 +6779,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875108595296046804, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7519,15 +7543,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8140,15 +8172,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8490,15 +8530,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9414,15 +9462,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9546,15 +9602,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10465,15 +10529,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10535,15 +10607,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10745,15 +10825,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10893,15 +10981,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10963,15 +11059,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12082,21 +12186,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674468618419549093}
     m_Modifications:
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1935175182668902987, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1314
+      value: 1344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3573535907404476994, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     - target: {fileID: 5045898421260308189, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 5453016202329368504, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6579832966213286180, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12140,7 +12268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981038133850236849, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 7797451127723617134, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_Name
@@ -12148,7 +12276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875108595296046804, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12168,6 +12296,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3797667204110397736}
     m_Modifications:
+    - target: {fileID: -5644133064174452605, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2aee584c0d1a491428797fe415f6892b, type: 2}
     - target: {fileID: 8128668236925612103, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
       propertyPath: m_Name
       value: demon_book
@@ -12231,37 +12363,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8128668236925612103, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 935145320913465353}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: -5645937942226959685, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
 --- !u!4 &6102939811207311779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8897093224900880590, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
   m_PrefabInstance: {fileID: 3443332088040364397}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6847715519549286698 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8128668236925612103, guid: 606f1522f245b0b4aa7d21905c275317, type: 3}
-  m_PrefabInstance: {fileID: 3443332088040364397}
-  m_PrefabAsset: {fileID: 0}
---- !u!111 &935145320913465353
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6847715519549286698}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1001 &3466803563735369632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13110,21 +13218,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674468618419549093}
     m_Modifications:
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1935175182668902987, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1314
+      value: 1344
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3573535907404476994, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     - target: {fileID: 5045898421260308189, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 5453016202329368504, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6579832966213286180, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13168,7 +13300,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981038133850236849, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 7797451127723617134, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_Name
@@ -13176,7 +13308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875108595296046804, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13494,15 +13626,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -14626,15 +14766,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15182,11 +15330,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9935464
+      value: 0.99354637
       objectReference: {fileID: 0}
     - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.112484455
+      value: 0.112484425
       objectReference: {fileID: 0}
     - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalRotation.y
@@ -15194,7 +15342,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0016413438
+      value: -0.0016413439
       objectReference: {fileID: 0}
     - target: {fileID: 607043300644767164, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15279,6 +15427,18 @@ PrefabInstance:
     - target: {fileID: 3411879509462239838, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_Name
       value: Cinemachine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988265345948146201, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988265345948146201, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988265345948146201, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -64.69
       objectReference: {fileID: 0}
     - target: {fileID: 4937047406990062973, guid: 3f51a358f57ef7d4a9576988255e9b25, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16598,21 +16758,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674468618419549093}
     m_Modifications:
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 600764868473368123, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1935175182668902987, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1317
+      value: 1347
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3364567858734827351, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3573535907404476994, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     - target: {fileID: 5045898421260308189, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 5453016202329368504, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6092215831778742957, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6579832966213286180, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16656,7 +16840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6981038133850236849, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 1307
+      value: 1337
       objectReference: {fileID: 0}
     - target: {fileID: 7797451127723617134, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_Name
@@ -16664,7 +16848,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7875108595296046804, guid: 5708f1a7c2a842a4ea3bff64611657c6, type: 3}
       propertyPath: m_VersionIndex
-      value: 5880
+      value: 5910
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18329,15 +18513,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21294,15 +21486,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1607124041350996135, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 1271
+      value: 1301
       objectReference: {fileID: 0}
     - target: {fileID: 4395802024938348718, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_VersionIndex
-      value: 5844
+      value: 5874
       objectReference: {fileID: 0}
     - target: {fileID: 5171785826291765872, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_Name
       value: PlantingHole
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6349335893097578561, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7045057676922797390, guid: 1bef53fc7f4d045488abacbeb7dd583d, type: 3}
       propertyPath: m_LocalPosition.x
