@@ -8,18 +8,8 @@ public class PlantingState : GameStateBehaviour
 {
     [SerializeField] private GameObject m_clickableItemPrefab;
     [SerializeField] private GameObject m_inventorySlots;
-    [SerializeField] private DayTimeManager m_dayTimeManager;
-    [SerializeField] private Plant[] m_plants;
     private Seed m_currentSeed;
     public event Action<Seed> onPlantSeed;
-
-    private void Start()
-    {
-        foreach (Plant plant in m_plants)
-        {
-            plant.SubscribeOnDayTimeManager(m_dayTimeManager);
-        }
-    }
 
     private void OnEnable()
     {

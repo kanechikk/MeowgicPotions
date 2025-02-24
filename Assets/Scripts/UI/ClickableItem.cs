@@ -57,6 +57,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
     {
         onAddIngredient?.Invoke((Ingredient)item);
         onRemoveIngredient?.Invoke((Ingredient)item);
+        onAddItem((Seed)item);
         m_countText.text = RefreshCount(item);
         if (m_countText.text == null || isInCauldron)
         {

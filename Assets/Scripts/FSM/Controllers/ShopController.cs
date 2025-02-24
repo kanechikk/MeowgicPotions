@@ -17,7 +17,7 @@ public class ShopController : MonoBehaviour
 
     private void Start()
     {
-        GameManager.instance.shopData.inventory.onInvChange += OnInventoryChange;
+        GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_dayTimeManager.onDayChange += OnDayChange;
         shoppingState.onActivated += OnShoppigActive;
     }
@@ -48,7 +48,6 @@ public class ShopController : MonoBehaviour
     private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
-        Debug.Log(item);
     }
 
     private void EraseSell()
