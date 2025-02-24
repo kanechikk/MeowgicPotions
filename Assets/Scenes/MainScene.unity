@@ -3696,37 +3696,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3352840937729588879, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
   m_PrefabInstance: {fileID: 288844557}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &655077058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 655077059}
-  m_Layer: 0
-  m_Name: Temporary
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &655077059
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655077058}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &675861165 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4893853241664373906, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
@@ -10663,6 +10632,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 27732014911629057, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 27732014911629057, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 27732014911629057, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -10695,6 +10672,14 @@ PrefabInstance:
       value: 5847
       objectReference: {fileID: 0}
     - target: {fileID: 240155729883806639, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 240155729883806639, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 240155729883806639, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -10724,6 +10709,14 @@ PrefabInstance:
       objectReference: {fileID: 969340456}
     - target: {fileID: 574103883209658277, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_plantingState
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 596734212545036947, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 596734212545036947, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
       value: 
       objectReference: {fileID: 1160275405}
     - target: {fileID: 596734212545036947, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
@@ -10835,6 +10828,14 @@ PrefabInstance:
       value: 5847
       objectReference: {fileID: 0}
     - target: {fileID: 1525277723459483407, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 1525277723459483407, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 1525277723459483407, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -10943,6 +10944,14 @@ PrefabInstance:
       value: 5847
       objectReference: {fileID: 0}
     - target: {fileID: 2212994544069718810, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 2212994544069718810, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 2212994544069718810, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11011,6 +11020,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 368686061}
     - target: {fileID: 2589333498071746822, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 2589333498071746822, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 2589333498071746822, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11030,6 +11047,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1980416872}
+    - target: {fileID: 2775772963755200109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 2775772963755200109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 2775772963755200109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11091,6 +11116,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1160275405}
     - target: {fileID: 3363914361103215615, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 3363914361103215615, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 3363914361103215615, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11110,6 +11143,14 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 1274
       objectReference: {fileID: 0}
+    - target: {fileID: 3524057428694458621, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 3524057428694458621, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 3524057428694458621, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11150,6 +11191,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 335540356}
+    - target: {fileID: 3732886855267114595, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 3732886855267114595, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 3732886855267114595, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11315,6 +11364,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 842904143}
     - target: {fileID: 4997100903646210001, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 4997100903646210001, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 4997100903646210001, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11322,6 +11379,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 899710582}
+    - target: {fileID: 5008255144964294555, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 5008255144964294555, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 5008255144964294555, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11386,6 +11451,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1967075728}
+    - target: {fileID: 5429410186760401576, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 5429410186760401576, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 5429410186760401576, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11455,6 +11528,14 @@ PrefabInstance:
       value: 1274
       objectReference: {fileID: 0}
     - target: {fileID: 5859909104493320343, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 5859909104493320343, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 5859909104493320343, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11474,6 +11555,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 252956067}
+    - target: {fileID: 6094980980154351109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 6094980980154351109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 6094980980154351109, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11502,6 +11591,14 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1882416396}
+    - target: {fileID: 6316420709706495098, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 6316420709706495098, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 6316420709706495098, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11603,6 +11700,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1160275405}
     - target: {fileID: 6883903966190683961, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 6883903966190683961, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 6883903966190683961, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11676,6 +11781,14 @@ PrefabInstance:
       objectReference: {fileID: 2117256151}
     - target: {fileID: 7447178028608251420, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_plantingState
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 7469384309103699338, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 7469384309103699338, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
       value: 
       objectReference: {fileID: 1160275405}
     - target: {fileID: 7469384309103699338, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
@@ -11755,6 +11868,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 229083158}
     - target: {fileID: 8003000593421869813, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8003000593421869813, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 8003000593421869813, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11775,6 +11896,14 @@ PrefabInstance:
       value: 5883
       objectReference: {fileID: 0}
     - target: {fileID: 8095215943292787960, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8095215943292787960, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 8095215943292787960, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11788,6 +11917,14 @@ PrefabInstance:
       objectReference: {fileID: 96176111}
     - target: {fileID: 8189677995917514645, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_plantingState
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 8193480721782466276, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8193480721782466276, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
       value: 
       objectReference: {fileID: 1160275405}
     - target: {fileID: 8193480721782466276, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
@@ -11823,6 +11960,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 899710582}
     - target: {fileID: 8750365417631346261, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8750365417631346261, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 8750365417631346261, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
@@ -11846,6 +11991,14 @@ PrefabInstance:
       propertyPath: m_interactionText
       value: 
       objectReference: {fileID: 969340456}
+    - target: {fileID: 8815858666504614651, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8815858666504614651, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 8815858666504614651, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11879,9 +12032,25 @@ PrefabInstance:
       value: 5847
       objectReference: {fileID: 0}
     - target: {fileID: 8916219838530909364, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8916219838530909364, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
+    - target: {fileID: 8916219838530909364, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
+    - target: {fileID: 8928733154016665258, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 8928733154016665258, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 8928733154016665258, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11894,6 +12063,14 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 1310
       objectReference: {fileID: 0}
+    - target: {fileID: 9086067590778624675, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_gameMode
+      value: 
+      objectReference: {fileID: 483316907}
+    - target: {fileID: 9086067590778624675, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: m_stateOfInteractable
+      value: 
+      objectReference: {fileID: 1160275405}
     - target: {fileID: 9086067590778624675, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_wateringPotController
       value: 
@@ -11936,6 +12113,5 @@ SceneRoots:
   - {fileID: 1732162394}
   - {fileID: 288844557}
   - {fileID: 1884229807}
-  - {fileID: 655077059}
   - {fileID: 611582730672156357}
   - {fileID: 517796565}
