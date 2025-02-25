@@ -63,7 +63,7 @@ public class Plant : MonoBehaviour
         Debug.Log($"{m_seed} is watered");
     }
 
-    private void OnDayChange()
+    private void OnDayChange(DayTime time)
     {
         if (m_seed != null)
         {

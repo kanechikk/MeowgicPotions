@@ -15,13 +15,18 @@ public class DayTimeManager : MonoBehaviour
     public DayTime dayTime => m_dayTime;
 
     public Action<DayTime> onDayTimeChange;
-    public Action onDayChange;
+    public Action<DayTime> onDayChange;
     public Action onDayEnd;
 
     private void Awake()
     {
         m_dayTime = new DayTime(day, hour, minute);
         StartTime();
+    }
+
+    private void OnEnable()
+    {
+        onDayChange?.Invoke(m_dayTime);
     }
 
     private void FixedUpdate()
@@ -57,7 +62,7 @@ public class DayTimeManager : MonoBehaviour
     public void DayPass()
     {
         m_dayTime.DayPass();
-        onDayChange?.Invoke();
+        onDayChange?.Invoke(m_dayTime);
         StartTime();
     }
 
