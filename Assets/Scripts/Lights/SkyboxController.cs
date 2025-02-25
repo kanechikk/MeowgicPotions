@@ -26,7 +26,6 @@ public class SkyboxController : MonoBehaviour
             m_hour += 3;
             dayState++;
         }
-        Debug.Log(time.Hour);
     }
 
     private void MakeTwoMaterialsEqual(Material main, Material nextMat)
