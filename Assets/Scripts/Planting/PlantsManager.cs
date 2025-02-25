@@ -29,6 +29,7 @@ public class PlantsManager : MonoBehaviour
 
     private void OnInventoryChange(Item item)
     {
+        DeleteAll();
         FillSlots();
     }
 
@@ -38,6 +39,8 @@ public class PlantsManager : MonoBehaviour
 
         foreach (InventorySlot seed in seeds)
         {
+            Debug.Log(seed.item);
+
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
             ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
             clickableItem.item = seed.item;
@@ -71,8 +74,5 @@ public class PlantsManager : MonoBehaviour
         }
     }
 
-    private void OnDisable()
-    {
-        DeleteAll();
-    }
+
 }

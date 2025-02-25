@@ -15,6 +15,7 @@ public class GardeningController : MonoBehaviour
 
     private void OnPlantSeed(Seed seed)
     {
+        Debug.Log("OnPlanting");
         if (GetComponentInChildren<InteractableGarden>().active)
         {
             m_plant.gameObject.SetActive(true);
