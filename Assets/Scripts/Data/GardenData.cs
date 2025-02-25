@@ -5,23 +5,23 @@ using UnityEngine;
 
 public class GardenData
 {
-	public Plant[] plants;
+	public PlantsManager plantsManager;
 
-	public GardenData(Plant[] plants)
+	public GardenData(PlantsManager plantsManager)
 	{
-		this.plants = plants;
+		this.plantsManager = plantsManager;
 	}
 
 	public string ToJson()
 	{
 		SaveData saveData = new SaveData();
 
-		for (int i = 0; i < plants.Length; i++)
+		for (int i = 0; i < plantsManager.plants.Length; i++)
 		{
-			Debug.Log(plants[i].seed);
-			if (plants[i].seed)
+			Debug.Log(plantsManager.plants[i].seed);
+			if (plantsManager.plants[i].seed)
 			{
-				saveData.seeds.Add(new SeedsToSeralize(plants[i].seed.id, plants[i].isReadyToHarvest, plants[i].daysAfterPlanting));
+				saveData.seeds.Add(new SeedsToSeralize(plantsManager.plants[i].seed.id, plantsManager.plants[i].isReadyToHarvest, plantsManager.plants[i].daysAfterPlanting));
 			}
 		}
 
@@ -31,11 +31,13 @@ public class GardenData
 	public void FromJson(string json, List<Seed> seeds)
 	{
 		SaveData saveData = JsonUtility.FromJson<SaveData>(json);
+
 		if (saveData != null)
 		{
-			for (int i = 0; i < plants.Length; i++)
+			for (int i = 0; i < saveData.seeds.Count; i++)
 			{
-				plants[i].SetData(seeds.Find(x => x.id == saveData.seeds[i].id),
+				plantsManager.plants[i].gameObject.SetActive(false);
+				plantsManager.plants[i].SetData(seeds.Find(x => x.id == saveData.seeds[i].id),
 				saveData.seeds[i].daysAfterPlanting, saveData.seeds[i].isReadyToHarvest);
 			}
 		}

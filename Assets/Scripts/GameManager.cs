@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
 
         dayData = new DayData(m_dayTimeManager);
-        garden = new GardenData(m_plantsManager.plants);
+        garden = new GardenData(m_plantsManager);
 
         if (m_instance == null)
         {

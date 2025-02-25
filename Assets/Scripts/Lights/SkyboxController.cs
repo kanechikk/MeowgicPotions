@@ -15,14 +15,15 @@ public class SkyboxController : MonoBehaviour
         m_hour = m_dayTimeManager.dayTime.Hour;
         MakeTwoMaterialsEqual(m_materialDay, m_materials[0]);
         dayState++;
+        m_hour = m_dayTimeManager.dayTime.Hour;
     }
 
     private void OnTimeChange(DayTime time)
     {
+        m_materialDay.Lerp(m_materialDay, m_materials[dayState], Time.deltaTime);
+        Debug.Log(m_materials[dayState]);
         if (time.Hour > m_hour + 2)
         {
-            //m_materialDay.Lerp(m_materialDay, m_materials[dayState], 0.3f);
-            //MakeTwoMaterialsEqual(m_materialDay, m_materials[dayState]);
             m_hour += 3;
             dayState++;
         }
