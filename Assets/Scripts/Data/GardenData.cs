@@ -33,7 +33,7 @@ public class GardenData
 		SaveData saveData = JsonUtility.FromJson<SaveData>(json);
 		if (saveData != null)
 		{
-			for (int i = 0; i < plants.Length; i++)
+			for (int i = 0; i < saveData.seeds.Count; i++)
 			{
 				plants[i].SetData(seeds.Find(x => x.id == saveData.seeds[i].id),
 				saveData.seeds[i].daysAfterPlanting, saveData.seeds[i].isReadyToHarvest);
