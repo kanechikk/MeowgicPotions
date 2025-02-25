@@ -75,7 +75,7 @@ public class UIBrewing : MonoBehaviour
         foreach (InventorySlot ingredient in ingredients)
         {
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
+            ClickableItem clickableItem = newItem.GetComponentInChildren<ClickableItem>();
             clickableItem.item = ingredient.item;
             clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
             clickableItem.onAddIngredient += OnAddIngredient;
@@ -109,13 +109,13 @@ public class UIBrewing : MonoBehaviour
         ElementsInfoChange();
 
         GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_cauldronSlots.transform);
-        ClickableItem clickableItem = newItemCauldron.GetComponent<ClickableItem>();
+        ClickableItem clickableItem = newItemCauldron.GetComponentInChildren<ClickableItem>();
         clickableItem.InitialiseItem(ingredient);
         
         clickableItem.onRemoveIngredient += m_brewingController.OnRemoveIngredient;
         clickableItem.onRemoveIngredient += OnRemoveIngredient;
         clickableItem.isInCauldron = true;
-        newItemCauldron.transform.GetChild(0).gameObject.SetActive(false);
+        clickableItem.gameObject.transform.GetChild(0).gameObject.SetActive(false);
     }
 
     private void RemoveFromCauldron(Ingredient ingredient)
@@ -131,7 +131,7 @@ public class UIBrewing : MonoBehaviour
         else
         {
             GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            ClickableItem clickableItem = newItemCauldron.GetComponent<ClickableItem>();
+            ClickableItem clickableItem = newItemCauldron.GetComponentInChildren<ClickableItem>();
             clickableItem.InitialiseItem(ingredient);
             clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
             clickableItem.onAddIngredient += OnAddIngredient;

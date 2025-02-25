@@ -1,4 +1,5 @@
 using System;
+using System.Data.Common;
 using NUnit.Framework.Internal.Commands;
 using TMPro;
 using Unity.VisualScripting;
@@ -67,7 +68,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
         m_countText.text = RefreshCount(item);
         if (m_countText.text == null || isInCauldron)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
             return;
         }
     }
