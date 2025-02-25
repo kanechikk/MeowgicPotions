@@ -18,9 +18,9 @@ public class ShowTooltipUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (gameObject.GetComponents<UIItem>().Length > 0)
+        if (gameObject.GetComponentsInChildren<UIItem>()[0])
         {
-            m_item = gameObject.GetComponents<UIItem>()[0].item;
+            m_item = gameObject.GetComponentsInChildren<UIItem>()[0].item;
             if (m_item is SampleItem)
             {
                 m_item = null;
