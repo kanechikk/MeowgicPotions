@@ -1,4 +1,5 @@
 using System;
+using System.Data.Common;
 using NUnit.Framework.Internal.Commands;
 using TMPro;
 using Unity.VisualScripting;
@@ -55,13 +56,20 @@ public class ClickableItem : UIItem, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        onAddIngredient?.Invoke((Ingredient)item);
-        onRemoveIngredient?.Invoke((Ingredient)item);
-        onAddItem((Seed)item);
+
+        if (item is Ingredient)
+        {
+            onAddIngredient?.Invoke((Ingredient)item);
+            onRemoveIngredient?.Invoke((Ingredient)item);
+        }
+        else if (item is Seed)
+        {
+            onAddItem((Seed)item);
+        }
         m_countText.text = RefreshCount(item);
         if (m_countText.text == null || isInCauldron)
         {
-            Destroy(gameObject);
+            Destroy(gameObject.transform.parent.gameObject);
             return;
         }
     }
