@@ -21,7 +21,6 @@ public class SkyboxController : MonoBehaviour
     private void OnTimeChange(DayTime time)
     {
         m_materialDay.Lerp(m_materialDay, m_materials[dayState], Time.deltaTime);
-        Debug.Log(m_materials[dayState]);
         if (time.Hour > m_hour + 2)
         {
             m_hour += 3;

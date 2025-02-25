@@ -6,11 +6,11 @@ public class GardeningController : MonoBehaviour
     
     private Plant m_plant;
 
-    private void Start()
+    private void Awake()
     {
         m_plant = GetComponentInChildren<Plant>();
         m_plantsManager.onPlantSeed += OnPlantSeed;
-        //m_plant.gameObject.SetActive(false);
+        m_plant.gameObject.SetActive(false);
     }
 
     private void OnPlantSeed(Seed seed)

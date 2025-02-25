@@ -63,12 +63,13 @@ public class GameManager : MonoBehaviour
 
         LoadDayData();
         LoadPlayerData();
-        LoadGardenData();
     }
 
     private void Start()
     {
         m_dayTimeManager.onDayChange += OnDayChange;
+
+        LoadGardenData();
     }
 
     private void OnDayChange(DayTime time)

@@ -36,7 +36,7 @@ public class GardenData
 		{
 			for (int i = 0; i < saveData.seeds.Count; i++)
 			{
-				plantsManager.plants[i].gameObject.SetActive(false);
+				plantsManager.plants[i].gameObject.SetActive(true);
 				plantsManager.plants[i].SetData(seeds.Find(x => x.id == saveData.seeds[i].id),
 				saveData.seeds[i].daysAfterPlanting, saveData.seeds[i].isReadyToHarvest);
 			}

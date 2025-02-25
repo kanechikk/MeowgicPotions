@@ -19,6 +19,27 @@ public class Plant : MonoBehaviour
         m_seed = seed;
         m_isReadyToHarvest = isReadyToHarvest;
         m_isWatered = false;
+
+        m_plant = Array.Find(GameManager.instance.itemsDB.ingredients, x => x.id == seed.linkToIngredient);
+
+        RenderPlant();
+
+        if (seed.daysToGrow != daysAfterPlanting)
+        {
+            ShowPlant(transform.GetChild(0).gameObject);
+        }
+        else
+        {
+            ShowPlant(transform.GetChild(1).gameObject);
+        }
+    }
+
+    private void RenderPlant()
+    {
+        Renderer ren = transform.GetChild(1).GetComponent<Renderer>();
+        Material[] mat = ren.materials;
+        mat[0] = m_plant.material;
+        ren.materials = mat;
     }
 
     //подписываемся на событие смены дня
@@ -37,11 +58,8 @@ public class Plant : MonoBehaviour
         //показываем росток
         ShowPlant(transform.GetChild(0).gameObject);
         //получаем картинку посаженного растения
-        
-        Renderer ren = transform.GetChild(1).GetComponent<Renderer>();
-        Material[] mat = ren.materials;
-        mat[0] = m_plant.material;
-        ren.materials = mat;
+
+        RenderPlant();
 
         transform.GetComponentInParent<SoilHole>().GetBusy(true);
     }
