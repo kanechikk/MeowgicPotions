@@ -28,7 +28,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
     public override void InitialiseItem(Item newItem)
     {
         item = newItem;
-        image.sprite = item.icon;
+        image.sprite = newItem.icon;
         m_countText.text = RefreshCount(item);
     }
 

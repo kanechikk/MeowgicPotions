@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class GardeningController : MonoBehaviour
 {
-    [SerializeField] private PlantingState m_plantingState;
+    [SerializeField] private PlantsManager m_plantsManager;
     
     private Plant m_plant;
 
     private void Start()
     {
         m_plant = GetComponentInChildren<Plant>();
-        m_plantingState.onPlantSeed += OnPlantSeed;
+        m_plantsManager.onPlantSeed += OnPlantSeed;
         m_plant.gameObject.SetActive(false);
     }
 
