@@ -24,6 +24,10 @@ public class Plant : MonoBehaviour
 
         RenderPlant();
 
+
+        SoilHole soilHole = transform.GetComponentInParent<SoilHole>();
+        soilHole.GetBusy(true);
+
         if (seed.daysToGrow != daysAfterPlanting)
         {
             ShowPlant(transform.GetChild(0).gameObject);
