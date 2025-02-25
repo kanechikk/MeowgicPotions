@@ -73,6 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDayChange()
     {
+        ReloadShop(itemsDB.ingredients, itemsDB.seeds);
         SavePlayerData();
         SaveDayData();
         SaveGardenData();
@@ -98,6 +99,11 @@ public class GameManager : MonoBehaviour
     private void LoadShop(Ingredient[] ingredients, Seed[] seeds)
     {
         shopData = new ShopData(ingredients, seeds);
+    }
+
+    private void ReloadShop(Ingredient[] ingredients, Seed[] seeds)
+    {
+        shopData.ReloadShop(ingredients, seeds);
     }
 
     public void SavePlayerData()

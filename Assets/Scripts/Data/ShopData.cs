@@ -18,4 +18,20 @@ public class ShopData
             inventory.AddItem(seed);
         }
     }
+
+    public void ReloadShop(Ingredient[] ingredients, Seed[] seeds)
+    {
+        foreach (InventorySlot slot in inventory.slots)
+        {
+            inventory.RemoveItem(slot.item);
+        }
+        foreach (Ingredient ingredient in ingredients)
+        {
+            inventory.AddItem(ingredient);
+        }
+        foreach (Seed seed in seeds)
+        {
+            inventory.AddItem(seed);
+        }
+    }
 }
