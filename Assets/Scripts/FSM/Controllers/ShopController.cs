@@ -39,7 +39,7 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    private void OnDayChange()
+    private void OnDayChange(DayTime time)
     {
         ingredients_stocked = false;
         seeds_stocked = false;

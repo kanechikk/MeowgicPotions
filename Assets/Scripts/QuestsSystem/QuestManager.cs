@@ -86,7 +86,7 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void OnDayChange()
+    public void OnDayChange(DayTime time)
     {
         bool gotMain = false;
         if (m_dayTimeManager.dayTime.TotalNumDays % 2 == 0)
