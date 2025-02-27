@@ -15,6 +15,8 @@ public class Inventory
 
     public event Action<Item> onInvChange;
 
+    public event Action onCoinsChange;
+
     public Inventory(int slotSize)
     {
         m_slots = new List<InventorySlot>(slotSize);
@@ -60,6 +62,7 @@ public class Inventory
     public void AddCoins(int value)
     {
         m_coins += value;
+        onCoinsChange?.Invoke();
     }
 
     public void RemoveItem(Item item)

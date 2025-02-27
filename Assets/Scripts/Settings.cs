@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Settings : MonoBehaviour
 {
     [SerializeField] private TMP_Dropdown m_dropdown;
+    [SerializeField] private GameMode m_gameMode;
 
     private void Start()
     {
@@ -44,6 +45,6 @@ public class Settings : MonoBehaviour
 
     public void Close()
     {
-        gameObject.SetActive(false);
+        m_gameMode.Back();
     }
 }

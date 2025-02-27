@@ -37,7 +37,7 @@ public class PlaeyrConroller : MonoBehaviour
         {
             if (m_states.CurrGameState is WalkingState)
             {
-                m_states.GoToPaus();
+                m_states.GoToPause();
             }
             else if (m_states.CurrGameState is not RhythmGameState)
             {

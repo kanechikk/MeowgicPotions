@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    [SerializeField] GameObject m_settings;
     [SerializeField] GameMode m_gameMode;
 
     public void OnResumeClick()
@@ -14,7 +13,7 @@ public class PauseMenu : MonoBehaviour
 
     public void OnSettingsClick()
     {
-        m_settings.SetActive(true);
+        m_gameMode.GoToSettings();
     }
 
     public void OnBackClick()
