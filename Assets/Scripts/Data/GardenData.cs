@@ -7,6 +7,11 @@ public class GardenData
 {
 	public PlantsManager plantsManager;
 
+	public GardenData()
+	{
+		
+	}
+
 	public GardenData(PlantsManager plantsManager)
 	{
 		this.plantsManager = plantsManager;

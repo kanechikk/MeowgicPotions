@@ -8493,6 +8493,26 @@ PrefabInstance:
       propertyPath: m_waterBarUI
       value: 
       objectReference: {fileID: 1747685251}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_materials.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 74d7ac86148f7f349bbfcb20f263aa7f, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f897b11f04d3e24bbea04e6cce0da92, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 9c5018cc731a324409421b04dfe8f452, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 59e90fdb1ba2c494ba7de9f81dffe7e1, type: 2}
     - target: {fileID: 3668224875555930115, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_sprite
       value: 

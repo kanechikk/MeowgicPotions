@@ -4,6 +4,11 @@ public class DayData
 {
     public DayTimeManager dayTimeManager;
 
+    public DayData()
+    {
+        
+    }
+
     public DayData(DayTimeManager dayTimeManager)
     {
         this.dayTimeManager = dayTimeManager;
