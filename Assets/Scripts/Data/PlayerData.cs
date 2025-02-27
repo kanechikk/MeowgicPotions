@@ -14,6 +14,13 @@ public class PlayerData
         wateringPot = new WateringPot(5);
     }
 
+    public void Reset(int coins)
+    {
+        inventory = new Inventory(32);
+        inventory.AddCoins(coins);
+        wateringPot = new WateringPot(5);
+    }
+
     public string ToJson()
     {
         SaveData saveData = new SaveData();

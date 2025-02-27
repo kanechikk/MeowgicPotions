@@ -75,6 +75,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
     private void OnDayChange(DayTime time)
     {
         ReloadShop(itemsDB.ingredients, itemsDB.seeds);

@@ -23,7 +23,6 @@ public class GardenData
 
 		for (int i = 0; i < plantsManager.plants.Length; i++)
 		{
-			Debug.Log(plantsManager.plants[i].seed);
 			if (plantsManager.plants[i].seed)
 			{
 				saveData.seeds.Add(new SeedsToSeralize(plantsManager.plants[i].seed.id, plantsManager.plants[i].isReadyToHarvest, plantsManager.plants[i].daysAfterPlanting));

@@ -128,4 +128,9 @@ public class GameMode : MonoBehaviour
     {
         m_stateActivator.Push<CheckingQuestsState>();
     }
+
+    public void GoToPaus()
+    {
+        m_stateActivator.Push<PauseState>();
+    }
 }

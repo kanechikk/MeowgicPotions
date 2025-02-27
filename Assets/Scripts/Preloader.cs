@@ -27,7 +27,7 @@ public class Preloader : MonoBehaviour
 
         yield return 0;
 
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("MainMenu");
 
         yield break;
     }

@@ -33,6 +33,18 @@ public class PlaeyrConroller : MonoBehaviour
             m_states.GoToQuests();
         }
 
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            if (m_states.CurrGameState is WalkingState)
+            {
+                m_states.GoToPaus();
+            }
+            else if (m_states.CurrGameState is not RhythmGameState)
+            {
+                m_states.Back();
+            }
+        }
+
         if (Keyboard.current.qKey.wasPressedThisFrame && WateringState.isActive)
         {
             m_states.Back();
