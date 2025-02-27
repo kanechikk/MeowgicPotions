@@ -120,8 +120,6 @@ public class UIBrewing : MonoBehaviour
 
     private void RemoveFromCauldron(Ingredient ingredient)
     {
-        ElementsInfoChange();
-
         ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
 
         if (Array.Exists(inventory, x => x.item == ingredient))
@@ -136,6 +134,8 @@ public class UIBrewing : MonoBehaviour
             clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
             clickableItem.onAddIngredient += OnAddIngredient;
         }
+
+        ElementsInfoChange();
     }
 
     //проверка на соответствие рецепту

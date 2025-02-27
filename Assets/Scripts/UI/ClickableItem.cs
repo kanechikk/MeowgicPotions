@@ -51,7 +51,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
 
     public void Remove()
     {
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     public void OnPointerClick(PointerEventData eventData)

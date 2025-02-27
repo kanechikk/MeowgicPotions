@@ -23,6 +23,8 @@ public class UIDayTimeChange : MonoBehaviour
     private void OnDayChange(DayTime time)
     {
         m_dayText.text = $"Day: {time.TotalNumDays}";
+        m_hourText.text = "8";
+        m_minutesText.text = "00";
     }
 
     private void OnTimeChange(DayTime time)

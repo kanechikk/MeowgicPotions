@@ -5,6 +5,7 @@ public class StateActivator
 {
     private List<IGameState> m_states = new();
     private IGameState m_current;
+    private IGameState m_currentWhile;
     private List<IGameState> m_stack = new();
 
     public IGameState current => m_current;
@@ -40,6 +41,20 @@ public class StateActivator
         {
             m_current.Deactivate();
             m_current.Exit();
+
+            var nextState = m_stack[m_stack.Count - 1];
+            m_stack.RemoveAt(m_stack.Count - 1);
+            nextState.Activate();
+            m_current = nextState;
+        }
+    }
+
+    public void BackWhile()
+    {
+        if (m_stack.Count > 0)
+        {
+            m_currentWhile.Deactivate();
+            m_currentWhile.Exit();
 
             var nextState = m_stack[m_stack.Count - 1];
             m_stack.RemoveAt(m_stack.Count - 1);
@@ -85,7 +100,6 @@ public class StateActivator
 
     public void RunWhile<T>()
     {
-        Debug.Log(m_current);
         var state = m_states.Find(state => state is T);
         if (state != null)
         {
@@ -93,7 +107,7 @@ public class StateActivator
             state.Enter();
             state.Activate();
 
-            m_current = state;
+            m_currentWhile = state;
         }
     }
 }

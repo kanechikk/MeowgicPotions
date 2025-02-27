@@ -65,7 +65,7 @@ public class Inventory
     public void RemoveItem(Item item)
     {
         var slot = m_slots.Find(x => x.item == item);
-        if (slot != null)
+        if (slot != null && slot.category != ItemCategory.Nothing)
         {
             if (--slot.count == 0)
             {

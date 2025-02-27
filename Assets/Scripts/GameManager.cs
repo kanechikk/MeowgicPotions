@@ -74,6 +74,13 @@ public class GameManager : MonoBehaviour
     private void OnDayChange(DayTime time)
     {
         ReloadShop(itemsDB.ingredients, itemsDB.seeds);
+        // SavePlayerData();
+        // SaveDayData();
+        // SaveGardenData();
+    }
+
+    public void SaveData()
+    {
         SavePlayerData();
         SaveDayData();
         SaveGardenData();

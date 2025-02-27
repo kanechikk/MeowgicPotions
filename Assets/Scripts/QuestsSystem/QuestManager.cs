@@ -107,6 +107,10 @@ public class QuestManager : MonoBehaviour
                 m_questHolder = questsDB.secondaryQuests[rand];
             }
         }
+    }
+
+    public void SaveQuestInfo()
+    {
         DataProcess.SaveQuests(questsData);
     }
 

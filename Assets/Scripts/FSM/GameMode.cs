@@ -35,6 +35,11 @@ public class GameMode : MonoBehaviour
         m_stateActivator.Back();
     }
 
+    public void BackWhile()
+    {
+        m_stateActivator.BackWhile();
+    }
+
     public void GoToState(IGameState state)
     {
         if (state is BrewingState)
