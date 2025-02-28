@@ -8,6 +8,7 @@ public class AgentController : MonoBehaviour
     [SerializeField] private GameObject m_pathDesck;
     [SerializeField] private GameObject m_pathDoor;
     [SerializeField] private GameObject m_agent;
+    private Vector3 m_targetVector;
     public Action onReachSpot;
     public Action onLeave;
 
