@@ -717,8 +717,8 @@ MonoBehaviour:
   m_sunMoonPanel: {fileID: 1432459477}
   m_rotateMode: 3
   m_transitionScreen: {fileID: 75516674}
-  m_fadeTime: 2
-  m_ease: 0
+  m_fadeTime: 1
+  m_ease: 11
 --- !u!1 &75755918 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8416403277755512838, guid: a797aefad582fcf4e81f5bfd7daa1e5a, type: 3}
@@ -2619,6 +2619,10 @@ PrefabInstance:
       propertyPath: 'm_objects.Array.data[1]'
       value: 
       objectReference: {fileID: 1884229809}
+    - target: {fileID: 7510585702592889240, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
+      propertyPath: m_uiAnimation
+      value: 
+      objectReference: {fileID: 75516677}
     - target: {fileID: 7510585702592889240, guid: 59f59ed5174091e4c9dd1e2b530ba6ce, type: 3}
       propertyPath: dayTimeManager
       value: 

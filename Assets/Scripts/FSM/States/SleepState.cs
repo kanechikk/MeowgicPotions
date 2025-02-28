@@ -12,7 +12,7 @@ public class SleepState : GameStateBehaviour
 
     private void OnEnable()
     {
-        
+        m_uiAnimation.onBackFromSleep += OnCoroutineStop;
 
         dayTimeManager.DayPass();
 
