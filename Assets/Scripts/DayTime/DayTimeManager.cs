@@ -9,7 +9,7 @@ public class DayTimeManager : MonoBehaviour
     private DayTime m_dayTime;
 
     public int tickMinutesIncrease = 10;
-    public float timeBetweenTicks = 1;
+    public float timeBetweenTicks = 4;
     public float currentTimeBetweenTicks = 0;
     public bool timePass;
     public DayTime dayTime => m_dayTime;

@@ -6,24 +6,22 @@ public class SkyboxController : MonoBehaviour
     [SerializeField] DayTimeManager m_dayTimeManager;
     [SerializeField] Material m_materialDay;
     [SerializeField] Material[] m_materials;
-    private int m_hour;
     private int dayState;
 
     private void Start()
     {
         m_dayTimeManager.onDayTimeChange += OnTimeChange;
-        m_hour = m_dayTimeManager.dayTime.Hour;
         MakeTwoMaterialsEqual(m_materialDay, m_materials[0]);
         dayState++;
-        m_hour = m_dayTimeManager.dayTime.Hour;
     }
 
     private void OnTimeChange(DayTime time)
     {
-        m_materialDay.Lerp(m_materialDay, m_materials[dayState], Time.deltaTime);
-        if (time.Hour > m_hour + 2)
+        Debug.Log(dayState);
+        Debug.Log(m_materials[dayState]);
+        m_materialDay.Lerp(m_materialDay, m_materials[dayState], 0.1f);
+        if (time.Hour == 14 && time.Minute == 0)
         {
-            m_hour += 3;
             dayState++;
         }
     }
