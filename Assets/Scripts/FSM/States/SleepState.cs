@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Runtime.CompilerServices;
+using DG.Tweening;
 using UnityEngine;
 
 public class SleepState : GameStateBehaviour

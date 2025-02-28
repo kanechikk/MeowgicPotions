@@ -34,6 +34,6 @@ public class UIAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        PanelFadeIn();
     }
 }
