@@ -714,9 +714,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cc766896f870ed46a7cd664c33b0e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_fadeTime: 1
-  m_sunMoonPanel: {fileID: 0}
-  m_rectTransform: {fileID: 75516674}
+  m_sunMoonPanel: {fileID: 1432459477}
+  m_rotateMode: 3
+  m_transitionScreen: {fileID: 75516674}
+  m_fadeTime: 2
   m_ease: 0
 --- !u!1 &75755918 stripped
 GameObject:
@@ -9309,6 +9310,34 @@ PrefabInstance:
       propertyPath: m_waterBarUI
       value: 
       objectReference: {fileID: 1747685251}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5464c15ff9c6ca04cb5790c1773e76fa, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 5c80d49013691df48ac94280337e88ce, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
+    - target: {fileID: 3196242457524314420, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: 'm_materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
     - target: {fileID: 3668224875555930115, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_sprite
       value: 
