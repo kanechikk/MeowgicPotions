@@ -17,8 +17,6 @@ public class SkyboxController : MonoBehaviour
 
     private void OnTimeChange(DayTime time)
     {
-        Debug.Log(dayState);
-        Debug.Log(m_materials[dayState]);
         m_materialDay.Lerp(m_materialDay, m_materials[dayState], 0.1f);
         if (time.Hour == 14 && time.Minute == 0)
         {
