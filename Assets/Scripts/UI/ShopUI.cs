@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,6 +9,16 @@ public class ShopUI : MonoBehaviour
     private ShopListUI shopListUI;
     [SerializeField] private GameObject shopLinePrefab;
     [SerializeField] private TextMeshProUGUI m_coins;
+
+    private void Start()
+    {
+        GameManager.instance.player.inventory.onCoinsChange += OnCoinsChange;
+    }
+
+    private void OnCoinsChange()
+    {
+        m_coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
+    }
 
     private void OnEnable()
     {

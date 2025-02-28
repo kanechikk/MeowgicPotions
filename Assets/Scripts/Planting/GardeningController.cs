@@ -6,7 +6,7 @@ public class GardeningController : MonoBehaviour
     
     private Plant m_plant;
 
-    private void Start()
+    private void Awake()
     {
         m_plant = GetComponentInChildren<Plant>();
         m_plantsManager.onPlantSeed += OnPlantSeed;

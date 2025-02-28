@@ -5,8 +5,13 @@ using UnityEngine;
 public class DayChangeController : MonoBehaviour
 {
     [SerializeField] QuestManager m_questManager;
-    [SerializeField] GameManager m_gameManager;
+    GameManager m_gameManager;
     public event Action onCoroutineStop;
+
+    private void Start()
+    {
+        m_gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     public IEnumerator SavingInfo()
     {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,13 +20,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private DayTimeManager m_dayTimeManager;
-    [SerializeField] private PlantsManager m_plantsManager;
+    private DayTimeManager m_dayTimeManager;
+    private PlantsManager m_plantsManager;
 
     public ItemsDB itemsDB { private set; get; }
     public ShopData shopData { private set; get; }
     public DayData dayData { private set; get; }
-    public PlayerData player { private set; get; } = new PlayerData(1000);
+    public PlayerData player { private set; get; } = new PlayerData(0);
     public GardenData garden { private set; get; }
 
     void Update()
@@ -38,12 +39,11 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        SceneManager.sceneLoaded += GetManagers;
+
         Ingredient[] ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");
         Potion[] potions = Resources.LoadAll<Potion>("ScriptableObjects/Potions");
         Seed[] seeds = Resources.LoadAll<Seed>("ScriptableObjects/Seeds");
-
-        dayData = new DayData(m_dayTimeManager);
-        garden = new GardenData(m_plantsManager.plants);
 
         if (m_instance == null)
         {
@@ -57,18 +57,27 @@ public class GameManager : MonoBehaviour
         }
 
         LoadItemsDB(ingredients, potions, seeds);
-        LoadShop(ingredients, seeds);
 
         DontDestroyOnLoad(gameObject);
-
-        LoadDayData();
-        LoadPlayerData();
-        LoadGardenData();
     }
 
-    private void Start()
+    private void GetManagers(Scene arg0, LoadSceneMode arg1)
     {
-        m_dayTimeManager.onDayChange += OnDayChange;
+        if (arg0.name == "MainScene")
+        {
+            m_dayTimeManager = FindAnyObjectByType<DayTimeManager>();
+            m_plantsManager = FindAnyObjectByType<PlantsManager>();
+            m_dayTimeManager.onDayChange += OnDayChange;
+            dayData = new DayData(m_dayTimeManager);
+            garden = new GardenData(m_plantsManager);
+            LoadDayData();
+            LoadGardenData();
+        }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     private void OnDayChange(DayTime time)
@@ -91,7 +100,7 @@ public class GameManager : MonoBehaviour
         DataProcess.SaveGarden(garden);
     }
 
-    private void LoadGardenData()
+    public void LoadGardenData()
     {
         List<Seed> seeds = new List<Seed>();
         seeds.AddRange(itemsDB.seeds);
@@ -103,9 +112,9 @@ public class GameManager : MonoBehaviour
         itemsDB = new ItemsDB(ingredients, potions, seeds);
     }
 
-    private void LoadShop(Ingredient[] ingredients, Seed[] seeds)
+    public void LoadShop()
     {
-        shopData = new ShopData(ingredients, seeds);
+        shopData = new ShopData(itemsDB.ingredients, itemsDB.seeds);
     }
 
     private void ReloadShop(Ingredient[] ingredients, Seed[] seeds)
@@ -132,23 +141,8 @@ public class GameManager : MonoBehaviour
         DataProcess.SaveDay(dayData);
     }
 
-    private void LoadDayData()
+    public void LoadDayData()
     {
         DataProcess.LoadDay(dayData);
-    }
-
-    private void OnApplicationPause(bool pauseStatus)
-    {
-        Debug.Log($"[GameManager]: OnApplicationPause({pauseStatus})");
-    }
-
-    private void OnApplicationFocus(bool focusStatus)
-    {
-        Debug.Log($"[GameManager]: OnApplicationFocus({focusStatus})");
-    }
-
-    private void OnApplicationQuit()
-    {
-        Debug.Log($"[GameManager]: OnApplicationQuit()");
     }
 }

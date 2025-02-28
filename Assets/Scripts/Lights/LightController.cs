@@ -11,13 +11,14 @@ public class LightController : MonoBehaviour
     {
         m_dayTimeManager.onDayTimeChange += OnTimeChange;
         m_minutes = m_dayTimeManager.dayTime.Minute;
+        RenderSettings.sun = m_light.GetComponent<Light>();
     }
 
     private void OnTimeChange(DayTime time)
     {
-        if (time.Minute > m_minutes)
+        if (time.Minute > m_minutes || time.Minute == 0)
         {
-            m_light.transform.Rotate(new Vector3(0, 1.5f, 0));
+            m_light.transform.Rotate(new Vector3(2.2f, 0, 0));
         }
     }
 }

@@ -133,4 +133,14 @@ public class GameMode : MonoBehaviour
     {
         m_stateActivator.Push<CheckingQuestsState>();
     }
+
+    public void GoToPause()
+    {
+        m_stateActivator.Push<PauseState>();
+    }
+
+    public void GoToSettings()
+    {
+        m_stateActivator.Push<SettingsState>();
+    }
 }
