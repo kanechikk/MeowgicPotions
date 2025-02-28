@@ -21,6 +21,8 @@ public class SkyboxController : MonoBehaviour
         if (time.Hour == 14 && time.Minute == 0)
         {
             dayState++;
+
+            Debug.Log(dayState);
         }
     }
 

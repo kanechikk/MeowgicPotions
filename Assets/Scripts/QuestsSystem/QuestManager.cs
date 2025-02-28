@@ -147,7 +147,6 @@ public class QuestManager : MonoBehaviour
         }
 
         GoHome();
-        Debug.Log(m_objectiveManager.Objectives[0]);
     }
 
     private int CheckIfHasItem(Item itemToFind)
