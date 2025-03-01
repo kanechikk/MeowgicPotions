@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShowInteractionSignGarden : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_interactionText;
+    [SerializeField] private GameObject m_eImage;
     private InteractableGarden m_interactable;
 
     private void Awake()
@@ -17,6 +18,7 @@ public class ShowInteractionSignGarden : MonoBehaviour
 
     private void OnShowSign()
     {
+        m_eImage.SetActive(true);
         if (!m_interactable.soilHole.isBusy)
         {
             m_interactionText.text = "Press E to plant a seed";
@@ -33,6 +35,7 @@ public class ShowInteractionSignGarden : MonoBehaviour
 
     private void OnUnShowSign()
     {
+        m_eImage.SetActive(false);
         m_interactionText.text = "";
     }
 }

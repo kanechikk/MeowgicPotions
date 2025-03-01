@@ -5,6 +5,7 @@ using UnityEngine;
 public class ShowInteractionSign : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI m_interactionText;
+    [SerializeField] private GameObject m_eImage;
     private Interactable m_interactable;
     private GameStateBehaviour m_state;
     private void Start()
@@ -17,6 +18,7 @@ public class ShowInteractionSign : MonoBehaviour
 
     private void Show()
     {
+        m_eImage.SetActive(true);
         switch (m_state)
         {
             case BrewingState:
@@ -45,6 +47,7 @@ public class ShowInteractionSign : MonoBehaviour
 
     private void Hide()
     {
+        m_eImage.SetActive(false);
         m_interactionText.text = "";
     }
 }
