@@ -161,6 +161,7 @@ Transform:
   - {fileID: 5235924365688967272}
   - {fileID: 3713130630542199669}
   - {fileID: 3607143670549074619}
+  - {fileID: 1599732449196054415}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5069815130382966154
@@ -175,6 +176,65 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 022d0b23c21c43f439566a90dc5ef679, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1119384504246288044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599732449196054415}
+  - component: {fileID: 1796018281237424371}
+  - component: {fileID: 7087728103123225475}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1599732449196054415
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119384504246288044}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9092467340196784839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1796018281237424371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119384504246288044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83a35f8e4fe68f6468a2650461bed012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7087728103123225475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119384504246288044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &2148891132320363977
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +664,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3441828817453346972}
   - component: {fileID: 7510585702592889240}
-  - component: {fileID: 4862047503400907076}
+  - component: {fileID: 6641287218329520780}
   m_Layer: 0
   m_Name: SleeepState
   m_TagString: Untagged
@@ -641,8 +701,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dayTimeManager: {fileID: 0}
   m_gameMode: {fileID: 5069815130382966154}
-  m_dayChangeController: {fileID: 4862047503400907076}
---- !u!114 &4862047503400907076
+  m_dayChangeController: {fileID: 0}
+  m_uiAnimation: {fileID: 0}
+--- !u!114 &6641287218329520780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -651,11 +712,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8173587581364513908}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49e4dfd655ef44249817e82c7e8176de, type: 3}
+  m_Script: {fileID: 11500000, guid: 7ac6b6411e92e88408cb99b50cefa151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_questManager: {fileID: 0}
-  m_gameManager: {fileID: 0}
+  m_objects:
+  - {fileID: 0}
 --- !u!1 &8602593018285999002
 GameObject:
   m_ObjectHideFlags: 0

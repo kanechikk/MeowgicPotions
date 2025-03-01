@@ -168,6 +168,7 @@ MonoBehaviour:
   m_cauldron: {fileID: 0}
   m_potionBookController: {fileID: 3668224875555930115}
   m_brewingPotionInfo: {fileID: 0}
+  m_potionImage: {fileID: 0}
   m_toolTip: {fileID: 0}
 --- !u!1 &3021703673554270349
 GameObject:
@@ -449,6 +450,51 @@ MonoBehaviour:
   seedsPanel: {fileID: 0}
   sampleItem: {fileID: 11400000, guid: 7bf5fdc27d34447449b9848270f4738a, type: 2}
   coins: {fileID: 0}
+--- !u!1 &5547329982612690490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1176980430138747269}
+  - component: {fileID: 3659188702549519833}
+  m_Layer: 0
+  m_Name: DayChangeController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1176980430138747269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547329982612690490}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3659188702549519833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547329982612690490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49e4dfd655ef44249817e82c7e8176de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_questManager: {fileID: 4893853241664373906}
 --- !u!1 &5931353803861686748
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,10 +693,9 @@ MonoBehaviour:
   m_dayTimeManager: {fileID: 4565620811308356589}
   m_materialDay: {fileID: 2100000, guid: 9aa8ed67591432941bb76f12eb23ff91, type: 2}
   m_materials:
-  - {fileID: 2100000, guid: 8fc56946a1b593c4d8e3e0e94483338e, type: 2}
-  - {fileID: 2100000, guid: eb3e6f9a5cbaca64f967705a40558fef, type: 2}
-  - {fileID: 2100000, guid: 59e90fdb1ba2c494ba7de9f81dffe7e1, type: 2}
-  - {fileID: 2100000, guid: 9c5018cc731a324409421b04dfe8f452, type: 2}
+  - {fileID: 2100000, guid: 5464c15ff9c6ca04cb5790c1773e76fa, type: 2}
+  - {fileID: 2100000, guid: 5c80d49013691df48ac94280337e88ce, type: 2}
+  - {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
 --- !u!1 &7890266988711906654
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,6 +740,7 @@ Transform:
   - {fileID: 9110479338831310525}
   - {fileID: 6490529284155007722}
   - {fileID: 2043992448270441932}
+  - {fileID: 1176980430138747269}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8591141177595118634
@@ -962,6 +1008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_navMeshAgent: {fileID: 0}
   m_pathDesck: {fileID: 0}
+  m_pathDoor: {fileID: 0}
   m_agent: {fileID: 0}
 --- !u!1001 &6039573070324709316
 PrefabInstance:
