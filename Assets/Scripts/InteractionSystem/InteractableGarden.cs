@@ -19,7 +19,6 @@ public class InteractableGarden : MonoBehaviour
     private void Start()
     {
         m_soilHole = transform.GetComponentInParent<SoilHole>();
-        m_plant = transform.GetComponentInChildren<Plant>();
     }
     
     private void OnTriggerEnter(Collider other)
@@ -38,6 +37,7 @@ public class InteractableGarden : MonoBehaviour
     {
         if (active && Keyboard.current.eKey.wasPressedThisFrame && m_stateOfInteractable && m_gameMode)
         {
+            m_plant = transform.GetComponentInChildren<Plant>();
             if (!m_soilHole.isBusy)
             {
                 m_gameMode.GoToPlanting();
