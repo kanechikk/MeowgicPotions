@@ -20,7 +20,7 @@ public class UIBrewing : MonoBehaviour
     private bool needToRefreshInventory = true;
     [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
-
+    [SerializeField] private Image m_potionImage;
     [SerializeField] private TooltipUI m_toolTip;
 
     private void Start()
@@ -36,6 +36,7 @@ public class UIBrewing : MonoBehaviour
     private void OnChoosePotion(Potion potion)
     {
         m_brewingPotionInfo.text = potion.ToStringItem();
+        m_potionImage.sprite = potion.icon;
         BrewButtonOnOff();
     }
 

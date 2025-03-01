@@ -64,6 +64,5 @@ public class PotionBookController : MonoBehaviour
     public void ChoosePotion()
     {
         onChoosePotion?.Invoke(m_chosenPotion);
-        
     }
 }
