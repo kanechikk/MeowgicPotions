@@ -13,7 +13,14 @@ public class Interactable : MonoBehaviour
 
     public Action onActive;
     public Action onDeactive;
-    
+
+    private AudioManager m_audioManager;
+
+    private void Start()
+    {
+        m_audioManager = GameManager.instance.audioManager;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         m_active = true;
@@ -40,9 +47,11 @@ public class Interactable : MonoBehaviour
             {
                 m_gameMode.GoToState(stateOfInteractable);
             }
-            else if (m_wateringPotController != null)
+            else if (m_wateringPotController != null && m_wateringPotController.gameObject.activeSelf)
             {
                 m_wateringPotController.FillPot();
+
+                m_audioManager.PlaySFX(m_audioManager.SFXGettingWater);
             }
             m_active = false;
             onDeactive?.Invoke();

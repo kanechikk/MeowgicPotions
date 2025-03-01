@@ -11,6 +11,8 @@ public class TalkingState : GameStateBehaviour
 	{
 		m_counterCamera.Priority = 100;
 		onActivated?.Invoke();
+
+		GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXTalkingNpc);
 	}
 
 	private void OnDisable()

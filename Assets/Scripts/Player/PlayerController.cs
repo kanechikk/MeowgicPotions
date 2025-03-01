@@ -9,6 +9,7 @@ public class PlaeyrConroller : MonoBehaviour
     private InputAction m_moveAction;
     [SerializeField] private GameMode m_states;
     [SerializeField] private RhythmCheck m_rhythmCheck;
+    private AudioManager m_audioManager;
 
     private void Start()
     {
@@ -16,6 +17,8 @@ public class PlaeyrConroller : MonoBehaviour
         map.Enable();
 
         m_moveAction = map.FindAction("Move");
+
+        m_audioManager = GameManager.instance.audioManager;
     }
 
     private void Update()
@@ -26,11 +29,15 @@ public class PlaeyrConroller : MonoBehaviour
         if (Keyboard.current.iKey.wasPressedThisFrame && m_states.CurrGameState is not InventoryState)
         {
             m_states.GoToInventory();
+
+            m_audioManager.PlaySFX(m_audioManager.SFXOpeningBag);
         }
 
         if (Keyboard.current.fKey.wasPressedThisFrame && m_states.CurrGameState is not CheckingQuestsState)
         {
             m_states.GoToQuests();
+
+            m_audioManager.PlaySFX(m_audioManager.SFXOpeningBook);
         }
 
         if (Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -38,10 +45,14 @@ public class PlaeyrConroller : MonoBehaviour
             if (m_states.CurrGameState is WalkingState)
             {
                 m_states.GoToPause();
+
+                m_audioManager.PlaySFX(m_audioManager.SFXSliding);
             }
             else if (m_states.CurrGameState is not RhythmGameState)
             {
                 m_states.Back();
+
+                m_audioManager.PlaySFX(m_audioManager.SFXSliding);
             }
         }
 

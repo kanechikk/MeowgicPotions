@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public DayData dayData { private set; get; }
     public PlayerData player { private set; get; } = new PlayerData(0);
     public GardenData garden { private set; get; }
+    public AudioManager audioManager { private set; get; }
 
     void Update()
     {
@@ -39,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+
         SceneManager.sceneLoaded += GetManagers;
 
         Ingredient[] ingredients = Resources.LoadAll<Ingredient>("ScriptableObjects/Ingredients");

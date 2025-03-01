@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopUI : MonoBehaviour
 {
     private ShopListUI shopListUI;
     [SerializeField] private GameObject shopLinePrefab;
     [SerializeField] private TextMeshProUGUI m_coins;
+    [SerializeField] private AudioButton m_audioButton;
 
     private void Start()
     {
@@ -18,6 +20,8 @@ public class ShopUI : MonoBehaviour
     private void OnCoinsChange()
     {
         m_coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
+
+        GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXCoins);
     }
 
     private void OnEnable()

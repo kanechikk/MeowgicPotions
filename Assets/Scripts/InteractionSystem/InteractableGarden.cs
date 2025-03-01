@@ -16,9 +16,13 @@ public class InteractableGarden : MonoBehaviour
     public event Action onShow;
     public event Action onUnShow;
 
+    private AudioManager m_audioManager;
+
     private void Start()
     {
         m_soilHole = transform.GetComponentInParent<SoilHole>();
+
+        m_audioManager = GameManager.instance.audioManager;
     }
     
     private void OnTriggerEnter(Collider other)
@@ -46,11 +50,15 @@ public class InteractableGarden : MonoBehaviour
             {
                 GameManager.instance.player.inventory.AddItem(m_plant.HarvestPlant());
                 m_soilHole.GetBusy(false);
+
+                m_audioManager.PlaySFX(m_audioManager.SFXPoppingElements);
             }
             else if (!m_plant.isWatered && GameManager.instance.player.wateringPot.currentValue > 0 && WateringState.isActive)
             {
                 m_wateringPotController.WaterPlant();
                 m_plant.WaterPlant();
+
+                m_audioManager.PlaySFX(m_audioManager.SFXWateringPlants);
             }
         }
     }

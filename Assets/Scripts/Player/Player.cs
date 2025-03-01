@@ -29,10 +29,14 @@ public class Player : MonoBehaviour
             if (input != Vector2.zero)
             {
                 m_animator.SetBool("Walking", true);
+
+                GameManager.instance.audioManager.PlaySFXWalking(false);
             }
             else
             {
                 m_animator.SetBool("Walking", false);
+
+                GameManager.instance.audioManager.PlaySFXWalking(true);
             }
 
             if (input.sqrMagnitude > 0)

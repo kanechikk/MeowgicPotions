@@ -8,5 +8,8 @@ using UnityEngine.UI;
 
 public class BrewingState : GameStateBehaviour
 {
-    
+    private void OnEnable()
+    {
+		GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXOpeningBrewing);
+	}
 }

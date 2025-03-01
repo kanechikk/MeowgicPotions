@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlantsManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlantsManager : MonoBehaviour
     [SerializeField] private GameObject m_inventorySlots;
     private Seed m_currentSeed;
     public event Action<Seed> onPlantSeed;
+
+    private Image m_image;
 
     private void Awake()
     {
@@ -39,20 +42,25 @@ public class PlantsManager : MonoBehaviour
 
         foreach (InventorySlot seed in seeds)
         {
-            Debug.Log(seed.item);
-
             GameObject newItem = Instantiate(m_clickableItemPrefab, m_inventorySlots.transform);
-            ClickableItem clickableItem = newItem.GetComponent<ClickableItem>();
+            ClickableItem clickableItem = newItem.GetComponentInChildren<ClickableItem>();
             clickableItem.item = seed.item;
             clickableItem.onAddItem += OnAddItem;
-
-            Debug.Log("new irem");
         }
     }
 
-    private void OnAddItem(Item seed)
+    private void OnAddItem(Item seed, Image image)
     {
         m_currentSeed = (Seed)seed;
+
+        if (m_image)
+        {
+            m_image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
+        }
+
+        m_image = image;
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0.6f);
+        
         Debug.Log($"{m_currentSeed.itemName} chosen");
     }
 

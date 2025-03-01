@@ -11,7 +11,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
 {
     public Action<Ingredient> onAddIngredient;
     public Action<Ingredient> onRemoveIngredient;
-    public Action<Item> onAddItem;
+    public Action<Item, Image> onAddItem;
     private TextMeshProUGUI m_countText;
     public bool isInCauldron = false;
 
@@ -63,7 +63,7 @@ public class ClickableItem : UIItem, IPointerClickHandler
         }
         else if (item is Seed)
         {
-            onAddItem?.Invoke((Seed)item);
+            onAddItem?.Invoke((Seed)item, gameObject.GetComponentInParent<Image>());
         }
         m_countText.text = RefreshCount(item);
         if (m_countText.text == null || isInCauldron)

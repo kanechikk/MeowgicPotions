@@ -8,11 +8,14 @@ public class UIDayTimeChange : MonoBehaviour
     [SerializeField] private TextMeshProUGUI m_minutesText;
     [SerializeField] private TextMeshProUGUI m_dayText;
     [SerializeField] private DayTimeManager m_dayTimeManager;
+    private DayTime m_dayTime;
 
     private void OnEnable()
     {
         m_dayTimeManager.onDayTimeChange += OnTimeChange;
         m_dayTimeManager.onDayChange += OnDayChange;
+
+        m_dayText.text = $"Day:{m_dayTimeManager.dayTime.TotalNumDays}";
     }
 
     public void NewGame()
@@ -22,7 +25,9 @@ public class UIDayTimeChange : MonoBehaviour
 
     private void OnDayChange(DayTime time)
     {
-        m_dayText.text = $"Day: {time.TotalNumDays}";
+
+
+        m_dayText.text = $"Day:{time.TotalNumDays}";
         m_hourText.text = "8";
         m_minutesText.text = "00";
     }

@@ -26,6 +26,6 @@ public class SleepState : GameStateBehaviour
 
     private void OnDisable()
     {
-        m_dayChangeController.onCoroutineStop -= OnCoroutineStop;
+        m_uiAnimation.onBackFromSleep -= OnCoroutineStop;
     }
 }

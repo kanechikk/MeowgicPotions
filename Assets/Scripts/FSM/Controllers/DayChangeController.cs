@@ -7,7 +7,6 @@ public class DayChangeController : MonoBehaviour
 {
     [SerializeField] QuestManager m_questManager;
     GameManager m_gameManager;
-    public event Action onCoroutineStop;
 
     private void Start()
     {

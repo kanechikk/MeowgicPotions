@@ -18,30 +18,34 @@ public class ShowInteractionSign : MonoBehaviour
 
     private void Show()
     {
-        m_eImage.SetActive(true);
         switch (m_state)
         {
             case BrewingState:
-                m_interactionText.text = "Press E to brew a potion";
+                m_interactionText.text = "To brew a potion - ";
                 break;
             case ShoppingState:
-                m_interactionText.text = "Press E to open shop";
+                m_interactionText.text = "To open shop - ";
                 break;
             case SleepState:
-                m_interactionText.text = "Press E to sleep and save";
+                m_interactionText.text = "To sleep and save - ";
                 break;
             case TalkingState:
-                m_interactionText.text = "Press E to talk";
+                m_interactionText.text = "To talk - ";
                 break;
             case null:
                 if (m_interactable.wateringPotController.gameObject.activeSelf && m_interactable.wateringPotController)
                 {
-                    m_interactionText.text = "Press E to fill the pot";
+                    m_interactionText.text = "To fill the pot - ";
                 }
                 break;
             default:
-                m_interactionText.text = "Press E";
+                m_interactionText.text = "";
                 break;
+        }
+
+        if (m_interactionText.text != "")
+        {
+            m_eImage.SetActive(true);
         }
     }
 

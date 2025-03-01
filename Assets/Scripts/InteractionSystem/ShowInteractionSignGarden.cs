@@ -21,15 +21,23 @@ public class ShowInteractionSignGarden : MonoBehaviour
         m_eImage.SetActive(true);
         if (!m_interactable.soilHole.isBusy)
         {
-            m_interactionText.text = "Press E to plant a seed";
+            m_eImage.SetActive(true);
+            m_interactionText.text = "To plant a seed - ";
         }
         else if (m_interactable.plant.isReadyToHarvest)
         {
-            m_interactionText.text = "Press E to harvest a plant";
+            m_eImage.SetActive(true);
+            m_interactionText.text = "To harvest a plant - ";
         }
         else if (!m_interactable.plant.isWatered && GameManager.instance.player.wateringPot.currentValue > 0 && WateringState.isActive)
         {
-            m_interactionText.text = "Press E to water a plant";
+            m_eImage.SetActive(true);
+            m_interactionText.text = "To water a plant - ";
+        }
+
+        if (m_interactionText.text != null)
+        {
+            m_eImage.SetActive(true);
         }
     }
 
