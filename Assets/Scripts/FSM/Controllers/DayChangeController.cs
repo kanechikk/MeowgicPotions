@@ -16,14 +16,11 @@ public class DayChangeController : MonoBehaviour
 
     public IEnumerator SavingInfo()
     {
-        Debug.Log("saving");
-        yield return new WaitForSecondsRealtime(3.0f);
-
-        Debug.Log("after 3 seconds");
+        yield return new WaitForSeconds(1f);
 
         m_gameManager.SaveData();
         m_questManager.SaveQuestInfo();
 
-        onCoroutineStop?.Invoke();
+        //ДОБАВЬ СБРОС СВЕТА СЮДА!!
     }
 }

@@ -8,15 +8,15 @@ public class SleepState : GameStateBehaviour
     [SerializeField] private DayTimeManager dayTimeManager;
     [SerializeField] private GameMode m_gameMode;
     [SerializeField] private DayChangeController m_dayChangeController;
-    private Coroutine m_coroutine;
+    [SerializeField] private UIAnimation m_uiAnimation;
 
     private void OnEnable()
     {
-        m_dayChangeController.onCoroutineStop += OnCoroutineStop;
+        m_uiAnimation.onBackFromSleep += OnCoroutineStop;
 
         dayTimeManager.DayPass();
 
-        m_coroutine = StartCoroutine(m_dayChangeController.SavingInfo());
+        StartCoroutine(m_dayChangeController.SavingInfo());
     }
 
     private void OnCoroutineStop()
