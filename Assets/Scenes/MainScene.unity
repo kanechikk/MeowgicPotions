@@ -3487,17 +3487,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d03bfc6a0b4b448489e0a10b8eb18ea6, type: 3}
---- !u!114 &612343625 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3632871887169131563, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-  m_PrefabInstance: {fileID: 1732162394}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &612343626 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1168121639240581176, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
@@ -6600,38 +6589,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 483316907}
-    - target: {fileID: 2301470314160586542, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301470314160586542, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301470314160586542, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2301470314160586542, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570016579070983255, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570016579070983255, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570016579070983255, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2570016579070983255, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2978664065437794918, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -6660,22 +6617,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 483316907}
-    - target: {fileID: 3994541152490711728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994541152490711728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994541152490711728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3994541152490711728, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5039079245261849082, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8036,7 +7977,7 @@ PrefabInstance:
     - target: {fileID: 3668224875555930115, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_description
       value: 
-      objectReference: {fileID: 612343625}
+      objectReference: {fileID: 0}
     - target: {fileID: 3923991243042935820, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: beatSpawner
       value: 
