@@ -16,7 +16,7 @@ public class DayChangeController : MonoBehaviour
 
     public IEnumerator SavingInfo()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
 
         m_gameManager.SaveData();
         m_questManager.SaveQuestInfo();
