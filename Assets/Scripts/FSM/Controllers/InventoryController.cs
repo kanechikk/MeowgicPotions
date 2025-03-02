@@ -19,7 +19,7 @@ public class InventoryController : MonoBehaviour
         FillPotions();
         FillIngredients();
         FillSeeds();
-        coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
+        coins.text = $"{GameManager.instance.player.inventory.coins}";
     }
     
     private void FillPotions()

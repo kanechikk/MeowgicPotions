@@ -14,6 +14,11 @@ public class LightController : MonoBehaviour
         RenderSettings.sun = m_light.GetComponent<Light>();
     }
 
+    public void ResetLight()
+    {
+        m_light.transform.rotation = Quaternion.Euler(20, 270, 0);
+    }
+
     private void OnTimeChange(DayTime time)
     {
         if (time.Minute > m_minutes || time.Minute == 0)

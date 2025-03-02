@@ -47,4 +47,9 @@ public class Settings : MonoBehaviour
     {
         m_gameMode.Back();
     }
+
+    public void CloseMain()
+    {
+        gameObject.SetActive(false);
+    }
 }

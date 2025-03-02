@@ -6,6 +6,8 @@ using UnityEngine;
 public class DayChangeController : MonoBehaviour
 {
     [SerializeField] QuestManager m_questManager;
+    [SerializeField] SkyboxController m_skyboxController;
+    [SerializeField] LightController m_lightController;
     GameManager m_gameManager;
 
     private void Start()
@@ -20,6 +22,7 @@ public class DayChangeController : MonoBehaviour
         m_gameManager.SaveData();
         m_questManager.SaveQuestInfo();
 
-        //ДОБАВЬ СБРОС СВЕТА СЮДА!!
+        m_skyboxController.ResetSkybox();
+        m_lightController.ResetLight();
     }
 }

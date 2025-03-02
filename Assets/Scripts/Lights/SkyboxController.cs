@@ -11,8 +11,15 @@ public class SkyboxController : MonoBehaviour
     private void Start()
     {
         m_dayTimeManager.onDayTimeChange += OnTimeChange;
+
         MakeTwoMaterialsEqual(m_materialDay, m_materials[0]);
         dayState++;
+    }
+
+    public void ResetSkybox()
+    {
+        dayState = 0;
+        MakeTwoMaterialsEqual(m_materialDay, m_materials[0]);
     }
 
     private void OnTimeChange(DayTime time)

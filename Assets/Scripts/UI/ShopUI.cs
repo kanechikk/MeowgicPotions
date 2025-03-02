@@ -19,14 +19,14 @@ public class ShopUI : MonoBehaviour
 
     private void OnCoinsChange()
     {
-        m_coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
+        m_coins.text = $"{GameManager.instance.player.inventory.coins}";
 
         GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXCoins);
     }
 
     private void OnEnable()
     {
-        m_coins.text = $"Coins: {GameManager.instance.player.inventory.coins}";
+        m_coins.text = $"{GameManager.instance.player.inventory.coins}";
     }
 
     public List<List<GameObject>> FillShop(Inventory inventory, Inventory shop)

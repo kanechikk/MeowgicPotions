@@ -34,6 +34,11 @@ public class QuestUI : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        EraseQuestsList();
+    }
+
     private void SetListenerToButton(Button button, Objective quest)
     {
         button.onClick.AddListener(() => FillQuestInfo(quest));
