@@ -18,6 +18,7 @@ public class RhythmGameController : MonoBehaviour
     public event Action<int> onScoreInc;
     [SerializeField] private CanvasGroup m_gamePlayWindow;
     private UIWinLose m_uiWinLose;
+    private PoppingUI m_poppingUI;
 
     public event Action onGameEnd;
 
@@ -26,6 +27,8 @@ public class RhythmGameController : MonoBehaviour
     private void Start()
     {
         m_uiWinLose = gameObject.GetComponent<UIWinLose>();
+
+        m_poppingUI = new PoppingUI();
         //m_audioManager = GameManager.instance.audioManager;
     }
     public void OnEnable()
@@ -107,6 +110,7 @@ public class RhythmGameController : MonoBehaviour
             m_gamePlayWindow.alpha = 0;
             m_loseWindow.SetActive(true);
             m_uiWinLose.ChangeIngredients();
+            m_poppingUI.PoppingItems(m_uiWinLose.lossItems.ToArray());
             rhythmController.OnMusicEnd -= OnMusicEnd;
             //m_beatSpawner.SetActive(false);
             //Time.timeScale = 0;
@@ -130,6 +134,7 @@ public class RhythmGameController : MonoBehaviour
         m_gamePlayWindow.alpha = 0;
         m_winWindow.SetActive(true);
         m_uiWinLose.ChangePotion();
+        m_poppingUI.PopItem(m_uiWinLose.rewardPotion);
         m_gamePlayWindow.gameObject.SetActive(false);
         //m_beatSpawner.SetActive(false);
         //Time.timeScale = 0;

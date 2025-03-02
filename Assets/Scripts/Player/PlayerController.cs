@@ -46,13 +46,13 @@ public class PlaeyrConroller : MonoBehaviour
             {
                 m_states.GoToPause();
 
-                m_audioManager.PlaySFX(m_audioManager.SFXSliding);
+                m_audioManager.PlaySFX(m_audioManager.SFXSlidingIn);
             }
             else if (m_states.CurrGameState is not RhythmGameState)
             {
                 m_states.Back();
 
-                m_audioManager.PlaySFX(m_audioManager.SFXSliding);
+                m_audioManager.PlaySFX(m_audioManager.SFXSlidingIn);
             }
         }
 

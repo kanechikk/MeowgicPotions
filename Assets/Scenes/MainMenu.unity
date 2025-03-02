@@ -238,13 +238,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 721347518}
   m_HandleRect: {fileID: 1589361246}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649445955}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetSFXVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &49286816
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +501,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 685868470}
+        m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &154502498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,7 +563,6 @@ GameObject:
   - component: {fileID: 365193321}
   - component: {fileID: 365193320}
   - component: {fileID: 365193319}
-  - component: {fileID: 365193322}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -634,18 +657,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 365193317}
   m_CullTransparentMesh: 1
---- !u!114 &365193322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365193317}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3edc8addc61c70f4fb138795959a6488, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &414910750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1294,7 @@ GameObject:
   - component: {fileID: 649445954}
   - component: {fileID: 649445953}
   - component: {fileID: 649445952}
+  - component: {fileID: 649445955}
   m_Layer: 5
   m_Name: Settings
   m_TagString: Untagged
@@ -1367,6 +1379,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649445950}
   m_CullTransparentMesh: 1
+--- !u!114 &649445955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649445950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38dc09bb0f5038429b72510d24693f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioMixer: {fileID: 24100000, guid: 7c6946c5f22035644a3c76bfd16d43b3, type: 2}
+  m_musicSlider: {fileID: 951389461}
+  m_audioSlider: {fileID: 26139249}
 --- !u!1 &667211453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1543,7 @@ GameObject:
   - component: {fileID: 685868466}
   - component: {fileID: 685868465}
   - component: {fileID: 685868469}
+  - component: {fileID: 685868470}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1552,10 +1580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1614,6 +1642,18 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685868464}
   m_Enabled: 1
+--- !u!114 &685868470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685868464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edc8addc61c70f4fb138795959a6488, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &700393676
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,7 +2505,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 365193322}
+      - m_Target: {fileID: 685868470}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -2889,13 +2929,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 70011025}
   m_HandleRect: {fileID: 1085977205}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 649445955}
+        m_TargetAssemblyTypeName: VolumeSettings, Assembly-CSharp
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &962171437
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3155,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 365193322}
+      - m_Target: {fileID: 685868470}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -3435,7 +3487,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 365193322}
+      - m_Target: {fileID: 685868470}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -3581,7 +3633,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 365193322}
+      - m_Target: {fileID: 685868470}
         m_TargetAssemblyTypeName: AudioButton, Assembly-CSharp
         m_MethodName: PlayClickSound
         m_Mode: 1
@@ -3886,10 +3938,10 @@ RectTransform:
   - {fileID: 365193318}
   m_Father: {fileID: 594435215}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -460, y: 0}
-  m_SizeDelta: {x: -1290.4973, y: -217.5466}
+  m_SizeDelta: {x: 629.5027, y: 862.45337}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1454172362
 MonoBehaviour:

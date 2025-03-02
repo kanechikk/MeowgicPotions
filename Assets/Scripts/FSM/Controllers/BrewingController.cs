@@ -26,6 +26,8 @@ public class BrewingController : MonoBehaviour
 
     public void OnAddIngredient(Ingredient ingredient)
     {
+        GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXAddingIngredients);
+
         m_cauldron.AddIngredient(ingredient);
         GameManager.instance.player.inventory.RemoveItem(ingredient);
 

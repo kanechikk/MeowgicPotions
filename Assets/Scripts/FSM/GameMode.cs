@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.XR.Haptics;
@@ -8,6 +9,7 @@ public class GameMode : MonoBehaviour
 {
     private StateActivator m_stateActivator;
     public IGameState CurrGameState => m_stateActivator.current;
+
     private void Awake()
     {
         m_stateActivator = new StateActivator();
@@ -28,6 +30,16 @@ public class GameMode : MonoBehaviour
     {
         m_stateActivator.current.Deactivate();
         m_stateActivator.current.Exit();
+    }
+
+    private void OnEnable()
+    {
+        GameManager.instance.audioManager.PlayBackgroundMusic(GameManager.instance.audioManager.BackgroundMusic[1]);
+    }
+
+    private void OnDisable()
+    {
+        GameManager.instance.audioManager.PlayBackgroundMusic(GameManager.instance.audioManager.BackgroundMusic[0]);
     }
 
     public void Back()

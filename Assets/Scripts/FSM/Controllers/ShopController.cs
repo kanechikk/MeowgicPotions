@@ -15,6 +15,8 @@ public class ShopController : MonoBehaviour
     private bool seeds_stocked;
     private bool ingredients_stocked;
 
+    [SerializeField] private UIBrewing m_uiBrewing;
+
     private void Start()
     {
         GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
@@ -48,6 +50,7 @@ public class ShopController : MonoBehaviour
     private void OnInventoryChange(Item item)
     {
         needToRefreshInventory = true;
+        m_uiBrewing.needToRefreshInventory = true;
     }
 
     private void EraseSell()

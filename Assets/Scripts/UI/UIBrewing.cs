@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class UIBrewing : MonoBehaviour
     //[SerializeField] private GameObject m_cauldronClickableItemPrefab;
     [SerializeField] private BrewingController m_brewingController;
     [SerializeField] private Cauldron m_cauldron;
-    private bool needToRefreshInventory = true;
+    public bool needToRefreshInventory = true;
     [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
     [SerializeField] private Image m_potionImage;
@@ -110,6 +111,10 @@ public class UIBrewing : MonoBehaviour
         ElementsInfoChange();
 
         GameObject newItemCauldron = Instantiate(m_clickableItemPrefab, m_cauldronSlots.transform);
+
+        Image frame = newItemCauldron.GetComponent<Image>();
+        frame.color = new Color(frame.color.r, frame.color.g, frame.color.b, 0f);
+
         ClickableItem clickableItem = newItemCauldron.GetComponentInChildren<ClickableItem>();
         clickableItem.InitialiseItem(ingredient);
         

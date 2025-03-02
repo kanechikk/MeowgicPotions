@@ -1,3 +1,4 @@
+using System.Collections;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -32,6 +33,7 @@ public class MainMenu : MonoBehaviour
         File.Delete(DataProcess. pathFileForPlayer);
         File.Delete(DataProcess.pathFileForQuests);
         GameManager.instance.player.Reset(500);
+
         OnContinueClick();
     }
 

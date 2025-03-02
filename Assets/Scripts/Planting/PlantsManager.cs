@@ -51,6 +51,8 @@ public class PlantsManager : MonoBehaviour
 
     private void OnAddItem(Item seed, Image image)
     {
+        GameManager.instance.audioManager.PlaySFX(GameManager.instance.audioManager.SFXClickingButtons);
+
         m_currentSeed = (Seed)seed;
 
         if (m_image)

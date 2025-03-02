@@ -7,11 +7,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource m_sfxSource;
     [SerializeField] private AudioSource m_sfxWalking;
 
-    [field: SerializeField] public AudioClip BackgroundMusic { get; private set; }
+    [field: SerializeField] public AudioClip[] BackgroundMusic { get; private set; }
 
     //SFX UI
     [field: SerializeField] public AudioClip SFXPoppingElements { get; private set; }
-    [field: SerializeField] public AudioClip SFXSliding { get; private set; }
+    [field: SerializeField] public AudioClip SFXSlidingIn { get; private set; }
+    [field: SerializeField] public AudioClip SFXSlidingOut { get; private set; }
     [field: SerializeField] public AudioClip SFXClickingButtons { get; private set; }
     [field: SerializeField] public AudioClip SFXSunMoonRotation { get; private set; }
 
@@ -41,7 +42,12 @@ public class AudioManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        m_backgroundMusicSource.clip = BackgroundMusic;
+        PlayBackgroundMusic(BackgroundMusic[0]);
+    }
+
+    public void PlayBackgroundMusic(AudioClip audioClip)
+    {
+        m_backgroundMusicSource.clip = audioClip;
         m_backgroundMusicSource.Play();
     }
 

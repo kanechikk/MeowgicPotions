@@ -6,32 +6,29 @@ using UnityEngine.UI;
 public class UIWinLose : MonoBehaviour
 {
     [SerializeField] private GameObject m_reward;
+    public GameObject reward => m_reward;
     [SerializeField] private GameObject[] m_loss;
-    private List<UIInventoryItem> m_lossItems;
-    private UIInventoryItem m_rewardPotion;
+    public GameObject[] loss => m_loss;
+    public List<RectTransform> lossItems;
+    public RectTransform rewardPotion;
     public Potion potion;
     public Ingredient[] ingredients;
 
-    private void Start()
-    {
-        // foreach (GameObject item in m_loss)
-        // {
-        //     m_lossItems.Add(item.GetComponent<UIInventoryItem>());
-        // }
-        // m_rewardPotion = m_reward.GetComponent<UIInventoryItem>();
-    }
 
     public void ChangePotion()
     {
         //m_rewardPotion.InitialiseItem(potion, 1);
         m_reward.GetComponent<Image>().sprite = potion.icon;
+        rewardPotion = m_reward.GetComponent<RectTransform>();
     }
 
     public void ChangeIngredients()
     {
+        lossItems.Clear();
         for (int i = 0; i < ingredients.Length; i++)
         {
             m_loss[i].GetComponent<Image>().sprite = ingredients[i].icon;
+            lossItems.Add(m_loss[i].GetComponent<RectTransform>());
         }
 
         if (ingredients.Length < m_loss.Length)

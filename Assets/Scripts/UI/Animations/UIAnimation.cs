@@ -31,16 +31,15 @@ public class UIAnimation : MonoBehaviour
         StartCoroutine(TransitionScreen());
     }
 
-    public IEnumerator TransitionScreen()
+    private IEnumerator TransitionScreen()
     {
-        m_audioManager.PlaySFX(m_audioManager.SFXSliding);
+        m_audioManager.PlaySFX(m_audioManager.SFXSlidingIn);
         yield return m_uiMoving.Move(m_fadeTime, m_transitionScreen, m_ease, new Vector2(0f, 0f), new Vector3(0f, -1000f, 0f));
         m_audioManager.PlaySFX(m_audioManager.SFXSunMoonRotation);
         yield return m_uiRotation.Rotate(m_sunMoonPanel, new Vector3(0f, 0f, 180f), m_rotateMode, 2f, m_ease);
-        m_audioManager.PlaySFX(m_audioManager.SFXSliding);
+        m_audioManager.PlaySFX(m_audioManager.SFXSlidingIn);
         yield return m_uiMoving.Move(m_fadeTime, m_transitionScreen, m_ease, new Vector2(0f, -1000f), new Vector3(0f, 0f, 0f));
 
         onBackFromSleep?.Invoke();
     }
-
 }
