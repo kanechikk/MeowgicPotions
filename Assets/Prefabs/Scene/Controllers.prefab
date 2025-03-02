@@ -495,6 +495,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_questManager: {fileID: 4893853241664373906}
+  m_skyboxController: {fileID: 3196242457524314420}
+  m_lightController: {fileID: 1501063233842696271}
 --- !u!1 &5931353803861686748
 GameObject:
   m_ObjectHideFlags: 0
@@ -696,6 +698,51 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 5464c15ff9c6ca04cb5790c1773e76fa, type: 2}
   - {fileID: 2100000, guid: 5c80d49013691df48ac94280337e88ce, type: 2}
   - {fileID: 2100000, guid: 528363c5c1cf6a7458140c6851c77b68, type: 2}
+--- !u!1 &7230858689919260680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8499425306773757576}
+  - component: {fileID: 8115058818388870076}
+  m_Layer: 0
+  m_Name: DoorController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8499425306773757576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230858689919260680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6821195583399251993}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8115058818388870076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230858689919260680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63486dd7a46895b4b8dd9f707c8335d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_door: {fileID: 0}
 --- !u!1 &7890266988711906654
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,6 +788,7 @@ Transform:
   - {fileID: 6490529284155007722}
   - {fileID: 2043992448270441932}
   - {fileID: 1176980430138747269}
+  - {fileID: 8499425306773757576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8591141177595118634
@@ -815,7 +863,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  m_clickableItemPrefab: {fileID: 4452621622090308277, guid: e3c908570001f6743a4858378c97ce24, type: 3}
+  m_clickableItemPrefab: {fileID: 2129481219752210446, guid: 2ee825f9d4182bb4caa9e89dba8ae946, type: 3}
   m_inventorySlots: {fileID: 0}
 --- !u!1 &8772483840550857635
 GameObject:

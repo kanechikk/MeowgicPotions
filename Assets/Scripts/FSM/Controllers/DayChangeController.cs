@@ -8,6 +8,7 @@ public class DayChangeController : MonoBehaviour
     [SerializeField] QuestManager m_questManager;
     [SerializeField] SkyboxController m_skyboxController;
     [SerializeField] LightController m_lightController;
+    [SerializeField] GameObject m_agent;
     GameManager m_gameManager;
 
     private void Start()

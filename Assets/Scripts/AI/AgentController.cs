@@ -8,7 +8,7 @@ public class AgentController : MonoBehaviour
     [SerializeField] private GameObject m_pathDesck;
     [SerializeField] private GameObject m_pathDoor;
     [SerializeField] private GameObject m_agent;
-    private Vector3 m_targetVector;
+    [SerializeField] private GameObject m_mark;
     public Action onReachSpot;
     public Action onLeave;
 
@@ -22,10 +22,12 @@ public class AgentController : MonoBehaviour
         if (Vector3.Distance(m_agent.transform.position, m_pathDesck.transform.position) < 0.3)
         {
             onReachSpot?.Invoke();
+            m_mark.SetActive(true);
         }
         else
         {
             onLeave?.Invoke();
+            m_mark.SetActive(false);
         }
         if (Vector3.Distance(m_agent.transform.position, m_pathDoor.transform.position) < 0.3)
         {
