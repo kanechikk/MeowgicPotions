@@ -10,8 +10,8 @@ public class Ingredient : Item
     public Material material => m_material;
 
     private string m_elementString = "";
-
-    private void OnEnable()
+    
+    public override string ToStringItem()
     {
         if (m_elementString == "")
         {
@@ -20,10 +20,7 @@ public class Ingredient : Item
                 m_elementString += $"{element.elementName}: {element.value}";
             }
         }
-    }
-    
-    public override string ToStringItem()
-    {
+        
         return m_elementString;
     }
 }

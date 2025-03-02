@@ -8,9 +8,9 @@ public class Potion : Item
     public List<Element> elements => m_elements;
     [SerializeField] private string m_description;
     public string description => m_description;
-    private string m_elementString;
+    private string m_elementString = "";
 
-    private void OnEnable()
+    public override string ToStringItem()
     {
         if (m_elementString == "")
         {
@@ -19,10 +19,6 @@ public class Potion : Item
                 m_elementString += $"{element.elementName}: {element.value}\n";
             }
         }
-    }
-
-    public override string ToStringItem()
-    {
         return m_elementString;
     }
 }

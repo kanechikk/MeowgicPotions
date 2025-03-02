@@ -54,5 +54,15 @@ public class AudioManager : MonoBehaviour
     {
         m_sfxWalking.mute = isMute;
     }
+
+    public void TurnOffBackgroundMusic()
+    {
+        m_backgroundMusicSource.mute = true;
+    }
+
+    public void TurnOnBackgroundMusic()
+    {
+        m_backgroundMusicSource.mute = false;
+    }
 }
 

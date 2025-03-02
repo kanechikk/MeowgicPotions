@@ -7940,6 +7940,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 259942700242022076, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 408380337308024776, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7974,6 +7978,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 442827390096846074, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 449971685978507544, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 468168849348232106, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
@@ -8860,6 +8868,10 @@ PrefabInstance:
       propertyPath: m_gameMode
       value: 
       objectReference: {fileID: 483316907}
+    - target: {fileID: 4215222824160235497, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4248777955665430023, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -11482,6 +11494,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1181573534}
     - target: {fileID: 3923991243042935820, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: bpm
+      value: 280
+      objectReference: {fileID: 0}
+    - target: {fileID: 3923991243042935820, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: beatSpawner
       value: 
       objectReference: {fileID: 1732162401}
@@ -11489,6 +11505,10 @@ PrefabInstance:
       propertyPath: rhythmCheck
       value: 
       objectReference: {fileID: 384290573}
+    - target: {fileID: 3923991243042935820, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: layoutTextFile
+      value: 
+      objectReference: {fileID: 4900000, guid: 92cd9114742094a4aab8b4b3631342b9, type: 3}
     - target: {fileID: 4893853241664373906, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: questUI
       value: 
@@ -11513,6 +11533,14 @@ PrefabInstance:
       propertyPath: 'm_destinationPoints.Array.data[1]'
       value: 
       objectReference: {fileID: 8058831460573666005}
+    - target: {fileID: 5123345555998456413, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bc364b1b253e0f4887cba4ffb16a934, type: 3}
+    - target: {fileID: 5123345555998456413, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bc364b1b253e0f4887cba4ffb16a934, type: 3}
     - target: {fileID: 6386435235780376207, guid: 7ce2acf2f0e5dde41950512d739777c3, type: 3}
       propertyPath: m_gameMode
       value: 

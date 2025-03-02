@@ -21,12 +21,17 @@ public class RhythmGameController : MonoBehaviour
 
     public event Action onGameEnd;
 
+    private AudioManager m_audioManager;
+
     private void Start()
     {
         m_uiWinLose = gameObject.GetComponent<UIWinLose>();
+        //m_audioManager = GameManager.instance.audioManager;
     }
     public void OnEnable()
     {
+        m_audioManager = GameManager.instance.audioManager;
+        m_audioManager.TurnOffBackgroundMusic();
 
         m_gamePlayWindow.alpha = 1;
         m_gamePlayWindow.gameObject.SetActive(true);
@@ -66,6 +71,8 @@ public class RhythmGameController : MonoBehaviour
 
         m_loseWindow.SetActive(false);
         m_winWindow.SetActive(false);
+
+        m_audioManager.TurnOnBackgroundMusic();
     }
 
     private void OnBeatGood()
@@ -86,6 +93,8 @@ public class RhythmGameController : MonoBehaviour
 
     private void OnBeatBad()
     {
+        m_audioManager.PlaySFX(m_audioManager.SFXFailClick);
+
         m_score -= 5;
         Debug.Log($"Bad! score: {m_score}");
         ratingSpawner.Spawn(2);
@@ -93,6 +102,7 @@ public class RhythmGameController : MonoBehaviour
         
         if (m_healthPoints == 0)
         {
+            m_audioManager.PlaySFX(m_audioManager.SFXLosingGame);
             //m_gameMode.Back();
             m_gamePlayWindow.alpha = 0;
             m_loseWindow.SetActive(true);
@@ -112,7 +122,9 @@ public class RhythmGameController : MonoBehaviour
 
     private void OnMusicEnd()
     {
+        m_audioManager.PlaySFX(m_audioManager.SFXWinningGame);
         Debug.Log("GAME END");
+        rhythmController.OnMusicEnd -= OnMusicEnd;
         //onGameEnd?.Invoke(m_score);
         //m_gameMode.Back();
         m_gamePlayWindow.alpha = 0;
