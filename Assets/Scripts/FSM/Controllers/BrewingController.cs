@@ -30,8 +30,6 @@ public class BrewingController : MonoBehaviour
 
         m_cauldron.AddIngredient(ingredient);
         GameManager.instance.player.inventory.RemoveItem(ingredient);
-
-        Debug.Log("OnAddIngredient");
     }
 
     public void OnRemoveIngredient(Ingredient ingredient)

@@ -112,9 +112,11 @@ public class UIBrewing : MonoBehaviour
     {
         ClickableItem[] inventory = m_inventorySlots.GetComponentsInChildren<ClickableItem>();
 
-        if (Array.Exists(inventory, x => x.item == ingredient))
+        ClickableItem item = Array.Find(inventory, x => x.item == ingredient);
+
+        if (item)
         {
-            Array.Find(inventory, x => x.item == ingredient).InitialiseItem(ingredient);
+            item.InitialiseItem(ingredient);
         }
         else
         {
@@ -172,14 +174,15 @@ public class UIBrewing : MonoBehaviour
         for (int i = 0; i < itemsCauldron.Length; i++)
         {
             RemoveFromCauldron((Ingredient)itemsCauldron[i].item);
+
             itemsCauldron[i].Remove();
         }
 
 
         m_cauldronInfoUI.text = "Cauldron is empty!";
 
-        BrewButtonOnOff();
-        ClearButtonOnOff();
+        m_brewButton.GetComponent<Button>().interactable = false;
+        m_clearButton.GetComponent<Button>().interactable = false;
     }
 
     public void ElementsInfoChange()
