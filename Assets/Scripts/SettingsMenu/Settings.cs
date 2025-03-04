@@ -40,7 +40,6 @@ public class Settings : MonoBehaviour
                 Screen.SetResolution(1280, 720, true);
                 break;
         }
-        Debug.Log(m_dropdown.value);
     }
 
     public void Close()
