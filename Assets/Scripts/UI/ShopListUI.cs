@@ -14,7 +14,7 @@ public class ShopListUI: MonoBehaviour
     private TextMeshProUGUI m_itemInfo;
     private TextMeshProUGUI m_count;
     private Button m_button;
-    private TextMeshProUGUI m_buttonText;
+    [SerializeField] private Sprite m_buttonImage;
 
     public void FillLineBuy(Item item, string itemNameAndPrice, string itemInfo, int count, Inventory inventory, Inventory shop)
     {
@@ -40,8 +40,8 @@ public class ShopListUI: MonoBehaviour
     public void FillLineSell(Item item, string itemNameAndPrice, string itemInfo, int count, Inventory inventory)
     {
         m_item = item;
-        m_image = gameObject.GetComponentInChildren<Image>();
-        m_image.sprite = item.icon;
+        Image[] m_images = gameObject.GetComponentsInChildren<Image>();
+        m_images[0].sprite = item.icon;
 
         TextMeshProUGUI[] texts = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
 
@@ -54,11 +54,10 @@ public class ShopListUI: MonoBehaviour
         m_count = texts[2];
         m_count.text = "Amount: " + count.ToString();
 
+        m_images[1].sprite = m_buttonImage;
+
         m_button = gameObject.GetComponentInChildren<Button>();
         m_button.onClick.AddListener(delegate { SellItem(inventory); });
-
-        m_buttonText = texts[3];
-        m_buttonText.text = "Sell";
     }
 
     public void BuyItem(Inventory inventory, Inventory shop)

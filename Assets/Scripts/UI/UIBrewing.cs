@@ -18,7 +18,6 @@ public class UIBrewing : MonoBehaviour
     //[SerializeField] private GameObject m_cauldronClickableItemPrefab;
     [SerializeField] private BrewingController m_brewingController;
     [SerializeField] private Cauldron m_cauldron;
-    public bool needToRefreshInventory = true;
     [SerializeField] private PotionBookController m_potionBookController;
     [SerializeField] private TextMeshProUGUI m_brewingPotionInfo;
     [SerializeField] private Image m_potionImage;
@@ -30,7 +29,6 @@ public class UIBrewing : MonoBehaviour
         m_brewButton.interactable = false;
         m_clearButton.interactable = false;
 
-        GameManager.instance.player.inventory.onInvChange += OnInventoryChange;
         m_potionBookController.onChoosePotion += OnChoosePotion;
     }
 
@@ -41,30 +39,18 @@ public class UIBrewing : MonoBehaviour
         BrewButtonOnOff();
     }
 
-    private void OnInventoryChange(Item item)
-    {
-        needToRefreshInventory = true;
-    }
-
     private void OnEnable()
     {
-        //заполнение ячеек
-        if (needToRefreshInventory)
-        {
-            FillSlots();
-        }
-
+        DeleteSlots();
+        FillSlots();
     }
 
-    private void OnDisable()
+    private void DeleteSlots()
     {
-        if (needToRefreshInventory)
+        Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
+        for (int i = 0; i < inventorySlots.Length; i++)
         {
-            Transform[] inventorySlots = m_inventorySlots.GetComponentsInChildren<Transform>().Skip(1).ToArray();
-            for (int i = 0; i < inventorySlots.Length; i++)
-            {
-                Destroy(inventorySlots[i].gameObject);
-            }
+            Destroy(inventorySlots[i].gameObject);
         }
     }
 
@@ -82,14 +68,12 @@ public class UIBrewing : MonoBehaviour
             clickableItem.onAddIngredient += m_brewingController.OnAddIngredient;
             clickableItem.onAddIngredient += OnAddIngredient;
         }
-
-        needToRefreshInventory = false;
     }
 
     private void OnAddIngredient(Ingredient ingredient)
     {
         AddToCauldron(ingredient);
-        
+
         m_toolTip.HideTooltip();
 
         BrewButtonOnOff();
@@ -117,7 +101,7 @@ public class UIBrewing : MonoBehaviour
 
         ClickableItem clickableItem = newItemCauldron.GetComponentInChildren<ClickableItem>();
         clickableItem.InitialiseItem(ingredient);
-        
+
         clickableItem.onRemoveIngredient += m_brewingController.OnRemoveIngredient;
         clickableItem.onRemoveIngredient += OnRemoveIngredient;
         clickableItem.isInCauldron = true;
