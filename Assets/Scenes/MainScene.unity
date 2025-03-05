@@ -6909,6 +6909,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 24481562788071340, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.0005005598
+      objectReference: {fileID: 0}
     - target: {fileID: 94822773685582867, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -7328,6 +7332,14 @@ PrefabInstance:
     - target: {fileID: 1617695072139379920, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -106.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621393832826961648, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 1621393832826961648, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1630798689748843910, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
@@ -8809,6 +8821,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 483316907}
+    - target: {fileID: 7756728731812247049, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00022625204
+      objectReference: {fileID: 0}
     - target: {fileID: 7769806368683858409, guid: 11da560af2438b14fb9a3e9b4df378e4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -12843,6 +12859,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3471986471575033583, guid: a797aefad582fcf4e81f5bfd7daa1e5a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471986471575033583, guid: a797aefad582fcf4e81f5bfd7daa1e5a, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4727c20042cbddc4b8f57fc68cf9c9c7, type: 2}
     - target: {fileID: 4054730897634382223, guid: a797aefad582fcf4e81f5bfd7daa1e5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.91

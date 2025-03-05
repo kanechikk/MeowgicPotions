@@ -166,7 +166,6 @@ MonoBehaviour:
   m_clickableItemPrefab: {fileID: 2129481219752210446, guid: 2ee825f9d4182bb4caa9e89dba8ae946, type: 3}
   m_brewingController: {fileID: 6697446726796551009}
   m_cauldron: {fileID: 0}
-  needToRefreshInventory: 1
   m_potionBookController: {fileID: 3668224875555930115}
   m_brewingPotionInfo: {fileID: 0}
   m_potionImage: {fileID: 0}
@@ -379,6 +378,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   m_gamePlayWindow: {fileID: 0}
 --- !u!114 &7270114270426280983
 MonoBehaviour:
@@ -400,6 +401,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  lossItems: []
+  rewardPotion: {fileID: 0}
   potion: {fileID: 0}
   ingredients: []
 --- !u!1 &5076486479680504405
@@ -549,7 +552,6 @@ MonoBehaviour:
   m_shopUI: {fileID: 0}
   m_dayTimeManager: {fileID: 4565620811308356589}
   shoppingState: {fileID: 0}
-  m_uiBrewing: {fileID: 8927576682546359786}
 --- !u!1 &6226416884280469728
 GameObject:
   m_ObjectHideFlags: 0
