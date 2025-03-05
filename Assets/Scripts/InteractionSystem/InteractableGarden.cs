@@ -20,9 +20,10 @@ public class InteractableGarden : MonoBehaviour
 
     private void Start()
     {
-        m_soilHole = transform.GetComponentInParent<SoilHole>();
+        m_soilHole = gameObject.GetComponentInParent<SoilHole>();
 
         m_audioManager = GameManager.instance.audioManager;
+
     }
     
     private void OnTriggerEnter(Collider other)
@@ -39,12 +40,13 @@ public class InteractableGarden : MonoBehaviour
 
     private void Update()
     {
+        m_plant = gameObject.GetComponentInChildren<Plant>();
         if (active && Keyboard.current.eKey.wasPressedThisFrame && m_stateOfInteractable && m_gameMode)
         {
-            m_plant = transform.GetComponentInChildren<Plant>();
             if (!m_soilHole.isBusy)
             {
                 m_gameMode.GoToPlanting();
+                onUnShow?.Invoke();
             }
             else if (m_plant.isReadyToHarvest)
             {
@@ -52,6 +54,8 @@ public class InteractableGarden : MonoBehaviour
                 m_soilHole.GetBusy(false);
 
                 m_audioManager.PlaySFX(m_audioManager.SFXPoppingElements);
+
+                onUnShow?.Invoke();
             }
             else if (!m_plant.isWatered && GameManager.instance.player.wateringPot.currentValue > 0 && WateringState.isActive)
             {
@@ -59,6 +63,8 @@ public class InteractableGarden : MonoBehaviour
                 m_plant.WaterPlant();
 
                 m_audioManager.PlaySFX(m_audioManager.SFXWateringPlants);
+
+                onUnShow?.Invoke();
             }
         }
     }

@@ -18,8 +18,10 @@ public class SkyboxController : MonoBehaviour
 
     public void ResetSkybox()
     {
-        dayState = 0;
+        dayState = 1;
         MakeTwoMaterialsEqual(m_materialDay, m_materials[0]);
+        Debug.Log(dayState);
+        Debug.Log(m_materials[0]);
     }
 
     private void OnTimeChange(DayTime time)
