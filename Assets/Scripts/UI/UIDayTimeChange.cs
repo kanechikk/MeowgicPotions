@@ -14,7 +14,10 @@ public class UIDayTimeChange : MonoBehaviour
     {
         m_dayTimeManager.onDayTimeChange += OnTimeChange;
         m_dayTimeManager.onDayChange += OnDayChange;
+    }
 
+    private void Start()
+    {
         m_dayText.text = $"Day:{m_dayTimeManager.dayTime.TotalNumDays}";
     }
 
