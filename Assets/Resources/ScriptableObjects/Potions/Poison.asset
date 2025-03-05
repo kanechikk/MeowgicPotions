@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0971d833-66ac-4c2a-bcc3-97b3a61aada7
   m_itemName: Poison
-  m_price: 100
+  m_price: 90
   m_icon: {fileID: 21300000, guid: e30fa7c2a63401c4cb015fd54107d64d, type: 3}
   m_elements:
-  - type: 2
-    elementName: Solar
-    value: 1
-  - type: 3
-    elementName: Ignis
-    value: 1
-  m_description: poison
+  - type: 0
+    elementName: Aqua
+    value: 4
+  - type: 1
+    elementName: Terra
+    value: 2
+  m_description: Poison

@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 028422d479981e849b6ad5e379f2779a, type: 3}
-  m_Name: Mana
+  m_Script: {fileID: 11500000, guid: 7e78fa7c703cc9342b0782b66afdccd0, type: 3}
+  m_Name: GoldenVine
   m_EditorClassIdentifier: 
-  id: 540725a5-2d4e-463a-96f5-989ce98e2745
-  m_itemName: Mana
-  m_price: 1500
-  m_icon: {fileID: 21300000, guid: 1d83715f36d7a544389ad5a8d5c4fd9e, type: 3}
+  id: 30095a2c-8d14-45c4-a237-675a4649ace6
+  m_itemName: Golden Vine
+  m_price: 2000
+  m_icon: {fileID: 21300000, guid: 3ffa821e3f2518848894c9765e0c6f4a, type: 3}
+  m_material: {fileID: 2100000, guid: 8ca43334972cfa341a435deab5b7cc43, type: 2}
   m_elements:
   - type: 1
     elementName: Terra
@@ -29,4 +30,3 @@ MonoBehaviour:
   - type: 4
     elementName: Aer
     value: 10
-  m_description: Mana

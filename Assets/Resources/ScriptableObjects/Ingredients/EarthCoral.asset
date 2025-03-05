@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 7e35653a-c195-46e0-b54c-acf140ad5e7a
   m_itemName: Earth Coral
-  m_price: 100
+  m_price: 30
   m_icon: {fileID: 21300000, guid: 420a65ba5fbc31f46aac339ec96fe506, type: 3}
-  id: 2
   m_material: {fileID: 2100000, guid: 73ee446ab1e63b34f9f8d4310d72bf37, type: 2}
   m_elements:
-  - type: 2
-    elementName: Solar
-    value: 1
+  - type: 1
+    elementName: Terra
+    value: 2
