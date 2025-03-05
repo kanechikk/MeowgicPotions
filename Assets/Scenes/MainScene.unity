@@ -12787,6 +12787,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 95736951}
+    - target: {fileID: 987760003085534029, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4727c20042cbddc4b8f57fc68cf9c9c7, type: 2}
     - target: {fileID: 1001868427741016649, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -13115,6 +13119,10 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 1418
       objectReference: {fileID: 0}
+    - target: {fileID: 3033121774896531731, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4727c20042cbddc4b8f57fc68cf9c9c7, type: 2}
     - target: {fileID: 3081104925386404964, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_eImage
       value: 
@@ -13903,6 +13911,10 @@ PrefabInstance:
       propertyPath: m_wateringPotController
       value: 
       objectReference: {fileID: 308088613}
+    - target: {fileID: 7478087566374536641, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 4727c20042cbddc4b8f57fc68cf9c9c7, type: 2}
     - target: {fileID: 7494902224871900031, guid: c90c5d3b693515f4ebfd7d594acd6f86, type: 3}
       propertyPath: m_Mesh
       value: 
