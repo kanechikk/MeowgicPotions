@@ -17,7 +17,7 @@ public class Ingredient : Item
         {
             foreach (Element element in m_elements)
             {
-                m_elementString += $"{element.elementName}: {element.value}";
+                m_elementString += $"{element.elementName}: {element.value}\n";
             }
         }
         

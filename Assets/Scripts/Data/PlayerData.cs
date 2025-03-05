@@ -14,10 +14,19 @@ public class PlayerData
         wateringPot = new WateringPot(5);
     }
 
-    public void Reset(int coins)
+    //method made for presentation and test
+    public void Reset(int coins, Ingredient[] ingredients, Potion potion)
     {
         inventory = new Inventory(32);
         inventory.AddCoins(coins);
+
+        foreach (Ingredient item in ingredients)
+        {
+            inventory.AddItem(item);
+        }
+
+        inventory.AddItem(potion);
+
         wateringPot = new WateringPot(5);
     }
 

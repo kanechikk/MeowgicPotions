@@ -45,7 +45,7 @@ public class RhythmGameController : MonoBehaviour
         rhythmCheck.onBeatMid += OnBeatMid;
         rhythmController.OnMusicEnd += OnMusicEnd;
 
-        m_healthPoints = 3;
+        m_healthPoints = 5;
 
         foreach (var point in m_hpPict)
         {
